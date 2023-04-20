@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>Par</help_text>
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>162</y>
+      <w>72</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Παραγγελία
+--
+orderId
+orderState: state
+/TotalCost
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>228</x>
+      <y>222</y>
+      <w>102</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Πελάτης
+--
+customerId
+balance
+Bank details:
+card number
+card holder name
+CVV
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>282</y>
+      <w>66</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Πληρωμή 
+--
+paymentId
+amount
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>192</y>
+      <w>114</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=1
+αφορά
+</panel_attributes>
+    <additional_attributes>170.0;200.0;70.0;200.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>366</x>
+      <y>444</y>
+      <w>102</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>Εστιατόριο
+--
+int: restaurantId
+String: restaurantName
+long: buisnessTelephone
+String: street address
+String: city
+int: zipcode
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>444</y>
+      <w>120</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>Ιδιοκτήτης
+--
+name
+surname
+email
+telephone
+TIN
+Bank details:
+card number
+card holder name
+CVV
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>444</y>
+      <w>162</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+διαχειρίζεται</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>324</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Τραπέζι
+--
+tableId
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>378</y>
+      <w>90</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+Ανήκει</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;50.0;130.0;50.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>222</y>
+      <w>66</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+σερβίρεται σε</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>162</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Επιλογή
+--
+quantity
+/subTotalCost</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>162</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>780</x>
+      <y>162</y>
+      <w>60</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Πιάτο
+--
+dishId
+price
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>678</x>
+      <y>162</y>
+      <w>114</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>42</y>
+      <w>60</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+OrderState
+--
+received
+preparing 
+ready
+completed
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>162</x>
+      <y>18</y>
+      <w>84</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Χρήστης
+--
+username
+password
+name
+surname
+email
+telephone
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>132</y>
+      <w>84</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;120.0;80.0;120.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>84</x>
+      <y>132</y>
+      <w>132</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;200.0;80.0;10.0;80.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>312</y>
+      <w>78</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>Μάγειρας
+--
+chefId
+IBAN
+TIN
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>132</x>
+      <y>318</y>
+      <w>246</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+Εργάζεται σε</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;240.0;390.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>282</y>
+      <w>150</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=*
+βρίσκεται σε</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;90.0;230.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>162</y>
+      <w>168</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+υποβάλλει</panel_attributes>
+    <additional_attributes>10.0;140.0;150.0;140.0;150.0;10.0;260.0;10.0</additional_attributes>
+  </element>
+</diagram>
