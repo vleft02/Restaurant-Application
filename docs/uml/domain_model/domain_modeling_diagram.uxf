@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Par</help_text><element><id>UMLClass</id><coordinates><x>469</x><y>231</y><w>140</w><h>84</h></coordinates><panel_attributes>Order
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Par</help_text><element><id>UMLClass</id><coordinates><x>711</x><y>216</y><w>180</w><h>108</h></coordinates><panel_attributes>Order
 --
 Order State: state
 tableNumber: int
@@ -7,19 +7,19 @@ time: String
 date: Date
 isPaid(): boolean
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>196</x><y>301</y><w>147</w><h>126</h></coordinates><panel_attributes>Customer
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>306</y><w>189</w><h>162</h></coordinates><panel_attributes>Customer
 --
 Balance : Money
 card number : long 
 card holder name : String
 CVV : int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>357</x><y>560</y><w>189</w><h>91</h></coordinates><panel_attributes>Restaurant
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>567</x><y>639</y><w>243</w><h>117</h></coordinates><panel_attributes>Restaurant
 --
 restaurant Name : String
 buisness Telephone : Telephone Number
 Menu : menu
 totalTables : int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>644</x><y>560</y><w>140</w><h>161</h></coordinates><panel_attributes>Owner
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>936</x><y>639</y><w>180</w><h>207</h></coordinates><panel_attributes>Owner
 --
 name : String
 surname : String
@@ -29,24 +29,24 @@ TIN : Taxpayer Id No:
 card number : long 
 card holder name : String
 CVV : int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>539</x><y>560</y><w>119</w><h>35</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>639</y><w>153</w><h>45</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-Manages</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>693</x><y>231</y><w>105</w><h>84</h></coordinates><panel_attributes>Order Line
+Manages</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>999</x><y>216</y><w>135</w><h>108</h></coordinates><panel_attributes>Order Line
 --
 Quantity : int
-/subTotalCost : Money</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>602</x><y>231</y><w>105</w><h>35</h></coordinates><panel_attributes>lt=-
+/subTotalCost : Money</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>882</x><y>216</y><w>135</w><h>45</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-consists of</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>861</x><y>231</y><w>98</w><h>56</h></coordinates><panel_attributes>Dish
+consists of</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1215</x><y>216</y><w>126</w><h>72</h></coordinates><panel_attributes>Dish
 --
 Dish Number : dishId
 Dish name: String
 Price : Money 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>791</x><y>224</y><w>84</w><h>35</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>207</y><w>108</w><h>45</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-contains</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>119</x><y>63</y><w>133</w><h>140</h></coordinates><panel_attributes>User
+contains</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>261</x><y>0</y><w>171</w><h>180</h></coordinates><panel_attributes>User
 --
 username : String
 password : String
@@ -54,26 +54,26 @@ name : String
 surname : String
 email :email Address 
 telephone : telephone Number
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>161</x><y>196</y><w>98</w><h>119</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80;120;80;120;150</additional_attributes></element><element><id>Relation</id><coordinates><x>28</x><y>196</y><w>154</w><h>224</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;10;200;80;10;80;10;300</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>406</y><w>112</w><h>91</h></coordinates><panel_attributes>Chef
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>315</x><y>171</y><w>126</w><h>153</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80;120;80;120;150</additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>171</y><w>198</w><h>288</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;10;200;80;10;80;10;300</additional_attributes></element><element><id>UMLClass</id><coordinates><x>108</x><y>441</y><w>144</w><h>117</h></coordinates><panel_attributes>Chef
 --
 IBAN : long
 TIN : Taxpayer Id No
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>105</x><y>476</y><w>266</w><h>126</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>531</y><w>342</w><h>162</h></coordinates><panel_attributes>lt=-
 m1=*
 m2=1
-Works for</panel_attributes><additional_attributes>10;10;60;10;60;150;360;150</additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>231</y><w>147</w><h>119</h></coordinates><panel_attributes>lt=-
+Works for</panel_attributes><additional_attributes>10;10;60;10;60;150;360;150</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>216</y><w>189</w><h>153</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-Places</panel_attributes><additional_attributes>10;140;110;140;110;10;190;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>266</x><y>686</y><w>98</w><h>91</h></coordinates><panel_attributes>Address
+Places</panel_attributes><additional_attributes>10;140;110;140;110;10;190;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>801</y><w>126</w><h>117</h></coordinates><panel_attributes>Address
 --
 Number : int 
 Street name : String
 ZC : zipcode
 city : String
- </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>301</x><y>623</y><w>70</w><h>77</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>105</x><y>308</y><w>455</w><h>161</h></coordinates><panel_attributes>lt=-
+ </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>495</x><y>720</y><w>90</w><h>99</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>315</y><w>585</w><h>207</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=*
-works on</panel_attributes><additional_attributes>10;200;620;200;620;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>476</x><y>77</y><w>140</w><h>77</h></coordinates><panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+works on</panel_attributes><additional_attributes>10;200;620;200;620;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>18</y><w>180</w><h>99</h></coordinates><panel_attributes>&lt;&lt;Enumeration&gt;&gt;
 state
 --
 received
@@ -82,7 +82,10 @@ ready
 completed
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>532</x><y>147</y><w>21</w><h>98</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>441</x><y>280</y><w>483</w><h>294</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>108</y><w>27</w><h>126</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>675</x><y>279</y><w>630</w><h>378</h></coordinates><panel_attributes>lt=-
 m1=1..*
 m2=1
-Has</panel_attributes><additional_attributes>670;10;10;400</additional_attributes></element></diagram>
+Has</panel_attributes><additional_attributes>680;10;10;400</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>234</y><w>1053</w><h>828</h></coordinates><panel_attributes>lt=-
+
+
+</panel_attributes><additional_attributes>1150;680;1150;880;10;880;10;10;260;10</additional_attributes></element></diagram>
