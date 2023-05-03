@@ -12,6 +12,7 @@ public abstract class User
         this.password=password;
         this.userId = Id; //////////////////////////
     }
+
     //Getters
     public int getUserId(){
         return this.userId;
@@ -41,27 +42,27 @@ public abstract class User
     
     //Setters
 
-    public void setName(String Name) {
-        this.name = Name;
-    }
+//    public void setName(String Name) {
+//        this.name = Name;
+//    }
 
-    public void setUsername(String Username) {
-        this.username = Username;
-    }
+//    public void setUsername(String Username) {
+//        this.username = Username;
+//    }
     
-    public void setSurname(String Surname) {
-        this.surname = Surname;
-    }
+//    public void setSurname(String Surname) {
+//        this.surname = Surname;
+//    }
 
-    public void setTelephone(String Telephone) {
-        this.telephone = Telephone;
-    }
+//    public void setTelephone(String Telephone) {
+//        this.telephone = Telephone;
+//    }
 
-    public void setEmail(String Email) {
-        this.email = Email;
-    }
+//    public void setEmail(String Email) {
+//        this.email = Email;
+//   }
 
-    public void setPassword(String Password) {
-        this.password = Password;
-    }
+//    public void setPassword(String Password) {
+//        this.password = Password;
+//    }
 }
