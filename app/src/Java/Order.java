@@ -1,5 +1,7 @@
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Order {
     public enum State {RECEIVED, PREPARING, CANCELLED, READY, COMPLETED}
@@ -13,26 +15,35 @@ public class Order {
     private Customer customer;
     private State state = State.RECEIVED;
 
-    private ArrayList<OrderLine> orderLines;
+    private HashSet<OrderLine> orderLines;
 
     public Order(int tableNumber, String time, Date date, Customer customer) {
         this.customer = customer;
         this.tableNumber = tableNumber;
-        this.totalCost = totalCost;
         this.time = time;
         this.date = date;
-        this.orderLines = new ArrayList<OrderLine>();
+        this.orderLines = new HashSet<OrderLine>();
     }
-
 
     //se periptosi pou prostethei kainoyrio order Line
     //an syxonevontai ta orderlines otan exoun idia proionta opos ekane sto frontistirio
     public void addOrderLine(OrderLine orderLine) {
-        this.orderLines.add(orderLine);
-        totalCost += orderLine.getSubTotalCost();
+        if (orderLines.contains(orderLine)){
+            for (OrderLine order : orderLines){
+                if(order.equals(orderLine)){
+                    order.setQuantity(order.getQuantity()+orderLine.getQuantity());
+                    totalCost+=orderLine.getSubTotalCost();
+                    break;
+                }
+            }
+        }/// kapou isws diagrapsoyme tin orderLine
+        else{
+            this.orderLines.add(orderLine);
+            totalCost += orderLine.getSubTotalCost();
+        }
     }
 
-    public ArrayList<OrderLine> getOrderLines() {
+    public HashSet<OrderLine> getOrderLines() {
         return this.orderLines;
     }
 
@@ -91,6 +102,7 @@ public class Order {
         }
 
     }
+
     public void setCancelled()
     {
         this.state = State.CANCELLED;
@@ -108,7 +120,9 @@ public class Order {
     public void setPaid(boolean paid) {
         this.paid = paid;
     }
+    public boolean sufficientBalance(){
+        return (this.customer.getBalance() >= this.totalCost);
+    }
 
-    public boolean sufficientBalance(double totalCost){return false;}
 }
 
