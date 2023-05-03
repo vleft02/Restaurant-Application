@@ -2,12 +2,12 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 public class Order {
-    public enum State {RECEIVED, PREPARING, CANCELLED, READY, COMPLETED};
+    public enum State {RECEIVED, PREPARING, CANCELLED, READY, COMPLETED}
     private int tableNumber;
     private double totalCost;
     private Chef chef;
-    private String time;
-    private Date date; // or string
+    private final String time;
+    private final Date date; // or string
     private boolean paid = false;
     //from correlation
     private Customer customer;
@@ -25,6 +25,8 @@ public class Order {
     }
 
 
+    //se periptosi pou prostethei kainoyrio order Line
+    //an syxonevontai ta orderlines otan exoun idia proionta opos ekane sto frontistirio
     public void addOrderLine(OrderLine orderLine) {
         this.orderLines.add(orderLine);
         totalCost += orderLine.getSubTotalCost();
@@ -83,7 +85,7 @@ public class Order {
         }
         else if (this.state == State.READY)
         {
-            boolean customer.transaction();
+           // boolean customer.transaction();
             this.state = State.COMPLETED;
             chef.getOrders().remove(this);
         }
@@ -107,6 +109,6 @@ public class Order {
         this.paid = paid;
     }
 
-    public boolean checkBalance(double money )
+    public boolean sufficientBalance(double totalCost){return false;}
 }
 
