@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class Owner extends User {
-    private String iban, tin; //tin=afm
+    private final String iban, tin; //tin=afm
+    private double income;
     private ArrayList<Restaurant> restaurants;
 
     public Owner(String username, String name, String surname, String telephone, String email, String password, int Id, String iban, String tin)
@@ -24,15 +25,11 @@ public class Owner extends User {
     public void addRestaurant(Restaurant restaurant){
         this.restaurants.add(restaurant);
     }
-
-
-    // Setters
-//    public void setIban(String Iban) {
-//        this.iban = Iban;
-//    }
-
-//    public void setTin(String Tin) {
-//        this.tin = Tin;
-//    }
+    public void addMoney(int money){
+        this.income+=money;
+    }
+    public double getIncome(){
+        return this.income;
+    }
     
 }

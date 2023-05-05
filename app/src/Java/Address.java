@@ -1,9 +1,6 @@
 public class Address{
-    private int streetNumber;
-    private String streetName;
-    private int ZC;
-    private String city;
-
+    private final int streetNumber,ZC;
+    private final String streetName,city;
     public Address(int streetNumber, String streetName, int ZC, String city){
         this.streetNumber=streetNumber;
         this.streetName= streetName;

@@ -1,5 +1,5 @@
 public class Customer extends User {
-    private String cardNumber, cardHolderName, CVV; //tin=afm
+    private final String cardNumber, cardHolderName, CVV; //tin=afm
     private double balance;
     public Customer(String username, String name, String surname, String telephone, String email, String password, int Id, String cardNumber, String cardHolderName, String CVV, double balance)
     {
@@ -28,17 +28,11 @@ public class Customer extends User {
         return this.balance;
     }
     // Setters
-//    public void setCardNumber(String cardNumber) {
-//        this.cardNumber = cardNumber;
-//    }
-//    public void setCVV(String cvv){
-//        this.CVV=cvv;
-//   }
-//    public void setCardHolderName(String cardHolderName){
-//        this.cardHolderName=cardHolderName;
-//    }
-//    public void setBalance(double bal){
-//        this.balance=bal;
- //   }
+    public void transaction(double money){// we dont need to check if the balance is neggative because when we call this method we are sure that the customer has enough money
+        this.balance-=money;
+    } //called by the controller
+    public void TopUp(int money){
+        this.balance+=money;
+    }
 
 }

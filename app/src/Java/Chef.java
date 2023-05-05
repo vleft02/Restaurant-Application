@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Chef extends User {
-    private String iban, tin; //tin=afm
+    private final String iban, tin; //tin=afm
 
     private ArrayList<Order> orders ;
 
@@ -22,18 +22,9 @@ public class Chef extends User {
         return tin;
     }
 
-    // Setters
-//    public void setIban(String Iban) {
-//        this.iban = Iban;
-//    }
-
-//    public void setTin(String Tin) {
-//        this.tin = Tin;
-//    }
-    public void addOrder(Order order){
+    public void addOrder(Order order){//called by the controller when a new order is being added in the restaurant
         orders.add(order);
     }
-
     public ArrayList<Order> getOrders() {
         return orders;
     }

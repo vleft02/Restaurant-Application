@@ -1,52 +1,75 @@
 import java.util.ArrayList;
 
 public class Restaurant {
-    private String name;
-    private String telephone;
-    private int totalTables=0;
-    private Address address;
-    private Owner owner;
+    private final String name, telephone;
+    private int totalTables = 0;
+    private final Address address;
     private ArrayList<Chef> chefs;
     private ArrayList<Dish> dishes;
     private ArrayList<Order> orders;
+    private int counter=0;
 
-    public Restaurant(String name, String telephone, int totalTables, Address address, Owner owner){
-        this.owner = owner;
-        this.name=name;
-        this.telephone=telephone;
-        this.totalTables=totalTables;
-        this.address=address;
-        this.chefs= new ArrayList<Chef>();
-        this.dishes= new ArrayList<Dish>();
+    public Restaurant(String name, String telephone, int totalTables, Address address) {
+        this.name = name;
+        this.telephone = telephone;
+        this.totalTables = totalTables;
+        this.address = address;
+        this.chefs = new ArrayList<Chef>();
+        this.dishes = new ArrayList<Dish>();
         this.orders = new ArrayList<Order>();
 
     }
-    public String getRestaurantName(){
+
+    public String getRestaurantName() {
         return this.name;
     }
-    public String getTelephone(){
+
+    public String getTelephone() {
         return this.telephone;
     }
-    public int getTotalTables(){
+
+    public int getTotalTables() {
         return this.totalTables;
     }
-    public Address getAddress(){
+
+    public Address getAddress() {
         return this.address;
     }
-    public ArrayList<Chef> getChefs(){
+
+    public ArrayList<Chef> getChefs() {
         return this.chefs;
     }
-    public void addChef(Chef chef){
+
+    public void changeTotalTables(int total) {
+        this.totalTables = total;
+    }
+    public void addChef(Chef chef) {
         this.chefs.add(chef);
     }
-    public ArrayList<Dish> getDishes(){
+
+    public ArrayList<Dish> getDishes() {
         return this.dishes;
     }
-    public void addDish(Dish dish){
+
+    public void addDish(Dish dish) {
         this.dishes.add(dish);
     }
-    public void addOrder(Order order)
-    {
-        this.orders.add(order);
+
+    public boolean addOrder(Order order) { // do we need to give the chef as a parameter, or we see who is free and give it to him???? like a round robin !!! SOSS
+        if (order.getCustomer().getBalance() >= order.getTotalCost()) { // SOS WATCH THIS
+            Chef chef = chefs.get(counter);
+            if(counter==chefs.size()-1){
+                counter=0;
+            }
+            else {
+                counter++;
+            }
+            order.setOrderChef(chef);
+            this.orders.add(order); // goes to the restaurant
+            chef.addOrder(order); // goes to the chef
+
+            return true;
+        }
+        return false;
     }
 }
