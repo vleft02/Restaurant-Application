@@ -42,8 +42,11 @@ public class Order {
 
     public double getTotalCost() {
         double total=0.0;
-        for(OrderLine o:orderLines){
-            total+=o.getSubTotalCost();
+        if (!orderLines.isEmpty())
+        {
+            for(OrderLine o:orderLines){
+                total+=o.getSubTotalCost();
+            }
         }
         return total;
     }
@@ -56,17 +59,23 @@ public class Order {
     public void setStatePreparing(){this.state=State.PREPARING;}//this is being called by the chef
     public void setStateCompleted(){//this is being called by the chef
         this.state=State.COMPLETED;
-        this.isPaid=true;/////////
+        this.isPaid=true;
         this.customer.transaction(getTotalCost()); // subtract the customers money
-        chef.getOrders().remove(this);
+        //chef.getOrders().remove(this); //Possibly not wanted
     }
     public void setOrderChef(Chef chef){
         this.chef=chef;
     }
-    public void setStateCancelled()//this is being called by the chef
+    public void setStateCancelled() throws IllegalStateException
     {
-        this.state = State.CANCELLED;
-        chef.getOrders().remove(this);
+        if (this.state == State.COMPLETED)
+        {
+            throw new IllegalStateException();
+        }
+        else {
+            this.state = State.CANCELLED;
+            //chef.getOrders().remove(this);
+        }
     }
     public void addOrderLine(OrderLine orderLine) {
         if (orderLines.contains(orderLine)) {//if we already have the orderLine for the same dish, we get the object and add the quantities
@@ -77,6 +86,12 @@ public class Order {
             this.orderLines.add(orderLine);
         }
     }
+    public void removeOrderLine(OrderLine orderLine) {
+        if (!orderLines.isEmpty()) {
+            orderLines.remove(orderLine);
+        }
+    }
+
 
 
 }
