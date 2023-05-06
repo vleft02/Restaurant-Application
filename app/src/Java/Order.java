@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class Order {
     public enum State {RECEIVED, PREPARING, COMPLETED, CANCELLED, }
     private final int tableNumber;
-    private double totalCost;
     private Chef chef;
     private final String time;
     private final Date date; // or string
@@ -39,7 +38,13 @@ public class Order {
         return this.tableNumber;
     }
 
-    public double getTotalCost() {return this.totalCost;}
+    public double getTotalCost() {
+        double total=0.0;
+        for(OrderLine o:orderLines){
+            total+=o.getSubTotalCost();
+        }
+        return total;
+    }
 
     public String getTime() {return this.time;}
 
@@ -50,7 +55,7 @@ public class Order {
     public void setStateCompleted(){//this is being called by the chef
         this.state=State.COMPLETED;
         this.isPaid=true;/////////
-        this.customer.transaction(totalCost); // subtract the customers money
+        this.customer.transaction(getTotalCost()); // subtract the customers money
         chef.getOrders().remove(this);
     }
     public void setOrderChef(Chef chef){
@@ -65,27 +70,12 @@ public class Order {
         if (orderLines.contains(orderLine)) {//if we already have the orderLine for the same dish, we get the object and add the quantities
             OrderLine o = orderLines.get(orderLines.indexOf(orderLine));
             o.setQuantity(o.getQuantity() + orderLine.getQuantity());
-            totalCost += orderLine.getSubTotalCost();
         }
         else {//else it is not in the list, and we add it
             this.orderLines.add(orderLine);
-            totalCost += orderLine.getSubTotalCost();
         }
     }
-    public void IncrementOrderLineQuantity(OrderLine o){
-        o.setQuantity(o.getQuantity()+1);
-        totalCost+=o.getDish().getDishWorth();
-    }
-    public void DecrementOrderLineQuantity(OrderLine o){
-        if(o.getQuantity()==1){
-            orderLines.remove(o);
-            totalCost-=o.getDish().getDishWorth();
-        }
-        else {
-            o.setQuantity(o.getQuantity() - 1);
-            totalCost += o.getDish().getDishWorth();
-        }
-    }
+
 
 }
 

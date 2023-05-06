@@ -34,4 +34,15 @@ public class OrderLine {
     public void setQuantity(int quantity) {
         this.quantity=quantity;
     }
+    public void IncrementOrderLineQuantity(){
+        this.quantity+=1;
+    }
+    public void DecrementOrderLineQuantity() throws ZeroDishQuantityException{
+        if(this.quantity==1){
+            throw new ZeroDishQuantityException();
+        }
+        else {
+           this.quantity-= 1;
+        }
+    }
 }

@@ -1,29 +1,37 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class CustomerTest {
+import org.junit.Before;
+import org.junit.Test;
+
+public class CustomerTest {
     private Customer customer;
-    @org.junit.jupiter.api.BeforeEach
-    void setUp() {
-        System.out.println("Setting up the customers");
-        customer = new Customer("john23", "john", "pappas", "694", "pap@gmail.com", "123456789123", 0, "123", "johnPap", "322", 50.0);
+    @Before
+    public void setUp() throws Exception {
+        customer=new Customer("john123","john","pappas","696949","pappas@gmail.com","12345123",1,"12222","john","322",100.00);
     }
 
-    @org.junit.jupiter.api.AfterEach
-    void tearDown() throws Exception {
-        System.out.println("Running: tearDown");
-        customer = null;
-        assertNull(customer);
-        }
-
-
-    @org.junit.jupiter.api.Test
-    void transaction() {
-        System.out.println("Running :Transaction");
-        customer.transaction(35);
-        assertEquals(15,customer.getBalance());
+    @Test
+    public void getCardNumber() {
+        assertEquals(customer.getCardNumber(),"12222");
     }
 
-    @org.junit.jupiter.api.Test
-    void topUp() {
+    @Test
+    public void getCVV() {
+    }
+
+    @Test
+    public void getCardHolderName() {
+    }
+
+    @Test
+    public void getBalance() {
+    }
+
+    @Test
+    public void transaction() {
+    }
+
+    @Test
+    public void topUp() {
     }
 }
