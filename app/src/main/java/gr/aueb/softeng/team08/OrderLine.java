@@ -2,7 +2,7 @@ package gr.aueb.softeng.team08;
 
 public class OrderLine {
     private int quantity;
-    private Dish dish;
+    private final Dish dish;
     public OrderLine(int quantity, Dish dish){
         this.quantity=quantity;
         this.dish=dish;
@@ -33,13 +33,19 @@ public class OrderLine {
         return this.dish.getDishName().hashCode();
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity=quantity;
+    public void setQuantity(int quantity) throws IllegalArgumentException{
+        if (quantity > 0) {
+            this.quantity = quantity;
+        }
+        else
+        {
+            throw new IllegalArgumentException();
+        }
     }
     public void IncrementOrderLineQuantity(){
         this.quantity+=1;
     }
-    public void DecrementOrderLineQuantity() throws ZeroDishQuantityException{
+    public void decrementOrderLineQuantity() throws ZeroDishQuantityException{
         if(this.quantity==1){
             throw new ZeroDishQuantityException();
         }
@@ -47,4 +53,5 @@ public class OrderLine {
            this.quantity-= 1;
         }
     }
+
 }

@@ -10,7 +10,7 @@ public class CustomerTest {
     Customer customer;
     @Before
     public void setUp() throws Exception {
-      customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322", 100.00);
+      customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
     }
 
     @After
