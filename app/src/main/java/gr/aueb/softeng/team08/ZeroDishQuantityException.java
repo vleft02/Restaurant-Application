@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team08;
+
 public class ZeroDishQuantityException extends Exception{
     @Override
     public String toString(){

@@ -1,13 +1,20 @@
+package gr.aueb.softeng.team08;
+
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class CustomerTest {
-    private Customer customer;
+    Customer customer;
     @Before
     public void setUp() throws Exception {
-        customer=new Customer("john123","john","pappas","696949","pappas@gmail.com","12345123",1,"12222","john","322",100.00);
+      customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322", 100.00);
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     @Test

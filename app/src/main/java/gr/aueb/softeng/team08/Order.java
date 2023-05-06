@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team08;
+
 import java.sql.Date;
 import java.util.ArrayList;
 

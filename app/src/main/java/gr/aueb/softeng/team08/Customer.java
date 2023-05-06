@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team08;
+
 public class Customer extends User {
     private final String cardNumber, cardHolderName, CVV; //tin=afm
     private double balance;

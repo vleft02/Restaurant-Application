@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team08;
+
 public class OrderLine {
     private int quantity;
     private Dish dish;

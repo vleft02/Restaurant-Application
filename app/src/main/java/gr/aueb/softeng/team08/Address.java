@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team08;
+
 public class Address{
     private final int streetNumber,ZC;
     private final String streetName,city;

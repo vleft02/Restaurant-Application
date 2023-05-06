@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team08;
+
 import java.util.ArrayList;
 
 public class Owner extends User {

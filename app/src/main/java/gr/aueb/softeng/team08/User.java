@@ -1,4 +1,6 @@
-public abstract class User 
+package gr.aueb.softeng.team08;
+
+public abstract class User
 {
     private final int userId;
     private final String username,telephone, email, password,name, surname;
