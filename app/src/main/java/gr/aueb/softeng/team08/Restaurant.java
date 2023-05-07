@@ -57,19 +57,17 @@ public class Restaurant {
         this.dishes.add(dish);
     }
 
-    public boolean addOrder(Order order) { // do we need to give the chef as a parameter, or we see who is free and give it to him???? like a round robin !!! SOSS
+    public boolean addOrder(Order order) { //we give the order to the chefs by round robin
         if (order.getCustomer().getBalance() >= order.getTotalCost()) { // SOS WATCH THIS
             Chef chef = chefs.get(counter);
             if(counter==chefs.size()-1){
-                counter=0;
+                counter=0; // if it is the last chef, the next one is the first
             }
             else {
                 counter++;
             }
-            order.setOrderChef(chef);
             this.orders.add(order); // goes to the restaurant
             chef.addOrder(order); // goes to the chef
-
             return true;
         }
         return false;

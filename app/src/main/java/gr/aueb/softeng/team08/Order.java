@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Order {
     public enum State {RECEIVED, PREPARING, COMPLETED, CANCELLED, }
     private final int tableNumber;
-    private Chef chef;
     private final String time;
     private final Date date; // or string
     private boolean isPaid = false;
@@ -62,9 +61,6 @@ public class Order {
         this.isPaid=true;
         this.customer.transaction(getTotalCost()); // subtract the customers money
         //chef.getOrders().remove(this); //Possibly not wanted
-    }
-    public void setOrderChef(Chef chef){
-        this.chef=chef;
     }
     public void setStateCancelled() throws IllegalStateException
     {

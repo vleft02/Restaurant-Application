@@ -1,7 +1,7 @@
 package gr.aueb.softeng.team08;
 
 public class Customer extends User {
-    private final String cardNumber, cardHolderName, CVV; //tin=afm
+    private String cardNumber, cardHolderName, CVV; //tin=afm , we dont declare them as final because they can be changed by the controller if he desides the input data is wrong
     private double balance;
     public Customer(String username, String name, String surname, String telephone, String email, String password, int Id, String cardNumber, String cardHolderName, String CVV)
     {
@@ -12,7 +12,11 @@ public class Customer extends User {
         this.CVV= CVV;
         this.balance= 0;
     }
-
+    public void changeBankDetails(String cardNumber, String cardHolderName, String cvv){
+        this.cardNumber=cardNumber;
+        this.cardHolderName=cardHolderName;
+        this.CVV=cvv;
+    }
     // Getters
     public String getCardNumber() {
         return cardNumber;

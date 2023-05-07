@@ -3,7 +3,7 @@ package gr.aueb.softeng.team08;
 public abstract class User
 {
     private final int userId;
-    private final String username,telephone, email, password,name, surname;
+    private String username,telephone, email, password,name, surname;
     
     public User(String username, String name, String surname, String telephone, String email, String password, int Id){
         this.username=username;
@@ -40,6 +40,17 @@ public abstract class User
 
     public String getPassword() {
         return this.password;
+    }
+
+    public void changePersonalDetails(String username, String name, String surname, String telephone, String email){
+        this.username=username;
+        this.name = name;
+        this.surname= surname;
+        this.telephone=telephone;
+        this.email=email;
+    }
+    public void changePassword(String pass){ // this method is called by the controller when the user inputs weak password and needs to change it , the controllers checks if the password is weak , not this class
+        this.password=pass;
     }
 
 }

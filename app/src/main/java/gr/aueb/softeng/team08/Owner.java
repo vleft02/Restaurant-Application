@@ -3,7 +3,7 @@ package gr.aueb.softeng.team08;
 import java.util.ArrayList;
 
 public class Owner extends User {
-    private final String iban, tin; //tin=afm
+    private  String iban, tin; //tin=afm
     private double income;
     private ArrayList<Restaurant> restaurants;
 
@@ -14,12 +14,19 @@ public class Owner extends User {
         this.tin=tin;
         this.restaurants= new ArrayList<Restaurant>();
     }
+    public void changePersonalDetails(String username, String name, String surname, String telephone, String email,String tin){
+        super.changePersonalDetails(username, name, surname, telephone, email); // calling the father class method
+        this.tin=tin;
+    }
     // Getters
     public String getIban() {
         return iban;
     }
     public String getTin() {
         return tin;
+    }
+    public void changeIban(String iban){
+        this.iban=iban;
     }
     public ArrayList<Restaurant> getRestaurants(){
         return this.getRestaurants();
