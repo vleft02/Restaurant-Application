@@ -34,8 +34,14 @@ public class Customer extends User {
         return this.balance;
     }
     // Setters
-    public void transaction(double money){// we dont need to check if the balance is neggative because when we call this method we are sure that the customer has enough money
-        this.balance-=money;
+    public void transaction(double money) throws IllegalStateException {// we dont need to check if the balance is neggative because when we call this method we are sure that the customer has enough money
+        if (balance>=money) {
+            this.balance -= money;
+        }
+        else
+        {
+            throw new IllegalStateException();
+        }
     } //called by the controller
     public void topUp(int money){
         this.balance+=money;

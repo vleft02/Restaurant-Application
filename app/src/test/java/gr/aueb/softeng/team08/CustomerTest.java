@@ -24,21 +24,33 @@ public class CustomerTest {
 
     @Test
     public void getCVV() {
+    assertEquals(customer.getCVV(), "322");
     }
 
     @Test
     public void getCardHolderName() {
+        assertEquals(customer.getCardHolderName(), "john");
     }
 
     @Test
     public void getBalance() {
+        assertEquals(customer.getBalance(), 0.00,0.00);
     }
 
     @Test
+    public void transactionInsuffBalance() {
+        assertThrows(IllegalStateException.class, ()-> customer.transaction(10));
+    }
+     @Test
     public void transaction() {
+        customer.topUp(10);
+        customer.transaction(5.00);
+        assertEquals(customer.getBalance(), 5.00,0.00);
     }
 
     @Test
     public void topUp() {
+        customer.topUp(10);
+        assertEquals(customer.getBalance(), 10.00,0.00);
     }
 }

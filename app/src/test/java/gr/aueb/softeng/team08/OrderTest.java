@@ -106,10 +106,6 @@ OrderLine orderLine1 ,orderLine2;
     }
 
     @Test
-    public void setOrderChef() {
-    }//Maybe delete later
-
-    @Test
     public void setStateCancelledCorrect() {
         order1.setStateCancelled();
         assertEquals(order1.getOrderState(), Order.State.CANCELLED);

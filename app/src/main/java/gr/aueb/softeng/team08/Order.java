@@ -60,7 +60,6 @@ public class Order {
         this.state=State.COMPLETED;
         this.isPaid=true;
         this.customer.transaction(getTotalCost()); // subtract the customers money
-        //chef.getOrders().remove(this); //Possibly not wanted
     }
     public void setStateCancelled() throws IllegalStateException
     {
@@ -70,7 +69,6 @@ public class Order {
         }
         else {
             this.state = State.CANCELLED;
-            //chef.getOrders().remove(this);
         }
     }
     public void addOrderLine(OrderLine orderLine) {
