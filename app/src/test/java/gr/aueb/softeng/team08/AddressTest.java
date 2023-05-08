@@ -1,61 +1,39 @@
 package gr.aueb.softeng.team08;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Date;
-
 public class AddressTest {
-    Address address1;
-
-
+    Address address;
     @Before
-    public void setUp() throws Exception {
-        address1 = new Address(32, "Naxou",11362,"Athens");
-
-
+    public void setUp() {
+        address = new Address(2,"kalari",526,"patra");
     }
 
     @After
-    public void tearDown() throws Exception {
-        address1 = null;
-
-    }
-
-
-    @Test
-    public void sameAddresses(Address address1, Address address2){
-        assertSame(address1, address2);
+    public void tearDown() {
+        address=null;
     }
 
     @Test
     public void getStreetNumber() {
-        assertSame(address1.getStreetNumber(),32);
-
+        assertEquals(address.getStreetNumber(),2);
     }
-
     @Test
     public void getStreetName() {
-        assertSame(address1.getStreetName(),"Naxou");
-
+        assertEquals(address.getStreetName(),"kalari");
     }
-
 
     @Test
     public void getZipCode() {
-        assertEquals(address1.getZipCode(),11362);
-
+        assertEquals(address.getZipCode(),526);
     }
-
 
     @Test
     public void getCity() {
-        assertSame(address1.getZipCode(),"Athens");
-
+        assertEquals(address.getCity(),"patra");
     }
 }

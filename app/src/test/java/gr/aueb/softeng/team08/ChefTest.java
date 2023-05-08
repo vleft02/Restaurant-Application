@@ -11,16 +11,62 @@ import java.sql.Date;
 public class ChefTest {
 Chef chef;
 Customer customer;
+Order order1;
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         chef = new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234");
         customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
-
+        order1 = new Order(10,"13:32:45",new Date(2023-5-6),this.customer);
     }
     @After
     public void tearDown(){
         chef=null;
         customer=null;
+        order1=null;
+    }
+    @Test
+    public void getUserId() {
+        assertEquals(chef.getUserId(),1);
+    }
+    @Test
+    public void getUsername() {
+        assertEquals(customer.getUsername(),"john123");
+    }
+    @Test
+    public void getName() {
+        assertEquals(chef.getName(),"john");
+    }
+    @Test
+    public void getSurname() {
+        assertEquals(chef.getSurname(),"pappas");
+    }
+    @Test
+    public void getTelephone() {
+        assertEquals(chef.getTelephone(),"696949");
+    }
+    @Test
+    public void getEmail() {
+        assertEquals(chef.getEmail(),"pappas@gmail.com");
+    }
+    @Test
+    public void getPassword() {
+        assertEquals(chef.getPassword(),"12345123");
+    }
+    @Test
+    public void changePersonalDetailsFatherMethod() {// we decide to change only the username
+        chef.changePersonalDetails("john322","john", "pappas", "696949", "pappas@gmail.com");
+        assertEquals(chef.getUsername(),"john322");
+    }
+    @Test
+    public void changePassword() {
+        chef.changePassword("123454321");
+        assertEquals(chef.getPassword(),"123454321");
+    }
+
+    @Test
+    public void changePersonalDetails(){ // we decide to change the username
+        chef.changePersonalDetails("john321","john", "pappas", "696949", "pappas@gmail.com",  "14323234");
+        assertEquals(chef.getUsername(),"john321");
     }
 
     @Test
@@ -34,8 +80,12 @@ Customer customer;
     }
 
     @Test
+    public void changeIban(){
+        chef.changeIban("123456789");
+        assertEquals(chef.getIban(),"123456789");
+    }
+    @Test
     public void getOrders() {
-        Order order1=  new Order(10,"13:32:45",new Date(2023-5-6),this.customer);
         Order order2=  new Order(13,"14:45:34",new Date(2023-5-6),this.customer);
         //Order order3= new Order(9, "15:00:01",new Date(2023-10-10),this.customer);
         chef.addOrder(order1);
@@ -43,22 +93,18 @@ Customer customer;
         assertTrue(chef.getOrders().contains(order1));
         assertTrue(chef.getOrders().contains(order2));
         //assertFalse(chef.getOrders().contains(order3));
-
     }
     @Test
     public void addOrder() {
-        Order order = new Order(10,"13:32:45",new Date(2023-5-6),this.customer);
-        chef.addOrder(order);
+        chef.addOrder(order1);
         //assertEquals(chef.getOrders().size(),1);
-        assertTrue(chef.getOrders().contains(order));
+        assertTrue(chef.getOrders().contains(order1));
     }
-
     @Test
     public void removeOrders() {
-        Order order = new Order(10,"13:32:45",new Date(2023-5-6),this.customer);
-        chef.addOrder(order);
-        chef.removeOrder(order);
-        assertFalse(chef.getOrders().contains(order));
+        chef.addOrder(order1);
+        chef.removeOrder(order1);
+        assertFalse(chef.getOrders().contains(order1));
     }
 
 }

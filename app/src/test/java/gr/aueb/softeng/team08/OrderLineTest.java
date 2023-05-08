@@ -11,14 +11,14 @@ OrderLine orderLine1;
 OrderLine orderLine2;
 OrderLine orderLine3;
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         orderLine1 = new OrderLine(2,new Dish("food1",10.0));
         orderLine2 = new OrderLine(1,new Dish("food2",7.0));
         orderLine3 = new OrderLine(10,new Dish("food1",10.0));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown(){
         orderLine1 = null;
         orderLine2 = null;
         orderLine3 = null;
@@ -65,13 +65,13 @@ OrderLine orderLine3;
     }
 
     @Test
-    public void incrementQuantityTest() {
+    public void IncrementOrderLineQuantity() {
         orderLine1.IncrementOrderLineQuantity();
         assertEquals(orderLine1.getQuantity(),3);
     }
 
     @Test
-    public void decrementQuantityTest() throws ZeroDishQuantityException {
+    public void decrementOrderLineQuantity() throws ZeroDishQuantityException {
         orderLine1.decrementOrderLineQuantity();
         assertEquals(orderLine1.getQuantity(),1);
     }

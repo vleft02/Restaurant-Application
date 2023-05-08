@@ -3,16 +3,15 @@ package gr.aueb.softeng.team08;
 import java.util.ArrayList;
 
 public class Owner extends User {
-    public String iban, tin; //tin=afm
-    public double income;
-    public ArrayList<Restaurant> restaurants;
+    private String iban, tin; //tin=afm
+    private double income=0.0;
+    private ArrayList<Restaurant> restaurants;
 
-    public Owner(String username, String name, String surname, String telephone, String email, String password, int Id, String iban, String tin, double income, ArrayList<Restaurant> restaurants)
+    public Owner(String username, String name, String surname, String telephone, String email, String password, int Id, String iban, String tin)
     {
         super(username, name, surname, telephone, email, password, Id);
         this.iban=iban;
         this.tin=tin;
-        this.income=income;
         this.restaurants= new ArrayList<Restaurant>();
     }
     public void changePersonalDetails(String username, String name, String surname, String telephone, String email,String tin){

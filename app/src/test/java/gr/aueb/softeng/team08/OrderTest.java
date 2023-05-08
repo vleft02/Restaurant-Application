@@ -106,8 +106,6 @@ OrderLine orderLine1 ,orderLine2;
         order1.addOrderLine(orderLine1);
         order1.setStateCompleted();
         assertEquals(order1.getOrderState(),Order.State.COMPLETED);
-    //    assertEquals(customer.getBalance(),73.0,0.00);
-        //chef prepei na vgei
     }
 
     @Test

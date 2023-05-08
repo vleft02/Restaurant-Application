@@ -6,57 +6,103 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
+public class OwnerTest {
 
-public class OwnerTest{
     Owner owner;
-    ArrayList<Restaurant> restaurants= new ArrayList<Restaurant>();
-    Restaurant restaurant1;
-    Restaurant restaurant2;
-
+    Restaurant rest1;
+    Restaurant rest2;
     @Before
-    public void setUp() throws Exception {
-
-        restaurants.add(restaurant1);
-        restaurants.add(restaurant2);
-        owner = new Owner("PaulM", "Paul", "Morrison", "6970570493", "Paulm@gmail.com", "priv8573", 324, "GR9608100010000001234567890", "164640345", 23345, restaurants);
-
+    public void setUp(){
+        owner=new Owner("PaulM", "Paul", "Morrison", "6970", "Paulm@gmail.com", "priv8573", 324, "GR96081000", "1646");
+        rest1 = new Restaurant("Los Pollos Ermanos","694959",15,new Address(6,"kiafa",159,"ioannina"));
+        rest2= new Restaurant("Paprika","6950",10,new Address(2,"kalari",526,"patra"));
     }
 
     @After
-    public void tearDown() throws Exception {
-        owner = null;
+    public void tearDown()  {
+        this.owner=null;
+        this.rest1=null;
+        this.rest2=null;
     }
 
+    @Test
+    public void getUserId() {
+        assertEquals(owner.getUserId(),324);
+    }
+    @Test
+    public void getUsername() {
+        assertEquals(owner.getUsername(),"PaulM");
+    }
+    @Test
+    public void getName() {
+        assertEquals(owner.getName(),"Paul");
+    }
+    @Test
+    public void getSurname() {
+        assertEquals(owner.getSurname(),"Morrison");
+    }
+    @Test
+    public void getTelephone() {
+        assertEquals(owner.getTelephone(),"6970");
+    }
+    @Test
+    public void getEmail() {
+        assertEquals(owner.getEmail(),"Paulm@gmail.com");
+    }
+    @Test
+    public void getPassword() {
+        assertEquals(owner.getPassword(),"priv8573");
+    }
+    @Test
+    public void changePersonalDetailsFatherMethod() {// we decide to change only the username
+        owner.changePersonalDetails("PaulM21", "Paul", "Morrison", "6970", "Paulm@gmail.com");
+        assertEquals(owner.getUsername(),"PaulM21");
+    }
+    @Test
+    public void changePassword() {
+        owner.changePassword("123454321");
+        assertEquals(owner.getPassword(),"123454321");
+    }
+    @Test
+    public void changePersonalDetails() {// we decide to change the username
+        owner.changePersonalDetails("PaulM21", "Paul", "Morrison", "6970", "Paulm@gmail.com","1646");
+        assertEquals(owner.getUsername(),"PaulM21");
+    }
     @Test
     public void getIban() {
-        assertEquals(owner.getIban(),"GR9608100010000001234567890");
+        assertEquals(owner.getIban(),"GR96081000");
     }
-
     @Test
     public void getTin() {
-        assertEquals(owner.getTin(),"164640345");
+        assertEquals(owner.getTin(), "1646");
     }
-
+    @Test
+    public void changeIban() {
+        owner.changeIban("GR123456789");
+        assertEquals(owner.getIban(), "GR123456789");
+    }
+    @Test
+    public void addRestaurant() {
+        owner.addRestaurant(rest1);
+        assertEquals(owner.getRestaurants().get(0),rest1);
+    }
     @Test
     public void getRestaurants() {
-        assertSame(owner.getRestaurants().get(0), restaurant1);
-        assertSame(owner.getRestaurants().get(1), restaurant2);
+        owner.addRestaurant(rest1);
+        owner.addRestaurant(rest2);
+        assertEquals(owner.getRestaurants().get(0),rest1);
+        assertEquals(owner.getRestaurants().get(1),rest2);
     }
 
     @Test
-    public void addRestaurant(Restaurant restaurant) {
-        assertSame(owner.getRestaurants().get(2), restaurant);
-    }
-
-    @Test
-    public void addMoney(double money) {
-        double total = owner.getIncome() + money;
-        assertSame(owner.getIncome(), total);
+    public void addMoney() {
+        owner.addMoney(100.0);
+        assertTrue(owner.getIncome()==100.0);
     }
 
     @Test
     public void getIncome() {
-        assertSame(owner.getIncome(), 23345);
+        owner.addMoney(50.0);
+        assertTrue(owner.getIncome()==50.0);
     }
 }
