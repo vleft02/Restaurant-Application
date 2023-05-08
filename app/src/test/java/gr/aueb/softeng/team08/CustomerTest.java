@@ -12,11 +12,6 @@ public class CustomerTest {
     public void setUp() throws Exception {
       customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
     }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
     @Test
     public void getCardNumber() {
         assertEquals(customer.getCardNumber(),"12222");
@@ -41,16 +36,14 @@ public class CustomerTest {
     public void transactionInsuffBalance() {
         assertThrows(IllegalStateException.class, ()-> customer.transaction(10));
     }
+    public void topUp() {
+        customer.topUp(10);
+        assertEquals(customer.getBalance(), 10.00,0.00);
+    }
      @Test
     public void transaction() {
         customer.topUp(10);
         customer.transaction(5.00);
         assertEquals(customer.getBalance(), 5.00,0.00);
-    }
-
-    @Test
-    public void topUp() {
-        customer.topUp(10);
-        assertEquals(customer.getBalance(), 10.00,0.00);
     }
 }

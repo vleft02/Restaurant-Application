@@ -41,14 +41,14 @@ OrderLine orderLine3;
 
     @Test
     public void notEqualOrderLines() {
-        assertFalse(orderLine1.equals(orderLine2));
-        assertFalse(orderLine1.hashCode() == orderLine2.hashCode());
+        assertNotEquals(orderLine1, orderLine2);
+        assertNotEquals(orderLine1.hashCode(), orderLine2.hashCode());
     }
     @Test
     public void equalOrderLines() {
 
-        assertTrue(orderLine1.equals(orderLine3));
-        assertTrue(orderLine1.hashCode() == orderLine3.hashCode());
+        assertEquals(orderLine1, orderLine3);
+        assertEquals(orderLine1.hashCode(), orderLine3.hashCode());
     }
 
     @Test

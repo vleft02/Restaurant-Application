@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class DishTest {
-Dish dish = new Dish("food1",10.0);
+Dish dish;
     @Before
     public void setUp() throws Exception {
     dish = new Dish("food1",10.0);

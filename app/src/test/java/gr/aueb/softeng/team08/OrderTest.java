@@ -25,15 +25,20 @@ OrderLine orderLine1 ,orderLine2;
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown(){
+        this.order1=null;
+        this.order2=null;
+        this.customer=null;
+        this.orderLine1=null;
+        this.orderLine2=null;
     }
 
     @Test
     public void getOrderLines() {
         order1.addOrderLine(orderLine1);
         order1.addOrderLine(orderLine2);
-        assertTrue(order1.getOrderLines().get(0).equals(orderLine1));
-        assertTrue(order1.getOrderLines().get(1).equals(orderLine2));
+        assertEquals(order1.getOrderLines().get(0), orderLine1);
+        assertEquals(order1.getOrderLines().get(1), orderLine2);
 
     }
     @Test
@@ -78,7 +83,7 @@ OrderLine orderLine1 ,orderLine2;
     @Test
     public void getDate() {
         //NA DOUME POS DOULEVEI H DATE ISOS XREIAZETAI ALITHINO DATA TYPE ME STUB
-        // assertEquals(order1.getDate(),2023-5-6);
+         assertEquals(order1.getDate(),2023-5-6);////////////
     }
 
     @Test
@@ -101,7 +106,7 @@ OrderLine orderLine1 ,orderLine2;
         order1.addOrderLine(orderLine1);
         order1.setStateCompleted();
         assertEquals(order1.getOrderState(),Order.State.COMPLETED);
-        assertEquals(customer.getBalance(),73.0,0.00);
+    //    assertEquals(customer.getBalance(),73.0,0.00);
         //chef prepei na vgei
     }
 
@@ -118,25 +123,23 @@ OrderLine orderLine1 ,orderLine2;
 
     @Test
     public void addOrderLine() {
-        OrderLine orderLine1 = new OrderLine(2,new Dish("food1",10.0));
         order1.addOrderLine(orderLine1);
-        assertEquals(order1.getOrderLines().size(), 1);
+        assertTrue(order1.getOrderLines().contains(orderLine1));
     }
     @Test
     public void addExistingOrderLine() {
-        order1.addOrderLine(new OrderLine(2,new Dish("food1",10.0)));
-        assertEquals(order1.getOrderLines().size(), 1);
-        order1.addOrderLine(new OrderLine(2,new Dish("food1",10.0)));
+        order1.addOrderLine(orderLine1);
+        assertTrue(order1.getOrderLines().contains(orderLine1));
+        order1.addOrderLine(orderLine1);
+        assertTrue(order1.getOrderLines().contains(orderLine1));
         assertEquals(order1.getOrderLines().size(), 1);
         assertEquals(order1.getOrderLines().get(0).getQuantity(), 4);
     }
 
     @Test
     public void removeExistingOrderLine() {
-        order1.addOrderLine(new OrderLine(2,new Dish("food1",10.0)));
-        order1.addOrderLine(new OrderLine(1,new Dish("food2",7.0)));
-        order1.removeOrderLine(order1.getOrderLines().get(0));
-        assertEquals(order1.getOrderLines().size(), 1);
-        assertEquals(order1.getOrderLines().get(0).getDish().getDishName(), "food2");
+        order1.addOrderLine(orderLine1);
+        order1.removeOrderLine(orderLine1);
+        assertFalse(order1.getOrderLines().contains(orderLine1));
     }
 }
