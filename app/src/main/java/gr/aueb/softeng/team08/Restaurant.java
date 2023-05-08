@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Restaurant {
     private final String name, telephone;
     private int totalTables = 0;
-    private final Address address;
+    private final String address;
     private ArrayList<Chef> chefs;
     private ArrayList<Dish> dishes;
     private ArrayList<Order> orders;
     private int counter=0;
 
-    public Restaurant(String name, String telephone, int totalTables, Address address) {
+    public Restaurant(String name, String telephone, int totalTables, String address, ArrayList<Chef> chefs, ArrayList<Dish> dishes, ArrayList<Order> orders) {
         this.name = name;
         this.telephone = telephone;
         this.totalTables = totalTables;
@@ -34,7 +34,7 @@ public class Restaurant {
         return this.totalTables;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return this.address;
     }
 
