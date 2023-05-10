@@ -22,22 +22,18 @@ public abstract class User
     public String getUsername() {
         return this.username;
     }
-
     public String getName() {
         return this.name;
     }
     public String getSurname() {
         return this.surname;
     }
-
     public String getTelephone() {
         return this.telephone;
     }
-
     public String getEmail() {
         return this.email;
     }
-
     public String getPassword() {
         return this.password;
     }

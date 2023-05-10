@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Date;
+import java.util.NoSuchElementException;
 
 public class OrderTest {
 Order order1, order2;
@@ -42,11 +43,9 @@ OrderLine orderLine1 ,orderLine2;
 
     }
     @Test
-    public void getOrderLinesEmpty() {
-        assertTrue(order1.getOrderLines().isEmpty());
+    public void getOrderLinesWhenEmpty() {
+        assertThrows(NoSuchElementException.class, ()->order1.getOrderLines());
     }
-
-
     @Test
     public void getCustomer() {
         assertSame(order1.getCustomer(),customer);
@@ -85,7 +84,6 @@ OrderLine orderLine1 ,orderLine2;
         //NA DOUME POS DOULEVEI H DATE ISOS XREIAZETAI ALITHINO DATA TYPE ME STUB
          assertEquals(order1.getDate(),2023-5-6);////////////
     }
-
     @Test
     public void isPaidFalse() {
         assertFalse(order1.isPaid());
@@ -94,7 +92,6 @@ OrderLine orderLine1 ,orderLine2;
     public void isPaidTrue() {
         assertTrue(order2.isPaid());
     }
-
     @Test
     public void setStatePreparing() {
         order1.setStatePreparing();
@@ -139,5 +136,9 @@ OrderLine orderLine1 ,orderLine2;
         order1.addOrderLine(orderLine1);
         order1.removeOrderLine(orderLine1);
         assertFalse(order1.getOrderLines().contains(orderLine1));
+    }
+    @Test
+    public void removeOrderLineWhenEmpty(){
+        assertThrows(NoSuchElementException.class,()->order1.removeOrderLine(orderLine1));
     }
 }

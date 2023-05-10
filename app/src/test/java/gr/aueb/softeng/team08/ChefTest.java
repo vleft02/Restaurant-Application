@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Date;
+import java.util.NoSuchElementException;
 
 public class ChefTest {
 Chef chef;
@@ -53,8 +54,8 @@ Order order1;
         assertEquals(chef.getPassword(),"12345123");
     }
     @Test
-    public void changePersonalDetailsFatherMethod() {// we decide to change only the username
-        chef.changePersonalDetails("john322","john", "pappas", "696949", "pappas@gmail.com");
+    public void changePersonalDetailsFatherMethod() {// we decide to change only the username , so we use the getters for the other arguments
+        chef.changePersonalDetails("john322",chef.getName(), chef.getSurname(), chef.getTelephone(), chef.getEmail());
         assertEquals(chef.getUsername(),"john322");
     }
     @Test
@@ -64,11 +65,10 @@ Order order1;
     }
 
     @Test
-    public void changePersonalDetails(){ // we decide to change the username
-        chef.changePersonalDetails("john321","john", "pappas", "696949", "pappas@gmail.com",  "14323234");
+    public void changePersonalDetails(){ // we decide to change only the username, so we use the getters for the other arguments
+        chef.changePersonalDetails("john321",chef.getName(), chef.getSurname(), chef.getTelephone(), chef.getEmail(),  chef.getTin());
         assertEquals(chef.getUsername(),"john321");
     }
-
     @Test
     public void getIban() {
         assertEquals(chef.getIban(),"10230910290194");
@@ -87,12 +87,14 @@ Order order1;
     @Test
     public void getOrders() {
         Order order2=  new Order(13,"14:45:34",new Date(2023-5-6),this.customer);
-        //Order order3= new Order(9, "15:00:01",new Date(2023-10-10),this.customer);
         chef.addOrder(order1);
         chef.addOrder(order2);
         assertTrue(chef.getOrders().contains(order1));
         assertTrue(chef.getOrders().contains(order2));
-        //assertFalse(chef.getOrders().contains(order3));
+    }
+    @Test
+    public void getOrdersWhenEmpty(){
+        assertThrows(NoSuchElementException.class,()-> chef.getOrders());
     }
     @Test
     public void addOrder() {
@@ -101,10 +103,14 @@ Order order1;
         assertTrue(chef.getOrders().contains(order1));
     }
     @Test
-    public void removeOrders() {
+    public void removeOrder() {
         chef.addOrder(order1);
-        chef.removeOrder(order1);
-        assertFalse(chef.getOrders().contains(order1));
+        assertTrue(chef.removeOrder(order1));
     }
-
+    @Test
+    public void removeOrderWhenNotInList() {
+        chef.addOrder(order1);
+        Order order = new Order(4, "12:10:09", new Date(2023 - 5 - 6), customer);
+        assertFalse(chef.removeOrder(order));
+    }
 }

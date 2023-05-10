@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 public class OwnerTest {
 
     Owner owner;
@@ -93,13 +95,20 @@ public class OwnerTest {
         assertEquals(owner.getRestaurants().get(0),rest1);
         assertEquals(owner.getRestaurants().get(1),rest2);
     }
+    @Test
+    public void getRestaurantWhenEmpty(){
+        assertThrows(NoSuchElementException.class,()->owner.getRestaurants());
+    }
 
     @Test
     public void addMoney() {
         owner.addMoney(100.0);
         assertTrue(owner.getIncome()==100.0);
     }
-
+    @Test
+    public void addNegativeMoney(){
+        assertThrows(IllegalArgumentException.class,()->owner.addMoney(-10));
+    }
     @Test
     public void getIncome() {
         owner.addMoney(50.0);

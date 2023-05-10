@@ -2,17 +2,16 @@ package gr.aueb.softeng.team08;
 
 public class Dish{
     private final String dishName;
-    private final double money;
-
-    public Dish(String dishName, double money){
+    private final double price;
+    public Dish(String dishName, double price){
         this.dishName=dishName;
-        this.money=money;
+        this.price=price;
     }
-
+//Getters
     public String getDishName(){
         return this.dishName;
     }
     public double getDishWorth(){
-        return money;
+        return price;
     }
 }

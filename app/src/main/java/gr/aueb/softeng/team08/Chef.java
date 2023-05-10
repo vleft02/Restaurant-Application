@@ -1,15 +1,15 @@
 package gr.aueb.softeng.team08;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class Chef extends User {
-    private String iban, tin; //tin=afm , we don't declare them as final because they are being changed if the user initially puts invalid data
-
-    private ArrayList<Order> orders ;
+    private String iban, tin; //tin=afm
+    private ArrayList<Order> orders ; // ArrayList with the orders that the Chef is working on currently
 
     public Chef(String username, String name, String surname, String telephone, String email, String password, int Id, String iban, String tin)
     {
-        super(username, name, surname, telephone, email, password, Id);
+        super(username, name, surname, telephone, email, password, Id); // calling the constructor of the father class(User)
         this.iban=iban;
         this.tin=tin;
         this.orders = new ArrayList<Order>();
@@ -22,9 +22,15 @@ public class Chef extends User {
     public String getIban() {
         return iban;
     }
-
     public String getTin() {
         return tin;
+    }
+    public ArrayList<Order> getOrders() throws NoSuchElementException {
+        if(!this.orders.isEmpty()){
+            return orders;
+        }else{
+            throw new NoSuchElementException();
+        }
     }
 
     public void changeIban(String iban){
@@ -33,11 +39,8 @@ public class Chef extends User {
     public void addOrder(Order order){//called by the controller when a new order is being added in the restaurant
         orders.add(order);
     }
-    public ArrayList<Order> getOrders() {
-        return orders;
-    }
-    public boolean removeOrder(Order order){ // called by the controller when the order is "COMPLETED"
-        return orders.remove(order); // True iff the order is in the list, else False
+    public boolean removeOrder(Order order){ // called by the controller when the order state is "COMPLETED"
+        return orders.remove(order); // returns True iff the order is in the list, else returns False
     }
 
 }

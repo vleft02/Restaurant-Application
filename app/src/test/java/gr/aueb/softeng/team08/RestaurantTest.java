@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Date;
+import java.util.NoSuchElementException;
 
 public class RestaurantTest {
     Restaurant rest;
@@ -51,6 +52,10 @@ public class RestaurantTest {
         assertEquals(rest.getChefs().get(0),chef);
     }
     @Test
+    public void getEmptyListChefs(){
+        assertThrows(NoSuchElementException.class,()->rest.getChefs());
+    }
+    @Test
     public void changeTotalTables() {
         rest.changeTotalTables(15);
         assertEquals(rest.getTotalTables(),15);
@@ -69,6 +74,10 @@ public class RestaurantTest {
         assertEquals(rest.getDishes().get(0),dish1);
         assertEquals(rest.getDishes().get(1),dish2);
     }
+    @Test
+    public void getEmptyDishes(){
+        assertThrows(NoSuchElementException.class,()->rest.getDishes());
+    }
 
     @Test
     public void addDish() {
@@ -79,7 +88,11 @@ public class RestaurantTest {
     }
 
     @Test
-    public void addOrder() {
-
+    public void addOrderWithoutEnoughMoney() {
+        Customer customer =new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
+        customer.topUp(5.00);
+        Order order = new Order(5,"13:32:45",new Date(2023-5-6),customer);
+        order.addOrderLine(new OrderLine(2,dish1));
+        assertFalse(rest.addOrder(order));
     }
 }

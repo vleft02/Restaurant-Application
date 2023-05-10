@@ -87,11 +87,16 @@ public class CustomerTest {
     public void transactionInsuffBalance() {
         assertThrows(IllegalStateException.class, ()-> customer.transaction(10));
     }
+    @Test
     public void topUp() {
-        customer.topUp(10);
+        customer.topUp(10.00);
         assertEquals(customer.getBalance(), 10.00,0.00);
     }
-     @Test
+    @Test
+    public void topUpNegativeMoney(){
+        assertThrows(IllegalArgumentException.class,()->customer.topUp(-10));
+    }
+    @Test
     public void transaction() {
         customer.topUp(10);
         customer.transaction(5.00);

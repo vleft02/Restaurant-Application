@@ -35,9 +35,9 @@
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>370</y><w>240</w><h>220</h></coordinates><panel_attributes>Customer
 --
 -Balance : double 
--card number : String 
--card holder name : String 
--CVV : int 
+-cardNumber : String 
+-cardHolderName : String 
+-CVV : String
 --
 +changeBankDetails(cardNumber:String,
 cardHolderName:String, cvv:String)
@@ -46,9 +46,9 @@ cardHolderName:String, cvv:String)
 +getCardHolderName(): String {query}
 +getBalance(): double {query}
 +transaction(money:double)
-+TopUp(money:int)
++topUp(money:int)
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>720</y><w>270</w><h>250</h></coordinates><panel_attributes>Restaurant
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>720</y><w>270</w><h>260</h></coordinates><panel_attributes>Restaurant
 --
 -name : String {readOnly}
 -telephone : String {readOnly}
@@ -64,7 +64,8 @@ cardHolderName:String, cvv:String)
 +changeTotalTables(total:int): 
 +getDishes():ArrayList&lt;Dish&gt; {query}
 +addDish(dish: Dish){
-+addOrder(order:Order)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>790</y><w>280</w><h>220</h></coordinates><panel_attributes>Owner
++addOrder(order:Order)
++getOrders():ArrayList&lt;Order&gt;{query}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>790</y><w>280</w><h>220</h></coordinates><panel_attributes>Owner
 --
 -iban : String {readOnly}
 -tin : String {readOnly}
@@ -90,14 +91,15 @@ Manages</panel_attributes><additional_attributes>150;20;10;20</additional_attrib
 +getQuantity(): int {query}
 +getDish(): Dish {query}
 +getSubTotalCost(): double {query}
++setQuantity(quantity:int)
 +IncrementOrderLineQuantity()
 +DecrementOrderLineQuantity()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1050</x><y>300</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=-&gt;
 m1=1
 m2=*
 consists of</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1450</x><y>310</y><w>200</w><h>100</h></coordinates><panel_attributes>Dish
 --
--Dish name: String {readOnly}
--Price : Money {readOnly}
+-dishName: String {readOnly}
+-Price : double {readOnly}
 --
 +getDishName() : String {query}
 +getDishWorth() : String {query}
@@ -106,19 +108,19 @@ consists of</panel_attributes><additional_attributes>10;20;120;20</additional_at
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>300</y><w>100</w><h>50</h></coordinates><panel_attributes>lt=-&gt;
 m1=*
 m2=1
-contains</panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>0</y><w>190</w><h>300</h></coordinates><panel_attributes>User
+contains</panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>0</y><w>250</w><h>310</h></coordinates><panel_attributes>User
 --
-+changePersonalDetails(username:String, 
-name:String, surname:String,
-telephone:String, email:String)
 -userId :int
 -username : String
 -password : String
 -name : String
 -surname : String
--email :email Address 
--tel : telephone Number
+-email :String 
+-tel : String
 --
++changePersonalDetails(username:String, 
+name:String, surname:String,
+telephone:String, email:String)
 +getUserId(): int {query}
 +getUsername(): String {query}
 +getName():String {query}
@@ -126,10 +128,11 @@ telephone:String, email:String)
 +getTelephone():String {query}
 +getEmail():String {query}
 +getPassword(): String {query}
++changePassword(pass:String)
 
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>290</y><w>140</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;120;60;120;80</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>290</y><w>220</w><h>300</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;10;200;60;10;60;10;280</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>570</y><w>270</w><h>210</h></coordinates><panel_attributes>Chef
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>300</y><w>140</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50;120;50;120;70</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>300</y><w>220</w><h>290</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;10;200;50;10;50;10;270</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>570</y><w>270</w><h>210</h></coordinates><panel_attributes>Chef
 --
 -iban : String 
 -tin : String 
@@ -150,8 +153,8 @@ m1=1
 m2=*
 Places</panel_attributes><additional_attributes>10;140;100;140;100;10;150;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>980</y><w>210</w><h>160</h></coordinates><panel_attributes>Address
 --
--Number : int {readOnly}
--Street name : String {readOnly}
+-streetNumber : int {readOnly}
+-streetName : String {readOnly}
 -ZC : zipcode {readOnly}
 -city : String {readOnly}
 --

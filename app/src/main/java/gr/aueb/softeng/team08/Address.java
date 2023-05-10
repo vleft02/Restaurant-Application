@@ -1,6 +1,6 @@
 package gr.aueb.softeng.team08;
 
-public class Address{
+public class Address{ //custom class for addresses
     private final int streetNumber,ZC;
     private final String streetName,city;
     public Address(int streetNumber, String streetName, int ZC, String city){

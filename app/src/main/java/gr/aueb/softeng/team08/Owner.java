@@ -1,10 +1,11 @@
 package gr.aueb.softeng.team08;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class Owner extends User {
     private String iban, tin; //tin=afm
-    private double income=0.0;
+    private double income=0.0; // the income of the restaurants from the time the owner uses the application
     private ArrayList<Restaurant> restaurants;
 
     public Owner(String username, String name, String surname, String telephone, String email, String password, int Id, String iban, String tin)
@@ -25,20 +26,28 @@ public class Owner extends User {
     public String getTin() {
         return tin;
     }
+    public double getIncome(){
+        return this.income;
+    }
+    public ArrayList<Restaurant> getRestaurants() throws NoSuchElementException {
+        if (!restaurants.isEmpty()){
+            return this.getRestaurants();
+        }else{
+            throw new NoSuchElementException();
+        }
+    }
     public void changeIban(String iban){
         this.iban=iban;
-    }
-    public ArrayList<Restaurant> getRestaurants(){
-        return this.getRestaurants();
     }
     public void addRestaurant(Restaurant restaurant){
         this.restaurants.add(restaurant);
     }
-    public void addMoney(double money){
-        this.income+=money;
-    }
-    public double getIncome(){
-        return this.income;
+    public void addMoney(double money) throws IllegalArgumentException{
+        if(money>0){
+            this.income+=money;
+        }else{
+            throw new IllegalArgumentException();
+        }
     }
     
 }
