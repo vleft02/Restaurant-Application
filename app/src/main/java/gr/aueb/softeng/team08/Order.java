@@ -23,12 +23,8 @@ public class Order {
         this.orderLines = new ArrayList<OrderLine>();
     }
 //Getters
-    public ArrayList<OrderLine> getOrderLines() throws NoSuchElementException {
-        if(!orderLines.isEmpty()){
+    public ArrayList<OrderLine> getOrderLines()  {
             return this.orderLines;
-        }else{
-            throw new NoSuchElementException();
-        }
     }
     public Customer getCustomer() {
         return this.customer;

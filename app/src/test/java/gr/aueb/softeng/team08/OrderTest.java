@@ -18,8 +18,8 @@ OrderLine orderLine1 ,orderLine2;
         customer= new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         orderLine1 = new OrderLine(2,new Dish("food1",10.0));
         orderLine2 = new OrderLine(1,new Dish("food2",7.0));
-        order1 = new Order(10,"13:32:45",new Date(2023-5-6),customer);
-        order2 = new Order(13,"14:45:34",new Date(2023-5-6),customer);
+        order1 = new Order(10,"13:32:45",new Date(1672518456),customer);
+        order2 = new Order(13,"14:45:34",new Date(1672618456),customer);
         order2.addOrderLine(orderLine2);
         customer.topUp(100);
         order2.setStateCompleted();//No money removed since order2 is empty;
@@ -41,10 +41,6 @@ OrderLine orderLine1 ,orderLine2;
         assertEquals(order1.getOrderLines().get(0), orderLine1);
         assertEquals(order1.getOrderLines().get(1), orderLine2);
 
-    }
-    @Test
-    public void getOrderLinesWhenEmpty() {
-        assertThrows(NoSuchElementException.class, ()->order1.getOrderLines());
     }
     @Test
     public void getCustomer() {
@@ -81,8 +77,8 @@ OrderLine orderLine1 ,orderLine2;
 
     @Test
     public void getDate() {
-        //NA DOUME POS DOULEVEI H DATE ISOS XREIAZETAI ALITHINO DATA TYPE ME STUB
-         assertEquals(order1.getDate(),2023-5-6);////////////
+        Date date = new Date(1672518456);
+        assertEquals(order1.getDate(),date);////////////
     }
     @Test
     public void isPaidFalse() {

@@ -45,12 +45,8 @@ public class Restaurant {
             throw new NoSuchElementException();
         }
     }
-    public ArrayList<Order> getOrders() throws NoSuchElementException{
-        if(!this.orders.isEmpty()){
+    public ArrayList<Order> getOrders(){
             return this.orders;
-        }else{
-            throw new NoSuchElementException();
-        }
     }
     public void changeTotalTables(int total) {
         this.totalTables = total;
@@ -87,5 +83,4 @@ public class Restaurant {
         return false;
     }
 
-    ////NA KANW METHODO GET ORDERS KAI GIA AN EXEI SFALMA
 }

@@ -31,7 +31,7 @@ public class Owner extends User {
     }
     public ArrayList<Restaurant> getRestaurants() throws NoSuchElementException {
         if (!restaurants.isEmpty()){
-            return this.getRestaurants();
+            return this.restaurants;
         }else{
             throw new NoSuchElementException();
         }
