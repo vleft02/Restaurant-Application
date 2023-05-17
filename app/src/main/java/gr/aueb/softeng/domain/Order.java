@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team08;
+package gr.aueb.softeng.domain;
 
 import java.sql.Date;
 import java.util.ArrayList;
