@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team08;
+package gr.aueb.softeng.domain;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;

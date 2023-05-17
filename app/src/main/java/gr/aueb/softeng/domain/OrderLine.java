@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team08;
+package gr.aueb.softeng.domain;
 
 public class OrderLine {
     private int quantity;

@@ -1,12 +1,10 @@
-package gr.aueb.softeng.team08;
+package gr.aueb.softeng.domain;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Locale;
 
 public class CustomerTest {
     Customer customer;
