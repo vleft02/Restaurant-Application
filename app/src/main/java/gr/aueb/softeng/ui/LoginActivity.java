@@ -17,32 +17,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setContentView(R.layout.activity_login);
 
         LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+
+
     }
 
-    public void handleUsername(View v)
+    public void handleLoginDetails(View v)
     {
-        TextView t = findViewById(R.id.usernameTextEdit);
-        String inputUsername = t.getText().toString();
+        TextView usernameField = findViewById(R.id.usernameTextEdit);
+        String inputUsername = usernameField.getText().toString();
+        TextView passwordField = findViewById(R.id.usernameTextEdit);
+        String inputPassword = passwordField.getText().toString();
+        //viewModel.getPresenter().authenticate(inputUsername,inputPassword);
     }
 
 
-    @Override
-    public void open() {
-
-    }
-
-    @Override
-    public void close() {
-
-    }
-
-    @Override
-    public void showError(String message) {
-
-    }
-
-    @Override
-    public void showInfo(String message) {
-
-    }
 }

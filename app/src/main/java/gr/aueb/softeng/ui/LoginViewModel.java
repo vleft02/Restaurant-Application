@@ -1,5 +1,7 @@
 package gr.aueb.softeng.ui;
 
+import android.util.Log;
+
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel{
@@ -9,6 +11,18 @@ public class LoginViewModel extends ViewModel{
     public LoginViewModel()
     {
         loginPresenter = new LoginPresenter();
-        //setDAO
+        //UserDAO userDao = new UserDAOmemory()
+        //loginPresenter.setUserDAO(userDao)
+    }
+
+    public LoginPresenter getLoginPresenter() {
+        return loginPresenter;
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        Log.d("Login", "onCleared");
+        //loginPresenter = null;
     }
 }
