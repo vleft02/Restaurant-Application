@@ -1,8 +1,10 @@
-package gr.aueb.softeng.team08;
+package gr.aueb.softeng.ui;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import gr.aueb.softeng.team08.R;
 
 public class MainActivity extends AppCompatActivity {
 
