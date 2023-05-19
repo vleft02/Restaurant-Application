@@ -12,9 +12,9 @@ OrderLine orderLine2;
 OrderLine orderLine3;
     @Before
     public void setUp(){
-        orderLine1 = new OrderLine(2,new Dish("food1",10.0));
-        orderLine2 = new OrderLine(1,new Dish("food2",7.0));
-        orderLine3 = new OrderLine(10,new Dish("food1",10.0));
+        orderLine1 = new OrderLine(2,new Dish(1,"food1",10.0));
+        orderLine2 = new OrderLine(1,new Dish(2,"food2",7.0));
+        orderLine3 = new OrderLine(10,new Dish(3,"food1",10.0));
     }
 
     @After

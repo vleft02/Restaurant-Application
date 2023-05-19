@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Chef</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: Chef (gr.aueb.softeng.team08)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Chef</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package gr.aueb.softeng.team08;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">4</i>&nbsp;import java.util.NoSuchElementException;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;public class Chef extends User {
+<i class="no-highlight">7</i>&nbsp;    private String iban, tin; //tin=afm
+<i class="no-highlight">8</i>&nbsp;    private ArrayList&lt;Order&gt; orders ; // ArrayList with the orders that the Chef is working on currently
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;    public Chef(String username, String name, String surname, String telephone, String email, String password, int Id, String iban, String tin)
+<i class="no-highlight">11</i>&nbsp;    {
+<b class="fc"><i class="no-highlight">12</i>&nbsp;        super(username, name, surname, telephone, email, password, Id); // calling the constructor of the father class(User)</b>
+<b class="fc"><i class="no-highlight">13</i>&nbsp;        this.iban=iban;</b>
+<b class="fc"><i class="no-highlight">14</i>&nbsp;        this.tin=tin;</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;        this.orders = new ArrayList&lt;Order&gt;();</b>
+<i class="no-highlight">16</i>&nbsp;    }
+<i class="no-highlight">17</i>&nbsp;    public void changePersonalDetails(String username, String name, String surname, String telephone, String email,String tin){
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        super.changePersonalDetails(username, name, surname, telephone, email); // calling the father class method</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        this.tin=tin;</b>
+<i class="no-highlight">20</i>&nbsp;    }
+<i class="no-highlight">21</i>&nbsp;    // Getters
+<i class="no-highlight">22</i>&nbsp;    public String getIban() {
+<b class="fc"><i class="no-highlight">23</i>&nbsp;        return iban;</b>
+<i class="no-highlight">24</i>&nbsp;    }
+<i class="no-highlight">25</i>&nbsp;    public String getTin() {
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        return tin;</b>
+<i class="no-highlight">27</i>&nbsp;    }
+<i class="no-highlight">28</i>&nbsp;    public ArrayList&lt;Order&gt; getOrders() throws NoSuchElementException {
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        if(!this.orders.isEmpty()){</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;            return orders;</b>
+<i class="no-highlight">31</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">32</i>&nbsp;            throw new NoSuchElementException();</b>
+<i class="no-highlight">33</i>&nbsp;        }
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    public void changeIban(String iban){
+<b class="fc"><i class="no-highlight">37</i>&nbsp;        this.iban=iban;</b>
+<i class="no-highlight">38</i>&nbsp;    }
+<i class="no-highlight">39</i>&nbsp;    public void addOrder(Order order){//called by the controller when a new order is being added in the restaurant
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        orders.add(order);</b>
+<i class="no-highlight">41</i>&nbsp;    }
+<i class="no-highlight">42</i>&nbsp;    public boolean removeOrder(Order order){ // called by the controller when the order state is &quot;COMPLETED&quot;
+<b class="fc"><i class="no-highlight">43</i>&nbsp;        return orders.remove(order); // returns True iff the order is in the list, else returns False</b>
+<i class="no-highlight">44</i>&nbsp;    }
+<i class="no-highlight">45</i>&nbsp;
+<i class="no-highlight">46</i>&nbsp;}
+<i class="no-highlight">47</i>&nbsp;
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-13 12:30</div>
+</div>
+</body>
+</html>

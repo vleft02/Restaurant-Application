@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Restaurant {
+    private final int id;
     private final String name, telephone;
     private int totalTables = 0;
     private final Address address;
@@ -12,7 +13,8 @@ public class Restaurant {
     private ArrayList<Order> orders;
     private int counter=0; //used later to determine which chef is going to get the new order
 
-    public Restaurant(String name, String telephone, int totalTables, Address address) {
+    public Restaurant(int id, String name, String telephone, int totalTables, Address address) {
+        this.id= id;
         this.name = name;
         this.telephone = telephone;
         this.totalTables = totalTables;
@@ -22,6 +24,10 @@ public class Restaurant {
         this.orders= new ArrayList<>();
     }
 //Getters
+    public int getId()
+    {
+        return this.id;
+    }
     public String getRestaurantName() {
         return this.name;
     }
