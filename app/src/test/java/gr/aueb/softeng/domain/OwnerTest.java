@@ -16,8 +16,8 @@ public class OwnerTest {
     @Before
     public void setUp(){
         owner=new Owner("PaulM", "Paul", "Morrison", "6970", "Paulm@gmail.com", "priv8573", 324, "GR96081000", "1646");
-        rest1 = new Restaurant("Los Pollos Ermanos","694959",15,new Address(6,"kiafa",159,"ioannina"));
-        rest2= new Restaurant("Paprika","6950",10,new Address(2,"kalari",526,"patra"));
+        rest1 = new Restaurant(1,"Los Pollos Ermanos","694959",15,new Address(6,"kiafa",159,"ioannina"));
+        rest2= new Restaurant(2,"Paprika","6950",10,new Address(2,"kalari",526,"patra"));
     }
 
     @After

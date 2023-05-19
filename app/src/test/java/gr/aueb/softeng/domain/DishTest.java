@@ -10,12 +10,16 @@ public class DishTest {
 Dish dish;
     @Before
     public void setUp() throws Exception {
-    dish = new Dish("food1",10.0);
+    dish = new Dish(1,"food1",10.0);
     }
 
     @After
     public void tearDown() throws Exception {
         dish = null;
+    }
+    @Test
+    public void getId(){
+        assertEquals(dish.getId(),1);
     }
     @Test
     public void getDishName() {

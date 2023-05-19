@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Restaurant</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: Restaurant (gr.aueb.softeng.team08)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Restaurant</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (33/33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package gr.aueb.softeng.team08;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">4</i>&nbsp;import java.util.NoSuchElementException;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;public class Restaurant {
+<i class="no-highlight">7</i>&nbsp;    private final String name, telephone;
+<b class="fc"><i class="no-highlight">8</i>&nbsp;    private int totalTables = 0;</b>
+<i class="no-highlight">9</i>&nbsp;    private final Address address;
+<i class="no-highlight">10</i>&nbsp;    private ArrayList&lt;Chef&gt; chefs;
+<i class="no-highlight">11</i>&nbsp;    private ArrayList&lt;Dish&gt; dishes;
+<i class="no-highlight">12</i>&nbsp;    private ArrayList&lt;Order&gt; orders;
+<b class="fc"><i class="no-highlight">13</i>&nbsp;    private int counter=0; //used later to determine which chef is going to get the new order</b>
+<i class="no-highlight">14</i>&nbsp;
+<b class="fc"><i class="no-highlight">15</i>&nbsp;    public Restaurant(String name, String telephone, int totalTables, Address address) {</b>
+<b class="fc"><i class="no-highlight">16</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;        this.telephone = telephone;</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        this.totalTables = totalTables;</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;        this.chefs= new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">21</i>&nbsp;        this.dishes= new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">22</i>&nbsp;        this.orders= new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">23</i>&nbsp;    }
+<i class="no-highlight">24</i>&nbsp;//Getters
+<i class="no-highlight">25</i>&nbsp;    public String getRestaurantName() {
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        return this.name;</b>
+<i class="no-highlight">27</i>&nbsp;    }
+<i class="no-highlight">28</i>&nbsp;
+<i class="no-highlight">29</i>&nbsp;    public String getTelephone() {
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        return this.telephone;</b>
+<i class="no-highlight">31</i>&nbsp;    }
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;    public int getTotalTables() {
+<b class="fc"><i class="no-highlight">34</i>&nbsp;        return this.totalTables;</b>
+<i class="no-highlight">35</i>&nbsp;    }
+<i class="no-highlight">36</i>&nbsp;
+<i class="no-highlight">37</i>&nbsp;    public Address getAddress() {
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        return this.address;</b>
+<i class="no-highlight">39</i>&nbsp;    }
+<i class="no-highlight">40</i>&nbsp;
+<i class="no-highlight">41</i>&nbsp;    public ArrayList&lt;Chef&gt; getChefs() throws NoSuchElementException {
+<b class="fc"><i class="no-highlight">42</i>&nbsp;        if(!this.chefs.isEmpty()){</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;            return this.chefs;</b>
+<i class="no-highlight">44</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">45</i>&nbsp;            throw new NoSuchElementException();</b>
+<i class="no-highlight">46</i>&nbsp;        }
+<i class="no-highlight">47</i>&nbsp;    }
+<i class="no-highlight">48</i>&nbsp;    public ArrayList&lt;Order&gt; getOrders(){
+<b class="fc"><i class="no-highlight">49</i>&nbsp;            return this.orders;</b>
+<i class="no-highlight">50</i>&nbsp;    }
+<i class="no-highlight">51</i>&nbsp;    public void changeTotalTables(int total) {
+<b class="fc"><i class="no-highlight">52</i>&nbsp;        this.totalTables = total;</b>
+<i class="no-highlight">53</i>&nbsp;    }
+<i class="no-highlight">54</i>&nbsp;    public void addChef(Chef chef) {
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        this.chefs.add(chef);</b>
+<i class="no-highlight">56</i>&nbsp;    }
+<i class="no-highlight">57</i>&nbsp;
+<i class="no-highlight">58</i>&nbsp;    public ArrayList&lt;Dish&gt; getDishes() throws NoSuchElementException {
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        if(!this.dishes.isEmpty()){</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;            return this.dishes;</b>
+<i class="no-highlight">61</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">62</i>&nbsp;            throw new NoSuchElementException();</b>
+<i class="no-highlight">63</i>&nbsp;        }
+<i class="no-highlight">64</i>&nbsp;    }
+<i class="no-highlight">65</i>&nbsp;
+<i class="no-highlight">66</i>&nbsp;    public void addDish(Dish dish) {
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        this.dishes.add(dish);</b>
+<i class="no-highlight">68</i>&nbsp;    }
+<i class="no-highlight">69</i>&nbsp;
+<i class="no-highlight">70</i>&nbsp;    public boolean addOrder(Order order) { //we give the order to the chefs by round robin
+<b class="fc"><i class="no-highlight">71</i>&nbsp;        if (order.getCustomer().getBalance() &gt;= order.getTotalCost()) { //if the customer has the right balance</b>
+<b class="fc"><i class="no-highlight">72</i>&nbsp;            Chef chef = chefs.get(counter); // get the chef that is his turn to get the order</b>
+<b class="fc"><i class="no-highlight">73</i>&nbsp;            if(counter==chefs.size()-1){</b>
+<b class="fc"><i class="no-highlight">74</i>&nbsp;                counter=0; // if it is the last chef, the next one is the first</b>
+<i class="no-highlight">75</i>&nbsp;            }
+<i class="no-highlight">76</i>&nbsp;            else {
+<b class="fc"><i class="no-highlight">77</i>&nbsp;                counter++;</b>
+<i class="no-highlight">78</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">79</i>&nbsp;            this.orders.add(order); // goes to the restaurant</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;            chef.addOrder(order); // goes to the chef</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;            return true;</b>
+<i class="no-highlight">82</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">83</i>&nbsp;        return false;</b>
+<i class="no-highlight">84</i>&nbsp;    }
+<i class="no-highlight">85</i>&nbsp;
+<i class="no-highlight">86</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-13 12:30</div>
+</div>
+</body>
+</html>

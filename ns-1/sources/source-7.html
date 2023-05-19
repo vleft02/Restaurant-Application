@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Order</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: Order (gr.aueb.softeng.team08)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Order</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (36/36)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Order$State</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (37/37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package gr.aueb.softeng.team08;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.sql.Date;
+<i class="no-highlight">4</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">5</i>&nbsp;import java.util.NoSuchElementException;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;public class Order {
+<b class="fc"><i class="no-highlight">8</i>&nbsp;    public enum State {RECEIVED, PREPARING, COMPLETED, CANCELLED} // Enum for the number of states an order might have</b>
+<i class="no-highlight">9</i>&nbsp;    private final int tableNumber;
+<i class="no-highlight">10</i>&nbsp;    private final String time;
+<i class="no-highlight">11</i>&nbsp;    private final Date date;
+<b class="fc"><i class="no-highlight">12</i>&nbsp;    private boolean isPaid = false; // is True when the order has been paid</b>
+<i class="no-highlight">13</i>&nbsp;    private final Customer customer; // final because no matter what the customer of the order cannot change
+<b class="fc"><i class="no-highlight">14</i>&nbsp;    private State state = State.RECEIVED;</b>
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;    private ArrayList&lt;OrderLine&gt; orderLines; // The total number of order Lines that consist the order
+<i class="no-highlight">17</i>&nbsp;
+<b class="fc"><i class="no-highlight">18</i>&nbsp;    public Order(int tableNumber,String time, Date date, Customer customer) {</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        this.customer = customer;</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;        this.tableNumber = tableNumber;</b>
+<b class="fc"><i class="no-highlight">21</i>&nbsp;        this.time = time;</b>
+<b class="fc"><i class="no-highlight">22</i>&nbsp;        this.date = date;</b>
+<b class="fc"><i class="no-highlight">23</i>&nbsp;        this.orderLines = new ArrayList&lt;OrderLine&gt;();</b>
+<i class="no-highlight">24</i>&nbsp;    }
+<i class="no-highlight">25</i>&nbsp;//Getters
+<i class="no-highlight">26</i>&nbsp;    public ArrayList&lt;OrderLine&gt; getOrderLines()  {
+<b class="fc"><i class="no-highlight">27</i>&nbsp;            return this.orderLines;</b>
+<i class="no-highlight">28</i>&nbsp;    }
+<i class="no-highlight">29</i>&nbsp;    public Customer getCustomer() {
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        return this.customer;</b>
+<i class="no-highlight">31</i>&nbsp;    }
+<i class="no-highlight">32</i>&nbsp;    public State getOrderState() {
+<b class="fc"><i class="no-highlight">33</i>&nbsp;        return this.state;</b>
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;    public int getTableNumber() {
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        return this.tableNumber;</b>
+<i class="no-highlight">37</i>&nbsp;    }
+<i class="no-highlight">38</i>&nbsp;    public double getTotalCost() {
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        double total=0.0;</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        if (!orderLines.isEmpty())</b>
+<i class="no-highlight">41</i>&nbsp;        {
+<b class="fc"><i class="no-highlight">42</i>&nbsp;            for(OrderLine o:orderLines){</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;                total+=o.getSubTotalCost();</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;            }</b>
+<i class="no-highlight">45</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">46</i>&nbsp;        return total;</b>
+<i class="no-highlight">47</i>&nbsp;    }
+<b class="fc"><i class="no-highlight">48</i>&nbsp;    public String getTime() {return this.time;}</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;    public Date getDate() {return this.date;}</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;    public boolean isPaid() {return this.isPaid;}</b>
+<i class="no-highlight">51</i>&nbsp;
+<i class="no-highlight">52</i>&nbsp;    //Setters for the state of the order
+<b class="fc"><i class="no-highlight">53</i>&nbsp;    public void setStatePreparing(){this.state=State.PREPARING;}//this is being called by the chef</b>
+<i class="no-highlight">54</i>&nbsp;    public void setStateCompleted(){//this is being called by the chef in the controller class
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        this.state=State.COMPLETED;</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;        this.isPaid=true;</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        this.customer.transaction(getTotalCost()); // subtract the customers money , at this stage it has already been made sure that the customer has enough money</b>
+<i class="no-highlight">58</i>&nbsp;    }
+<i class="no-highlight">59</i>&nbsp;    public void setStateCancelled() throws IllegalStateException
+<i class="no-highlight">60</i>&nbsp;    {
+<b class="fc"><i class="no-highlight">61</i>&nbsp;        if (this.state == State.COMPLETED)</b>
+<i class="no-highlight">62</i>&nbsp;        {
+<b class="fc"><i class="no-highlight">63</i>&nbsp;            throw new IllegalStateException();</b>
+<i class="no-highlight">64</i>&nbsp;        }
+<i class="no-highlight">65</i>&nbsp;        else {
+<b class="fc"><i class="no-highlight">66</i>&nbsp;            this.state = State.CANCELLED;</b>
+<i class="no-highlight">67</i>&nbsp;        }
+<i class="no-highlight">68</i>&nbsp;    }
+<i class="no-highlight">69</i>&nbsp;    public void addOrderLine(OrderLine orderLine) {
+<b class="fc"><i class="no-highlight">70</i>&nbsp;        if (orderLines.contains(orderLine)) {//if we already have an orderLine for the same dish, we get the object and add the quantities</b>
+<b class="fc"><i class="no-highlight">71</i>&nbsp;            OrderLine o = orderLines.get(orderLines.indexOf(orderLine));</b>
+<b class="fc"><i class="no-highlight">72</i>&nbsp;            o.setQuantity(o.getQuantity() + orderLine.getQuantity());</b>
+<b class="fc"><i class="no-highlight">73</i>&nbsp;        }</b>
+<i class="no-highlight">74</i>&nbsp;        else {//else it is not on the list, and we add it
+<b class="fc"><i class="no-highlight">75</i>&nbsp;            this.orderLines.add(orderLine);</b>
+<i class="no-highlight">76</i>&nbsp;        }
+<i class="no-highlight">77</i>&nbsp;    }
+<i class="no-highlight">78</i>&nbsp;    public void removeOrderLine(OrderLine orderLine) throws NoSuchElementException{
+<b class="fc"><i class="no-highlight">79</i>&nbsp;        if (!orderLines.isEmpty()) {</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;            orderLines.remove(orderLine);</b>
+<i class="no-highlight">81</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">82</i>&nbsp;            throw new NoSuchElementException();</b>
+<i class="no-highlight">83</i>&nbsp;        }
+<i class="no-highlight">84</i>&nbsp;    }
+<i class="no-highlight">85</i>&nbsp;
+<i class="no-highlight">86</i>&nbsp;
+<i class="no-highlight">87</i>&nbsp;
+<i class="no-highlight">88</i>&nbsp;}
+<i class="no-highlight">89</i>&nbsp;
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-13 12:30</div>
+</div>
+</body>
+</html>

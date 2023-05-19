@@ -1,4 +1,4 @@
-package gr.aueb.softeng.ui;
+package gr.aueb.softeng.ui.login;
 
 import android.util.Log;
 
