@@ -4,15 +4,15 @@ import java.util.List;
 
 import gr.aueb.softeng.domain.Chef;
 public interface ChefDAO {
-    void delete(Chef chef);
+    void delete(Chef entity);
 
     void delete(int id);
 
     List<Chef> findAll();
 
-    void save(Chef chef);
+    void save(Chef entity);
 
-    Chef find(Chef chef);
+    Chef find(Chef entity);
 
     Chef find(int id);
     int nextId();

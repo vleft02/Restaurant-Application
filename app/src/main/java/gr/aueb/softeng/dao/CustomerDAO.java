@@ -5,15 +5,15 @@ import java.util.List;
 import gr.aueb.softeng.domain.Customer;
 
 public interface CustomerDAO {
-    void delete(Customer customer);
+    void delete(Customer entity);
 
     void delete(int id);
 
     List<Customer> findAll();
 
-    void save(Customer customer);
+    void save(Customer entity);
 
-    Customer find(Customer customer);
+    Customer find(Customer entity);
 
     Customer find(int id);
     int nextId();

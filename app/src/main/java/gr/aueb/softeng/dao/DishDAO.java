@@ -5,15 +5,15 @@ import java.util.List;
 import gr.aueb.softeng.domain.Dish;
 
 public interface DishDAO {
-    void delete(Dish dish);
+    void delete(Dish entity);
 
     void delete(int id);
 
     List<Dish> findAll();
 
-    void save(Dish dish);
+    void save(Dish entity);
 
-    Dish find(Dish dish);
+    Dish find(Dish entity);
 
     Dish find(int id);
 
