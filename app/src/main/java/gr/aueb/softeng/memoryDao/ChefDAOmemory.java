@@ -7,42 +7,56 @@ import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.domain.Chef;
 
 public class ChefDAOmemory implements ChefDAO{
-    protected static ArrayList<Chef> chefs = new ArrayList<>();
+    protected static ArrayList<Chef> entities = new ArrayList<>();
     @Override
-    public void delete(Chef chef) {
-
+    public void delete(Chef entity) {
+        entities.remove(entity);
     }
 
     @Override
     public void delete(int id) {
-
+        for (Chef chef: entities){
+            if (chef.getUserId()==id){
+                entities.remove(chef);
+                break;
+            }
+        }
     }
 
     @Override
     public List<Chef> findAll() {
-        return null;
+        ArrayList<Chef> result= new ArrayList<>();
+        result.addAll(entities);
+        return result;
     }
 
     @Override
-    public void save(Chef chef) {
-        if (chef!=null) {
-            chefs.add(chef);
+    public void save(Chef entity) {
+        entities.add(entity);
+    }
+
+    @Override
+    public Chef find(Chef entity) {
+        for(Chef chef: entities){
+            if(chef==entity){
+                return chef;
+            }
         }
-    }
-
-
-    @Override
-    public Chef find(Chef chef) {
         return null;
     }
 
     @Override
     public Chef find(int id) {
+        for(Chef chef: entities){
+            if(chef.getUserId()==id){
+                return chef;
+            }
+        }
         return null;
     }
 
     @Override
     public int nextId() {
-        return 0;
+        return (entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
     }
 }

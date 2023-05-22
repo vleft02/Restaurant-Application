@@ -6,15 +6,15 @@ import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Owner;
 
 public interface OwnerDAO {
-    void delete(Owner owner);
+    void delete(Owner entity);
 
     void delete(int id);
 
     List<Owner> findAll();
 
-    void save(Owner owner);
+    void save(Owner entity);
 
-    Owner find(Owner owner);
+    Owner find(Owner entity);
 
     Owner find(int id);
 

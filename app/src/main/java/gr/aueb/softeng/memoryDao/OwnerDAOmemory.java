@@ -4,45 +4,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
 
 public class OwnerDAOmemory implements OwnerDAO {
-    protected static ArrayList<Owner> owners = new ArrayList<>();
+    protected static ArrayList<Owner> entities = new ArrayList<>();
     @Override
-    public void delete(Owner owner) {
-
+    public void delete(Owner entity) {
+        entities.remove(entity);
     }
 
     @Override
     public void delete(int id) {
-
-    }
-
-    @Override
-    public List<Owner> findAll() {
-        return null;
-    }
-
-    @Override
-    public void save(Owner owner) {
-        if (owner!=null) {
-            owners.add(owner);
+        for (Owner owner: entities){
+            if (owner.getUserId()==id){
+                entities.remove(owner);
+                break;
+            }
         }
     }
 
     @Override
-    public Owner find(Owner owner) {
+    public List<Owner> findAll() {
+        ArrayList<Owner> result= new ArrayList<>();
+        result.addAll(entities);
+        return result;
+    }
+
+    @Override
+    public void save(Owner entity) {
+        entities.add(entity);
+    }
+
+    @Override
+    public Owner find(Owner entity) {
+        for(Owner owner: entities){
+            if(owner==entity){
+                return owner;
+            }
+        }
         return null;
     }
 
     @Override
     public Owner find(int id) {
+        for(Owner owner: entities){
+            if(owner.getUserId()==id){
+                return owner;
+            }
+        }
         return null;
     }
 
     @Override
     public int nextId() {
-        return 0;
+        return (entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
     }
 }

@@ -8,36 +8,53 @@ import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Order;
 
 public class OrderDAOmemory implements OrderDAO{
-    protected static ArrayList<Order> orders = new ArrayList<>();
+    protected static ArrayList<Order> entities = new ArrayList<>();
     @Override
-    public void delete(Order order) {
-
+    public void delete(Order entity) {
+        entities.remove(entity);
     }
 
     @Override
-    public void save(Order order) {
-        if (order!=null) {
-            orders.add(order);
-        }
+    public void save(Order entity) {
+        entities.add(entity);
     }
 
     @Override
     public List<Order> findAll() {
-        return null;
+        ArrayList<Order> result= new ArrayList<>();
+        result.addAll(entities);
+        return result;
     }
 
     @Override
-    public Order find(Order order) {
+    public Order find(Order entity) {
+        for(Order order: entities){
+            if(order==entity){
+                return order;
+            }
+        }
         return null;
     }
 
     @Override
     public List<Order> findByCustomer(Customer customer) {
-        return null;
+        ArrayList<Order> result= new ArrayList<>();
+        for(Order order : entities){
+            if(order.getCustomer()==customer){
+                result.add(order);
+            }
+        }
+        return  result;
     }
 
     @Override
     public List<Order> findByCustomer(int id) {
-        return null;
+        ArrayList<Order> result= new ArrayList<>();
+        for(Order order : entities){
+            if(order.getCustomer().getUserId()==id){
+                result.add(order);
+            }
+        }
+        return  result;
     }
 }
