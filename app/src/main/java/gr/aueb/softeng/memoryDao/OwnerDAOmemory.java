@@ -46,6 +46,15 @@ public class OwnerDAOmemory implements OwnerDAO {
         }
         return null;
     }
+    @Override
+    public Owner find(String username,String password) {
+        for(Owner owner: entities){
+            if(owner.getUsername().equals(username) && owner.getPassword().equals(password)){
+                return owner;
+            }
+        }
+        return null;
+    }
 
     @Override
     public Owner find(int id) {

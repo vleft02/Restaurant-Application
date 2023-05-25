@@ -15,6 +15,7 @@ public interface CustomerDAO {
 
     Customer find(Customer entity);
 
+    Customer find(String username,String password);
     Customer find(int id);
     int nextId();
 }
