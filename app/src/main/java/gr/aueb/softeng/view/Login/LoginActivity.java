@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.textfield.TextInputEditText;
 
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.SignUp.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -37,6 +38,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             Intent intent = getIntent();
 
         }
+        findViewById(R.id.SignUpCustomerButton).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                viewModel.getPresenter().onSignup();
+            }
+        });
 
         findViewById(R.id.login_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +66,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     {
         return ((EditText)findViewById(R.id.passwordText)).getText().toString().trim();
     }
-
+    public void signup(){
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        startActivity(intent);
+    }
 
 }
