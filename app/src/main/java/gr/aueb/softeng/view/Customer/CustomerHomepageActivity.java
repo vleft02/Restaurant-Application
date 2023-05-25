@@ -14,6 +14,7 @@ public class CustomerHomepageActivity extends AppCompatActivity implements Custo
         chooseLayout();
         setContentView(R.layout.activity_customer_hompepage);
 
+        final CustomerHomepagePresenter presenter = new CustomerHomepagePresenter();
 
     }
 
