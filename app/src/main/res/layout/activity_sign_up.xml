@@ -25,13 +25,13 @@
             android:src="@drawable/gradient2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.913"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.709" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/CreateAccButton"
             android:layout_width="129dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"
@@ -43,122 +43,122 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/TelephoneText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="phone"
             android:minHeight="48dp"
-            android:text="@string/telephone"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+            android:hint="@string/telephone"
+            app:layout_constraintBottom_toTopOf="@+id/CardNumberText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/NameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:ems="10"
+            android:hint="@string/Name"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText6"
+            android:id="@+id/CVVText"
             android:layout_width="211dp"
             android:layout_height="48dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/cvv"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+            android:hint="@string/cvv"
+            app:layout_constraintBottom_toTopOf="@+id/PasswordText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.456"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/SurnameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/Surname"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText"
+            android:hint="@string/Surname"
+            app:layout_constraintBottom_toTopOf="@+id/UsernameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/CardNumberText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="number"
             android:minHeight="48dp"
-            android:text="Card Number"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText4"
+            android:hint="Card Number"
+            app:layout_constraintBottom_toTopOf="@+id/CardHolderNameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/CardHolderNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/cardholder_name"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText6"
+            android:hint="@string/cardholder_name"
+            app:layout_constraintBottom_toTopOf="@+id/CVVText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/PasswordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:text="@string/Password"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            android:hint="@string/Password"
+            app:layout_constraintBottom_toTopOf="@+id/CreateAccButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.465"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/EmailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:text="@string/email"
-            app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+            android:hint="@string/email"
+            app:layout_constraintBottom_toTopOf="@+id/TelephoneText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/UsernameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/username"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+            android:hint="@string/username"
+            app:layout_constraintBottom_toTopOf="@+id/EmailText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

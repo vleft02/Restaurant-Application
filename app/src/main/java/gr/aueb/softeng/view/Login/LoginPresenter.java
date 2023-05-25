@@ -45,4 +45,7 @@ public class LoginPresenter {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
         }
     }
+    public void onSignup(){
+        view.signup();
+    }
 }
