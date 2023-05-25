@@ -46,6 +46,16 @@ public class CustomerDAOmemory implements CustomerDAO{
     }
 
     @Override
+    public Customer find(String username,String password) {
+        for(Customer cust: entities){
+            if(cust.getUsername().equals(username) && cust.getPassword().equals(password)){
+                return cust;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public Customer find(int id) {
         for(Customer cust: entities){
             if(cust.getUserId()==id){

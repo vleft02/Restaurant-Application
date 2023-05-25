@@ -44,6 +44,14 @@ public class LoginPresenter {
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
         }
+        else if (custDAO.find(inputUsername,inputPassword)==null)
+        {
+            view.showErrorMessage("Σφάλμα!", "Τα στοιχεία σύνδεσης δεν είναι σωστά.");
+        }
+        else
+        {
+            //view.redirect()
+        }
     }
     public void onSignup(){
         view.signup();
