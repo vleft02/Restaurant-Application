@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context="gr.aueb.softeng.view.Customer.CustomerHomepageActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="76dp"
-        android:layout_height="78dp"
-        android:contentDescription="@string/plus"
-        android:contextClickable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.989"
-        app:srcCompat="@drawable/plus"
-        tools:ignore="ImageContrastCheck" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="359dp"
@@ -49,6 +34,21 @@
     </com.google.android.material.tabs.TabLayout>
 
     <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="76dp"
+        android:layout_height="78dp"
+        android:contentDescription="@string/plus"
+        android:contextClickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992"
+        app:srcCompat="@drawable/plus"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="48dp"
         android:layout_height="49dp"
@@ -61,4 +61,5 @@
         app:layout_constraintVertical_bias="0.001"
         app:srcCompat="@drawable/logout"
         tools:ignore="ImageContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,4 +13,11 @@
     <string name="plus">plus</string>
     <string name="current_order">Current Order</string>
     <string name="logout">logout</string>
+    <string name="Name">Name</string>
+    <string name="Surname">Surname\n</string>
+    <string name="cvv">CVV</string>
+    <string name="create_account">Create Account</string>
+    <string name="cardholder_name">Cardholder Name</string>
+    <string name="email">Email</string>
+    <string name="telephone">Telephone</string>
 </resources>
