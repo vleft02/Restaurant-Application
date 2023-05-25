@@ -8,4 +8,9 @@
     <string name="Password">Password</string>
     <string name="insert_password">Insert Password</string>
     <string name="insert_username">insert_username</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="order_history">Order History</string>
+    <string name="plus">plus</string>
+    <string name="current_order">Current Order</string>
+    <string name="logout">logout</string>
 </resources>
