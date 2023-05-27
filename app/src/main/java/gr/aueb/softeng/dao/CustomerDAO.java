@@ -13,9 +13,8 @@ public interface CustomerDAO {
 
     void save(Customer entity);
 
-    Customer find(Customer entity);
+    Customer find(String username, String password);
 
-    Customer find(String username,String password);
     Customer find(int id);
     int nextId();
 }

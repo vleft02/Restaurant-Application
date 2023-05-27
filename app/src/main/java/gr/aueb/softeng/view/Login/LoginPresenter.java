@@ -3,12 +3,14 @@ package gr.aueb.softeng.view.Login;
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.UserDAO;
 
 public class LoginPresenter {
     private LoginView view;
     private ChefDAO chefDAO;
     private CustomerDAO custDAO;
     private OwnerDAO ownerDAO;
+    private UserDAO userDAO;
 
     private String inputUsername;
     private String inputPassword;
@@ -22,6 +24,7 @@ public class LoginPresenter {
     public ChefDAO getChefDao(){return this.chefDAO;}
     public CustomerDAO getCustomerDao(){return this.custDAO;}
     public OwnerDAO getOwnerDao(){return this.ownerDAO;}
+    public UserDAO getUserDAO(){return this.userDAO;}
 
     public void setChefDAO(ChefDAO chefDAO) {
         this.chefDAO = chefDAO;
@@ -32,6 +35,7 @@ public class LoginPresenter {
     public void setOwnerDAO(OwnerDAO ownerDAO){
         this.ownerDAO = ownerDAO;
     }
+    public void setUserDAO(UserDAO userDAO){this.userDAO= userDAO;}
 
     public void onExtractUsername(){
        inputUsername= view.ExtractUsername();
@@ -40,20 +44,21 @@ public class LoginPresenter {
         inputPassword = view.ExtractPassword();
     }
 
-    public void authenticate() {
+    public boolean authenticate() {
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
+        }else {
+            if (userDAO.find(inputUsername, inputPassword) != null) {////////////// na to dw
+                return true; //////////////// iparxei o user
+            }
         }
-        else if (custDAO.find(inputUsername,inputPassword)==null)
-        {
-            view.showErrorMessage("Σφάλμα!", "Τα στοιχεία σύνδεσης δεν είναι σωστά.");
-        }
-        else
-        {
-            //view.redirect()
-        }
+        return false;
     }
     public void onSignup(){
         view.signup();
     }
+
+    public void onSignupPersonel() {view.signupPersonel();
+    }
+    public void onSignupOwner(){view.signupOwner();}
 }

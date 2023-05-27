@@ -36,19 +36,9 @@ public class CustomerDAOmemory implements CustomerDAO{
     }
 
     @Override
-    public Customer find(Customer entity) {
+    public Customer find(String username, String password) {
         for(Customer cust: entities){
-            if(cust==entity){
-                return cust;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Customer find(String username,String password) {
-        for(Customer cust: entities){
-            if(cust.getUsername().equals(username) && cust.getPassword().equals(password)){
+            if(username.equals(cust.getUsername())&& password.equals(cust.getPassword())){
                 return cust;
             }
         }
@@ -67,6 +57,6 @@ public class CustomerDAOmemory implements CustomerDAO{
 
     @Override
     public int nextId() {
-        return (entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
+        return (UserDAOmemory.entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
     }
 }

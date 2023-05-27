@@ -11,7 +11,17 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name="gr.aueb.softeng.view.SignUp.CustomerSignUp.CustomerSignUpActivity"
+            android:name="gr.aueb.softeng.view.SignUpOwner.SignUpOwnerActivity"
+            android:exported="true"
+            android:label="Sign Up Owner"
+            android:screenOrientation="fullSensor"/>
+        <activity
+            android:name="gr.aueb.softeng.view.SignUpPersonel.SignUpPersonelActivity"
+            android:exported="true"
+            android:label="Sign Up Personel"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name="gr.aueb.softeng.view.SignUp.SignUpActivity"
             android:exported="true"
             android:label="@string/sign_up"
             android:screenOrientation="fullSensor" />

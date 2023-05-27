@@ -36,19 +36,9 @@ public class ChefDAOmemory implements ChefDAO{
     }
 
     @Override
-    public Chef find(Chef entity) {
+    public Chef find(String username, String password) {
         for(Chef chef: entities){
-            if(chef==entity){
-                return chef;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Chef find(String username,String password) {
-        for(Chef chef: entities){
-            if(chef.getUsername().equals(username) && chef.getPassword().equals(password)){
+            if(username.equals(chef.getUsername()) && password.equals(chef.getPassword())){
                 return chef;
             }
         }
@@ -67,6 +57,6 @@ public class ChefDAOmemory implements ChefDAO{
 
     @Override
     public int nextId() {
-        return (entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
+        return (UserDAOmemory.entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
     }
 }
