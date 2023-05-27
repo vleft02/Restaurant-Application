@@ -26,7 +26,7 @@
             android:label="@string/sign_up"
             android:screenOrientation="fullSensor" />
         <activity
-            android:name="gr.aueb.softeng.view.Customer.CustomerHomepageActivity"
+            android:name="gr.aueb.softeng.view.Customer.CustomerHomePageActivity"
             android:exported="true"
             android:screenOrientation="fullSensor" />
         <activity

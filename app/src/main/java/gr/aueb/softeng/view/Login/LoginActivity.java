@@ -9,7 +9,12 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
+
+import gr.aueb.softeng.dao.CustomerDAO;
+import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.Customer.CustomerHomePageActivity;
 import gr.aueb.softeng.view.SignUp.SignUpActivity;
 import gr.aueb.softeng.view.SignUpOwner.SignUpOwnerActivity;
 import gr.aueb.softeng.view.SignUpPersonel.SignUpPersonelActivity;
@@ -61,11 +66,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             public void onClick(View v) {
                 viewModel.getPresenter().onExtractUsername();
                 viewModel.getPresenter().onExtractPassword();
-                if(viewModel.getPresenter().authenticate()){
-                    showErrorMessage("Επιτυχια","ο χρηστης βρεθηκε!!");
-                }else{
-                    showErrorMessage("Αποτυχία","ο χρηστης δεν βρεθηκε!!");
-                }
+                viewModel.getPresenter().authenticate();
 
             }
         });
@@ -80,8 +81,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     {
         return ((EditText)findViewById(R.id.passwordText)).getText().toString().trim();
     }
-    public void signup(){
+    public void signup(UserDAO userDAO, CustomerDAO custDAO){
         Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        intent.putExtra("User dao",(Object)userDAO);
+        intent.putExtra("Customer Dao",(Object)custDAO);
         startActivity(intent);
     }
 
@@ -93,4 +96,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         Intent intent = new Intent(LoginActivity.this, SignUpOwnerActivity.class);
         startActivity(intent);
     }
+
+    public void redirectToCustomerPage(){
+        Intent intent = new Intent(LoginActivity.this, CustomerHomePageActivity.class);
+        startActivity(intent);
+    }
+    /*public void redirectToChefPage(){
+        Intent intent = new Intent(LoginActivity.this, ChefHomePageActivity.class);
+        startActivity(intent);
+    }
+    public void redirectToCustomerPage(){
+        Intent intent = new Intent(LoginActivity.this, OwnerHomePageActivity.class);
+        startActivity(intent);
+    }
+    */
+
 }

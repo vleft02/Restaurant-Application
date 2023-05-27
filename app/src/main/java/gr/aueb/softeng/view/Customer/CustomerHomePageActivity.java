@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import gr.aueb.softeng.team08.R;
 
-public class CustomerHomepageActivity extends AppCompatActivity implements CustomerHomepageView{
+public class CustomerHomePageActivity extends AppCompatActivity implements CustomerHomepageView{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
