@@ -14,9 +14,7 @@ public interface OwnerDAO {
 
     void save(Owner entity);
 
-    Owner find(Owner entity);
-
-    Owner find(String username,String password);
+    Owner find(String username, String password);
 
     Owner find(int id);
 

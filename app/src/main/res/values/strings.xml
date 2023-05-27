@@ -20,4 +20,8 @@
     <string name="cardholder_name">Cardholder Name</string>
     <string name="email">Email</string>
     <string name="telephone">Telephone</string>
+    <string name="gradient_field">gradient field</string>
+    <string name="sign_up_owner">Sign Up (Owner)\n</string>
+    <string name="iban">Iban</string>
+    <string name="tin">Tin</string>
 </resources>

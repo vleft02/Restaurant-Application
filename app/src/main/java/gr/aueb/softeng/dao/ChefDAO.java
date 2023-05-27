@@ -12,8 +12,6 @@ public interface ChefDAO {
 
     void save(Chef entity);
 
-    Chef find(Chef entity);
-
     Chef find(String username, String password);
 
     Chef find(int id);

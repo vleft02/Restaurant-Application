@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
@@ -38,18 +39,9 @@ public class OwnerDAOmemory implements OwnerDAO {
     }
 
     @Override
-    public Owner find(Owner entity) {
+    public Owner find(String username, String password) {
         for(Owner owner: entities){
-            if(owner==entity){
-                return owner;
-            }
-        }
-        return null;
-    }
-    @Override
-    public Owner find(String username,String password) {
-        for(Owner owner: entities){
-            if(owner.getUsername().equals(username) && owner.getPassword().equals(password)){
+            if(username.equals(owner.getUsername()) && password.equals(owner.getPassword())){
                 return owner;
             }
         }
@@ -68,6 +60,6 @@ public class OwnerDAOmemory implements OwnerDAO {
 
     @Override
     public int nextId() {
-        return (entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
+        return (UserDAOmemory.entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
     }
 }
