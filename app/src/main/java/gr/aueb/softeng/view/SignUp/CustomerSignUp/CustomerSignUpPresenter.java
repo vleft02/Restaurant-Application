@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUp;
+package gr.aueb.softeng.view.SignUp.CustomerSignUp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,11 +6,11 @@ import java.util.Map;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Customer;
 
-public class SignUpPresenter {
+public class CustomerSignUpPresenter {
     private CustomerDAO customerDAO;
-    SignUpView view;
+    CustomerSignUpView view;
     private String name,surname,username,email,telephone ,CardNumber,CardHolderName, cvv , password;
-    public void setView(SignUpView v)
+    public void setView(CustomerSignUpView v)
     {
         this.view = v;
     }

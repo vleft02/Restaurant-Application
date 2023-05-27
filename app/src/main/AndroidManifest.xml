@@ -11,19 +11,19 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name="gr.aueb.softeng.view.SignUp.SignUpActivity"
-            android:screenOrientation="fullSensor"
+            android:name="gr.aueb.softeng.view.SignUp.CustomerSignUp.CustomerSignUpActivity"
+            android:exported="true"
             android:label="@string/sign_up"
-            android:exported="true" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name="gr.aueb.softeng.view.Customer.CustomerHomepageActivity"
-            android:screenOrientation="fullSensor"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name="gr.aueb.softeng.view.Login.LoginActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor"
             android:label="@string/log_in"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
