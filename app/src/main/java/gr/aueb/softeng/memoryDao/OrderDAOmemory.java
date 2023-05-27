@@ -1,4 +1,5 @@
 package gr.aueb.softeng.memoryDao;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Order;
 
-public class OrderDAOmemory implements OrderDAO{
+public class OrderDAOmemory implements OrderDAO, Serializable {
     protected static ArrayList<Order> entities = new ArrayList<>();
     @Override
     public void delete(Order entity) {

@@ -1,12 +1,13 @@
 package gr.aueb.softeng.memoryDao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.domain.Chef;
 
-public class ChefDAOmemory implements ChefDAO{
+public class ChefDAOmemory implements ChefDAO, Serializable {
     protected static ArrayList<Chef> entities = new ArrayList<>();
     @Override
     public void delete(Chef entity) {

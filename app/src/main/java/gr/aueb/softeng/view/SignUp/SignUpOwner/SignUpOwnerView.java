@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUpOwner;
+package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
 import java.util.HashMap;
 

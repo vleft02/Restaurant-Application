@@ -24,4 +24,5 @@
     <string name="sign_up_owner">Sign Up (Owner)\n</string>
     <string name="iban">Iban</string>
     <string name="tin">Tin</string>
+    <string name="Homepage">Homepage</string>
 </resources>

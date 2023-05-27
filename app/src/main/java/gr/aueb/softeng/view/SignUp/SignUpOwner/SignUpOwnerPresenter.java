@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUpOwner;
+package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +57,7 @@ public class SignUpOwnerPresenter {
         }
 
     }
-    public void setOwnerDao(OwnerDAO ownerDAO){
+    public void setOwnerDAO(OwnerDAO ownerDAO){
         this.ownerDAO = ownerDAO;
     }
     public void setUserDAO(UserDAO userDAO){this.userDAO=userDAO;}

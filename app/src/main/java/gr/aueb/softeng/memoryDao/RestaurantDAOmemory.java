@@ -1,4 +1,5 @@
 package gr.aueb.softeng.memoryDao;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
 import gr.aueb.softeng.domain.Restaurant;
 
-public class RestaurantDAOmemory implements RestaurantDAO {
+public class RestaurantDAOmemory implements RestaurantDAO, Serializable {
     protected static ArrayList<Restaurant> entities = new ArrayList<>();
     @Override
     public void delete(Restaurant entity) {

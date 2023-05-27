@@ -11,23 +11,27 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name="gr.aueb.softeng.view.SignUpOwner.SignUpOwnerActivity"
+            android:name="gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name="gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerActivity"
             android:exported="true"
             android:label="Sign Up Owner"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="gr.aueb.softeng.view.SignUpPersonel.SignUpPersonelActivity"
+            android:name="gr.aueb.softeng.view.SignUp.SignUpPersonel.SignUpPersonelActivity"
             android:exported="true"
             android:label="Sign Up Personel"
             android:screenOrientation="fullSensor" />
         <activity
-            android:name="gr.aueb.softeng.view.SignUp.SignUpActivity"
+            android:name="gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity"
             android:exported="true"
             android:label="@string/sign_up"
             android:screenOrientation="fullSensor" />
         <activity
-            android:name="gr.aueb.softeng.view.Customer.CustomerHomePageActivity"
+            android:name="gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity"
             android:exported="true"
+            android:label="@string/Homepage"
             android:screenOrientation="fullSensor" />
         <activity
             android:name="gr.aueb.softeng.view.Login.LoginActivity"

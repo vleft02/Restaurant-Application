@@ -1,8 +1,7 @@
-package gr.aueb.softeng.view.SignUp;
+package gr.aueb.softeng.view.SignUp.SignUpCustomer;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,10 +17,10 @@ import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
 
-public class SignUpActivity extends AppCompatActivity implements SignUpView{
+public class SignUpCustomerActivity extends AppCompatActivity implements SignUpCustomerView {
     public void showErrorMessage(String title, String message)
     {
-        new AlertDialog.Builder(SignUpActivity.this)
+        new AlertDialog.Builder(SignUpCustomerActivity.this)
                 .setCancelable(true)
                 .setTitle(title)
                 .setMessage(message)
@@ -33,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        SignUpViewModel viewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
+        SignUpCustomerViewModel viewModel = new ViewModelProvider(this).get(SignUpCustomerViewModel.class);
         viewModel.getPresenter().setView(this);
         ArrayList<Object> daos ;
         if (savedInstanceState == null) {
@@ -42,14 +41,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
             if(extras == null) {
                 daos= null;
             } else {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    daos= extras.getParcelableArrayList("daos",Object.class);
-                    viewModel.getPresenter().setUserDao((UserDAO)daos.get(0));
-                    viewModel.getPresenter().setCustDao((CustomerDAO)daos.get(1));
-                }
+                    viewModel.getPresenter().setUserDao((UserDAO) intent.getSerializableExtra("User DAO"));
+                    viewModel.getPresenter().setCustDao((CustomerDAO)intent.getSerializableExtra("Owner DAO"));
             }
         } else {
-            daos= (ArrayList<Object>) savedInstanceState.getSerializable("daos");////////////////////
+
+            //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
 
         }
 
@@ -75,9 +72,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         return details;
     }
     public void goBack(){
-        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+        Intent intent = new Intent(SignUpCustomerActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
+//    @Override
+ //   protected void onSaveInstanceState(Bundle outState) {
+ //       super.onSaveInstanceState(outState);
+  //      outState.putSerializable(view); // Save relevant data
+//    }
 
 }

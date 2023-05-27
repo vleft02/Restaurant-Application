@@ -1,4 +1,5 @@
 package gr.aueb.softeng.memoryDao;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +7,7 @@ import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Customer;
 
-public class CustomerDAOmemory implements CustomerDAO{
+public class CustomerDAOmemory implements CustomerDAO, Serializable {
     protected static ArrayList<Customer> entities = new ArrayList<>();
     @Override
     public void delete(Customer entity) {

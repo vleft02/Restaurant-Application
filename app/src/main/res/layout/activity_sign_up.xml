@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gr.aueb.softeng.view.SignUp.SignUpActivity"
+    tools:context="gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity"
     android:background="@drawable/backround3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,6 +22,7 @@
             android:id="@+id/imageView2"
             android:layout_width="511dp"
             android:layout_height="722dp"
+            android:background="#4BFFFFFF"
             android:src="@drawable/gradient2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

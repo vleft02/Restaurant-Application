@@ -1,13 +1,11 @@
-package gr.aueb.softeng.view.SignUpOwner;
+package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
 import android.util.Log;
-import android.widget.ViewAnimator;
 
 import androidx.lifecycle.ViewModel;
 
 import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
-import gr.aueb.softeng.domain.User;
 import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 import gr.aueb.softeng.memoryDao.UserDAOmemory;
 
@@ -19,7 +17,7 @@ public class SignUpOwnerViewModel extends ViewModel {
         presenter = new SignUpOwnerPresenter();
         OwnerDAO ownerDao = new OwnerDAOmemory();
         UserDAO userDao = new UserDAOmemory();
-        presenter.setOwnerDao(ownerDao);
+        presenter.setOwnerDAO(ownerDao);
         presenter.setUserDAO(userDao);
     }
 
