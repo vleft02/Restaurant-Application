@@ -1,18 +1,17 @@
-package gr.aueb.softeng.view.SignUp;
+package gr.aueb.softeng.view.SignUp.SignUpCustomer;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import gr.aueb.softeng.dao.CustomerDAO;
-import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Customer;
 
-public class SignUpPresenter {
+public class SignUpCustomerPresenter {
     private CustomerDAO customerDAO;
     private  UserDAO userDAO;
-    SignUpView view;
-    public void setView(SignUpView v)
+    SignUpCustomerView view;
+    public void setView(SignUpCustomerView v)
     {
         this.view = v;
     }

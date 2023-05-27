@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUpPersonel;
+package gr.aueb.softeng.view.SignUp.SignUpPersonel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +56,7 @@ public class SignUpPersonelPresenter {
         }
 
     }
-    public void setChefDao(ChefDAO chefDAO){
+    public void setChefDAO(ChefDAO chefDAO){
         this.chefDAO = chefDAO;
     }
     public void setUserDAO(UserDAO userDAO){this.userDAO=userDAO;}

@@ -1,5 +1,6 @@
 package gr.aueb.softeng.memoryDao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
 
-public class OwnerDAOmemory implements OwnerDAO {
+public class OwnerDAOmemory implements OwnerDAO, Serializable {
     protected static ArrayList<Owner> entities = new ArrayList<>();
     @Override
     public void delete(Owner entity) {

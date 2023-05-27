@@ -1,12 +1,13 @@
 package gr.aueb.softeng.memoryDao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.User;
 
-public class UserDAOmemory implements UserDAO {
+public class UserDAOmemory implements UserDAO, Serializable {
     protected static ArrayList<User> entities = new ArrayList<>();
     @Override
     public void delete(User entity) {

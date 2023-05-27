@@ -1,4 +1,5 @@
 package gr.aueb.softeng.memoryDao;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Dish;
 
-public class DishDAOmemory implements DishDAO{
+public class DishDAOmemory implements DishDAO, Serializable {
     protected static ArrayList<Dish> entities = new ArrayList<>();
     @Override
     public void delete(Dish entity) {

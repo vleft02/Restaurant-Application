@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUpPersonel;
+package gr.aueb.softeng.view.SignUp.SignUpPersonel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,6 +11,9 @@ import android.widget.EditText;
 
 import java.util.HashMap;
 
+import gr.aueb.softeng.dao.ChefDAO;
+import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
 
@@ -34,6 +37,14 @@ public class SignUpPersonelActivity extends AppCompatActivity implements SignUpP
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
+            Bundle extras = intent.getExtras();
+            if(extras != null) {
+                viewModel.getPresenter().setUserDAO((UserDAO) intent.getSerializableExtra("User DAO"));
+                viewModel.getPresenter().setChefDAO((ChefDAO) intent.getSerializableExtra("Chef DAO"));
+            }
+        } else {
+
+            //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
 
         }
         findViewById(R.id.CreateAccPersonelButton).setOnClickListener(new View.OnClickListener(){

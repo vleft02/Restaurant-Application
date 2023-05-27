@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUpOwner;
+package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 
 import java.util.HashMap;
 
+import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
 
@@ -35,6 +37,14 @@ public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwne
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
+            Bundle extras = intent.getExtras();
+            if(extras != null) {
+                viewModel.getPresenter().setUserDAO((UserDAO) intent.getSerializableExtra("User DAO"));
+                viewModel.getPresenter().setOwnerDAO((OwnerDAO) intent.getSerializableExtra("Owner DAO"));
+            }
+        } else {
+
+            //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
 
         }
         findViewById(R.id.CreateAccOwnerButton).setOnClickListener(new View.OnClickListener(){

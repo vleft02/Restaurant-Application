@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUpPersonel;
+package gr.aueb.softeng.view.SignUp.SignUpPersonel;
 
 import java.util.HashMap;
 

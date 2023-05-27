@@ -4,7 +4,6 @@ import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
-import gr.aueb.softeng.view.SignUp.SignUpPresenter;
 
 public class LoginPresenter {
     private LoginView view;
@@ -38,32 +37,33 @@ public class LoginPresenter {
     }
     public void setUserDAO(UserDAO userDAO){this.userDAO= userDAO;}
 
-    public void onExtractUsername(){
-       inputUsername= view.ExtractUsername();
-    }
-    public void onExtractPassword(){
-        inputPassword = view.ExtractPassword();
-    }
 
     public void authenticate() {
+        inputUsername = view.ExtractUsername();
+        inputPassword = view.ExtractPassword();
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
-        }else {
-            if (userDAO.find(inputUsername, inputPassword) != null) { // an != null tote iparxei o xristis
-                view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            //    view.redirectToCustomerPage();
-           //     view.redirectToChefPage();
-           //     view.redirectToOwnerPage();
-            }else{
-                view.showErrorMessage("ΛΑΘΟΣ ΣΤΟΙΧΕΙΑ", "βαλε σωστα στοιχεια");
-            }
+        }else if (custDAO.find(inputUsername, inputPassword) != null) {
+            view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
+            view.redirectToCustomerPage();
+        }
+        else if (chefDAO.find(inputUsername, inputPassword) != null) {
+            view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
+            view.redirectToChefHomePage();
+        }
+        else if (ownerDAO.find(inputUsername, inputPassword) != null) {
+            view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
+            view.redirectToOwnerHomePage();
+        }
+        else{
+            view.showErrorMessage("ΛΑΘΟΣ ΣΤΟΙΧΕΙΑ", "Τα στοιχεία που εισάγατε δεν ήταν σωστά. Προσπαθήστε ξανά");
         }
     }
     public void onSignup(){
         view.signup(userDAO,custDAO);
     }
 
-    public void onSignupPersonel() {view.signupPersonel();
+    public void onSignupPersonel() {view.signupPersonel(userDAO,chefDAO);
     }
-    public void onSignupOwner(){view.signupOwner();}
+    public void onSignupOwner(){view.signupOwner(userDAO,ownerDAO);}
 }

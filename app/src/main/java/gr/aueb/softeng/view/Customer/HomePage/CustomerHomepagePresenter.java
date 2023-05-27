@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.Customer;
+package gr.aueb.softeng.view.Customer.HomePage;
 
 public class CustomerHomepagePresenter {
     CustomerHomepageView view;
