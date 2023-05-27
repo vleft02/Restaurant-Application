@@ -4,6 +4,7 @@ import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
+import gr.aueb.softeng.view.SignUp.SignUpPresenter;
 
 public class LoginPresenter {
     private LoginView view;
@@ -44,18 +45,22 @@ public class LoginPresenter {
         inputPassword = view.ExtractPassword();
     }
 
-    public boolean authenticate() {
+    public void authenticate() {
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
         }else {
-            if (userDAO.find(inputUsername, inputPassword) != null) {////////////// na to dw
-                return true; //////////////// iparxei o user
+            if (userDAO.find(inputUsername, inputPassword) != null) { // an != null tote iparxei o xristis
+                view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
+            //    view.redirectToCustomerPage();
+           //     view.redirectToChefPage();
+           //     view.redirectToOwnerPage();
+            }else{
+                view.showErrorMessage("ΛΑΘΟΣ ΣΤΟΙΧΕΙΑ", "βαλε σωστα στοιχεια");
             }
         }
-        return false;
     }
     public void onSignup(){
-        view.signup();
+        view.signup(userDAO,custDAO);
     }
 
     public void onSignupPersonel() {view.signupPersonel();

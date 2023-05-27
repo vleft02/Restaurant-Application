@@ -7,9 +7,11 @@ import androidx.lifecycle.ViewModel;
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
+import gr.aueb.softeng.memoryDao.UserDAOmemory;
 
 public class LoginViewModel extends ViewModel{
 
@@ -21,9 +23,11 @@ public class LoginViewModel extends ViewModel{
         ChefDAO chefDao = new ChefDAOmemory();
         CustomerDAO custDao = new CustomerDAOmemory();
         OwnerDAO ownerDAO = new OwnerDAOmemory();
+        UserDAO userDAO = new UserDAOmemory();
         loginPresenter.setOwnerDAO(ownerDAO);
         loginPresenter.setChefDAO(chefDao);
         loginPresenter.setCustDao(custDao);
+        loginPresenter.setUserDAO(userDAO);
     }
 
     public LoginPresenter getPresenter() {
