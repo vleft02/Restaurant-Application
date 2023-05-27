@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUp;
+package gr.aueb.softeng.view.SignUp.CustomerSignUp;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -14,10 +14,10 @@ import java.util.HashMap;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
 
-public class SignUpActivity extends AppCompatActivity implements SignUpView{
+public class CustomerSignUpActivity extends AppCompatActivity implements CustomerSignUpView {
     public void showErrorMessage(String title, String message)
     {
-        new AlertDialog.Builder(SignUpActivity.this)
+        new AlertDialog.Builder(CustomerSignUpActivity.this)
                 .setCancelable(true)
                 .setTitle(title)
                 .setMessage(message)
@@ -29,7 +29,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        SignUpViewModel viewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
+        CustomerSignUpViewModel viewModel = new ViewModelProvider(this).get(CustomerSignUpViewModel.class);
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView{
         return details;
     }
     public void goBack(){
-        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+        Intent intent = new Intent(CustomerSignUpActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 

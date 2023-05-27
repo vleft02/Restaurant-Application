@@ -5,15 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.SignUp.SignUpActivity;
+import gr.aueb.softeng.view.SignUp.CustomerSignUp.CustomerSignUpActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -67,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         return ((EditText)findViewById(R.id.passwordText)).getText().toString().trim();
     }
     public void signup(){
-        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        Intent intent = new Intent(LoginActivity.this, CustomerSignUpActivity.class);
         startActivity(intent);
     }
 

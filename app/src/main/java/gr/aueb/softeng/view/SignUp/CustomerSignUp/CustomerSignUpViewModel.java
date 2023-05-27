@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUp;
+package gr.aueb.softeng.view.SignUp.CustomerSignUp;
 
 import android.util.Log;
 
@@ -7,16 +7,16 @@ import androidx.lifecycle.ViewModel;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 
-public class SignUpViewModel extends ViewModel {
-SignUpPresenter presenter;
+public class CustomerSignUpViewModel extends ViewModel {
+CustomerSignUpPresenter presenter;
 
-public SignUpViewModel()
+public CustomerSignUpViewModel()
 {
-    presenter = new SignUpPresenter();
+    presenter = new CustomerSignUpPresenter();
     CustomerDAO custDao = new CustomerDAOmemory();
     presenter.setCustDao(custDao);
 }
-    public SignUpPresenter getPresenter()
+    public CustomerSignUpPresenter getPresenter()
     {
         return presenter;
     }
