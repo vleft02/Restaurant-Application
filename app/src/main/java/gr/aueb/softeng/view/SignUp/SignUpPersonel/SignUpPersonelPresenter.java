@@ -41,7 +41,7 @@ public class SignUpPersonelPresenter {
             view.showErrorMessage("Σφάλμα!", "Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.");
         }else if (details.get("tin").length() < 3){
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο cvv.");
-        }else if (userDAO.find(details.get("username"), details.get("password"))!=null){ // there is already a user with the same username and password
+        }else if (userDAO.find(details.get("username"))!=null){ // there is already a user with the same username and password
             view.showErrorMessage("Σφάλμα!","Ο συνδυασμός Username και Password χρησιμοποιείται ήδη!\n Συμπληρώστε νέα στοιχεία!" );
         }else{
             Chef chef= new Chef(details.get("username"),details.get("name"),details.get("surname"),details.get("telephone"),

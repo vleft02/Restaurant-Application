@@ -48,6 +48,17 @@ public class UserDAOmemory implements UserDAO, Serializable {
     }
 
     @Override
+    public User find(String username)
+    {
+        for(User user: entities){
+            if(username.equals(user.getUsername())){/////////////////////////////////////
+                return user;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public User find(int id) {
         for(User user: entities){
             if(user.getUserId()==id){
