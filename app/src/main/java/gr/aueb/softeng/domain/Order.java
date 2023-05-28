@@ -1,13 +1,13 @@
 package gr.aueb.softeng.domain;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Order {
     public enum State {RECEIVED, PREPARING, COMPLETED, CANCELLED} // Enum for the number of states an order might have
     private final int tableNumber;
-    private final String time;
     private final Date date;
     private boolean isPaid = false; // is True when the order has been paid
     private final Customer customer; // final because no matter what the customer of the order cannot change
@@ -15,10 +15,9 @@ public class Order {
 
     private ArrayList<OrderLine> orderLines; // The total number of order Lines that consist the order
 
-    public Order(int tableNumber,String time, Date date, Customer customer) {
+    public Order(int tableNumber, Date date, Customer customer) {
         this.customer = customer;
         this.tableNumber = tableNumber;
-        this.time = time;
         this.date = date;
         this.orderLines = new ArrayList<OrderLine>();
     }
@@ -45,7 +44,6 @@ public class Order {
         }
         return total;
     }
-    public String getTime() {return this.time;}
     public Date getDate() {return this.date;}
     public boolean isPaid() {return this.isPaid;}
 
