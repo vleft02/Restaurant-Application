@@ -18,16 +18,18 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         chooseLayout();
         setContentView(R.layout.activity_customer_hompepage);
 
+        CustomerHomepagePresenter presenter = new CustomerHomepagePresenter();
+
         //tabbed Layout initialization
-        TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);
+        TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);//tabs currentOrderTab and orderHistoryTab
         ViewPager2 viewPager2 = findViewById(R.id.CustomerHomePageViewPager);
-        viewPager2.setUserInputEnabled(false);
+        viewPager2.setUserInputEnabled(false);//No touch scrolling allowed
         CustomerHomePageViewPagerAdapter adapter = new CustomerHomePageViewPagerAdapter(this);
         viewPager2.setAdapter(adapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager2.setCurrentItem(tab.getPosition());
+                viewPager2.setCurrentItem(tab.getPosition());//the appropriate tab is set when selected
             }
 
             @Override
@@ -41,8 +43,6 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
             }
         });
 
-
-        final CustomerHomepagePresenter presenter = new CustomerHomepagePresenter();
 
     }
 

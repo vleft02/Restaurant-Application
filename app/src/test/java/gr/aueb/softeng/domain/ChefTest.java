@@ -17,7 +17,7 @@ Order order1;
     public void setUp(){
         chef = new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234");
         customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
-        order1 = new Order(10,"13:32:45",new Date(2023-5-6),this.customer);
+        order1 = new Order(10,new Date(2023-5-6),this.customer);
     }
     @After
     public void tearDown(){
@@ -86,7 +86,7 @@ Order order1;
     }
     @Test
     public void getOrders() {
-        Order order2=  new Order(13,"14:45:34",new Date(2023-5-6),this.customer);
+        Order order2=  new Order(13,new Date(2023-5-6),this.customer);
         chef.addOrder(order1);
         chef.addOrder(order2);
         assertTrue(chef.getOrders().contains(order1));
@@ -110,7 +110,7 @@ Order order1;
     @Test
     public void removeOrderWhenNotInList() {
         chef.addOrder(order1);
-        Order order = new Order(4, "12:10:09", new Date(2023 - 5 - 6), customer);
+        Order order = new Order(4, new Date(2023 - 5 - 6), customer);
         assertFalse(chef.removeOrder(order));
     }
 }

@@ -83,8 +83,8 @@ public class RestaurantTest {
         rest.addChef(new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234"));
         Customer customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(100.0);
-        Order order1 = new Order(10,"13:32:45",new Date(1672518456),customer);
-        Order order2 = new Order(13,"14:45:34",new Date(1672618456),customer);
+        Order order1 = new Order(10,new Date(1672518456),customer);
+        Order order2 = new Order(13,new Date(1672618456),customer);
         rest.addOrder(order1);
         rest.addOrder(order2);
         assertEquals(rest.getOrders().get(0),order1);
@@ -108,7 +108,7 @@ public class RestaurantTest {
     public void addOrderWithoutEnoughMoney() {
         Customer customer =new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(5.00);
-        Order order = new Order(5,"13:32:45",new Date(1672518456),customer);
+        Order order = new Order(5,new Date(1672518456),customer);
         order.addOrderLine(new OrderLine(2,dish1));
         assertFalse(rest.addOrder(order));
     }
@@ -117,7 +117,7 @@ public class RestaurantTest {
         rest.addChef(new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234"));
         Customer customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(100.00);
-        Order order = new Order(5,"13:32:45",new Date(1672518456),customer);
+        Order order = new Order(5,new Date(1672518456),customer);
         order.addOrderLine(new OrderLine(2,dish1));
         assertTrue(rest.addOrder(order));
     }
@@ -129,14 +129,14 @@ public class RestaurantTest {
         rest.addChef(chef2);
         Customer customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(100.00);
-        Order order1 = new Order(5,"13:32:45",new Date(1672518456),customer);
+        Order order1 = new Order(5,new Date(1672518456),customer);
         order1.addOrderLine(new OrderLine(2,dish1));
         rest.addOrder(order1);
         assertEquals(rest.getChefs().get(0).getOrders().get(0), order1);
-        Order order2 = new Order(5,"13:32:45",new Date(1672673456),customer);
+        Order order2 = new Order(5,new Date(1672673456),customer);
         rest.addOrder(order2);
         assertEquals(rest.getChefs().get(1).getOrders().get(0), order2);
-        Order order3 = new Order(5,"13:32:45",new Date(1678918456),customer);
+        Order order3 = new Order(5,new Date(1678918456),customer);
         rest.addOrder(order3);
         assertEquals(rest.getChefs().get(0).getOrders().get(1), order3);
 

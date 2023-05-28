@@ -18,8 +18,8 @@ OrderLine orderLine1 ,orderLine2;
         customer= new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         orderLine1 = new OrderLine(2,new Dish(1,"food1",10.0));
         orderLine2 = new OrderLine(1,new Dish(2,"food2",7.0));
-        order1 = new Order(10,"13:32:45",new Date(1672518456),customer);
-        order2 = new Order(13,"14:45:34",new Date(1672618456),customer);
+        order1 = new Order(10,new Date(1672518456),customer);
+        order2 = new Order(13,new Date(1672618456),customer);
         order2.addOrderLine(orderLine2);
         customer.topUp(100);
         order2.setStateCompleted();//No money removed since order2 is empty;
@@ -68,12 +68,6 @@ OrderLine orderLine1 ,orderLine2;
     public void getTotalCostEmpty() {
         assertEquals(order1.getTotalCost(),0.00,0.00);
     }
-
-    @Test
-    public void getTime() {
-    assertEquals(order1.getTime(),"13:32:45");
-    }
-
 
     @Test
     public void getDate() {

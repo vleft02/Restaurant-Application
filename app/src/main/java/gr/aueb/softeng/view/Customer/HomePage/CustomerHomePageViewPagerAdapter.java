@@ -12,7 +12,7 @@ public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
 
     @NonNull
     @Override
-    public Fragment createFragment(int position) {
+    public Fragment createFragment(int position) {//The tab which should be next is chosen
         switch(position) {
             case 0:
                 return new CurrentOrderPageFragment();
