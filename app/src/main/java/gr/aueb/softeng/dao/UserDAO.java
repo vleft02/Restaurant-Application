@@ -16,5 +16,7 @@ public interface UserDAO {
 
     User find(String username, String password);
 
+    User find(String username);
+
     User find(int id);
 }
