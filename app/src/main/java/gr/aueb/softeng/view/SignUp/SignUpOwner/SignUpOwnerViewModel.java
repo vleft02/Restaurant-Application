@@ -14,11 +14,11 @@ public class SignUpOwnerViewModel extends ViewModel {
     SignUpOwnerPresenter presenter;
 
     public SignUpOwnerViewModel() {
-        presenter = new SignUpOwnerPresenter();
-        OwnerDAO ownerDao = new OwnerDAOmemory();
+        presenter = new SignUpOwnerPresenter(new OwnerDAOmemory()/*,new UserDAOmemory()*/);
+/*        OwnerDAO ownerDao = new OwnerDAOmemory();
         UserDAO userDao = new UserDAOmemory();
         presenter.setOwnerDAO(ownerDao);
-        presenter.setUserDAO(userDao);
+        presenter.setUserDAO(userDao);*/
     }
 
     public SignUpOwnerPresenter getPresenter() {
@@ -28,6 +28,6 @@ public class SignUpOwnerViewModel extends ViewModel {
     protected void onCleared() {
         super.onCleared();
         Log.d("Login", "onCleared");
-        //loginPresenter = null;
+        presenter = null;
     }
 }

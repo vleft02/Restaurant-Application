@@ -37,16 +37,16 @@ public class SignUpPersonelActivity extends AppCompatActivity implements SignUpP
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
-            Bundle extras = intent.getExtras();
+  /*          Bundle extras = intent.getExtras();
             if(extras != null) {
                 viewModel.getPresenter().setUserDAO((UserDAO) intent.getSerializableExtra("User DAO"));
                 viewModel.getPresenter().setChefDAO((ChefDAO) intent.getSerializableExtra("Chef DAO"));
-            }
-        } else {
+            }*/
+        } /*else {
 
             //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
 
-        }
+        }*/
         findViewById(R.id.CreateAccPersonelButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

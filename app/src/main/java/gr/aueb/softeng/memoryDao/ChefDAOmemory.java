@@ -6,6 +6,7 @@ import java.util.List;
 
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.domain.Chef;
+import gr.aueb.softeng.domain.User;
 
 public class ChefDAOmemory implements ChefDAO, Serializable {
     protected static ArrayList<Chef> entities = new ArrayList<>();
@@ -40,6 +41,17 @@ public class ChefDAOmemory implements ChefDAO, Serializable {
     public Chef find(String username, String password) {
         for(Chef chef: entities){
             if(username.equals(chef.getUsername()) && password.equals(chef.getPassword())){
+                return chef;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Chef find(String username)
+    {
+        for(Chef chef: entities){
+            if(username.equals(chef.getUsername())){/////////////////////////////////////
                 return chef;
             }
         }

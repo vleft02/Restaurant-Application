@@ -9,7 +9,13 @@ import gr.aueb.softeng.domain.Customer;
 
 public class SignUpCustomerPresenter {
     private CustomerDAO customerDAO;
-    private  UserDAO userDAO;
+    //private  UserDAO userDAO;
+
+    public SignUpCustomerPresenter(CustomerDAO custDAO/*,UserDAO userDAO*/)
+    {
+        this.customerDAO = custDAO;
+        //this.userDAO = userDAO;
+    }
     SignUpCustomerView view;
     public void setView(SignUpCustomerView v)
     {
@@ -39,7 +45,7 @@ public class SignUpCustomerPresenter {
             view.showErrorMessage("Σφάλμα!", "Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.");
         }else if (details.get("cvv").length() < 3) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο cvv.");
-        }else if (userDAO.find(details.get("username"))!=null){ // there is already a user with the same username
+        }else if (customerDAO.find(details.get("username"),details.get("password"))!=null){ // there is already a user with the same username
             view.showErrorMessage("Σφάλμα!","Υπάρχει ήδη λογαριασμός με αυτο το username \n Συμπληρώστε νέα στοιχεία!" );
         }else{
             Customer customer= new Customer(details.get("username"),details.get("name"),details.get("surname"),details.get("telephone"),
@@ -47,7 +53,7 @@ public class SignUpCustomerPresenter {
                     details.get("cvv"));
 
             customerDAO.save(customer);
-            userDAO.save(customer);
+            //userDAO.save(customer);
 
             view.showErrorMessage("Μπραβο!", details.get("username")+details.get("name")+details.get("surname")+details.get("telephone")+
                     details.get("email")+details.get("password")+ customerDAO.nextId() +details.get("cardNumber")+ details.get("cardHolderName")+
@@ -60,7 +66,7 @@ public class SignUpCustomerPresenter {
         this.customerDAO = custDAO;
     }
 
-    public void setUserDao(UserDAO userDAO){this.userDAO=userDAO;}
+    //public void setUserDao(UserDAO userDAO){this.userDAO=userDAO;}
 
 
 

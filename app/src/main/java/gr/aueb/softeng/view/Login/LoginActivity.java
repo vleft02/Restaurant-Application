@@ -87,21 +87,21 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
     public void signup(UserDAO userDAO, CustomerDAO custDAO){
         Intent intent = new Intent(LoginActivity.this, SignUpCustomerActivity.class);
-        intent.putExtra("User DAO", (Serializable) userDAO);
-        intent.putExtra("Customer DAO",(Serializable) custDAO);
+/*        intent.putExtra("User DAO", (Serializable) userDAO);
+        intent.putExtra("Customer DAO",(Serializable) custDAO);*/
         startActivity(intent);
     }
 
     public void signupPersonel(UserDAO userDAO, ChefDAO chefDAO) {
         Intent intent = new Intent(LoginActivity.this, SignUpPersonelActivity.class);
-        intent.putExtra("User DAO", (Serializable) userDAO);
-        intent.putExtra("Chef DAO",(Serializable) chefDAO);
+/*        intent.putExtra("User DAO", (Serializable) userDAO);
+        intent.putExtra("Chef DAO",(Serializable) chefDAO);*/
         startActivity(intent);
     }
     public void signupOwner(UserDAO userDAO, OwnerDAO ownerDAO) {
         Intent intent = new Intent(LoginActivity.this, SignUpOwnerActivity.class);
-        intent.putExtra("User DAO", (Serializable) userDAO);
-        intent.putExtra("Owner DAO",(Serializable) ownerDAO);
+/*        intent.putExtra("User DAO", (Serializable) userDAO);
+        intent.putExtra("Owner DAO",(Serializable) ownerDAO);*/
         startActivity(intent);
     }
 

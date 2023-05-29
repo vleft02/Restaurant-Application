@@ -9,6 +9,7 @@ import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
+import gr.aueb.softeng.domain.User;
 
 public class OwnerDAOmemory implements OwnerDAO, Serializable {
     protected static ArrayList<Owner> entities = new ArrayList<>();
@@ -43,6 +44,16 @@ public class OwnerDAOmemory implements OwnerDAO, Serializable {
     public Owner find(String username, String password) {
         for(Owner owner: entities){
             if(username.equals(owner.getUsername()) && password.equals(owner.getPassword())){
+                return owner;
+            }
+        }
+        return null;
+    }
+    @Override
+    public Owner find(String username)
+    {
+        for(Owner owner: entities){
+            if(username.equals(owner.getUsername())){/////////////////////////////////////
                 return owner;
             }
         }

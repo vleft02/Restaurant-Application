@@ -6,6 +6,7 @@ import java.util.List;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Customer;
+import gr.aueb.softeng.domain.User;
 
 public class CustomerDAOmemory implements CustomerDAO, Serializable {
     protected static ArrayList<Customer> entities = new ArrayList<>();
@@ -41,6 +42,16 @@ public class CustomerDAOmemory implements CustomerDAO, Serializable {
         for(Customer cust: entities){
             if(username.equals(cust.getUsername())&& password.equals(cust.getPassword())){
                 return cust;
+            }
+        }
+        return null;
+    }
+    @Override
+    public Customer find(String username)
+    {
+        for(Customer customer: entities){
+            if(username.equals(customer.getUsername())){/////////////////////////////////////
+                return customer;
             }
         }
         return null;

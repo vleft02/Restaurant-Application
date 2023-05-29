@@ -67,4 +67,10 @@ public class UserDAOmemory implements UserDAO, Serializable {
         }
         return null;
     }
+
+    @Override
+    public int size()
+    {
+        return entities.size();
+    }
 }

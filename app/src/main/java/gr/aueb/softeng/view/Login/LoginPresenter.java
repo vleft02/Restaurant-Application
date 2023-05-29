@@ -12,6 +12,13 @@ public class LoginPresenter {
     private OwnerDAO ownerDAO;
     private UserDAO userDAO;
 
+    public LoginPresenter(ChefDAO chefDAO, CustomerDAO custDAO, OwnerDAO ownerDAO,UserDAO userDAO)
+    {
+        this.chefDAO = chefDAO;
+        this.custDAO = custDAO;
+        this.ownerDAO = ownerDAO;
+        this.userDAO = userDAO;
+    }
     private String inputUsername;
     private String inputPassword;
 
