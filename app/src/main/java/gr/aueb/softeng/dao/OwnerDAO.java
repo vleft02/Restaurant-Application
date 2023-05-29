@@ -4,6 +4,7 @@ import java.util.List;
 
 import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Owner;
+import gr.aueb.softeng.domain.User;
 
 public interface OwnerDAO {
     void delete(Owner entity);
@@ -13,7 +14,7 @@ public interface OwnerDAO {
     List<Owner> findAll();
 
     void save(Owner entity);
-
+    Owner find(String username);
     Owner find(String username, String password);
 
     Owner find(int id);

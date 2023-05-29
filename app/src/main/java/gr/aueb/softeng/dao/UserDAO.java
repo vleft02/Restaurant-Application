@@ -19,4 +19,7 @@ public interface UserDAO {
     User find(String username);
 
     User find(int id);
+
+    //debug
+int size();
 }

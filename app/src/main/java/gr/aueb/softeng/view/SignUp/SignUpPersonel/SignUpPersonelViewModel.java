@@ -13,11 +13,11 @@ public class SignUpPersonelViewModel extends ViewModel {
     SignUpPersonelPresenter presenter;
 
     public SignUpPersonelViewModel() {
-        presenter = new SignUpPersonelPresenter();
-        ChefDAO chefDao = new ChefDAOmemory();
+        presenter = new SignUpPersonelPresenter(new ChefDAOmemory()/*, new UserDAOmemory()*/);
+/*        ChefDAO chefDao = new ChefDAOmemory();
         UserDAO userDao = new UserDAOmemory();
         presenter.setChefDAO(chefDao);
-        presenter.setUserDAO(userDao);
+        presenter.setUserDAO(userDao);*/
     }
 
     public SignUpPersonelPresenter getPresenter() {
@@ -27,6 +27,6 @@ public class SignUpPersonelViewModel extends ViewModel {
     protected void onCleared() {
         super.onCleared();
         Log.d("Login", "onCleared");
-        //loginPresenter = null;
+        presenter = null;
     }
 }

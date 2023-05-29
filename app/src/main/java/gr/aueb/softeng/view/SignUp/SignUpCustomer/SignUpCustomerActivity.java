@@ -37,7 +37,8 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
         ArrayList<Object> daos ;
         if (savedInstanceState == null) {
             Intent intent = getIntent();
-            Bundle extras = intent.getExtras();
+        }
+         /*   Bundle extras = intent.getExtras();
             if(extras == null) {
                 daos= null;
             } else {
@@ -49,7 +50,7 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
             //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
 
         }
-
+*/
         findViewById(R.id.CreateAccButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

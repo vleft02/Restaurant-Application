@@ -3,6 +3,8 @@ package gr.aueb.softeng.dao;
 import java.util.List;
 
 import gr.aueb.softeng.domain.Chef;
+import gr.aueb.softeng.domain.User;
+
 public interface ChefDAO {
     void delete(Chef entity);
 
@@ -13,6 +15,7 @@ public interface ChefDAO {
     void save(Chef entity);
 
     Chef find(String username, String password);
+    Chef find(String username);
 
     Chef find(int id);
     int nextId();
