@@ -14,11 +14,7 @@ public class SignUpOwnerViewModel extends ViewModel {
     SignUpOwnerPresenter presenter;
 
     public SignUpOwnerViewModel() {
-        presenter = new SignUpOwnerPresenter(new OwnerDAOmemory()/*,new UserDAOmemory()*/);
-/*        OwnerDAO ownerDao = new OwnerDAOmemory();
-        UserDAO userDao = new UserDAOmemory();
-        presenter.setOwnerDAO(ownerDao);
-        presenter.setUserDAO(userDao);*/
+        presenter = new SignUpOwnerPresenter(new UserDAOmemory(), new OwnerDAOmemory());
     }
 
     public SignUpOwnerPresenter getPresenter() {

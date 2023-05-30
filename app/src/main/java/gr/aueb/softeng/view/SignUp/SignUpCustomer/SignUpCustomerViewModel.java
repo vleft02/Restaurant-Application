@@ -14,7 +14,7 @@ SignUpCustomerPresenter presenter;
 
 public SignUpCustomerViewModel()
 {
-    presenter = new SignUpCustomerPresenter(new CustomerDAOmemory()/*, new UserDAOmemory()*/);
+    presenter = new SignUpCustomerPresenter(new UserDAOmemory(), new CustomerDAOmemory());
 
 }
     public SignUpCustomerPresenter getPresenter()

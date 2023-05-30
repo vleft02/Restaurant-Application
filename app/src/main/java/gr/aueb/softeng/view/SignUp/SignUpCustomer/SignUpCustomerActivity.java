@@ -34,23 +34,9 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
 
         SignUpCustomerViewModel viewModel = new ViewModelProvider(this).get(SignUpCustomerViewModel.class);
         viewModel.getPresenter().setView(this);
-        ArrayList<Object> daos ;
         if (savedInstanceState == null) {
             Intent intent = getIntent();
         }
-         /*   Bundle extras = intent.getExtras();
-            if(extras == null) {
-                daos= null;
-            } else {
-                    viewModel.getPresenter().setUserDao((UserDAO) intent.getSerializableExtra("User DAO"));
-                    viewModel.getPresenter().setCustDao((CustomerDAO)intent.getSerializableExtra("Owner DAO"));
-            }
-        } else {
-
-            //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
-
-        }
-*/
         findViewById(R.id.CreateAccButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

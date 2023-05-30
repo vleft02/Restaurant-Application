@@ -8,7 +8,7 @@ import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Dish;
 
-public class DishDAOmemory implements DishDAO, Serializable {
+public class DishDAOmemory implements DishDAO{
     protected static ArrayList<Dish> entities = new ArrayList<>();
     @Override
     public void delete(Dish entity) {

@@ -7,7 +7,7 @@ import java.util.List;
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.User;
 
-public class UserDAOmemory implements UserDAO, Serializable {
+public class UserDAOmemory implements UserDAO{
     protected static ArrayList<User> entities = new ArrayList<>();
     @Override
     public void delete(User entity) {
@@ -40,7 +40,7 @@ public class UserDAOmemory implements UserDAO, Serializable {
     @Override
     public User find(String username, String password) {
         for(User user: entities){
-            if(username.equals(user.getUsername()) && password.equals(user.getPassword())){/////////////////////////////////////
+            if(username.equals(user.getUsername()) && password.equals(user.getPassword())){
                 return user;
             }
         }
@@ -51,7 +51,7 @@ public class UserDAOmemory implements UserDAO, Serializable {
     public User find(String username)
     {
         for(User user: entities){
-            if(username.equals(user.getUsername())){/////////////////////////////////////
+            if(username.equals(user.getUsername())){
                 return user;
             }
         }

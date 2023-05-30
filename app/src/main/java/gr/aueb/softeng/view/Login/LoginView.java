@@ -9,9 +9,9 @@ import gr.aueb.softeng.view.View;
 public interface LoginView extends View {
     String ExtractUsername();
     String ExtractPassword();
-    void signup(UserDAO userDAO, CustomerDAO custDAO);
-    void signupPersonel(UserDAO userDAO, ChefDAO chefDAO);
-    void signupOwner(UserDAO userDAO, OwnerDAO ownerDAO);
+    void signup();
+    void signupPersonel();
+    void signupOwner();
     void showErrorMessage(String title, String message);
     void redirectToCustomerPage();
    void redirectToChefHomePage();

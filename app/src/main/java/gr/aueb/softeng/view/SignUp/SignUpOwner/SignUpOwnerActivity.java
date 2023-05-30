@@ -37,16 +37,8 @@ public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwne
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
- /*           Bundle extras = intent.getExtras();
-            if(extras != null) {
-                viewModel.getPresenter().setUserDAO((UserDAO) intent.getSerializableExtra("User DAO"));
-                viewModel.getPresenter().setOwnerDAO((OwnerDAO) intent.getSerializableExtra("Owner DAO"));*/
             }
-/*        } else {
 
-            //daos= (ArrayList<Object>) savedInstanceState.getSerializable();////////////////////
-
-        }*/
         findViewById(R.id.CreateAccOwnerButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

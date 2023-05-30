@@ -8,7 +8,7 @@ import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.User;
 
-public class ChefDAOmemory implements ChefDAO, Serializable {
+public class ChefDAOmemory implements ChefDAO {
     protected static ArrayList<Chef> entities = new ArrayList<>();
     @Override
     public void delete(Chef entity) {
@@ -51,7 +51,7 @@ public class ChefDAOmemory implements ChefDAO, Serializable {
     public Chef find(String username)
     {
         for(Chef chef: entities){
-            if(username.equals(chef.getUsername())){/////////////////////////////////////
+            if(username.equals(chef.getUsername())){
                 return chef;
             }
         }
@@ -70,6 +70,6 @@ public class ChefDAOmemory implements ChefDAO, Serializable {
 
     @Override
     public int nextId() {
-        return (UserDAOmemory.entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
+        return (UserDAOmemory.entities.size() > 0 ? UserDAOmemory.entities.get(UserDAOmemory.entities.size()-1).getUserId()+1 : 1);
     }
 }

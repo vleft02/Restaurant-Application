@@ -13,13 +13,9 @@ public class SignUpPersonelViewModel extends ViewModel {
     SignUpPersonelPresenter presenter;
 
     public SignUpPersonelViewModel() {
-        presenter = new SignUpPersonelPresenter(new ChefDAOmemory()/*, new UserDAOmemory()*/);
-/*        ChefDAO chefDao = new ChefDAOmemory();
-        UserDAO userDao = new UserDAOmemory();
-        presenter.setChefDAO(chefDao);
-        presenter.setUserDAO(userDao);*/
-    }
+        presenter = new SignUpPersonelPresenter(new UserDAOmemory(), new ChefDAOmemory());
 
+    }
     public SignUpPersonelPresenter getPresenter() {
         return presenter;
     }
