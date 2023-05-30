@@ -6,8 +6,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
-    public CustomerHomePageViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    int customerId;
+    public CustomerHomePageViewPagerAdapter(@NonNull FragmentActivity fragmentActivity,int id) {
         super(fragmentActivity);
+        customerId = id;
     }
 
     @NonNull
@@ -15,11 +17,11 @@ public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {//The tab which should be next is chosen
         switch(position) {
             case 0:
-                return new CurrentOrderPageFragment();
+                return CurrentOrderPageFragment.newInstance(customerId);
             case 1:
-                return new OrderHistoryPageFragment();
+                return OrderHistoryPageFragment.newInstance(customerId);
             default:
-                return new CurrentOrderPageFragment();
+                return CurrentOrderPageFragment.newInstance(customerId);
         }
 
     }

@@ -49,13 +49,13 @@ public class OrderDAOmemory implements OrderDAO{
     }
 
     @Override
-    public List<Order> findByCustomer(int id) {
+    public ArrayList<Order> findByCustomer(int id) {
         ArrayList<Order> result= new ArrayList<>();
         for(Order order : entities){
             if(order.getCustomer().getUserId()==id){
                 result.add(order);
             }
         }
-        return  result;
+        return result;
     }
 }

@@ -1,5 +1,6 @@
 package gr.aueb.softeng.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.domain.Customer;
@@ -14,5 +15,5 @@ public interface OrderDAO {
     Order find(Order entity);
 
     List<Order> findByCustomer(Customer customer);
-    List<Order> findByCustomer(int id);
+    ArrayList<Order> findByCustomer(int id);
 }
