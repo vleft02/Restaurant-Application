@@ -9,6 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity;
 import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
@@ -33,6 +34,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //USED FOR DEBUGGING
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.prepareData();
+        //REMOVE LATER
 
         LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         viewModel.getPresenter().setView(this);
