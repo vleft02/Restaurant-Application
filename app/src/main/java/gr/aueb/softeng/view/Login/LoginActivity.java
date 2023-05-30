@@ -97,8 +97,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         startActivity(intent);
     }
 
-    public void redirectToCustomerPage(){
+    public void redirectToCustomerPage(int customerId){
         Intent intent = new Intent(LoginActivity.this, CustomerHomePageActivity.class);
+        intent.putExtra("CustomerId",customerId);
         startActivity(intent);
     }
     public void redirectToChefHomePage(){

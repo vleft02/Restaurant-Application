@@ -7,6 +7,7 @@ import gr.aueb.softeng.dao.Initializer;
 import gr.aueb.softeng.dao.OrderDAO;
 import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.RestaurantDAO;
+import gr.aueb.softeng.dao.UserDAO;
 
 public class MemoryInitializer extends Initializer {
     @Override
@@ -35,6 +36,11 @@ public class MemoryInitializer extends Initializer {
     }
 
     @Override
+    public UserDAO getUserDAO() {
+        return new UserDAOmemory();
+    }
+
+    @Override
     public RestaurantDAO getRestaurantDAO() {
         return new RestaurantDAOmemory();
     }
@@ -43,5 +49,6 @@ public class MemoryInitializer extends Initializer {
     public OrderDAO getOrderDAO() {
         return new OrderDAOmemory();
     }
+
 
 }

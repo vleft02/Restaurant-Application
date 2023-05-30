@@ -13,7 +13,7 @@ public interface LoginView extends View {
     void signupPersonel();
     void signupOwner();
     void showErrorMessage(String title, String message);
-    void redirectToCustomerPage();
+    void redirectToCustomerPage(int customerId);
    void redirectToChefHomePage();
    void redirectToOwnerHomePage();
 

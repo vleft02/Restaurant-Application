@@ -39,7 +39,7 @@ public class LoginPresenter {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
         }else if (custDAO.find(inputUsername, inputPassword) != null) {
             view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            view.redirectToCustomerPage();
+            view.redirectToCustomerPage(custDAO.find(inputUsername,inputPassword).getUserId());
         }
         else if (chefDAO.find(inputUsername, inputPassword) != null) {
             view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
