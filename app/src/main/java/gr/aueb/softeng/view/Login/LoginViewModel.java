@@ -20,14 +20,6 @@ public class LoginViewModel extends ViewModel{
     public LoginViewModel()
     {
         loginPresenter = new LoginPresenter(new ChefDAOmemory(), new CustomerDAOmemory(), new OwnerDAOmemory(),new UserDAOmemory());
-/*        ChefDAO chefDao = new ChefDAOmemory();
-        CustomerDAO custDao = new CustomerDAOmemory();
-        OwnerDAO ownerDAO = new OwnerDAOmemory();
-        UserDAO userDAO = new UserDAOmemory();
-        loginPresenter.setOwnerDAO(ownerDAO);
-        loginPresenter.setChefDAO(chefDao);
-        loginPresenter.setCustDao(custDao);
-        loginPresenter.setUserDAO(userDAO);*/
     }
 
     public LoginPresenter getPresenter() {

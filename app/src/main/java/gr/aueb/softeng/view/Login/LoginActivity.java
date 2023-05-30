@@ -1,7 +1,5 @@
 package gr.aueb.softeng.view.Login;
 
-import static java.lang.Thread.sleep;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +9,6 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.io.Serializable;
-
-import gr.aueb.softeng.dao.ChefDAO;
-import gr.aueb.softeng.dao.CustomerDAO;
-import gr.aueb.softeng.dao.OwnerDAO;
-import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity;
 import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
@@ -85,23 +77,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     {
         return ((EditText)findViewById(R.id.passwordText)).getText().toString().trim();
     }
-    public void signup(UserDAO userDAO, CustomerDAO custDAO){
+    public void signup(){
         Intent intent = new Intent(LoginActivity.this, SignUpCustomerActivity.class);
-/*        intent.putExtra("User DAO", (Serializable) userDAO);
-        intent.putExtra("Customer DAO",(Serializable) custDAO);*/
         startActivity(intent);
     }
 
-    public void signupPersonel(UserDAO userDAO, ChefDAO chefDAO) {
+    public void signupPersonel() {
         Intent intent = new Intent(LoginActivity.this, SignUpPersonelActivity.class);
-/*        intent.putExtra("User DAO", (Serializable) userDAO);
-        intent.putExtra("Chef DAO",(Serializable) chefDAO);*/
         startActivity(intent);
     }
-    public void signupOwner(UserDAO userDAO, OwnerDAO ownerDAO) {
+    public void signupOwner() {
         Intent intent = new Intent(LoginActivity.this, SignUpOwnerActivity.class);
-/*        intent.putExtra("User DAO", (Serializable) userDAO);
-        intent.putExtra("Owner DAO",(Serializable) ownerDAO);*/
         startActivity(intent);
     }
 

@@ -8,7 +8,7 @@ import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.User;
 
-public class CustomerDAOmemory implements CustomerDAO, Serializable {
+public class CustomerDAOmemory implements CustomerDAO {
     protected static ArrayList<Customer> entities = new ArrayList<>();
     @Override
     public void delete(Customer entity) {
@@ -49,9 +49,9 @@ public class CustomerDAOmemory implements CustomerDAO, Serializable {
     @Override
     public Customer find(String username)
     {
-        for(Customer customer: entities){
-            if(username.equals(customer.getUsername())){/////////////////////////////////////
-                return customer;
+        for(Customer cust: entities){
+            if(username.equals(cust.getUsername())){
+                return cust;
             }
         }
         return null;
@@ -69,6 +69,6 @@ public class CustomerDAOmemory implements CustomerDAO, Serializable {
 
     @Override
     public int nextId() {
-        return (UserDAOmemory.entities.size() > 0 ? entities.get(entities.size()-1).getUserId()+1 : 1);
+        return (UserDAOmemory.entities.size() > 0 ? UserDAOmemory.entities.get(UserDAOmemory.entities.size()-1).getUserId()+1 : 1);
     }
 }

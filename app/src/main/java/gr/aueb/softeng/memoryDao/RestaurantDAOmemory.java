@@ -8,7 +8,7 @@ import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
 import gr.aueb.softeng.domain.Restaurant;
 
-public class RestaurantDAOmemory implements RestaurantDAO, Serializable {
+public class RestaurantDAOmemory implements RestaurantDAO {
     protected static ArrayList<Restaurant> entities = new ArrayList<>();
     @Override
     public void delete(Restaurant entity) {

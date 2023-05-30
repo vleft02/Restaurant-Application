@@ -8,7 +8,7 @@ import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Order;
 
-public class OrderDAOmemory implements OrderDAO, Serializable {
+public class OrderDAOmemory implements OrderDAO{
     protected static ArrayList<Order> entities = new ArrayList<>();
     @Override
     public void delete(Order entity) {

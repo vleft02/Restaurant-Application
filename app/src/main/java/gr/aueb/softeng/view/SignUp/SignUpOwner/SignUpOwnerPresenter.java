@@ -11,12 +11,12 @@ import gr.aueb.softeng.domain.Owner;
 
 public class SignUpOwnerPresenter {
     private OwnerDAO ownerDAO;
-    //private UserDAO userDAO;
+    private UserDAO userDAO;
     SignUpOwnerView view;
-    public SignUpOwnerPresenter(OwnerDAO ownerDAO/*, UserDAO userDAO*/)
+    public SignUpOwnerPresenter( UserDAO userDAO, OwnerDAO ownerDAO)
     {
         this.ownerDAO = ownerDAO;
-    //    this.userDAO = userDAO;
+        this.userDAO = userDAO;
     }
     public void setView(SignUpOwnerView v)
     {
@@ -47,24 +47,19 @@ public class SignUpOwnerPresenter {
             view.showErrorMessage("Σφάλμα!", "Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.");
         }else if (details.get("tin").length() < 3){
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο cvv.");
-        }else if (ownerDAO.find(details.get("username"),details.get("password"))!=null){ // there is already a user with the same username and password
-            view.showErrorMessage("Σφάλμα!","Ο συνδυασμός Username και Password χρησιμοποιείται ήδη!\n Συμπληρώστε νέα στοιχεία!" );
+        }else if (userDAO.find(details.get("username"))!=null){
+            view.showErrorMessage("Σφάλμα!","Υπάρχει ήδη λογαριασμός με αυτο το username \n Συμπληρώστε νέα στοιχεία!" );
         }else{
             Owner owner= new Owner(details.get("username"),details.get("name"),details.get("surname"),details.get("telephone"),
                     details.get("email"),details.get("password"), ownerDAO.nextId(),details.get("iban"),details.get("tin"));
 
             ownerDAO.save(owner);
-      //      userDAO.save(owner);
+            userDAO.save(owner); // na dw min exei thema kai epeidh den einai tipou user den touw vazei
 
             view.showErrorMessage("Μπραβο!", details.get("username")+details.get("name")+details.get("surname")+details.get("telephone")+
-                    details.get("email")+details.get("password")+ ownerDAO.nextId() +details.get("iban")+ details.get("tin"));
+                    details.get("email")+details.get("password")+details.get("iban")+ details.get("tin"));
             view.goBack();
         }
-
     }
-    public void setOwnerDAO(OwnerDAO ownerDAO){
-        this.ownerDAO = ownerDAO;
-    }
-    //public void setUserDAO(UserDAO userDAO){this.userDAO=userDAO;}
 
 }
