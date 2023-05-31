@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -38,6 +37,9 @@ int ownerId;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<Restaurant> restaurantList = new ArrayList<>(viewModel.getPresenter().getRestaurants());
         recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(restaurantList, this));
+
+
+
     }
 
     @Override

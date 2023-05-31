@@ -24,7 +24,15 @@ public class RestaurantDAOmemory implements RestaurantDAO {
             }
         }
     }
-
+    @Override
+    public Restaurant find(String name) {
+        for(Restaurant rest: entities){
+            if(rest.getRestaurantName().equals(name)){
+                return rest;
+            }
+        }
+        return null;
+    }
     @Override
     public List<Restaurant> findAll() {
         ArrayList<Restaurant> result= new ArrayList<>();

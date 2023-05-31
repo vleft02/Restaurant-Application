@@ -31,4 +31,19 @@
     <string name="chef">Chef</string>
     <string name="cancelorder">CancelOrder</string>
     <string name="RestaurantName">RestaurantName</string>
+    <string name="create_restaurant">Create Restaurant</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="Resttelephone">Telephone</string>
+    <string name="street_number">Street Number</string>
+    <string name="street_name">Street Name</string>
+    <string name="street_number1">Street Number</string>
+    <string name="street_name1">Street Name</string>
+    <string name="zc">ZC</string>
+    <string name="city">City</string>
+    <string name="total_tables">Total Tables</string>
+    <string name="monthly_income">Monthly Income</string>
+    <string name="yearly_income">Yearly Income</string>
+    <string name="average_expenses_for_each_customer">Average expenses for each customer</string>
+    <string name="verage_daily_revenue">Αverage daily revenue</string>
+    <string name="order_cancellation_rate">Order cancellation rate</string>
 </resources>
