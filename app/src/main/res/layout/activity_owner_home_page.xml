@@ -8,7 +8,7 @@
     tools:context="gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/RestaurantRecyclerView"
         android:layout_width="404dp"
         android:layout_height="558dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,14 +18,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.186" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="671dp"
-        android:layout_height="553dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089"
-        app:srcCompat="@drawable/gradient5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

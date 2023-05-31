@@ -106,8 +106,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         Intent intent = new Intent(LoginActivity.this, ChefHomePageActivity.class);
         startActivity(intent);
     }
-    public void redirectToOwnerHomePage(){
+    public void redirectToOwnerHomePage(int ownerId){
         Intent intent = new Intent(LoginActivity.this, OwnerHomePageActivity.class);
+        intent.putExtra("OwnerId",ownerId);
         startActivity(intent);
     }
 

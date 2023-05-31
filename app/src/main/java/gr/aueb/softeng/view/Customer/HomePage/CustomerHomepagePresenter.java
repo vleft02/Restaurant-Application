@@ -13,7 +13,7 @@ public class CustomerHomepagePresenter {
 
     CustomerHomepageView view;
 
-    public CustomerHomepagePresenter(CustomerDAO customerDAO, OrderDAO orderDAO /*, int id */)
+    public CustomerHomepagePresenter(CustomerDAO customerDAO, OrderDAO orderDAO)
     {
         this.customerDAO = customerDAO;
         this.orderDAO = orderDAO;
@@ -41,5 +41,14 @@ public class CustomerHomepagePresenter {
         output += order.getOrderState().toString()+"\n";
         return output;
     }
-    
+
+    public void onCancel() {
+        view.ShowConfirmationMessage();
+    }
+
+    public void cancel(int customerId)
+    {
+        orderDAO.find(getCurrentOrder(customerId)).setStateCancelled();
+    }
 }
+
