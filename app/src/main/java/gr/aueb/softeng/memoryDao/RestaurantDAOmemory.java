@@ -5,6 +5,7 @@ import java.util.List;
 
 import gr.aueb.softeng.dao.RestaurantDAO;
 import gr.aueb.softeng.domain.Dish;
+import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.Owner;
 import gr.aueb.softeng.domain.Restaurant;
 
@@ -31,10 +32,7 @@ public class RestaurantDAOmemory implements RestaurantDAO {
         return result;
     }
 
-   // @Override
-    //public List<Restaurant> findByOwner(Owner owner) {
-   //     return null;
-    //}
+
 
     @Override
     public void save(Restaurant entity) {

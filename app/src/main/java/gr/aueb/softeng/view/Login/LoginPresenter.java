@@ -47,7 +47,7 @@ public class LoginPresenter {
         }
         else if (ownerDAO.find(inputUsername, inputPassword) != null) {
             view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            view.redirectToOwnerHomePage();
+            view.redirectToOwnerHomePage(ownerDAO.find(inputUsername,inputPassword).getUserId());
         }
         else{
             view.showErrorMessage("ΛΑΘΟΣ ΣΤΟΙΧΕΙΑ", "Τα στοιχεία που εισάγατε δεν ήταν σωστά. Προσπαθήστε ξανά");

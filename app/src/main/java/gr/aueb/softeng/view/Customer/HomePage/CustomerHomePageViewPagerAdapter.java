@@ -7,9 +7,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
     int customerId;
-    public CustomerHomePageViewPagerAdapter(@NonNull FragmentActivity fragmentActivity,int id) {
+    FragmentListener listener;
+    public CustomerHomePageViewPagerAdapter(@NonNull FragmentActivity fragmentActivity,int id,FragmentListener listener) {
         super(fragmentActivity);
         customerId = id;
+        this.listener = listener;
     }
 
     @NonNull

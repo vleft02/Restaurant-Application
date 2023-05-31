@@ -49,12 +49,15 @@ public class CurrentOrderPageFragment extends Fragment {
         return fragment;
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             customerId = getArguments().getInt(CUSTOMER_ID);
         }
+
     }
 
     @Override
@@ -86,6 +89,14 @@ public class CurrentOrderPageFragment extends Fragment {
             orderDetailsLayout.setVisibility(View.GONE);
         }
 
+
+        rootView.findViewById(R.id.CancelOrderButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onCancel();
+            }
+        });
         return rootView;
     }
+
 }

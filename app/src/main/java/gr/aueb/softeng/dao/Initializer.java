@@ -2,10 +2,12 @@ package gr.aueb.softeng.dao;
 
 import java.util.Date;
 
+import gr.aueb.softeng.domain.Address;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.Owner;
+import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 
 public abstract class Initializer {
@@ -33,10 +35,26 @@ public abstract class Initializer {
         userDAO.save(customer);
 
         OwnerDAO ownerDAO = getOwnerDAO();
-        ownerDAO.save(new Owner("owner1","Kostas","Pappas","2105648463", "owner1@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767"));
-        ownerDAO.save(new Owner("owner2","Kostas","Pappas","2105644875", "owner2@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767"));
-        ownerDAO.save(new Owner("owner3","Kostas","Pappas","2105456237", "owner3@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767"));
+        Owner owner = new Owner("owner1","Kostas","Pappas","2105648463", "owner1@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
+        ownerDAO.save(owner);
+        userDAO.save(owner);
+        owner = new Owner("owner2","Kostas","Pappas","2105644875", "owner2@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
+        ownerDAO.save(owner);
+        userDAO.save(owner);
+        owner = new Owner("owner3","Kostas","Pappas","2105456237", "owner3@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
+        ownerDAO.save(owner);
+        userDAO.save(owner);
 
+
+        RestaurantDAO restaurantDAO = getRestaurantDAO();
+        Restaurant rest = new Restaurant(restaurantDAO.nextId(), "Taverna","2105347953",12,new Address(12,"Stratigou",122333,"Menidi"));
+        restaurantDAO.save(rest);
+        ownerDAO.find(4).addRestaurant(rest);
+        rest = new Restaurant(restaurantDAO.nextId(), "Kafeteria","2105347234",12,new Address(13,"panagias",122333,"exraxeia"));
+        restaurantDAO.save(rest);
+        ownerDAO.find(4).addRestaurant(rest);
+        restaurantDAO.save(new Restaurant(restaurantDAO.nextId(), "Pitogyra","2105347234",12,new Address(14,"agioy ioannou",122333,"exraxeia")));
+        rest = null;
         OrderDAO orderDAO = getOrderDAO();
         orderDAO.save(new Order(12,new Date(),customerDAO.find("kostas123")));
         orderDAO.save(new Order(14,new Date(),customerDAO.find("priamoss")));

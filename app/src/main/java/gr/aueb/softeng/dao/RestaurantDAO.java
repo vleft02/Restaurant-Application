@@ -11,7 +11,6 @@ public interface RestaurantDAO {
     void delete(int id);
 
     List<Restaurant> findAll();
-  //  List<Restaurant> findByOwner(Owner owner);
 
     void save(Restaurant entity);
 

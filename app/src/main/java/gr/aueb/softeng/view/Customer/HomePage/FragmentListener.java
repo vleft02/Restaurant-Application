@@ -1,7 +1,6 @@
 package gr.aueb.softeng.view.Customer.HomePage;
-import gr.aueb.softeng.view.View;
 
-public interface CustomerHomepageView extends View{
+public interface FragmentListener {
     void ShowConfirmationMessage();
+    int getCustomerId();
 }
-

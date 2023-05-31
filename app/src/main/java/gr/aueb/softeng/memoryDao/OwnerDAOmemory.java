@@ -9,6 +9,7 @@ import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.domain.Owner;
+import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.domain.User;
 
 public class OwnerDAOmemory implements OwnerDAO {
@@ -69,7 +70,17 @@ public class OwnerDAOmemory implements OwnerDAO {
         }
         return null;
     }
-
+    @Override
+    public ArrayList<Restaurant> findRestaurants(int id) {
+        ArrayList<Restaurant> result= new ArrayList<>();
+        for(Owner owner : entities){
+            if(owner.getUserId()==id){
+               result.addAll(owner.getRestaurants());
+               return result;
+            }
+        }
+        return null;
+    }
     @Override
     public int nextId() {
         return (UserDAOmemory.entities.size() > 0 ? UserDAOmemory.entities.get(UserDAOmemory.entities.size()-1).getUserId()+1 : 1);
