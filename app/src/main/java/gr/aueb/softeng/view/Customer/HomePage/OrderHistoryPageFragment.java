@@ -4,21 +4,28 @@ import android.location.GnssAntennaInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import gr.aueb.softeng.domain.Order;
+import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageRecyclerViewAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link OrderHistoryPageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OrderHistoryPageFragment extends Fragment {
+public class OrderHistoryPageFragment extends Fragment implements OrderSelectionListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +33,7 @@ public class OrderHistoryPageFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private FragmentListener listener;
-
+    RecyclerView recyclerView;
     public OrderHistoryPageFragment() {
         // Required empty public constructor
     }
@@ -60,6 +67,17 @@ public class OrderHistoryPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_order_history_page, container, false);
+
+        recyclerView = rootView.findViewById(R.id.OrderHistoryRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(new OrderHistoryRecyclerViewAdapter(listener.getViewModel().getPresenter().getOrderHistory(),this));
+
+
         return rootView;
+    }
+
+    @Override
+    public void selectOrder(Order order) {
+        //intent to order details page
     }
 }
