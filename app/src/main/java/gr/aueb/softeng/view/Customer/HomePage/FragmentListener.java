@@ -1,6 +1,15 @@
 package gr.aueb.softeng.view.Customer.HomePage;
 
-public interface FragmentListener {
-    void ShowConfirmationMessage();
-    int getCustomerId();
+import java.io.Serializable;
+
+public interface FragmentListener extends Serializable {
+
+
+    CustomerHomePageViewModel getViewModel();
+
+    void changeLayout();
+
+    void onCancel();
+
+    void onPlaceOrder();
 }
