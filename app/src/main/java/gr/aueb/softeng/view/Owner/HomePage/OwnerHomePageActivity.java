@@ -17,6 +17,7 @@ import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
 import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
+import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity;
 
 public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHomePageView,
         OwnerHomePageRecyclerViewAdapter.ItemSelectionListener{
@@ -63,7 +64,7 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
 
     @Override
     public void selectRestaurant(Restaurant restaurant) {
-        Intent intent = new Intent(OwnerHomePageActivity.this, LoginActivity.class);
+        Intent intent = new Intent(OwnerHomePageActivity.this, RestaurantDetailsActivity.class);
         intent.putExtra("RestaurantId", restaurant.getId());
         startActivity(intent);
     }

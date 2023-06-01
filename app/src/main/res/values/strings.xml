@@ -48,7 +48,7 @@
     <string name="order_cancellation_rate">Order cancellation rate</string>
     <string name="TopUp">Top up\n</string>
     <string name="add_restaurant">Add Restaurant</string>
-    <string name="emptyView">emptyView</string>
+    <string name="emptyView">There are no restaurants for this owner yet. Try adding one first!</string>
     <string name="restaurant_name1">Restaurant Name\n</string>
     <string name="restaurant_id">Restaurant Id\n</string>
     <string name="restaurant_tables">Restaurant Tables</string>

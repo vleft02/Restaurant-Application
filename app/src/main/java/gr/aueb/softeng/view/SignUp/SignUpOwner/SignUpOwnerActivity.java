@@ -60,8 +60,7 @@ public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwne
         return details;
     }
     public void goBack(){
-        Intent intent = new Intent(SignUpOwnerActivity.this, LoginActivity.class);
-        startActivity(intent);
+        finish();
     }
 
 

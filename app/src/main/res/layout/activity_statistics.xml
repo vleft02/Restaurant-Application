@@ -31,10 +31,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/OrderCancellationRateResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172"
+        app:layout_constraintVertical_bias="0.149"
         tools:visibility="visible" />
 
     <TextView
@@ -100,8 +100,8 @@
 
     <TextView
         android:id="@+id/AverageExpensesForCustomerResult"
-        android:layout_width="261dp"
-        android:layout_height="39dp"
+        android:layout_width="247dp"
+        android:layout_height="38dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -111,13 +111,13 @@
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.447" />
 
     <TextView
         android:id="@+id/AverageDailyRevenueText"
         android:layout_width="269dp"
         android:layout_height="28dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="84dp"
         android:text="@string/verage_daily_revenue"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -126,22 +126,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.514" />
 
     <TextView
         android:id="@+id/AverageDailyRevenueResult"
-        android:layout_width="194dp"
-        android:layout_height="35dp"
+        android:layout_width="249dp"
+        android:layout_height="43dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.351"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
+        app:layout_constraintVertical_bias="0.585" />
 
     <TextView
         android:id="@+id/OrderCancellationRateText"
@@ -161,26 +161,34 @@
 
     <TextView
         android:id="@+id/OrderCancellationRateResult"
-        android:layout_width="229dp"
-        android:layout_height="39dp"
+        android:layout_width="245dp"
+        android:layout_height="46dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#070707"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="70dp"
-        android:layout_height="60dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="309dp"
-        tools:layout_editor_absoluteY="622dp" />
+        android:id="@+id/GoBack"
+        android:layout_width="105dp"
+        android:layout_height="68dp"
+        android:background="#A4FFFFFF"
+        android:text="Go back"
+        android:textAllCaps="false"
+        android:textColor="#121211"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

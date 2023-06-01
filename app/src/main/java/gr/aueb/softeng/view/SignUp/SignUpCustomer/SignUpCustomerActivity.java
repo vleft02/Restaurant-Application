@@ -59,8 +59,7 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
         return details;
     }
     public void goBack(){
-        Intent intent = new Intent(SignUpCustomerActivity.this, LoginActivity.class);
-        startActivity(intent);
+        finish();
     }
 
 //    @Override
