@@ -39,7 +39,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <ImageButton
-        android:id="@+id/LogOutButton"
+        android:id="@+id/TopUpButton"
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:backgroundTint="#00FFFFFF"
@@ -50,7 +50,7 @@
         app:layout_constraintStart_toEndOf="@+id/CustomerHomePageTabLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.001"
-        app:srcCompat="@drawable/logout"
+        app:srcCompat="@drawable/wallet"
         tools:ignore="ImageContrastCheck" />
 
     <androidx.viewpager2.widget.ViewPager2

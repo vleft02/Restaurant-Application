@@ -11,16 +11,19 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
+import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Login.LoginActivity;
+import gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity;
+import gr.aueb.softeng.view.Customer.TopUp.TopUpActivity;
 
 public class CustomerHomePageActivity extends AppCompatActivity implements CustomerHomepageView,FragmentListener{
 
+    TabLayout tabLayout;
+    ViewPager2 viewPager2;
     int customerId =-1;
-    CustomerHomepagePresenter presenter;//ALLAGI se VIEWMODEL
-
+    CustomerHomePageViewModel viewModel;
     public void ShowConfirmationMessage() {
         new AlertDialog.Builder(CustomerHomePageActivity.this)
                 .setTitle("Ακύρωση Παραγγελίας")
@@ -28,7 +31,7 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
                 .setPositiveButton("Ναι", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        presenter.cancel(customerId);
+                        viewModel.getPresenter().cancel();
                         dialog.dismiss();
                     }
                 })
@@ -45,8 +48,9 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_hompepage);
 
-        presenter = new CustomerHomepagePresenter(new CustomerDAOmemory(), new OrderDAOmemory());
-        presenter.setView(this);
+
+        viewModel = new CustomerHomePageViewModel(new CustomerDAOmemory(), new OrderDAOmemory(),new ChefDAOmemory());
+        viewModel.getPresenter().setView(this);
         if (savedInstanceState == null)
         {
             Intent intent = getIntent();
@@ -56,18 +60,20 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
                 customerId = extras.getInt("CustomerId");
             }
         }
-        //tabbed Layout initialization
-        TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);//tabs currentOrderTab and orderHistoryTab
-        ViewPager2 viewPager2 = findViewById(R.id.CustomerHomePageViewPager);
-        viewPager2.setUserInputEnabled(false);//No touch scrolling allowed
-        CustomerHomePageViewPagerAdapter adapter = new CustomerHomePageViewPagerAdapter(this,customerId,this);
-        viewPager2.setAdapter(adapter);
+        viewModel.getPresenter().setCustomer(customerId);
+        viewModel.getPresenter().setCurrentOrder();
 
+        //tabbed Layout initialization
+        tabLayout = findViewById(R.id.CustomerHomePageTabLayout);//tabs currentOrderTab and orderHistoryTab
+        viewPager2 = findViewById(R.id.CustomerHomePageViewPager);
+        viewPager2.setUserInputEnabled(false);//No touch scrolling allowed
+        CustomerHomePageViewPagerAdapter adapter = new CustomerHomePageViewPagerAdapter(this,this);
+        viewPager2.setAdapter(adapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager2.setCurrentItem(tab.getPosition());//the appropriate tab is set when selected
+                viewPager2.setCurrentItem(tab.getPosition());//the appropriate tab is set when selecte
             }
 
             @Override
@@ -81,10 +87,10 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
             }
         });
 
-        findViewById(R.id.LogOutButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.TopUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                viewModel.getPresenter().onTopUp();
             }
         });
 
@@ -92,9 +98,45 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
 
 
     }
+
+    public void redirectTopUp() {
+        Intent intent = new Intent(CustomerHomePageActivity.this , TopUpActivity.class) ;
+        intent.putExtra("CustomerId",customerId);
+        viewPager2 = null;
+        tabLayout = null;
+        startActivity(intent);
+    }
+
+    public void redirectPlaceOrder() {
+        Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;
+        startActivity(intent);
+    }
+
     public int getCustomerId()
     {
         return customerId;
     }
+
+    public CustomerHomePageViewModel getViewModel()
+    {
+        return viewModel;
+    }
+
+    @Override
+    public void changeLayout() {
+        viewModel.getPresenter().chooseLayout();
+    }
+
+    @Override
+    public void onCancel() {
+        ShowConfirmationMessage();
+    }
+
+    @Override
+    public void onPlaceOrder() {
+        Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;
+        startActivity(intent);
+    }
+
 
 }

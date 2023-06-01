@@ -49,15 +49,17 @@
         android:id="@+id/CancelOrderButton"
         android:layout_width="59dp"
         android:layout_height="61dp"
-        android:backgroundTint="#23FFFFFF"
+        android:background="#00F35151"
+        android:backgroundTint="#615C5C5C"
         android:contentDescription="@string/cancelorder"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:src="@drawable/pngwing_com"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/CurrentOrderConstraintLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintVertical_bias="0.256"
+        tools:src="@drawable/pngwing_com" />
 
     <TextView
         android:id="@+id/NoOrderText"
