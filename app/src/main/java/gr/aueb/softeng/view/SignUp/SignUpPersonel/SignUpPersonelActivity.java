@@ -59,8 +59,7 @@ public class SignUpPersonelActivity extends AppCompatActivity implements SignUpP
         return details;
     }
     public void goBack(){
-        Intent intent = new Intent(SignUpPersonelActivity.this, LoginActivity.class);
-        startActivity(intent);
+        finish();
     }
 
 

@@ -46,7 +46,7 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_hompepage);
+        setContentView(R.layout.activity_customer_homepage);
 
 
         viewModel = new CustomerHomePageViewModel(new CustomerDAOmemory(), new OrderDAOmemory(),new ChefDAOmemory());
