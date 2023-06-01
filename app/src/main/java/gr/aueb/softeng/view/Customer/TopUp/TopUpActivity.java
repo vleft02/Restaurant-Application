@@ -1,5 +1,6 @@
 package gr.aueb.softeng.view.Customer.TopUp;
 
+import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -37,12 +38,6 @@ TextView balanceText;
             if (extras != null) {
                 customerId = extras.getInt("CustomerId");
             }
-            //DELETE
-            else
-            {
-                customerId = 1;
-            }
-            //DELETE
 
         }
         viewModel.getPresenter().setCustomer();
@@ -68,6 +63,12 @@ TextView balanceText;
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        finish();
     }
 
     public void setBalance(String balance) {

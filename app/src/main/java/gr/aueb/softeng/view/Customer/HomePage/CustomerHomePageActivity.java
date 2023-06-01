@@ -97,7 +97,21 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
 
 
 
+
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        viewPager2.setAdapter(null);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewPager2.setAdapter(new CustomerHomePageViewPagerAdapter(this,this));
+    }
+
 
     public void redirectTopUp() {
         Intent intent = new Intent(CustomerHomePageActivity.this , TopUpActivity.class) ;

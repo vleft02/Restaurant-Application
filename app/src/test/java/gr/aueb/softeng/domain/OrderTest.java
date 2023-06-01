@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
 public class OrderTest {
@@ -18,8 +20,8 @@ OrderLine orderLine1 ,orderLine2;
         customer= new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         orderLine1 = new OrderLine(2,new Dish(1,"food1",10.0));
         orderLine2 = new OrderLine(1,new Dish(2,"food2",7.0));
-        order1 = new Order(10,new Date(1672518456),customer);
-        order2 = new Order(13,new Date(1672618456),customer);
+        order1 = new Order(10, LocalDateTime.of(2023,10,10,9,30,10),1,customer);
+        order2 = new Order(13,LocalDateTime.of(2023,10,10,9,30,10),2,customer);
         order2.addOrderLine(orderLine2);
         customer.topUp(100);
         order2.setStateCompleted();//No money removed since order2 is empty;
@@ -41,6 +43,10 @@ OrderLine orderLine1 ,orderLine2;
         assertEquals(order1.getOrderLines().get(0), orderLine1);
         assertEquals(order1.getOrderLines().get(1), orderLine2);
 
+    }
+    @Test
+    public void getId() {
+        assertEquals(order1.getId(),1);
     }
     @Test
     public void getCustomer() {
@@ -71,7 +77,7 @@ OrderLine orderLine1 ,orderLine2;
 
     @Test
     public void getDate() {
-        Date date = new Date(1672518456);
+        LocalDateTime date = LocalDateTime.of(2023,10,10,9,30,10);
         assertEquals(order1.getDate(),date);////////////
     }
     @Test
