@@ -29,7 +29,7 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
     }
 
     private static boolean initialized = false;
-
+    private int ownerId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,10 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null) {
             Intent intent = getIntent();
+            Bundle extras = intent.getExtras();
+            ownerId = extras.getInt("OwnerId");
         }
+        viewModel.getPresenter().setOwner(ownerId);
 
         findViewById(R.id.CreateRestaurantButton).setOnClickListener(new View.OnClickListener(){
             @Override
@@ -60,7 +63,6 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
         return details;
     }
     public void goBack(){
-        Intent intent = new Intent(AddRestaurantActivity.this, OwnerHomePageActivity.class); //// tha phgainei sto ownerHomePageActivity
-        startActivity(intent);
+        finish(); /// otan kaleitai auto , poia sinartisi tou proigoymenou intent kaleitai? h on create?
     }
 }

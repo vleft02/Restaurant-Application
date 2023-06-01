@@ -7,22 +7,11 @@
     android:background="@drawable/backround8"
     tools:context="gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="671dp"
-        android:layout_height="553dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089"
-        app:srcCompat="@drawable/gradient5" />
-
     <Button
         android:id="@+id/AddRestaurantButton"
         android:layout_width="150dp"
         android:layout_height="91dp"
-        android:text="Add Restaurant"
+        android:text="@string/add_restaurant"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,13 +23,28 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RestaurantRecyclerView"
-        android:layout_width="398dp"
-        android:layout_height="541dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        android:layout_width="313dp"
+        android:layout_height="495dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="308dp"
+        android:layout_height="62dp"
+        android:background="#C1CDE0EF"
+        android:text="@string/emptyView"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/AddRestaurantButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="0.337" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

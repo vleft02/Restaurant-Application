@@ -11,6 +11,18 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name="gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity"
+            android:exported="true"
+            android:label="Restaurant Details"/>
+        <activity
+            android:name="gr.aueb.softeng.view.Owner.Statistics.StatisticsActivity"
+            android:exported="true"
+            android:label="Restaurant Statistics"/>
+        <activity
+            android:name="gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity"
+            android:exported="true"
+            android:label="Add new restaurant"/>
+        <activity
             android:name="gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity"
             android:exported="false" />
         <activity

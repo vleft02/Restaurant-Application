@@ -1,5 +1,7 @@
 package gr.aueb.softeng.view.Owner.HomePage;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import java.util.ArrayList;
 
 import gr.aueb.softeng.dao.OwnerDAO;
@@ -11,6 +13,7 @@ public class OwnerHomePagePresenter {
 
     OwnerHomePageView view;
 
+    private ArrayList<Restaurant> restaurantList;
     private OwnerDAO ownerDAO;
     private RestaurantDAO restaurantDAO;
 
@@ -19,6 +22,9 @@ public class OwnerHomePagePresenter {
     public OwnerHomePagePresenter(OwnerDAO ownerDAO, RestaurantDAO restaurantDAO){
         this.ownerDAO=ownerDAO;
         this.restaurantDAO=restaurantDAO;
+    }
+    public void setRestaurantList(){
+        restaurantList = owner.getRestaurants();
     }
     public void setView(OwnerHomePageView view){
         this.view=view;
@@ -33,8 +39,18 @@ public class OwnerHomePagePresenter {
     public ArrayList<Restaurant> getRestaurants() {
         return ownerDAO.findRestaurants(owner.getUserId());
     }
-
     public void setOwner(int ownerId) {
         owner = ownerDAO.find(ownerId);
+    }
+
+    public void onAddRestaurant(){
+        view.AddRestaurant();
+    }
+
+    public ArrayList<Restaurant> getRestaurantList(){
+        return this.restaurantList;
+    }
+    public void onChangeLayout(){
+        view.changeLayout();
     }
 }

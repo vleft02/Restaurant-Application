@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +16,21 @@ import java.util.List;
 import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
+import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
 
 public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHomePageView,
         OwnerHomePageRecyclerViewAdapter.ItemSelectionListener{
-int ownerId;
+    public int ownerId;
+    RecyclerView recyclerView;
+    TextView emptyView;
+    OwnerHomePageViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner_home_page);
 
-        OwnerHomePageViewModel viewModel = new ViewModelProvider(this).get(OwnerHomePageViewModel.class);
+        viewModel = new ViewModelProvider(this).get(OwnerHomePageViewModel.class);
         viewModel.getPresenter().setView(this);
 
         if (savedInstanceState == null) {
@@ -32,14 +39,26 @@ int ownerId;
             ownerId = extras.getInt("OwnerId");
         }
         viewModel.getPresenter().setOwner(ownerId);
+        viewModel.getPresenter().setRestaurantList();
         // ui initialization
-        RecyclerView recyclerView = findViewById(R.id.RestaurantRecyclerView);
+         recyclerView = findViewById(R.id.RestaurantRecyclerView);
+         emptyView = findViewById(R.id.emptyView);
+         viewModel.getPresenter().onChangeLayout();
+
+        findViewById(R.id.AddRestaurantButton).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                viewModel.getPresenter().onAddRestaurant();
+            }
+        });
+
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        viewModel.getPresenter().setRestaurantList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Restaurant> restaurantList = new ArrayList<>(viewModel.getPresenter().getRestaurants());
-        recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(restaurantList, this));
-
-
-
+        recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
+        viewModel.getPresenter().onChangeLayout();
     }
 
     @Override
@@ -47,6 +66,24 @@ int ownerId;
         Intent intent = new Intent(OwnerHomePageActivity.this, LoginActivity.class);
         intent.putExtra("RestaurantId", restaurant.getId());
         startActivity(intent);
+    }
+    public void AddRestaurant(){
+        Intent intent = new Intent(OwnerHomePageActivity.this, AddRestaurantActivity.class);
+        intent.putExtra("OwnerId",ownerId);
+        startActivity(intent);
+    }
+
+    @Override
+    public void changeLayout() {
+        if (viewModel.getPresenter().getRestaurantList().isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+        } else {
+            recyclerView.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
+        }
     }
 }
 

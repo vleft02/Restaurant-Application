@@ -2,24 +2,28 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#EC7B03">
+    android:background="#731212"
+    android:outlineProvider="background"
+    android:padding="5dp">
 
     <TextView
         android:id="@+id/RestaurantName"
-        android:layout_width="363dp"
-        android:layout_height="46dp"
-        android:background="#00FFFFFF"
+        android:layout_width="343dp"
+        android:layout_height="41dp"
+        android:background="#00D5C8C8"
+        android:backgroundTint="#FFFFFF"
         android:text="@string/RestaurantName"
         android:textAlignment="center"
-        android:textColor="#101010"
-        android:textSize="20sp"
+        android:textColor="#D87E20"
+        android:textSize="28sp"
         android:textStyle="bold|italic"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
