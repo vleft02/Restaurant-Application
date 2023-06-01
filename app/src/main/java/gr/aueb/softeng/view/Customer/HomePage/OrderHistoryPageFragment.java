@@ -60,6 +60,7 @@ public class OrderHistoryPageFragment extends Fragment implements OrderSelection
         if (getArguments() != null) {
             listener = (FragmentListener) getArguments().getSerializable(LISTENER);
         }
+        listener.getViewModel().getPresenter().setOrderHistory();
     }
 
     @Override
@@ -67,7 +68,6 @@ public class OrderHistoryPageFragment extends Fragment implements OrderSelection
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_order_history_page, container, false);
-        listener.getViewModel().getPresenter().setOrderHistory();
         recyclerView = rootView.findViewById(R.id.OrderHistoryRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new OrderHistoryRecyclerViewAdapter(listener.getViewModel().getPresenter().getOrderHistory(),this));
