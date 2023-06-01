@@ -64,7 +64,7 @@ public class OrderHistoryRecyclerViewAdapter extends RecyclerView.Adapter<OrderH
 
         @Override
         public String toString() {
-            return super.toString();
+            return super.toString()+" "+orderDate.getText()+ " "+orderState.getText();
         }
     }
 }
