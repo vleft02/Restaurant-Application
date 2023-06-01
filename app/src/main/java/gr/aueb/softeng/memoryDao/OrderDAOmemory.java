@@ -38,6 +38,16 @@ public class OrderDAOmemory implements OrderDAO{
     }
 
     @Override
+    public Order find(int id) {
+        for(Order order: entities){
+            if(order.getId()==id){
+                return order;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public List<Order> findByCustomer(Customer customer) {
         ArrayList<Order> result= new ArrayList<>();
         for(Order order : entities){
@@ -57,5 +67,10 @@ public class OrderDAOmemory implements OrderDAO{
             }
         }
         return result;
+    }
+
+    @Override
+    public int nextId() {
+        return (entities.size() > 0 ? entities.get(entities.size()-1).getId()+1 : 1);
     }
 }

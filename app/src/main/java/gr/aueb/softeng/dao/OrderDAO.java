@@ -14,6 +14,10 @@ public interface OrderDAO {
 
     Order find(Order entity);
 
+    Order find(int id);
+
     List<Order> findByCustomer(Customer customer);
     ArrayList<Order> findByCustomer(int id);
+
+    int nextId();
 }
