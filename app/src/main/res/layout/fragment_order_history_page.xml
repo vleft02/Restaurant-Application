@@ -6,6 +6,7 @@
     tools:context="gr.aueb.softeng.view.Customer.HomePage.OrderHistoryPageFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/OrderHistoryRecyclerView"
         android:layout_width="409dp"
         android:layout_height="721dp"
         app:layout_constraintBottom_toBottomOf="parent"

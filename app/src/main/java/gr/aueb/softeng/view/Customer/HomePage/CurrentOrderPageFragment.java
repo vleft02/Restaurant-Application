@@ -106,6 +106,9 @@ public class CurrentOrderPageFragment extends Fragment {
         return rootView;
     }
 
-
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        listener = null;
+    }
 }

@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.CustomerDAO;
@@ -22,17 +23,33 @@ public class CustomerHomepagePresenter {
     Order currentOrder;
     Customer customer;
 
+    ArrayList<Order> orderHistory;
+
     public CustomerHomepagePresenter(CustomerDAO customerDAO, OrderDAO orderDAO,ChefDAO chefDAO)
     {
         this.customerDAO = customerDAO;
         this.orderDAO = orderDAO;
         this.chefDAO = chefDAO;
+        orderHistory = new ArrayList<>();
     }
 
     public void setCustomer(int id) {
         this.customer = customerDAO.find(id);
     }
 
+    public void setOrderHistory()
+    {
+        if (customer!=null)
+        {
+            for (Order order : orderDAO.findByCustomer(customer))
+            {
+                if (order.getOrderState() == Order.State.COMPLETED || order.getOrderState() == Order.State.CANCELLED )
+                {
+                    orderHistory.add(order);
+                }
+            }
+        }
+    }
     public void setCurrentOrder()
     {
         ArrayList<Order> orders = (ArrayList<Order>) orderDAO.findByCustomer(customer);
@@ -90,6 +107,7 @@ public class CustomerHomepagePresenter {
             currentOrder.setStateCancelled();
             currentOrder = null;
             chooseLayout();
+            setOrderHistory();
             //AFAIRESH APO CHEF
        }
     }
@@ -116,6 +134,10 @@ public class CustomerHomepagePresenter {
 
     public void onTopUp() {
         view.redirectTopUp();
+    }
+
+    public ArrayList<Order> getOrderHistory() {
+        return orderHistory;
     }
 }
 
