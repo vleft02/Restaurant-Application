@@ -31,13 +31,13 @@ public class OwnerHomePageRecyclerViewAdapter extends RecyclerView.Adapter<Owner
     @Override
     public void onBindViewHolder(@NonNull OwnerHomePageRecyclerViewAdapter.ViewHolder holder, int position) {
         final Restaurant currentItem = restaurants.get(position);
-        holder.restName.setText(String.valueOf(currentItem.getRestaurantName()));
-        holder.restName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.selectRestaurant(currentItem);
-            }
-        });
+            holder.restName.setText(String.valueOf(currentItem.getRestaurantName()));
+            holder.restName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.selectRestaurant(currentItem);
+                }
+            });
     }
     public class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -47,11 +47,15 @@ public class OwnerHomePageRecyclerViewAdapter extends RecyclerView.Adapter<Owner
             super(view);
             restName = view.findViewById(R.id.RestaurantName);
         }
+        @Override
+        public String toString() {
+            return super.toString() + " '" + restName.getText() + "'";
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return restaurants.size();
     }
     public interface ItemSelectionListener
     {

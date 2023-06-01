@@ -4,12 +4,13 @@ import android.util.Log;
 
 import androidx.lifecycle.ViewModel;
 
+import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
 
 public class AddRestaurantViewModel extends ViewModel {
     AddRestaurantPresenter presenter;
     public AddRestaurantViewModel(){
-        presenter = new AddRestaurantPresenter(new RestaurantDAOmemory());
+        presenter = new AddRestaurantPresenter(new OwnerDAOmemory(), new RestaurantDAOmemory());
     }
     public AddRestaurantPresenter getPresenter(){
         return this.presenter;

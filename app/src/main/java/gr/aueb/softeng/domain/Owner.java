@@ -29,12 +29,8 @@ public class Owner extends User {
     public double getIncome(){
         return this.income;
     }
-    public ArrayList<Restaurant> getRestaurants() throws NoSuchElementException {
-        if (!restaurants.isEmpty()){
+    public ArrayList<Restaurant> getRestaurants() {////////////////////////////// na allaksw ta tests
             return this.restaurants;
-        }else{
-            throw new NoSuchElementException();
-        }
     }
     public void changeIban(String iban){
         this.iban=iban;

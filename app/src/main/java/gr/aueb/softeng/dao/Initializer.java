@@ -18,7 +18,7 @@ public abstract class Initializer {
     {
         UserDAO userDAO = getUserDAO();
         ChefDAO chefDAO = getChefDAO();
-
+/*
         chefDAO.save(new Chef("chef1","Kostas","Pappas","2105647839", "chef1@gmail.com","123456789", chefDAO.nextId(), "12341324134123","1324132412341"));
         chefDAO.save(new Chef("chef2","Gianis","Pappas","2105784903", "chef2@gmail.com","123456789", chefDAO.nextId(), "12341324134123","1324132456789"));
         chefDAO.save(new Chef("chef3","Adreas","Pappas","2105647839", "chef3@gmail.com","123456789", chefDAO.nextId(), "12341324134123","1324132565433"));
@@ -33,7 +33,7 @@ public abstract class Initializer {
         customer = new Customer("adreas:)", "Antreas","Antreopoulos", "2113335867","adreas@gmail.com", "123456789", customerDAO.nextId(), "14353452435523245","Kostas Papadopoulos","678");
         customerDAO.save(customer);
         userDAO.save(customer);
-
+*/
         OwnerDAO ownerDAO = getOwnerDAO();
         Owner owner = new Owner("owner1","Kostas","Pappas","2105648463", "owner1@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
         ownerDAO.save(owner);
@@ -49,16 +49,15 @@ public abstract class Initializer {
         RestaurantDAO restaurantDAO = getRestaurantDAO();
         Restaurant rest = new Restaurant(restaurantDAO.nextId(), "Taverna","2105347953",12,new Address(12,"Stratigou",122333,"Menidi"));
         restaurantDAO.save(rest);
-        ownerDAO.find(4).addRestaurant(rest);
-        rest = new Restaurant(restaurantDAO.nextId(), "Kafeteria","2105347234",12,new Address(13,"panagias",122333,"exraxeia"));
-        restaurantDAO.save(rest);
-        ownerDAO.find(4).addRestaurant(rest);
-        restaurantDAO.save(new Restaurant(restaurantDAO.nextId(), "Pitogyra","2105347234",12,new Address(14,"agioy ioannou",122333,"exraxeia")));
-        rest = null;
+        ownerDAO.find(1).addRestaurant(rest);
+        Restaurant rest2 = new Restaurant(restaurantDAO.nextId(), "Kafeteria","2105347234",12,new Address(13,"panagias",122333,"exraxeia"));
+        restaurantDAO.save(rest2);
+        ownerDAO.find(1).addRestaurant(rest2);
+     /*   restaurantDAO.save(new Restaurant(restaurantDAO.nextId(), "Pitogyra","2105347234",12,new Address(14,"agioy ioannou",122333,"exraxeia")));
         OrderDAO orderDAO = getOrderDAO();
         orderDAO.save(new Order(12,new Date(),customerDAO.find("kostas123")));
         orderDAO.save(new Order(14,new Date(),customerDAO.find("priamoss")));
-        orderDAO.save(new Order(13,new Date(),customerDAO.find("adreas:)")));
+        orderDAO.save(new Order(13,new Date(),customerDAO.find("adreas:)")));*/
         //ARXIKOPOIOUME KAI PIATA KAI RESTAURANTS EDO
     }
 

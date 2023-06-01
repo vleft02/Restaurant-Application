@@ -76,10 +76,9 @@ public class OwnerDAOmemory implements OwnerDAO {
         for(Owner owner : entities){
             if(owner.getUserId()==id){
                result.addAll(owner.getRestaurants());
-               return result;
             }
         }
-        return null;
+        return result;
     }
     @Override
     public int nextId() {

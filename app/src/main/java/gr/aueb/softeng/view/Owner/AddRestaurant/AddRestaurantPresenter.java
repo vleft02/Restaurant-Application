@@ -3,17 +3,26 @@ package gr.aueb.softeng.view.Owner.AddRestaurant;
 import java.util.HashMap;
 import java.util.Map;
 
+import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.RestaurantDAO;
 import gr.aueb.softeng.domain.Address;
 import gr.aueb.softeng.domain.Customer;
+import gr.aueb.softeng.domain.Owner;
 import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
 
 public class AddRestaurantPresenter {
     private RestaurantDAO restaurantDAO;
+    private OwnerDAO ownerDAO;
+    private int ownerId;
+    private Owner owner;
 
-    public AddRestaurantPresenter(RestaurantDAO restaurantDAO) {
+    public AddRestaurantPresenter(OwnerDAO ownerDAO, RestaurantDAO restaurantDAO) {
+        this.ownerDAO= ownerDAO;
         this.restaurantDAO = restaurantDAO;
+    }
+    public void setOwner(int id){
+        owner= ownerDAO.find(id);
     }
 
     AddRestaurantView view;
@@ -34,7 +43,7 @@ public class AddRestaurantPresenter {
         }
         if (isEmpty) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία!.");
-        } else if (details.get("name").length() < 4 || details.get("username").length() > 15) {
+        } else if (details.get("name").length() < 4 || details.get("name").length() > 15) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε 4 έως 15 χαρακτήρες στο Restaurant Name.");
         } else if (details.get("telephone").length() < 10) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.");
@@ -52,6 +61,7 @@ public class AddRestaurantPresenter {
             Restaurant restaurant= new Restaurant(restaurantDAO.nextId(),details.get("name"),details.get("telephone"),Integer.parseInt(details.get("total_tables")),new Address(Integer.parseInt(details.get("streetNumber")),details.get("streetName"),Integer.parseInt(details.get("zc")),details.get("city")));
 
             restaurantDAO.save(restaurant);
+            owner.addRestaurant(restaurant);
 
             view.showErrorMessage("Μπραβο!", details.get("name") + details.get("telephone") + details.get("streetName") + details.get("streetNumber") +
                     details.get("zc") + details.get("total_tables"));
