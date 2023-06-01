@@ -1,5 +1,6 @@
 package gr.aueb.softeng.view.Customer.HomePage;
 
+import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,17 +9,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.team08.R;
 
 public class OrderHistoryRecyclerViewAdapter extends RecyclerView.Adapter<OrderHistoryRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Order> orders;
+    private final ArrayList<Order> orders;
     private final OrderSelectionListener listener;
 
-    public OrderHistoryRecyclerViewAdapter(List<Order> orders, OrderSelectionListener listener) {
+    public OrderHistoryRecyclerViewAdapter(ArrayList<Order> orders, OrderSelectionListener listener) {
         this.orders = orders;
         this.listener = listener;
     }
@@ -55,16 +58,18 @@ public class OrderHistoryRecyclerViewAdapter extends RecyclerView.Adapter<OrderH
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView orderDate;
         public final TextView orderState;
+        public final TextView orderId;
 
         public ViewHolder(View view) {
             super(view);
             orderDate = view.findViewById(R.id.OrderDateTextView);
             orderState = view.findViewById(R.id.OrderStateTextView);
+            orderId = view.findViewById(R.id.OrderIdTextView);
         }
 
         @Override
         public String toString() {
-            return super.toString()+" "+orderDate.getText()+ " "+orderState.getText();
+            return super.toString()+" "+orderId.getText()+" "+orderDate.getText()+ " "+orderState.getText();
         }
     }
 }

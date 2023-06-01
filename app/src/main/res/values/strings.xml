@@ -59,4 +59,5 @@
     <string name="statistics">Statistics\n</string>
     <string name="dishname">Dish Name</string>
     <string name="dishprice">Dish Price</string>
+    <string name="place_order">Place Order</string>
 </resources>

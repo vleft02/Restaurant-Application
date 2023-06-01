@@ -21,10 +21,6 @@ TextView balanceText;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_up);
 
-        //USED FOR DEBUGGING
-        MemoryInitializer dataHelper = new MemoryInitializer();
-        dataHelper.prepareData();
-        //REMOVE LATER
 
         viewModel = new TopUpViewModel(new CustomerDAOmemory());
         viewModel.getPresenter().setView(this);

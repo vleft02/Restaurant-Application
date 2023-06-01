@@ -116,8 +116,6 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     public void redirectTopUp() {
         Intent intent = new Intent(CustomerHomePageActivity.this , TopUpActivity.class) ;
         intent.putExtra("CustomerId",customerId);
-        viewPager2 = null;
-        tabLayout = null;
         startActivity(intent);
     }
 

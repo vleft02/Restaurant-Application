@@ -55,6 +55,12 @@ public abstract class Initializer {
      /*  restaurantDAO.save(new Restaurant(restaurantDAO.nextId(), "Pitogyra","2105347234",12,new Address(14,"agioy ioannou",122333,"exraxeia")));
         */OrderDAO orderDAO = getOrderDAO();
         orderDAO.save(new Order(12, LocalDateTime.of(2023,10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123")));
+        Order order = new Order(10, LocalDateTime.of(2023,10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123"));
+        order.setStateCompleted();
+        orderDAO.save(order);
+        order = new Order(10, LocalDateTime.of(2023,10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123"));
+        order.setStateCancelled();
+        orderDAO.save(order);
         orderDAO.save(new Order(14, LocalDateTime.of(2023,10,12,3,55,23),orderDAO.nextId(),customerDAO.find("priamoss")));
         orderDAO.save(new Order(13,LocalDateTime.of(2023,10,12,3,55,23),orderDAO.nextId(),customerDAO.find("adreas:)")));
         //ARXIKOPOIOUME KAI PIATA KAI RESTAURANTS EDO

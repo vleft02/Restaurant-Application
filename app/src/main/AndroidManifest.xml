@@ -24,6 +24,7 @@
             android:label="Add new restaurant"/>
         <activity
             android:name="gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity"
+            android:label="@string/place_order"
             android:exported="false" />
         <activity
             android:name="gr.aueb.softeng.view.Customer.TopUp.TopUpActivity"

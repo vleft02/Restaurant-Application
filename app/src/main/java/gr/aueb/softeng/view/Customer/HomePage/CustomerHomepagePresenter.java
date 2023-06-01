@@ -1,9 +1,11 @@
 package gr.aueb.softeng.view.Customer.HomePage;
 
+import android.util.ArraySet;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,11 +41,12 @@ public class CustomerHomepagePresenter {
 
     public void setOrderHistory()
     {
+        ArrayList<Order> orders = (ArrayList<Order>) orderDAO.findByCustomer(customer);
         if (customer!=null)
         {
-            for (Order order : orderDAO.findByCustomer(customer))
+            for (Order order : orders)
             {
-                if (order.getOrderState() == Order.State.COMPLETED || order.getOrderState() == Order.State.CANCELLED )
+                if (order.getOrderState() == Order.State.COMPLETED || order.getOrderState() == Order.State.CANCELLED ||!orders.contains(order))
                 {
                     orderHistory.add(order);
                 }
@@ -90,8 +93,9 @@ public class CustomerHomepagePresenter {
         String output = "";
         if(currentOrder != null)
         {
+            output += "#"+currentOrder.getId()+"\n";
             output += currentOrder.getOrderState().toString()+"\n";
-            output += currentOrder.getOrderState().toString()+"\n";
+            output += currentOrder.getDate().format(DateTimeFormatter.ISO_DATE_TIME);
         }
 
         return output;
