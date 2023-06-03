@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backround3"
+    android:backgroundTint="#A1E1E1E1"
+    android:backgroundTintMode="src_atop"
+    tools:context="gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ChooseRestaurantRecyclerView"
+        android:layout_width="391dp"
+        android:layout_height="696dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485" />
+
+    <TextView
+        android:id="@+id/NoRestaurants"
+        android:layout_width="289dp"
+        android:layout_height="57dp"
+        android:text="No restaurants found : ("
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

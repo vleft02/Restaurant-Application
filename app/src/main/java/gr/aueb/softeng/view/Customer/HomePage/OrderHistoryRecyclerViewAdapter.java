@@ -39,6 +39,7 @@ public class OrderHistoryRecyclerViewAdapter extends RecyclerView.Adapter<OrderH
                                  int position) {
 
         final Order currentItem = orders.get(position);
+        holder.orderId.setText(String.format("#%s", String.valueOf(currentItem.getId())));
         holder.orderDate.setText(String.valueOf(currentItem.getDate()));
         holder.orderState.setText(currentItem.getOrderState().toString());
         holder.orderDate.setOnClickListener(new View.OnClickListener() {

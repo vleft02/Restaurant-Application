@@ -43,7 +43,7 @@ public class LoginPresenter {
         }
         else if (chefDAO.find(inputUsername, inputPassword) != null) {
             view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            view.redirectToChefHomePage();
+            view.redirectToChefHomePage(chefDAO.find(inputUsername,inputPassword).getUserId());
         }
         else if (ownerDAO.find(inputUsername, inputPassword) != null) {
             view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");

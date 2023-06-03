@@ -4,14 +4,17 @@ import androidx.lifecycle.ViewModel;
 
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.dao.RestaurantDAO;
+import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
+import gr.aueb.softeng.memoryDao.OrderDAOmemory;
+import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
 
 public class PlaceOrderViewModel extends ViewModel {
 
     PlaceOrderPresenter presenter;
 
-    public PlaceOrderViewModel(RestaurantDAO restaurantDAO, CustomerDAO customerDAO)
+    public PlaceOrderViewModel()
     {
-        presenter = new PlaceOrderPresenter(restaurantDAO,customerDAO);
+        presenter = new PlaceOrderPresenter(new RestaurantDAOmemory(),new CustomerDAOmemory(),new OrderDAOmemory());
     }
 
     public PlaceOrderPresenter getPresenter() {

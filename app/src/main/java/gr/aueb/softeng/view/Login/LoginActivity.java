@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity;
+import gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantActivity;
 import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
 import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity;
 import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
@@ -98,13 +99,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     public void redirectToCustomerPage(int customerId){
-        Intent intent = new Intent(LoginActivity.this, CustomerHomePageActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ChooseRestaurantActivity.class);
         intent.putExtra("CustomerId",customerId);
         startActivity(intent);
     }
-    public void redirectToChefHomePage(){
-        Intent intent = new Intent(LoginActivity.this, ChefHomePageActivity.class);
-        startActivity(intent);
+    public void redirectToChefHomePage(int chefId){
+            Intent intent = new Intent(LoginActivity.this, ChefHomePageActivity.class);
+            intent.putExtra("ChefId",chefId);
+            startActivity(intent);
     }
     public void redirectToOwnerHomePage(int ownerId){
         Intent intent = new Intent(LoginActivity.this, OwnerHomePageActivity.class);

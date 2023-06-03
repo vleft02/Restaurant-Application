@@ -34,7 +34,7 @@ public class Order {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public State getOrderState() {

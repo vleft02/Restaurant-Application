@@ -10,41 +10,66 @@
     tools:context="gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="410dp"
-        android:layout_height="661dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/DishRecyclerView"
+        android:layout_width="389dp"
+        android:layout_height="496dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/PlaceOrdersButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/TableNumberEditText"
         android:layout_width="78dp"
         android:layout_height="56dp"
         android:ems="10"
         android:hint="Number"
         android:inputType="number"
-        android:textColorHint="#00000000"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        android:textAlignment="viewStart"
+        android:textColorHint="#656464"
+        app:layout_constraintBottom_toTopOf="@+id/DishRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="80dp"
-        android:layout_height="61dp"
+        android:id="@+id/tableNumberTextView"
+        android:layout_width="79dp"
+        android:layout_height="60dp"
         android:text="Table Number: "
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/TableNumberEditText"
+        app:layout_constraintEnd_toStartOf="@+id/TableNumberEditText"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/PlaceOrdersButton"
+        android:layout_width="122dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="36dp"
+        android:background="#D0DD883D"
+        android:text="Place Order"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/NoDishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No dishes are available :("
+        android:textColor="#020202"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
