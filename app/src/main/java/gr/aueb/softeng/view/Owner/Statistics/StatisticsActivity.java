@@ -10,15 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity;
-import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsViewModel;
 
 public class StatisticsActivity extends AppCompatActivity implements StatisticsView {
     StatisticsViewModel viewModel;
     public int RestaurantId;
 
-    public void setMonthlyIncome(String monthlyIncome){
-        ((TextView)findViewById(R.id.MonthlyIncomeResult)).setText(monthlyIncome);
+    public void setAVGMonthlyIncome(String monthlyIncome){
+        ((TextView)findViewById(R.id.AvgMonthlyIncomeResult)).setText(monthlyIncome);
     }
     public void setYearlyIncome(String yearlyIncome){
         ((TextView)findViewById(R.id.YearlyIncomeResult)).setText(yearlyIncome);

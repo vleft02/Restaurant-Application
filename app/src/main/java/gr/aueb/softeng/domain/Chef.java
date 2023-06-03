@@ -25,12 +25,8 @@ public class Chef extends User {
     public String getTin() {
         return tin;
     }
-    public ArrayList<Order> getOrders() throws NoSuchElementException {
-        if(!this.orders.isEmpty()){
+    public ArrayList<Order> getOrders(){
             return orders;
-        }else{
-            throw new NoSuchElementException();
-        }
     }
 
     public void changeIban(String iban){

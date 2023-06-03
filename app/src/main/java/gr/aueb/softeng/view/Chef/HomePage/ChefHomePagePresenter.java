@@ -26,7 +26,18 @@ public class ChefHomePagePresenter {
         this.orderDAO=orderDAO;
     }
     public void setOrderList(){
+        ArrayList<Integer> indexes = new ArrayList<>();
         orderList = chef.getOrders();
+        int i=0;
+        while (i<orderList.size()){
+            if(orderList.get(i).getOrderState()== Order.State.COMPLETED){
+                indexes.add(i);
+            }
+            i+=1;
+        }
+        for(int rem: indexes){
+            orderList.remove(rem);
+        }
     }
     public void setView(ChefHomePageView view){
         this.view=view;
@@ -43,7 +54,7 @@ public class ChefHomePagePresenter {
     }
 
     public ArrayList<Order> getOrderList(){
-        return this.orderList;
+        return orderList;
     }
     public void onChangeLayout(){
         view.changeLayout();
