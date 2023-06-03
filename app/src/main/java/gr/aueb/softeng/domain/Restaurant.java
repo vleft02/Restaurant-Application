@@ -75,6 +75,10 @@ public class Restaurant {
 
     public boolean addOrder(Order order) { //we give the order to the chefs by round robin
         if (order.getCustomer().getBalance() >= order.getTotalCost()) { //if the customer has the right balance
+            if (chefs.isEmpty())
+            {
+                return false;
+            }
             Chef chef = chefs.get(counter); // get the chef that is his turn to get the order
             if(counter==chefs.size()-1){
                 counter=0; // if it is the last chef, the next one is the first

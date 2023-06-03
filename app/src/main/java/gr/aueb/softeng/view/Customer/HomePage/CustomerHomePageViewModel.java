@@ -10,13 +10,14 @@ import gr.aueb.softeng.dao.OrderDAO;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
+import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
 
 public class CustomerHomePageViewModel extends ViewModel {
     CustomerHomepagePresenter presenter;
 
     public CustomerHomePageViewModel(CustomerDAO customerDAO, OrderDAO orderDAO, ChefDAO chefDAO)
     {
-        presenter = new CustomerHomepagePresenter(new CustomerDAOmemory(),new OrderDAOmemory(), new ChefDAOmemory());
+        presenter = new CustomerHomepagePresenter(new CustomerDAOmemory(),new OrderDAOmemory(), new ChefDAOmemory(),new RestaurantDAOmemory());
     }
     public CustomerHomepagePresenter getPresenter() {
         return presenter;

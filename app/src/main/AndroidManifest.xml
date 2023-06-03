@@ -11,33 +11,41 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name="gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantActivity"
+            android:exported="false"
+            android:label="Choose a Restaurant"/>
+        <activity
+            android:name="gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity"
+            android:exported="false"
+            android:label="Order Details"/>
+        <activity
             android:name="gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity"
             android:exported="true"
-            android:label="Restaurant Details"/>
+            android:label="Restaurant Details" />
         <activity
             android:name="gr.aueb.softeng.view.Owner.Statistics.StatisticsActivity"
             android:exported="true"
-            android:label="Restaurant Statistics"/>
+            android:label="Restaurant Statistics" />
         <activity
             android:name="gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity"
             android:exported="true"
-            android:label="Add new restaurant"/>
+            android:label="Add new restaurant" />
         <activity
             android:name="gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity"
-            android:label="@string/place_order"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/place_order" />
         <activity
             android:name="gr.aueb.softeng.view.Customer.TopUp.TopUpActivity"
             android:exported="true"
             android:label="@string/TopUp" />
         <activity
             android:name="gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity"
-            android:label="@string/Homepage"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/Homepage" />
         <activity
             android:name="gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity"
-            android:label="@string/Homepage"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/Homepage" />
         <activity
             android:name="gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerActivity"
             android:exported="true"

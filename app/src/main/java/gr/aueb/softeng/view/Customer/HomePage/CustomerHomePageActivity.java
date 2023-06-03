@@ -3,7 +3,13 @@ package gr.aueb.softeng.view.Customer.HomePage;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.NumberPicker;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
+import gr.aueb.softeng.domain.Dish;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
@@ -22,8 +29,65 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-    int customerId =-1;
+    int customerId = -1;
+    int restaurantId = -1;
     CustomerHomePageViewModel viewModel;
+    int tableNumber = 0;
+
+    private void showTableNumberPickerPopup() {
+
+        PopupWindow popupWindow = new PopupWindow(this);
+
+        // Set the content view of the pop-up window
+        View contentView = getLayoutInflater().inflate(R.layout.quantity_picker, null);
+        popupWindow.setContentView(contentView);
+
+        // Set the width and height of the pop-up window
+        popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        // Configure the NumberPicker
+        NumberPicker numberPicker = contentView.findViewById(R.id.numberPicker);
+        numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(viewModel.getPresenter().getRestaurantCapacity());
+
+        // Configure the Confirm button
+        Button confirmButton = contentView.findViewById(R.id.confirmButton);
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Retrieve the selected number
+                int tableNo = numberPicker.getValue();
+                if (viewModel.getPresenter().checkTableAvailability(tableNo))
+                {
+                    tableNumber = tableNo;
+                    popupWindow.dismiss();
+                    Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;
+                    intent.putExtra("RestaurantId",restaurantId);
+                    intent.putExtra("CustomerId",customerId);
+                    intent.putExtra("TableNumber",tableNumber);
+                    startActivity(intent);
+                }// Dismiss the pop-up window
+                else
+                {
+                    tableUnavailableMessage();
+                }
+            }
+        });
+
+        // Show the pop-up window
+        popupWindow.showAtLocation(contentView, Gravity.CENTER, 0, 0);
+    }
+
+    public void tableUnavailableMessage()
+    {
+        new android.app.AlertDialog.Builder(CustomerHomePageActivity.this)
+                .setCancelable(true)
+                .setTitle("Μη διαθέσιμο Τραπέζι")
+                .setMessage("Το τραπέζι που επιλέξατε δεν είναι διαθέσιμο")
+                .setPositiveButton("OK", null).create().show();
+    }
+
     public void ShowConfirmationMessage() {
         new AlertDialog.Builder(CustomerHomePageActivity.this)
                 .setTitle("Ακύρωση Παραγγελίας")
@@ -58,9 +122,11 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
 
             if (extras != null) {
                 customerId = extras.getInt("CustomerId");
+                restaurantId = extras.getInt("RestaurantId");
             }
         }
         viewModel.getPresenter().setCustomer(customerId);
+        viewModel.getPresenter().setRestaurant(restaurantId);
         viewModel.getPresenter().setCurrentOrder();
 
         //tabbed Layout initialization
@@ -119,10 +185,6 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         startActivity(intent);
     }
 
-    public void redirectPlaceOrder() {
-        Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;
-        startActivity(intent);
-    }
 
     public int getCustomerId()
     {
@@ -146,7 +208,14 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
 
     @Override
     public void onPlaceOrder() {
+        showTableNumberPickerPopup();
+    }
+    public void redirectPlaceOrder()
+    {
         Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;
+        intent.putExtra("RestaurantId",restaurantId);
+        intent.putExtra("CustomerId",customerId);
+        intent.putExtra("TableNumber",tableNumber);
         startActivity(intent);
     }
 
