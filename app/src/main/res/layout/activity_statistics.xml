@@ -176,8 +176,8 @@
 
     <Button
         android:id="@+id/GoBack"
-        android:layout_width="105dp"
-        android:layout_height="68dp"
+        android:layout_width="111dp"
+        android:layout_height="85dp"
         android:background="#A4FFFFFF"
         android:text="Go back"
         android:textAllCaps="false"
@@ -185,10 +185,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#138578"
+    android:outlineProvider="background"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/DishNameTextView"
+        android:layout_width="205dp"
+        android:layout_height="41dp"
+        android:background="#00D5C8C8"
+        android:backgroundTint="#FFFFFF"
+        android:text="Dish Name"
+        android:textAlignment="viewStart"
+        android:textColor="#D87E20"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/DishQuantityTextView"
+        android:layout_width="179dp"
+        android:layout_height="43dp"
+        android:background="#00D5C8C8"
+        android:backgroundTint="#FFFFFF"
+        android:text="Dish Quant"
+        android:textAlignment="viewStart"
+        android:textColor="#D87E20"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/DishNameTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

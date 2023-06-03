@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/RestaurantNameDetailText"
-        android:layout_width="270dp"
-        android:layout_height="51dp"
+        android:layout_width="408dp"
+        android:layout_height="54dp"
         android:background="#DF5C1368"
         android:text="@string/restaurant_name1"
         android:textColor="#D19944"
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/RestaurantIdDetailText"
-        android:layout_width="270dp"
+        android:layout_width="410dp"
         android:layout_height="51dp"
         android:background="#DF5C1368"
         android:text="@string/restaurant_id"
@@ -41,8 +41,8 @@
 
     <TextView
         android:id="@+id/RestaurantTablesDetailText"
-        android:layout_width="270dp"
-        android:layout_height="51dp"
+        android:layout_width="413dp"
+        android:layout_height="56dp"
         android:background="#DF5C1368"
 
         android:text="@string/restaurant_tables"
@@ -58,13 +58,13 @@
 
     <TextView
         android:id="@+id/RestaurantAddressStreetText"
-        android:layout_width="400dp"
-        android:layout_height="57dp"
+        android:layout_width="412dp"
+        android:layout_height="61dp"
+        android:background="#DF5C1368"
         android:text="@string/restaurant_address_street"
         android:textColor="#D19944"
         android:textSize="28sp"
         android:textStyle="bold|italic"
-        android:background="#DF5C1368"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,10 +92,10 @@
 
     <TextView
         android:id="@+id/RestaurantAddressZCText"
-        android:layout_width="270dp"
+        android:layout_width="418dp"
         android:layout_height="51dp"
-        android:text="@string/restaurant_zc"
         android:background="#DF5C1368"
+        android:text="@string/restaurant_zc"
 
         android:textColor="#D19944"
         android:textSize="28sp"
@@ -109,11 +109,11 @@
 
     <TextView
         android:id="@+id/RestaurantCityText"
-        android:layout_width="270dp"
-        android:layout_height="51dp"
+        android:layout_width="407dp"
+        android:layout_height="57dp"
+        android:background="#DF5C1368"
         android:text="@string/restaurant_city"
         android:textColor="#D19944"
-        android:background="#DF5C1368"
 
         android:textSize="28sp"
         android:textStyle="bold|italic"
@@ -122,11 +122,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848" />
+        app:layout_constraintVertical_bias="0.839" />
 
     <Button
         android:id="@+id/ExtractStatsButton"
-        android:layout_width="137dp"
+        android:layout_width="111dp"
         android:layout_height="85dp"
         android:background="#ED9C27B0"
         android:text="@string/statistics"
@@ -136,19 +136,20 @@
         android:textStyle="normal|bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.332"
+        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/GoBack2"
         android:layout_width="111dp"
         android:layout_height="85dp"
-        android:background="#B5FFFFFF"
+        android:background="#ED9C27B0"
         android:text="Go back"
         android:textAllCaps="false"
         android:textSize="20sp"
+        android:textColor="#D19944"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
