@@ -2,7 +2,6 @@ package gr.aueb.softeng.dao;
 
 import java.util.List;
 
-import gr.aueb.softeng.domain.Owner;
 import gr.aueb.softeng.domain.Restaurant;
 
 public interface RestaurantDAO {

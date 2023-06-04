@@ -50,6 +50,13 @@ public class AddChefActivity extends AppCompatActivity implements AddChefView {
             }
 
         });
+        findViewById(R.id.gobackButton7).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
+
     }
 
     public HashMap<String,String> getChefDetails(){

@@ -11,14 +11,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ChooseRestaurantRecyclerView"
-        android:layout_width="391dp"
-        android:layout_height="696dp"
+        android:layout_width="396dp"
+        android:layout_height="514dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintVertical_bias="0.147" />
 
     <TextView
         android:id="@+id/NoRestaurants"
@@ -31,4 +31,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/gobackButton6"
+        android:layout_width="109dp"
+        android:layout_height="80dp"
+        android:background="#A9FFFFFF"
+        android:text="Go Back"
+        android:textAllCaps="false"
+        android:textColor="#AA7C20"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

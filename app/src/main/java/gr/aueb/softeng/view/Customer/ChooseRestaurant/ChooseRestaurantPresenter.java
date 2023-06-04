@@ -31,6 +31,9 @@ public class ChooseRestaurantPresenter {
         view.changeLayout();
 
     }
+    public void onBack(){
+        view.goBack();
+    }
 
     public ArrayList<Restaurant> getRestaurantList() {
         return restaurants;

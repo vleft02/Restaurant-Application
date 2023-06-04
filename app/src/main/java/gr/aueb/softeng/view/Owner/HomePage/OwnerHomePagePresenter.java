@@ -53,4 +53,5 @@ public class OwnerHomePagePresenter {
     public void onChangeLayout(){
         view.changeLayout();
     }
+    public void onBack(){view.goBack();}
 }

@@ -50,6 +50,13 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
             }
         });
 
+        findViewById(R.id.gobackButton5).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
+
     }
     @Override
     protected void onResume(){
@@ -83,6 +90,9 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
         }
+    }
+    public void goBack(){
+        finish();
     }
 }
 

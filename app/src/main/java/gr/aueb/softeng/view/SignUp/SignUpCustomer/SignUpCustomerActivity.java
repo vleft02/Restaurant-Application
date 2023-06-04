@@ -43,6 +43,12 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
             }
 
         });
+        findViewById(R.id.gobackButton).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
     }
     public HashMap<String,String> getDetails(){
         HashMap<String,String> details = new HashMap<>();
@@ -61,10 +67,5 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
         finish();
     }
 
-//    @Override
- //   protected void onSaveInstanceState(Bundle outState) {
- //       super.onSaveInstanceState(outState);
-  //      outState.putSerializable(view); // Save relevant data
-//    }
 
 }
