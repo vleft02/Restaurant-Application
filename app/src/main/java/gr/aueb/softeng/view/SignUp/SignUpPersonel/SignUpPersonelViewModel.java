@@ -4,8 +4,6 @@ import android.util.Log;
 
 import androidx.lifecycle.ViewModel;
 
-import gr.aueb.softeng.dao.ChefDAO;
-import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.UserDAOmemory;
 

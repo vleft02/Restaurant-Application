@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.PopupWindow;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
-import gr.aueb.softeng.domain.Dish;
+
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;

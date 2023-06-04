@@ -48,16 +48,6 @@ public class RestaurantDAOmemory implements RestaurantDAO {
     }
 
     @Override
-    public Restaurant find(Restaurant entity) {
-        for(Restaurant rest: entities){
-            if(rest==entity){
-                return rest;
-            }
-        }
-        return null;
-    }
-
-    @Override
     public Restaurant find(int id) {
         for(Restaurant rest: entities){
             if(rest.getId()==id){

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
-import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsPresenter;
+
 
 public class StatisticsViewModel extends ViewModel {
    StatisticsPresenter presenter;

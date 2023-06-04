@@ -12,9 +12,6 @@ public interface DishDAO {
     List<Dish> findAll();
 
     void save(Dish entity);
-
-    Dish find(Dish entity);
-
     Dish find(int id);
 
     int nextId();

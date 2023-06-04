@@ -37,15 +37,6 @@ public class DishDAOmemory implements DishDAO{
         entities.add(entity);
     }
 
-    @Override
-    public Dish find(Dish entity) {
-        for(Dish dish: entities){
-            if(dish==entity){
-                return dish;
-            }
-        }
-        return null;
-    }
 
     @Override
     public Dish find(int id) {

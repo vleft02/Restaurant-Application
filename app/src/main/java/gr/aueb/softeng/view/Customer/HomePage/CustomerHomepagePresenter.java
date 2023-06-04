@@ -157,8 +157,7 @@ public class CustomerHomepagePresenter {
         ArrayList<Order> orders = restaurant.getOrders();
         for (Order order:orders)
         {
-            if ( (order.getOrderState() == Order.State.RECEIVED
-                    || order.getOrderState() == Order.State.PREPARING)
+            if ( order.getOrderState() == Order.State.RECEIVED
                     && order.getTableNumber() == tableNumber)
             {
                 return false;

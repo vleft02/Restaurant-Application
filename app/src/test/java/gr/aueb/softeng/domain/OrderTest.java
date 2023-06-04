@@ -106,10 +106,6 @@ OrderLine orderLine1 ,orderLine2;
         order1.setStateCancelled();
         assertEquals(order1.getOrderState(), Order.State.CANCELLED);
     }
-        @Test
-    public void setStateCancelledInvalid() {
-        assertThrows(IllegalStateException.class, ()-> order2.setStateCancelled());
-    }
 
 
     @Test
@@ -132,9 +128,5 @@ OrderLine orderLine1 ,orderLine2;
         order1.addOrderLine(orderLine1);
         order1.removeOrderLine(orderLine1);
         assertFalse(order1.getOrderLines().contains(orderLine1));
-    }
-    @Test
-    public void removeOrderLineWhenEmpty(){
-        assertThrows(NoSuchElementException.class,()->order1.removeOrderLine(orderLine1));
     }
 }

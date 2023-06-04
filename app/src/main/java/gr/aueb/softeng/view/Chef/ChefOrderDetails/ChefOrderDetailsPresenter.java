@@ -53,7 +53,7 @@ public class ChefOrderDetailsPresenter {
         view.setOrderId(String.valueOf(order.getId()));
         view.setOrderState(String.valueOf(order.getOrderState()));
         view.setTableNumber(String.valueOf(order.getTableNumber()));
-    //    view.setDate(String.valueOf(order.getDate()));
+        view.setDate(String.valueOf(order.getDate().getHour()+order.getDate().getMinute()));
     }
     public void onCompleted() {
         if (order.getOrderState() != Order.State.CANCELLED && order.getOrderState() != Order.State.COMPLETED) {

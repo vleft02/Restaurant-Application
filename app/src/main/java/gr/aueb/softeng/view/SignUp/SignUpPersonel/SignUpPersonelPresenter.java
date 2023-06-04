@@ -7,7 +7,7 @@ import gr.aueb.softeng.dao.ChefDAO;
 
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Chef;
-import gr.aueb.softeng.memoryDao.UserDAOmemory;
+
 
 public class SignUpPersonelPresenter {
     private ChefDAO chefDAO;

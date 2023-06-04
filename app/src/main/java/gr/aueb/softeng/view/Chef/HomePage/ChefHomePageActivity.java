@@ -54,7 +54,7 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
 
     @Override
     public void selectOrder(Order order) {
-        Intent intent = new Intent(ChefHomePageActivity.this, ChefOrderDetailsActivity.class);/////// tha emfanizei to order kai koumpi gia oloklirwsi
+        Intent intent = new Intent(ChefHomePageActivity.this, ChefOrderDetailsActivity.class);
         intent.putExtra("OrderId", order.getId());
         startActivity(intent);
     }

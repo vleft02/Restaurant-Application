@@ -9,13 +9,12 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
-import gr.aueb.softeng.dao.CustomerDAO;
-import gr.aueb.softeng.dao.UserDAO;
+
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Login.LoginActivity;
+
 
 public class SignUpCustomerActivity extends AppCompatActivity implements SignUpCustomerView {
     public void showErrorMessage(String title, String message)

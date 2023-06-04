@@ -4,13 +4,10 @@ import java.util.ArrayList;
 
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.OrderDAO;
-import gr.aueb.softeng.dao.OwnerDAO;
-import gr.aueb.softeng.dao.RestaurantDAO;
+
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Order;
-import gr.aueb.softeng.domain.Owner;
-import gr.aueb.softeng.domain.Restaurant;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageView;
+
 
 public class ChefHomePagePresenter {
     ChefHomePageView view;

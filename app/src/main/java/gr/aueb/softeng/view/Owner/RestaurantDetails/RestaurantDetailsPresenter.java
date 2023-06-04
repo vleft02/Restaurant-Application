@@ -1,13 +1,10 @@
 package gr.aueb.softeng.view.Owner.RestaurantDetails;
 
-import java.util.HashMap;
 
-import gr.aueb.softeng.dao.CustomerDAO;
-import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.RestaurantDAO;
-import gr.aueb.softeng.dao.UserDAO;
+
 import gr.aueb.softeng.domain.Restaurant;
-import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerView;
+
 
 public class RestaurantDetailsPresenter {
     private RestaurantDAO restaurantDAO;
@@ -41,5 +38,6 @@ public class RestaurantDetailsPresenter {
     public void OnBack(){
         view.goBack();
     }
+    public void onAddChef(){view.addChef();}
 
 }

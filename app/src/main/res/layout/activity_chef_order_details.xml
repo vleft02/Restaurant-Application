@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity"
-    android:background="@drawable/backround11">
+    android:background="@drawable/backround3"
+    tools:context="gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/OrderLinesRecyclerView"
@@ -24,7 +24,7 @@
         android:layout_width="164dp"
         android:layout_height="55dp"
         android:text="Order Id"
-        android:textColor="#1E1313"
+        android:textColor="#EDEAEA"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
         android:layout_width="239dp"
         android:layout_height="56dp"
         android:text="Order State"
-        android:textColor="#1C1616"
+        android:textColor="#EADBDB"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
         android:layout_width="165dp"
         android:layout_height="54dp"
         android:text="Date"
-        android:textColor="#1C1A1A"
+        android:textColor="#F4EBEB"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
         android:layout_width="236dp"
         android:layout_height="50dp"
         android:text="Table Number"
-        android:textColor="#252020"
+        android:textColor="#E6DBDB"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

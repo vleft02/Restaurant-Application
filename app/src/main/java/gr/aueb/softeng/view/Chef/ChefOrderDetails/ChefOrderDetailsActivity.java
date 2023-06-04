@@ -4,19 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import gr.aueb.softeng.domain.Order;
-import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity;
-import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageRecyclerViewAdapter;
-import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageViewModel;
-import gr.aueb.softeng.view.Login.LoginActivity;
+
 
 public class ChefOrderDetailsActivity extends AppCompatActivity  implements ChefOrderDetailsView{
 
@@ -71,9 +64,9 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
     public void setTableNumber(String num){
         ((TextView)findViewById(R.id.TableNumberText)).setText("Table:"+num);
     }
-    /*public void setDate(){ NA DW TI KANV EDWWWWWWWWWW
-
-    }*/
+    public void setDate(String date){
+        ((TextView)findViewById(R.id.DateText)).setText(date);
+    }
     public void goBack(){
         finish();
     }

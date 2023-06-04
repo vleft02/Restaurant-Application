@@ -3,8 +3,7 @@ package gr.aueb.softeng.view.SignUp.SignUpOwner;
 import java.util.HashMap;
 import java.util.Map;
 
-import gr.aueb.softeng.dao.CustomerDAO;
-import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.CustomerDAO;import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Owner;
 

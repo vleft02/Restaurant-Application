@@ -36,7 +36,7 @@ public class StatisticsPresenter {
         double sum=0.0;
         LocalDateTime now = LocalDateTime.now();
         for(Order order:restaurant.getOrders()){
-            if(order.getDate().getYear()== now.getYear()){
+            if(order.getDate().getYear()== now.getYear() && order.getOrderState()== Order.State.COMPLETED){
                 sum+=order.getTotalCost();
             }
         }
@@ -50,7 +50,7 @@ public class StatisticsPresenter {
 
         for (Order order : restaurant.getOrders()) {
             LocalDateTime orderDate = order.getDate();
-            if (orderDate.getYear() == now.getYear()) {
+            if (orderDate.getYear() == now.getYear() && order.getOrderState()== Order.State.COMPLETED) {
                 totalIncome += order.getTotalCost();
                 int month = orderDate.getMonthValue();
                 monthsWithOrders.add(month);
@@ -69,7 +69,7 @@ public class StatisticsPresenter {
         LocalDateTime now = LocalDateTime.now();
         for (Order order : restaurant.getOrders()) {
             LocalDateTime orderDate = order.getDate();
-            if (orderDate.getYear() == now.getYear()) {
+            if (orderDate.getYear() == now.getYear() && order.getOrderState()== Order.State.COMPLETED) {
                 cost += order.getTotalCost();
             }
         }
@@ -88,7 +88,7 @@ public class StatisticsPresenter {
         for (int month = 1; month <= 12; month++) {
             for (Order order : restaurant.getOrders()) {
                 LocalDateTime orderDate = order.getDate();
-                if (orderDate.getYear() == now.getYear() && orderDate.getMonthValue() == month) {
+                if (orderDate.getYear() == now.getYear() && orderDate.getMonthValue() == month && order.getOrderState()== Order.State.COMPLETED ) {
                     totalIncome += order.getTotalCost();
                     totalDays++;
                 }

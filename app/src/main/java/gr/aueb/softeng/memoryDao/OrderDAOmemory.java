@@ -28,16 +28,6 @@ public class OrderDAOmemory implements OrderDAO{
     }
 
     @Override
-    public Order find(Order entity) {
-        for(Order order: entities){
-            if(order==entity){
-                return order;
-            }
-        }
-        return null;
-    }
-
-    @Override
     public Order find(int id) {
         for(Order order: entities){
             if(order.getId()==id){
@@ -56,17 +46,6 @@ public class OrderDAOmemory implements OrderDAO{
             }
         }
         return  result;
-    }
-
-    @Override
-    public ArrayList<Order> findByCustomer(int id) {
-        ArrayList<Order> result= new ArrayList<>();
-        for(Order order : entities){
-            if(order.getCustomer().getUserId()==id){
-                result.add(order);
-            }
-        }
-        return result;
     }
 
     @Override

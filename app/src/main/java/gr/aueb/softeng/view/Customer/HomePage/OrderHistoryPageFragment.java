@@ -1,6 +1,6 @@
 package gr.aueb.softeng.view.Customer.HomePage;
 
-import android.location.GnssAntennaInfo;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,13 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import gr.aueb.softeng.domain.Order;
-import gr.aueb.softeng.domain.Restaurant;
+
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageRecyclerViewAdapter;
+
 
 /**
  * A simple {@link Fragment} subclass.

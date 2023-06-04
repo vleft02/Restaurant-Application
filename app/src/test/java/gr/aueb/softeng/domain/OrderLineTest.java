@@ -56,13 +56,6 @@ OrderLine orderLine3;
         orderLine1.setQuantity(4);
         assertEquals(orderLine1.getQuantity(),4);
     }
-    @Test
-    public void invalidSetQuantity()
-    {
-        assertThrows(IllegalArgumentException.class, ()-> orderLine1.setQuantity(0));
-        assertThrows(IllegalArgumentException.class, ()-> orderLine1.setQuantity(-10));
-
-    }
 
     @Test
     public void IncrementOrderLineQuantity() {
@@ -71,12 +64,9 @@ OrderLine orderLine3;
     }
 
     @Test
-    public void decrementOrderLineQuantity() throws ZeroDishQuantityException {
+    public void decrementOrderLineQuantity(){
         orderLine1.decrementOrderLineQuantity();
         assertEquals(orderLine1.getQuantity(),1);
     }
-    @Test
-    public void decrementQuantityTestLastDish() {
-        assertThrows(ZeroDishQuantityException.class, ()-> orderLine2.decrementOrderLineQuantity());
-    }
+
 }

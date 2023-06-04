@@ -14,8 +14,6 @@ public interface RestaurantDAO {
 
     void save(Restaurant entity);
 
-    Restaurant find(Restaurant entity);
-
     Restaurant find(int id);
     Restaurant find(String name);
 
