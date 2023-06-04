@@ -41,6 +41,13 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
         emptyView = findViewById(R.id.emptyOrdersChefText);
         viewModel.getPresenter().onChangeLayout();
 
+        findViewById(R.id.gobackButton4).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
+
     }
 
     @Override
@@ -70,5 +77,8 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(new ChefHomePageRecyclerViewAdapter(viewModel.getPresenter().getOrderList(), this));
         }
+    }
+    public void goBack(){
+        finish();
     }
 }

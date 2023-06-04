@@ -40,6 +40,12 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
         recyclerView = findViewById(R.id.ChooseRestaurantRecyclerView);
         emptyView = findViewById(R.id.NoRestaurants);
         viewModel.getPresenter().onChangeLayout();
+        findViewById(R.id.gobackButton6).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
 
     }
 
@@ -62,5 +68,8 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
         intent.putExtra("RestaurantId",restaurant.getId());
         intent.putExtra("CustomerId",customerId);
         startActivity(intent);
+    }
+    public void goBack(){
+        finish();
     }
 }

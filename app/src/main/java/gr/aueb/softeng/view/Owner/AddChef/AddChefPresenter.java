@@ -70,4 +70,7 @@ public class AddChefPresenter {
         }
 
     }
+    public void onBack(){
+        view.goBack();
+    }
 }

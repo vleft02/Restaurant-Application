@@ -60,5 +60,8 @@ public class SignUpOwnerPresenter {
             view.goBack();
         }
     }
+    public void onBack(){
+        view.goBack();
+    }
 
 }

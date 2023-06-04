@@ -63,4 +63,7 @@ public class SignUpPersonelPresenter {
         }
 
     }
+    public void onBack(){
+        view.goBack();
+    }
 }

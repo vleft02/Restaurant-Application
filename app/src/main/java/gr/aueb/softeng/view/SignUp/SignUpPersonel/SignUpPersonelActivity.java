@@ -43,6 +43,12 @@ public class SignUpPersonelActivity extends AppCompatActivity implements SignUpP
             }
 
         });
+        findViewById(R.id.gobackButton3).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
     }
     public HashMap<String,String> getChefDetails(){
         HashMap<String,String> details = new HashMap<>();

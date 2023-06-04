@@ -62,4 +62,7 @@ public class SignUpCustomerPresenter {
         }
 
     }
+    public void onBack(){
+        view.goBack();
+    }
 }

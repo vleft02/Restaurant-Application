@@ -12,7 +12,8 @@
         tools:targetApi="31">
         <activity
             android:name="gr.aueb.softeng.view.Owner.AddChef.AddChefActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Add Chef "/>
         <activity
             android:name="gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantActivity"
             android:exported="false"

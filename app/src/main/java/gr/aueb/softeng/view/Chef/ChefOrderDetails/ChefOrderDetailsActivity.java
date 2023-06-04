@@ -30,7 +30,8 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
             Bundle extras = intent.getExtras();
             OrderId = extras.getInt("OrderId");
         }
-        viewModel.getPresenter().setOrder(OrderId);
+
+        viewModel.getPresenter().setOrder(OrderId); // sets the orderId so the presenter which order we are referring to
         viewModel.getPresenter().setOrderLineList();
         viewModel.getPresenter().setOrderDetails();
         // ui initialization

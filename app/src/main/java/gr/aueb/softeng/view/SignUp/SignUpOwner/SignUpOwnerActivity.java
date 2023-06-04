@@ -46,6 +46,12 @@ public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwne
             }
 
         });
+        findViewById(R.id.gobackButton2).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
     }
     public HashMap<String,String> getOwnerDetails(){
         HashMap<String,String> details = new HashMap<>();
