@@ -10,10 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageRecyclerViewAdapter;
+
 
 public class ChefOrderDetailsRecyclerViewAdapter extends RecyclerView.Adapter<ChefOrderDetailsRecyclerViewAdapter.ViewHolder> {
     private final List<OrderLine> orderLines;

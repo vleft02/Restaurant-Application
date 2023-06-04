@@ -30,17 +30,12 @@ public class Customer extends User {
     public double getBalance(){
         return this.balance;
     }
-    public void transaction(double money) throws IllegalStateException { // called by the controller when the order is completed and needs to bhe paid
+    public void transaction(double money)  { // called by the controller when the order is completed and needs to bhe paid
         if (balance>=money) {
             this.balance -= money;
         }
-        else
-        {
-            throw new IllegalStateException();
-        }
     }
-    public void topUp(double money) throws IllegalArgumentException{// The only method the customer can use to increase his balance
+    public void topUp(double money) {// The only method the customer can use to increase his balance
         if(money>0){this.balance+=money;}
-        else{ throw new IllegalArgumentException();} // he is trying to insert 0 or negative amount of money
     }
 }

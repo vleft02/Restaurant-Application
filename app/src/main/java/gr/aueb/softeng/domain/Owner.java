@@ -38,11 +38,9 @@ public class Owner extends User {
     public void addRestaurant(Restaurant restaurant){
         this.restaurants.add(restaurant);
     }
-    public void addMoney(double money) throws IllegalArgumentException{
-        if(money>0){
-            this.income+=money;
-        }else{
-            throw new IllegalArgumentException();
+    public void addMoney(double money) throws IllegalArgumentException {
+        if (money > 0) {
+            this.income += money;
         }
     }
     

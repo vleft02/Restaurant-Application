@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel;
 
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
-import gr.aueb.softeng.view.Chef.HomePage.ChefHomePagePresenter;
+
 
 public class ChefOrderDetailsViewModel extends ViewModel {
     private ChefOrderDetailsPresenter presenter;

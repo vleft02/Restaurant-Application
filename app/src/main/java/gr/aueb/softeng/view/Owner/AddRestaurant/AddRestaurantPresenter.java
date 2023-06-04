@@ -6,10 +6,10 @@ import java.util.Map;
 import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.RestaurantDAO;
 import gr.aueb.softeng.domain.Address;
-import gr.aueb.softeng.domain.Customer;
+
 import gr.aueb.softeng.domain.Owner;
 import gr.aueb.softeng.domain.Restaurant;
-import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
+
 
 public class AddRestaurantPresenter {
     private RestaurantDAO restaurantDAO;

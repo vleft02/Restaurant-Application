@@ -7,16 +7,16 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+
 import android.widget.TextView;
 
-import java.util.HashMap;
+
 
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Login.LoginActivity;
+
+import gr.aueb.softeng.view.Owner.AddChef.AddChefActivity;
 import gr.aueb.softeng.view.Owner.Statistics.StatisticsActivity;
-import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
-import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerViewModel;
+
 
 public class RestaurantDetailsActivity extends AppCompatActivity implements RestaurantDetailsView {
     public int RestaurantId;
@@ -77,6 +77,10 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements Rest
             @Override
             public void onClick(View v){viewModel.getPresenter().OnBack();}
         });
+        findViewById(R.id.addChefButton).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){viewModel.getPresenter().onAddChef();}
+        });
     }
 
 
@@ -86,6 +90,11 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements Rest
 
     public void extractStats(){
         Intent intent = new Intent(RestaurantDetailsActivity.this, StatisticsActivity.class);
+        intent.putExtra("RestaurantId",RestaurantId);
+        startActivity(intent);
+    }
+    public void addChef(){
+        Intent intent = new Intent(RestaurantDetailsActivity.this, AddChefActivity.class);
         intent.putExtra("RestaurantId",RestaurantId);
         startActivity(intent);
     }

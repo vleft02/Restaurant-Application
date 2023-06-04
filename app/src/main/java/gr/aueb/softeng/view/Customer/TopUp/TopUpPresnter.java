@@ -1,6 +1,5 @@
 package gr.aueb.softeng.view.Customer.TopUp;
 
-import gr.aueb.softeng.view.View;
 
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Customer;

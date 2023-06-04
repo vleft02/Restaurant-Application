@@ -10,12 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Login.LoginActivity;
+
 import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
 import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity;
 

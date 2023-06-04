@@ -1,6 +1,6 @@
 package gr.aueb.softeng.view.Owner.HomePage;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 
 import java.util.ArrayList;
 

@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
 public class RestaurantTest {
@@ -56,10 +57,6 @@ public class RestaurantTest {
         assertEquals(rest.getChefs().get(0),chef);
     }
     @Test
-    public void getEmptyListChefs(){
-        assertThrows(NoSuchElementException.class,()->rest.getChefs());
-    }
-    @Test
     public void changeTotalTables() {
         rest.changeTotalTables(15);
         assertEquals(rest.getTotalTables(),15);
@@ -83,17 +80,12 @@ public class RestaurantTest {
         rest.addChef(new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234"));
         Customer customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(100.0);
-        Order order1 = new Order(10,new Date(1672518456),customer);
-        Order order2 = new Order(13,new Date(1672618456),customer);
+        Order order1 = new Order(10,LocalDateTime.of(2023,10,12,10,12),13,customer);
+        Order order2 = new Order(13,LocalDateTime.of(2023,11,12,10,12),26,customer);
         rest.addOrder(order1);
         rest.addOrder(order2);
         assertEquals(rest.getOrders().get(0),order1);
         assertEquals(rest.getOrders().get(1),order2);
-    }
-
-    @Test
-    public void getEmptyDishes(){
-        assertThrows(NoSuchElementException.class,()->rest.getDishes());
     }
 
     @Test
@@ -108,7 +100,7 @@ public class RestaurantTest {
     public void addOrderWithoutEnoughMoney() {
         Customer customer =new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(5.00);
-        Order order = new Order(5,new Date(1672518456),customer);
+        Order order = new Order(5, LocalDateTime.of(2023,6,12,10,12),7,customer);
         order.addOrderLine(new OrderLine(2,dish1));
         assertFalse(rest.addOrder(order));
     }
@@ -117,7 +109,7 @@ public class RestaurantTest {
         rest.addChef(new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234"));
         Customer customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(100.00);
-        Order order = new Order(5,new Date(1672518456),customer);
+        Order order = new Order(5,LocalDateTime.of(2023,8,12,10,12),9,customer);
         order.addOrderLine(new OrderLine(2,dish1));
         assertTrue(rest.addOrder(order));
     }
@@ -129,14 +121,14 @@ public class RestaurantTest {
         rest.addChef(chef2);
         Customer customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
         customer.topUp(100.00);
-        Order order1 = new Order(5,new Date(1672518456),customer);
+        Order order1 = new Order(5,LocalDateTime.of(2023,3,6,10,12),3,customer);
         order1.addOrderLine(new OrderLine(2,dish1));
         rest.addOrder(order1);
         assertEquals(rest.getChefs().get(0).getOrders().get(0), order1);
-        Order order2 = new Order(5,new Date(1672673456),customer);
+        Order order2 = new Order(5,LocalDateTime.of(2023,9,9,10,12),9,customer);
         rest.addOrder(order2);
         assertEquals(rest.getChefs().get(1).getOrders().get(0), order2);
-        Order order3 = new Order(5,new Date(1678918456),customer);
+        Order order3 = new Order(5,LocalDateTime.of(2023,1,1,10,3),11,customer);
         rest.addOrder(order3);
         assertEquals(rest.getChefs().get(0).getOrders().get(1), order3);
 

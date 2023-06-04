@@ -11,13 +11,9 @@ public interface OrderDAO {
     void save(Order entity);
 
     List<Order> findAll();
-
-    Order find(Order entity);
-
     Order find(int id);
 
     List<Order> findByCustomer(Customer customer);
-    ArrayList<Order> findByCustomer(int id);
 
     int nextId();
 }

@@ -20,14 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import gr.aueb.softeng.domain.Dish;
-import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
-import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
+
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantRecyclerViewAdapter;
-import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
-import gr.aueb.softeng.view.Customer.HomePage.OrderHistoryRecyclerViewAdapter;
-import gr.aueb.softeng.view.Login.LoginActivity;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageViewModel;
+
 
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderView,DishSelectionListener{
 

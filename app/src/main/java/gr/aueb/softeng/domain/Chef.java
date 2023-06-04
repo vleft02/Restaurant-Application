@@ -35,7 +35,7 @@ public class Chef extends User {
     public void addOrder(Order order){//called by the controller when a new order is being added in the restaurant
         orders.add(order);
     }
-    public boolean removeOrder(Order order){ // called by the controller when the order state is "COMPLETED"
+    public boolean removeOrder(Order order){ 
         return orders.remove(order); // returns True iff the order is in the list, else returns False
     }
 

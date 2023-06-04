@@ -13,8 +13,7 @@ import android.widget.TextView;
 import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageRecyclerViewAdapter;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageViewModel;
+
 
 public class ChooseRestaurantActivity extends AppCompatActivity implements ChooseRestaurantView, ChooseRestaurantRecyclerViewAdapter.RestaurantSelectionListener {
 

@@ -1,6 +1,6 @@
 package gr.aueb.softeng.view.Customer.TopUp;
 
-import androidx.activity.OnBackPressedDispatcherOwner;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
-import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.team08.R;
 
 public class TopUpActivity extends AppCompatActivity implements TopUpView{

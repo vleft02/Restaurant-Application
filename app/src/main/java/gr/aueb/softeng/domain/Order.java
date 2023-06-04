@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Order {
-    public enum State {RECEIVED, PREPARING, COMPLETED, CANCELLED} // Enum for the number of states an order might have
+    public enum State {RECEIVED, COMPLETED, CANCELLED} // Enum for the number of states an order might have
     private final int tableNumber;
 
     private int id;
@@ -57,19 +57,14 @@ public class Order {
     public boolean isPaid() {return this.isPaid;}
 
     //Setters for the state of the order
-    public void setStatePreparing(){this.state=State.PREPARING;}//this is being called by the chef
     public void setStateCompleted(){//this is being called by the chef in the controller class
         this.state=State.COMPLETED;
         this.isPaid=true;
         this.customer.transaction(getTotalCost()); // subtract the customers money , at this stage it has already been made sure that the customer has enough money
     }
-    public void setStateCancelled() throws IllegalStateException
-    {
-        if (this.state == State.COMPLETED)
-        {
-            throw new IllegalStateException();
-        }
-        else {
+    public void setStateCancelled(){
+
+        if (this.state != State.COMPLETED){
             this.state = State.CANCELLED;
         }
     }
@@ -82,14 +77,11 @@ public class Order {
             this.orderLines.add(orderLine);
         }
     }
-    public void removeOrderLine(OrderLine orderLine) throws NoSuchElementException{
+    public void removeOrderLine(OrderLine orderLine) throws NoSuchElementException {
         if (!orderLines.isEmpty()) {
             orderLines.remove(orderLine);
-        }else{
-            throw new NoSuchElementException();
         }
     }
-
 
 
 }

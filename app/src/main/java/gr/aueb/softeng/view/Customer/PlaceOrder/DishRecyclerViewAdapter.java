@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import gr.aueb.softeng.domain.Dish;
-import gr.aueb.softeng.domain.Order;
+
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Customer.HomePage.OrderHistoryRecyclerViewAdapter;
-import gr.aueb.softeng.view.Customer.HomePage.OrderSelectionListener;
+
 
 public class DishRecyclerViewAdapter extends RecyclerView.Adapter<DishRecyclerViewAdapter.ViewHolder> {
     private final ArrayList<Dish> dishes;

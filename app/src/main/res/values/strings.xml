@@ -60,4 +60,5 @@
     <string name="dishname">Dish Name</string>
     <string name="dishprice">Dish Price</string>
     <string name="place_order">Place Order</string>
+    <string name="dd_chef">Αdd Chef</string>
 </resources>

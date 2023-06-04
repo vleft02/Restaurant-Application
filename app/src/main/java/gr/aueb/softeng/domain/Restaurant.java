@@ -44,12 +44,8 @@ public class Restaurant {
         return this.address;
     }
 
-    public ArrayList<Chef> getChefs() throws NoSuchElementException {
-        if(!this.chefs.isEmpty()){
+    public ArrayList<Chef> getChefs(){
             return this.chefs;
-        }else{
-            throw new NoSuchElementException();
-        }
     }
     public ArrayList<Order> getOrders(){
             return this.orders;
@@ -61,12 +57,8 @@ public class Restaurant {
         this.chefs.add(chef);
     }
 
-    public ArrayList<Dish> getDishes() throws NoSuchElementException {
-        if(!this.dishes.isEmpty()){
+    public ArrayList<Dish> getDishes()  {
             return this.dishes;
-        }else{
-            throw new NoSuchElementException();
-        }
     }
 
     public void addDish(Dish dish) {

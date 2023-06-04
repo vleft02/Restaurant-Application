@@ -12,11 +12,7 @@ import android.widget.EditText;
 import java.util.HashMap;
 
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Login.LoginActivity;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePagePresenter;
-import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
-import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerViewModel;
+
 
 public class AddRestaurantActivity extends AppCompatActivity implements AddRestaurantView {
 

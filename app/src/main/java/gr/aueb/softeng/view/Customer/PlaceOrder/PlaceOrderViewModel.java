@@ -2,8 +2,7 @@ package gr.aueb.softeng.view.Customer.PlaceOrder;
 
 import androidx.lifecycle.ViewModel;
 
-import gr.aueb.softeng.dao.CustomerDAO;
-import gr.aueb.softeng.dao.RestaurantDAO;
+
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
 import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;

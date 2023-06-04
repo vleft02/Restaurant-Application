@@ -11,13 +11,16 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name="gr.aueb.softeng.view.Owner.AddChef.AddChefActivity"
+            android:exported="false" />
+        <activity
             android:name="gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantActivity"
             android:exported="false"
-            android:label="Choose a Restaurant"/>
+            android:label="Choose a Restaurant" />
         <activity
             android:name="gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity"
             android:exported="false"
-            android:label="Order Details"/>
+            android:label="Order Details" />
         <activity
             android:name="gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity"
             android:exported="true"

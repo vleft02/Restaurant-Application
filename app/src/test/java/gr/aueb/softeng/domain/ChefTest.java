@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 import java.util.NoSuchElementException;
 
 public class ChefTest {
@@ -17,7 +19,7 @@ Order order1;
     public void setUp(){
         chef = new Chef("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "10230910290194", "14323234");
         customer = new Customer("john123", "john", "pappas", "696949", "pappas@gmail.com", "12345123", 1, "12222", "john", "322");
-        order1 = new Order(10,new Date(2023-5-6),this.customer);
+        order1 = new Order(10, LocalDateTime.of(2023,10,12,10,12),3,this.customer);
     }
     @After
     public void tearDown(){
@@ -86,20 +88,15 @@ Order order1;
     }
     @Test
     public void getOrders() {
-        Order order2=  new Order(13,new Date(2023-5-6),this.customer);
+        Order order2=  new Order(13,LocalDateTime.of(2023,1,2,10,12),5,this.customer);
         chef.addOrder(order1);
         chef.addOrder(order2);
         assertTrue(chef.getOrders().contains(order1));
         assertTrue(chef.getOrders().contains(order2));
     }
     @Test
-    public void getOrdersWhenEmpty(){
-        assertThrows(NoSuchElementException.class,()-> chef.getOrders());
-    }
-    @Test
     public void addOrder() {
         chef.addOrder(order1);
-        //assertEquals(chef.getOrders().size(),1);
         assertTrue(chef.getOrders().contains(order1));
     }
     @Test
@@ -110,7 +107,7 @@ Order order1;
     @Test
     public void removeOrderWhenNotInList() {
         chef.addOrder(order1);
-        Order order = new Order(4, new Date(2023 - 5 - 6), customer);
+        Order order = new Order(4, LocalDateTime.of(2023,3,4,10,12),5, customer);
         assertFalse(chef.removeOrder(order));
     }
 }
