@@ -167,7 +167,9 @@ public class CustomerHomepagePresenter {
         {
             output += "#"+currentOrder.getId()+"\n";
             output += currentOrder.getOrderState().toString()+"\n";
-            output += currentOrder.getDate().format(DateTimeFormatter.ISO_DATE_TIME);
+            output += currentOrder.getDate().getDayOfMonth() + " " + currentOrder.getDate().getMonth() +" " + currentOrder.getDate().getYear();
+            output += "\n" + currentOrder.getDate().getHour() +":"+currentOrder.getDate().getMinute();
+            output += "\n" + String.format("%.2f",currentOrder.getTotalCost()) + " €";
         }
 
         return output;

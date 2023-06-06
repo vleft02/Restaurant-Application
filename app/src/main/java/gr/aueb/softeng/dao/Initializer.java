@@ -40,14 +40,13 @@ public abstract class Initializer {
         userDAO.save(customer);
         customer.topUp(1000);
 
-        /*customer = new Customer("priamoss", "Priamos","Alafouzos", "2105789235","priamos@gmail.com", "123456789", customerDAO.nextId(), "13241342345678897","Priamos Alafouzos","234");
+        customer = new Customer("priamoss", "Priamos","Alafouzos", "2105789235","priamos@gmail.com", "123456789", customerDAO.nextId(), "13241342345678897","Priamos Alafouzos","234");
         customerDAO.save(customer);
         userDAO.save(customer);
 
         customer = new Customer("adreas:)", "Antreas","Antreopoulos", "2113335867","adreas@gmail.com", "123456789", customerDAO.nextId(), "14353452435523245","Kostas Papadopoulos","678");
         customerDAO.save(customer);
         userDAO.save(customer);
-        OwnerDAO ownerDAO = getOwnerDAO();*/
 
         Owner owner1 = new Owner("owner1","Kostas","Pappas","2105648463", "owner1@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
         ownerDAO.save(owner1);
@@ -81,7 +80,7 @@ public abstract class Initializer {
         orderDAO.save(order1);
 
         Order order2 = new Order(11, LocalDateTime.of(2023,10,3,10,3),orderDAO.nextId(),customerDAO.find("kostas123"));
-        order1.setStateCompleted();
+        order2.setStateCompleted();
         orderDAO.save(order2);
 
         Order order3 = new Order(12,LocalDateTime.of(2023,10,8,3,12),orderDAO.nextId(),customerDAO.find("kostas123"));
