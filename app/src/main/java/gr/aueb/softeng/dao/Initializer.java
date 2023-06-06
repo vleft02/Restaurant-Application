@@ -77,9 +77,11 @@ public abstract class Initializer {
 
 
         Order order1 = new Order(10, LocalDateTime.of(2023,10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123"));
+        order1.setStateCancelled();
         orderDAO.save(order1);
 
         Order order2 = new Order(11, LocalDateTime.of(2023,10,3,10,3),orderDAO.nextId(),customerDAO.find("kostas123"));
+        order1.setStateCompleted();
         orderDAO.save(order2);
 
         Order order3 = new Order(12,LocalDateTime.of(2023,10,8,3,12),orderDAO.nextId(),customerDAO.find("kostas123"));

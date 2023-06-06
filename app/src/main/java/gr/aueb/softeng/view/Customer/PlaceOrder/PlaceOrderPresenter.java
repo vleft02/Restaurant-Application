@@ -74,6 +74,7 @@ public class PlaceOrderPresenter {
         else if(restaurant.addOrder(order))
         {
             orderDAO.save(order);
+            view.orderSuccess();
         }
         else
         {
@@ -93,5 +94,13 @@ public class PlaceOrderPresenter {
 
     public void setCustomer(int customerId) {
         customer = customerDAO.find(customerId);
+    }
+
+    public void onCart() {
+        view.redirectToCart(order.getOrderLines());
+    }
+
+    public void setOrderLines(ArrayList<OrderLine> modifiedOrderLines) {
+        order.setOrderLines(modifiedOrderLines);
     }
 }

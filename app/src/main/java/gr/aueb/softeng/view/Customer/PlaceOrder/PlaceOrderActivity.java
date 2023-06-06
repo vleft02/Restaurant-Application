@@ -1,5 +1,7 @@
 package gr.aueb.softeng.view.Customer.PlaceOrder;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,9 +21,15 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 import gr.aueb.softeng.domain.Dish;
 
+import gr.aueb.softeng.domain.Order;
+import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.Customer.OrderLineCart.OrderLineCartActivity;
 
 
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderView,DishSelectionListener{
@@ -81,12 +89,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     public void ShowConfirmationMessage() {
         new AlertDialog.Builder(PlaceOrderActivity.this)
                 .setTitle("Ολοκλήρωση Παραγγελίας")
-                .setMessage("Το συνολο της Παραγγελίας σας ειναι" + String.format("%.2f",viewModel.getPresenter().getTotalCost())+" €"+"\nΠραγαμτοποίηση Παραγγελίας;")
+                .setMessage("Το σύνολο της Παραγγελίας σας είναι " + String.format("%.2f",viewModel.getPresenter().getTotalCost())+" €"+"\nΠραγματοποίηση Παραγγελίας;")
                 .setPositiveButton("Ναι", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        viewModel.getPresenter().onPlaceOrder();
                         dialog.dismiss();
+                        finish();
                     }
                 })
                 .setNegativeButton("Οχι", new DialogInterface.OnClickListener() {
@@ -98,6 +106,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     }
 
+    private ActivityResultLauncher<Intent> cartActivityResultLauncher;
     PlaceOrderViewModel viewModel;
     int customerId = -1;
     int restaurantId = -1;
@@ -112,6 +121,20 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         setContentView(R.layout.activity_place_order);
         viewModel = new ViewModelProvider(this).get(PlaceOrderViewModel.class);
         viewModel.getPresenter().setView(this);
+
+       cartActivityResultLauncher = registerForActivityResult(
+               new ActivityResultContracts.StartActivityForResult(),
+               result -> {
+                   if (result.getResultCode() == RESULT_OK) {
+                       Intent data = result.getData();
+                       if (data != null && data.hasExtra("ModifiedOrderLines")) {
+                           ArrayList<OrderLine> modifiedOrderLines = (ArrayList<OrderLine>) data.getSerializableExtra("ModifiedOrderLines");
+                           viewModel.getPresenter().setOrderLines(modifiedOrderLines);
+                           // Update the orderLines in PlaceOrderActivity using the modifiedOrderLines
+                       }
+                   }
+               }
+       );
 
         if (savedInstanceState == null)
         {
@@ -140,7 +163,13 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
                viewModel.getPresenter().onPlaceOrder();
            }
        });
+       findViewById(R.id.CartButton).setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+               viewModel.getPresenter().onCart();
+           }
+       });
     }
+
 
     @Override
     public void selectDish(Dish currentDish) {
@@ -168,6 +197,19 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     @Override
     public void orderFailed() {
         insufficientFundsMessage();
+    }
+
+    @Override
+    public void redirectToCart(ArrayList<OrderLine> orderLines) {
+        Intent intent = new Intent(PlaceOrderActivity.this , OrderLineCartActivity.class);
+
+        intent.putExtra("OrderLines", (Serializable) orderLines);//////PROVLIMA
+        cartActivityResultLauncher.launch(intent);
+    }
+
+    @Override
+    public void orderSuccess() {
+        ShowConfirmationMessage();
     }
 
 

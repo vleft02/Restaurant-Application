@@ -200,6 +200,8 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     protected void onResume() {
         super.onResume();
         viewPager2.setAdapter(new CustomerHomePageViewPagerAdapter(this,this));
+        viewModel.getPresenter().setCurrentOrder();
+        viewModel.getPresenter().setOrderHistory();
     }
 
 
