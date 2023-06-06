@@ -52,13 +52,13 @@ public class SignUpPersonelActivity extends AppCompatActivity implements SignUpP
     }
     public HashMap<String,String> getChefDetails(){
         HashMap<String,String> details = new HashMap<>();
-        details.put("name",(((EditText)findViewById(R.id.ChefNameText1)).getText().toString().trim()));
-        details.put("surname",(((EditText)findViewById(R.id.ChefSurnameText1)).getText().toString().trim()));
-        details.put("username",(((EditText)findViewById(R.id.ChefUsernameText1)).getText().toString().trim()));
+        details.put("name",(((EditText)findViewById(R.id.ChefNameText)).getText().toString().trim()));
+        details.put("surname",(((EditText)findViewById(R.id.ChefSurnameText)).getText().toString().trim()));
+        details.put("username",(((EditText)findViewById(R.id.ChefUsernameText)).getText().toString().trim()));
         details.put("email",(((EditText)findViewById(R.id.ChefEmailText)).getText().toString().trim()));
-        details.put("telephone",(((EditText)findViewById(R.id.ChefTelephoneText1)).getText().toString().trim()));
-        details.put("iban",(((EditText)findViewById(R.id.ChefIbanText1)).getText().toString().trim()));
-        details.put("tin",(((EditText)findViewById(R.id.ChefTinText1)).getText().toString().trim()));
+        details.put("telephone",(((EditText)findViewById(R.id.ChefTelephoneText)).getText().toString().trim()));
+        details.put("iban",(((EditText)findViewById(R.id.ChefIbanText)).getText().toString().trim()));
+        details.put("tin",(((EditText)findViewById(R.id.ChefTinText)).getText().toString().trim()));
         details.put("password",(((EditText)findViewById(R.id.ChefPasswordText)).getText().toString().trim()));
         return details;
     }

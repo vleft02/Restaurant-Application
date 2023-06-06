@@ -68,7 +68,7 @@
         android:layout_width="356dp"
         android:layout_height="188dp"
         android:gravity="center"
-        android:text="Δεν υπαρψει ενεργή παραγγελία αυτή την στιγμή πιεστε  το &quot;+&quot; για να ανεβάσετε μία καινούρια"
+        android:text="Δεν υπάρxει ενεργή παραγγελία αυτή την στιγμή, πιεστε  το &quot;+&quot; για να ανεβάσετε μία καινούρια"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

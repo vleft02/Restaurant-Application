@@ -31,17 +31,14 @@ public class ChefHomePagePresenter {
      * Αφαιρεί κάθε φορά που καλείται τις παραγγελίες που έχουν ολοκληρωθεί
  */
     public void setOrderList(){
-        ArrayList<Integer> indexes = new ArrayList<>();
-        orderList = chef.getOrders();
+        ArrayList<Order> orders = chef.getOrders();
+        orderList = new ArrayList<>();
         int i=0;
-        while (i<orderList.size()){
-            if(orderList.get(i).getOrderState()== Order.State.COMPLETED){
-                indexes.add(i);
+        for(Order order: orders){
+            if (order.getOrderState() == Order.State.RECEIVED)
+            {
+                orderList.add(order);
             }
-            i+=1;
-        }
-        for(int rem: indexes){
-            orderList.remove(rem);
         }
     }
     /**

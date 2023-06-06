@@ -88,7 +88,7 @@ public class ChefOrderDetailsPresenter {
         view.setOrderId(String.valueOf(order.getId()));
         view.setOrderState(String.valueOf(order.getOrderState()));
         view.setTableNumber(String.valueOf(order.getTableNumber()));
-        view.setDate("Hour:" +String.valueOf(order.getDate().getHour()) + " Min:"+String.valueOf(order.getDate().getMinute()));
+        view.setDate(String.valueOf(order.getDate().getDayOfMonth()+" "+order.getDate().getMonth()+" "+order.getDate().getYear() +" Time:"+ order.getDate().getHour()) + ":"+String.valueOf(order.getDate().getMinute()));
     }
 
     /**
