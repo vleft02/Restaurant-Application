@@ -1,4 +1,5 @@
 package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+import gr.aueb.softeng.team08.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import gr.aueb.softeng.team08.R;
+
 
 
 public class ChefOrderDetailsActivity extends AppCompatActivity  implements ChefOrderDetailsView{
