@@ -21,6 +21,13 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
     RecyclerView recyclerView;
     TextView emptyView;
     ChefHomePageViewModel viewModel;
+    /**
+     * Δημιουργεί to layout και αρχικοποιεί
+     * το activity.
+     * Αρχικοποιεί το view model και περνάει στον presenter το view
+     * Δίνει στον presenter το chefId και αρχικοποιεί τα στοιχεία του layout
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +45,10 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
         viewModel.getPresenter().setOrderList();
         // ui initialization
         recyclerView = findViewById(R.id.recyclerViewChef);
-        emptyView = findViewById(R.id.emptyOrdersChefText);
+        emptyView = findViewById(R.id.emptyOrdersChefText); // το TextView που εμφανίζεται όταν είναι άδεια η λίστα με τις παραγγελίες
         viewModel.getPresenter().onChangeLayout();
 
-        findViewById(R.id.gobackButton4).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.gobackButton4).setOnClickListener(new View.OnClickListener(){ // Το κουμπί επιστροφής στην προηγούμενη σελίδα
             @Override
             public void onClick(View v){
                 viewModel.getPresenter().onBack();
@@ -49,7 +56,11 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
         });
 
     }
-
+    /**
+     * Καλείται όταν επιστρέφουμε στην οθόνη αυτού του  activity
+     * Ενημερώνει την λίστα με τις παραγγελίες μήπως προστέθκε κάποιο για να εμφανιστεί στο Recycler View, αλλά και τον adapter του recycler view
+     * Καλεί την μέθοδο changeLyaout του presenter
+     */
     @Override
     protected void onResume(){
         super.onResume();
@@ -58,14 +69,21 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
         recyclerView.setAdapter(new ChefHomePageRecyclerViewAdapter(viewModel.getPresenter().getOrderList(), this));
         viewModel.getPresenter().onChangeLayout();
     }
-
+    /**
+     *Καλεί το activity για την εμφάνιση των στοιχείων της παραγγελίας που περάστηκε σαν παράμετρος
+     * @param order η παραγγελία που έχει επιλεχθεί στο Recycler View απο τον μάγειρα
+     */
     @Override
     public void selectOrder(Order order) {
         Intent intent = new Intent(ChefHomePageActivity.this, ChefOrderDetailsActivity.class);
         intent.putExtra("OrderId", order.getId());
         startActivity(intent);
     }
-
+    /**
+     * Ελέγχει εάν η λίστα με τις παραγγελίες που εμφανίζεται στο recycler view είναι άδεια ή οχι
+     * Εάν είναι άδεια , βγάζει απο την οθόνη το Recycler View και κάνει visible το κέιμενο που ενημερώνει ότι η λίστα είναι άδεια
+     * Διαφορετικά , εμφανίζει το Recycler View  , σετάρει τον adapter και βγάζει απο την οθόνη το κείμενο που αναφέρθηκε παραπάνω
+     */
     @Override
     public void changeLayout() {
         if (viewModel.getPresenter().getOrderList().isEmpty()) {
@@ -78,6 +96,9 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
             recyclerView.setAdapter(new ChefHomePageRecyclerViewAdapter(viewModel.getPresenter().getOrderList(), this));
         }
     }
+    /**
+     * Καλείται όταν θέλουμε να επιστρέψουμε στο προηγούμενο Activity , δηλαδή στο login Page στην περίπτωσή μας(αυτό καλεί το activity μας)
+     */
     public void goBack(){
         finish();
     }

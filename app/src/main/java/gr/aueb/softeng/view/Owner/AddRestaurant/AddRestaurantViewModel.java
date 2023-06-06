@@ -9,17 +9,18 @@ import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
 
 public class AddRestaurantViewModel extends ViewModel {
     AddRestaurantPresenter presenter;
+    /**
+     * Αρχικοποιεί τον presenter και του περνάει ένα νέο αντικείμενο τύπου owner dao και restaurant dao για να χρησιμποιήσει
+     */
     public AddRestaurantViewModel(){
         presenter = new AddRestaurantPresenter(new OwnerDAOmemory(), new RestaurantDAOmemory());
     }
+    /**
+     * Επιστρέφει τον presenter στις κλάσεις όπου περιέχει τις πληροφορίες
+     * @return το instance του presenter που δημιουργήσαμε παραπάνω
+     */
     public AddRestaurantPresenter getPresenter(){
         return this.presenter;
     }
 
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        Log.d("Login", "onCleared");
-        presenter = null;
-    }
 }

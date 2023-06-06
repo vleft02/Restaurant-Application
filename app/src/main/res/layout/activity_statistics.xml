@@ -87,16 +87,16 @@
         android:id="@+id/AverageSalesForCustomerText"
         android:layout_width="362dp"
         android:layout_height="25dp"
-        android:text="@string/average_expenses_for_each_customer"
+        android:text="Average Expenses for each order"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+        app:layout_constraintVertical_bias="0.382" />
 
     <TextView
         android:id="@+id/AverageExpensesForCustomerResult"

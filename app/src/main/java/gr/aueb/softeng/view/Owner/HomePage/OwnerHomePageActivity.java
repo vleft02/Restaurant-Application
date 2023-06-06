@@ -23,7 +23,13 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
     RecyclerView recyclerView;
     TextView emptyView;
     OwnerHomePageViewModel viewModel;
-
+    /**
+     * Δημιουργεί to layout και αρχικοποιεί
+     * το activity.
+     * Αρχικοποιεί το view model και περνάει στον presenter το view
+     * Δίνει στον presenter το ownerId και αρχικοποιεί τα στοιχεία του layout
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +50,13 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
          emptyView = findViewById(R.id.emptyView);
          viewModel.getPresenter().onChangeLayout();
 
-        findViewById(R.id.AddRestaurantButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.AddRestaurantButton).setOnClickListener(new View.OnClickListener() { //Όταν πατηθεί το κουμπί προσθήκης εστιατορίου
             public void onClick(View v) {
                 viewModel.getPresenter().onAddRestaurant();
             }
         });
 
-        findViewById(R.id.gobackButton5).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.gobackButton5).setOnClickListener(new View.OnClickListener(){ //Όταν πατηθεί το κουμπί επιστροφής στην προηγούμενη σελίδα
             @Override
             public void onClick(View v){
                 viewModel.getPresenter().onBack();
@@ -58,6 +64,12 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
         });
 
     }
+
+    /**
+     * Καλείται όταν επιστρέφουμε στην οθόνη αυτού του  activity
+     * Ενημερώνει την λίστα με τα Restaurant μήπως προστέθκε κάποιο για να εμφανιστεί στο Recycler View, αλλά και τον adapter του recycler view
+     * Καλεί την μέθοδο changeLyaout του presenter
+     */
     @Override
     protected void onResume(){
         super.onResume();
@@ -67,18 +79,31 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
         viewModel.getPresenter().onChangeLayout();
     }
 
+    /**
+     *Καλεί το activity για την εμφάνιση των στοιχείων του εστιατορίου που περάστηκε σαν παράμετρος
+     * @param restaurant το εστιατόριο που έχει επιλεχθεί στο Recycler View απο τον χρήστη
+     */
     @Override
     public void selectRestaurant(Restaurant restaurant) {
         Intent intent = new Intent(OwnerHomePageActivity.this, RestaurantDetailsActivity.class);
         intent.putExtra("RestaurantId", restaurant.getId());
         startActivity(intent);
     }
+
+    /**
+     * Καλεί το activity στο οποίο θα περαστούν τα στοιχεία του νέου εστιατορίου που θέλουμε να προσθέσουμε στον ιδιοκτήτη
+     */
     public void AddRestaurant(){
         Intent intent = new Intent(OwnerHomePageActivity.this, AddRestaurantActivity.class);
         intent.putExtra("OwnerId",ownerId);
         startActivity(intent);
     }
 
+    /**
+     * Ελέγχει εάν η λίστα με τα εστιατόρια που εμφανίζεται στο recycler view είναι άδεια ή οχι
+     * Εάν είναι άδεια , βγάζει απο την οθόνη το Recycler View και κάνει visible το κέιμενο που ενημερώνει ότι η λίστα είναι άδεια
+     * Διαφορετικά , εμφανίζει το Recycler View  , σετάρει τον adapter και βγάζει απο την οθόνη το κείμενο που αναφέρθηκε παραπάνω
+     */
     @Override
     public void changeLayout() {
         if (viewModel.getPresenter().getRestaurantList().isEmpty()) {
@@ -91,6 +116,11 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
             recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
         }
     }
+
+    /**
+     * Καλείται όταν θέλουμε να επιστρέψουμε στο προηγούμενο Activity , δηλαδή στο login Page στην περίπτωσή μας(αυτό καλεί το activity μας)
+     *
+     */
     public void goBack(){
         finish();
     }
