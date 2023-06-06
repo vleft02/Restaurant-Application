@@ -34,10 +34,10 @@ public class AddChefActivity extends AppCompatActivity implements AddChefView {
     }
     private static boolean initialized = false;
     /**
-     * Δημιουργεί το layout και αρχικοποιεί το activity
+     * Δημιουργει το layout και αρχικοποιεί το activity
      * Αρχικοποιούμε το view Model και περνάμε στον presenter το view
      * Πέρνουμε απο το activity που μας κάλεσε το id του εστιατορίου που θέλουμε να προσθέσουμε τον μάγειρα
-     * Καλούμε τα acitvities όταν πατηθούν τα κουμπιά της οθόνης
+     * Καλούμε τα activities όταν πατηθούν τα κουμπιά της οθόνης
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
      *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
