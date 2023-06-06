@@ -15,21 +15,43 @@ public class AddChefPresenter {
     private RestaurantDAO restDAO;
     AddChefView view;
     private Restaurant restaurant;
-
+    /**
+     * Αρχικοποιεί το chef dao και το restaurant dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
+     * στατιστική μας λίστα τα εστιατόρια και τους μάγειρες
+     * @param chefDAO
+     * @param restDAO
+     */
     public AddChefPresenter(RestaurantDAO restDAO, ChefDAO chefDAO)
     {
         this.chefDAO = chefDAO;
         this.restDAO = restDAO;
     }
+    /**
+     * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
+     * @param v Instance του view
+     */
     public void setView(AddChefView v)
     {
         this.view = v;
     }
-
+    /**
+     * Βρίσκει μέσω του μοναδικού id το εστιατόριο που θέλουμε να προστεθεί ο μάγειρας, απο την στατική λίστα που περιέχει
+     * to restaurant dao
+     * @param id το μοναδικό id του εστιατορίου που θέλουμε να προσθέσουμε τον μάγειρσ
+     */
     public void setRestaurant(int id){
         this.restaurant = restDAO.find(id);
 }
-
+    /**
+     * Η μέθοδος αυτή καλείται όταν πατηθεί το κουμπί εισαγωγής του μάγειρα στο εστιατόριο
+     * αφου πρώτα έχουν περαστεί όλα τα στοιχεία του
+     * Κάνουμε ελέγχους σε κάθε πεδίο για το άν θεωρείται αποδεκτό , και εάν δεν είναι εμφανίζεται μήνυμα ειδοποίησης την οθόνη του ιδιοκτήτη
+     * για να κάνει τις απαραίτητες αλλαγές
+     * Επισης , γίνεται έλεγχος για κάθε ένα στοιχείο εάν ταυτίζεται ακριβώς με τα στοιχεία που έχει βάλει
+     * ο μάγειρας κατά την εγγραφή του στο σύστημα
+     * Εάν έστω και ένα στοιχείο δεν είναι ίδιο , εμφανίζεται μήνυμα λάθους στην οθόνη
+     * Εάν τα στοιχεία είναι σωστά , εμφανίζεται κατάλληλο μήνυμα, προστίθεται ο μάγειρας στο εστιατόριο
+     */
     public void onAddChefAccount(){
         boolean isEmpty=false;
         HashMap<String,String> details = view.getChefDetails();
@@ -70,6 +92,9 @@ public class AddChefPresenter {
         }
 
     }
+    /**
+     * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
+     */
     public void onBack(){
         view.goBack();
     }

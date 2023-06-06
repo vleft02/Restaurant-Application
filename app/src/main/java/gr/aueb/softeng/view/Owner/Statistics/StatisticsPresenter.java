@@ -14,24 +14,48 @@ public class StatisticsPresenter {
     private OwnerDAO ownerDAO;
     private Restaurant restaurant;
 
+    /**
+     * Αρχικοποιεί το owner dao και το restaurant dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
+     * στατιστική μας λίστα τα εστιατόρια και τους ιδιοκτήτες
+     * @param ownerDAO
+     * @param restaurantDAO
+     */
+
     public StatisticsPresenter(OwnerDAO ownerDAO, RestaurantDAO restaurantDAO){
         this.ownerDAO=ownerDAO;
         this.restaurantDAO = restaurantDAO;
     }
     StatisticsView view;
+
+    /**
+     * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
+     * @param view Instance του view
+     */
     public void setView(StatisticsView view)
     {
         this.view = view;
     }
 
+    /**
+     * Βρίσκει μέσω του μοναδικού id απο την λίστα με τα εστιατόρια του dao το αντικείμενο του εστιατορίου
+     * που ψάχνουμε
+     * @param restaurantId το id του εστιατορίου που θέλουμε να εμφανίσουμε τα στοιχεία του
+     */
     public void setRestaurant(int restaurantId) {
         restaurant = restaurantDAO.find(restaurantId);
     }
-
+    /**
+     * Καλείται όταν θέλουμε να επιστρέψουμε στην αρχική οθόνη
+     */
     public void OnBack(){
         view.goBack();
     }
 
+    /**
+     * Υπολογίζει το ετήσιο εισόδημα του εστιατορίου , για το τρέχον έτος
+     * το οποίο το παίρνει απο την μεταβλητή 'now'
+     * @return επιστρέφει το άθροισμα στην μέθοδο που το καλεί
+     */
     public double calcYearlyIncome(){
         double sum=0.0;
         LocalDateTime now = LocalDateTime.now();
@@ -43,6 +67,12 @@ public class StatisticsPresenter {
         return sum;
     }
 
+    /**
+     * Υπολογίζει το μέσο μηνιαίο εισόδημα του εστιατορίου , για το τρέχον έτος
+     * διαιρεί με τους διαφορετικούς μήνες όπου υπήρξαν παραγγελίες
+     * @return επιστρέφει το συνολικό άθροισμα διά τον αριθμό διαφορετικών μηνών όπου ηπήρξε παραγγελία
+     * διαφορετικά , ελέγχει εάν είναι 0 ο αριθμός των μηνών και επιστρέφει 0
+     */
     public double calcAvgMonthlyIncome(){
         LocalDateTime now = LocalDateTime.now();
         double totalIncome = 0.0;
@@ -64,7 +94,15 @@ public class StatisticsPresenter {
         }
     }
 
-    public double calcCustExpenses(){
+    /**
+     * Υπολογίζει τα μέσα έξοδα κάθε παραγγελίας πελάτη , αθροίζοντας όλα τα κόστη των παραγγελιών
+     * διά τον αριθμό των παραγγελιών(έχουμε υποθέσει ότι κάθε παραγγελία γίνεται απο έναν μόνο πελάτη
+     * και μας ενδιαφέρει το έξοδο κάθε παραγγελίας- που ταυτίζεται με κάθε πελάτη)
+     * @return το παραπάνω άθροισμα
+     * εάν δεν έχουμε παραγγελίες , επιστρέφει 0
+     */
+
+    public double calcAvgOrderExpenses(){
         double cost=0.0;
         LocalDateTime now = LocalDateTime.now();
         for (Order order : restaurant.getOrders()) {
@@ -80,6 +118,12 @@ public class StatisticsPresenter {
         }
     }
 
+    /**
+     * Υπολογίζει το μέσο καθημερινό εισόδημα του εστιατορίου
+     * @return επιστρέφει το άθροισμα αυτο δια τον συνολικό αριθμό ημερών που
+     * γίνονται οι παραγγελίες
+     * Εάν ο αριθμός ημερών ειναι μηδέν , επιστρέφει 0
+     */
     public double calcAvgDailyRevenue(){
         double totalIncome = 0.0;
         int totalDays = 0;
@@ -102,6 +146,11 @@ public class StatisticsPresenter {
 
     }
 
+    /**
+     * Υπολογίζει το ποσοστό των ακυρωμένων παραγγελιών του εστιατορίου
+     * @return επιστρέφει το συγκεκριμένο ποσοστό
+     * Εάν δεν υπάρχουν παραγγελίες , επιστρέφει 0
+     */
     public double calcCancelRate(){
         LocalDateTime now = LocalDateTime.now();
         int totalOrders = 0;
@@ -122,6 +171,12 @@ public class StatisticsPresenter {
             return 0;
         }
     }
+
+    /**
+     * Η μέθοδος αυτή καλεί τις μεθόδους του view για να περάσει τα αποτελέσματα
+     * των στατιστικών υπολογισμών , χρησιμοποιώντας τις παραπάνω
+     * συναρτήσεις που περιγράφηκαν
+     */
     public void calculateStats(){
 
         view.setYearlyIncome(String.valueOf(calcYearlyIncome()));
@@ -129,7 +184,7 @@ public class StatisticsPresenter {
 
         view.setAVGMonthlyIncome(String.valueOf(calcAvgMonthlyIncome()));
 
-        view.setCustExpenses(String.valueOf(calcCustExpenses()));
+        view.setAvgOrderExpenses(String.valueOf(calcAvgOrderExpenses()));
 
 
 

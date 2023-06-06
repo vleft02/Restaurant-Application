@@ -16,21 +16,43 @@ public class AddRestaurantPresenter {
     private OwnerDAO ownerDAO;
     private int ownerId;
     private Owner owner;
-
+    /**
+     * Αρχικοποιεί το owner dao και το restaurant dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
+     * στατιστική μας λίστα τα εστιατόρια και τους ιδιοκτήτες
+     * @param ownerDAO
+     * @param restaurantDAO
+     */
     public AddRestaurantPresenter(OwnerDAO ownerDAO, RestaurantDAO restaurantDAO) {
         this.ownerDAO= ownerDAO;
         this.restaurantDAO = restaurantDAO;
     }
+
+    /**
+     * Βρίσκει μέσω του μοναδικού id τον ιδιοκτήτη απο την στατική λίστα που περιέχει
+     * to owner dao
+     * @param id το μοναδικό id του ιδιοκτήτη που θέλουμε να προσθέσουμε το εστιατόριο
+     */
     public void setOwner(int id){
         owner= ownerDAO.find(id);
     }
 
     AddRestaurantView view;
-
+    /**
+     * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
+     * @param view Instance του view
+     */
     public void setView(AddRestaurantView view) {
         this.view = view;
     }
 
+    /**
+     * Η μέθοδος αυτή καλείται όταν πατηθεί το κουμπί δημιουργίας του εστιατορίου
+     * αφου πρώτα έχουν περαστεί όλα τα στοιχεία του
+     * Κάνουμε ελέγχους σε κάθε πεδίο για το άν θεωρείται αποδεκτό , και εάν δεν είναι εμφανίζεται μήνυμα ειδοποίησης την οθόνη του ιδιοκτήτη
+     * για να κάνει τις απαραίτητες αλλαγές
+     * Εάν τα στοιχεία είναι σωστά , εμφανίζεται κατάλληλο μήνυμα, δημιουργείται το νέο εστιατόριο και το αποθηκεύουμε στο restaurant dao
+     * και στην λίστα του ιδιοκτήτη με τα εστιατόρια
+     */
     public void onCreateRestaurant() {
         boolean isEmpty = false;
         HashMap<String, String> details = view.getRestDetails();
@@ -67,5 +89,11 @@ public class AddRestaurantPresenter {
                     details.get("zc") + details.get("total_tables"));
             view.goBack();
         }
+    }
+     /**
+     * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
+     */
+    public void onBack(){
+        view.goBack();
     }
 }

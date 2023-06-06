@@ -15,23 +15,52 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
     StatisticsViewModel viewModel;
     public int RestaurantId;
 
+    /**
+     * Εμφανίζει στην οθόνη το μέσο μηνιαίο εισόδημα του εστιατορίου
+     * @param monthlyIncome το υπολογισμένο ποσό του μηνιαίου εισοδήματος σε μορφή String
+     */
     public void setAVGMonthlyIncome(String monthlyIncome){
         ((TextView)findViewById(R.id.AvgMonthlyIncomeResult)).setText(monthlyIncome);
     }
+
+    /**
+     * Εμφανίζει στην οθόνη το ετήσιο εισόδημα του εστιατορίου
+     * @param yearlyIncome το υπολογισμένο ετήσιο εισόδημα σε μορφή String
+     */
     public void setYearlyIncome(String yearlyIncome){
         ((TextView)findViewById(R.id.YearlyIncomeResult)).setText(yearlyIncome);
     }
-    public void setCustExpenses(String custExpenses){
-        ((TextView)findViewById(R.id.AverageExpensesForCustomerResult)).setText(custExpenses);
+
+    /**
+     * Εμφανίζει στην οθόνη τα έξοδα ανα πελάτη
+     * @param orderExpenses τα υπολογισμένα έξοδα σε μορφή String
+     */
+    public void setAvgOrderExpenses(String orderExpenses){
+        ((TextView)findViewById(R.id.AverageExpensesForCustomerResult)).setText(orderExpenses);
     }
+
+    /**
+     * Εμφανίζει στην οθόνη τα μέσα ημερήσια έξοδα
+     * @param revenue το υπολογισμένο ποσό των μέσων ημερησίων εξόδων σε μορφή String
+     */
     public void setAVGDailyRevenue(String revenue){
         ((TextView)findViewById(R.id.AverageDailyRevenueResult)).setText(revenue);
     }
+
+    /**
+     * Εμφανίζει στην οθόνη το ποσοστό των ακυρωμένων παραγγελιών
+     * @param canc το υπολογισμένο ποσοστό ακυρωμένων παραγγελιών
+     */
     public void setOrderCancellationRate(String canc){
-        ((TextView)findViewById(R.id.OrderCancellationRateResult)).setText(canc);
+        ((TextView)findViewById(R.id.OrderCancellationRateResult)).setText(canc + " %");
     }
 
-
+    /**
+     * Εμφανίζει ενα μήνυμα τύπου alert με
+     * τίτλο title και μήνυμα message.
+     * @param title Ο τίτλος του μηνύματος
+     * @param message Το περιεχόμενο του μηνύματος
+     */
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(StatisticsActivity.this)
@@ -41,6 +70,17 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
                 .setPositiveButton("OK", null).create().show();
     }
     private static boolean initialized = false;
+
+    /**
+     * Δημιουργεί το layout και αρχικοποιεί το activity
+     * Αρχικοποιούμε το view Model και περνάμε στον presenter το view
+     * Πέρνουμε απο το activity που μας κάλεσε το id του εστιατορίου που θέλουμε να εμφανίσουμε τα στοιχεία
+     * Καλούμε τα acitvities όταν πατηθούν τα κουμπιά της οθόνης
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +94,15 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
         }
         viewModel.getPresenter().setRestaurant(RestaurantId);
         viewModel.getPresenter().calculateStats();
-        findViewById(R.id.GoBack).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.GoBack).setOnClickListener(new View.OnClickListener(){ // Όταν πατηθεί το κουμπί επιστροφής στην αρχική σελίδα
             @Override
             public void onClick(View v){viewModel.getPresenter().OnBack();}
         });
     }
+
+    /**
+     * Καλείται για να επιστρέψουμε στο προηγούμενο Activity
+     */
     public void goBack(){
         finish();
     }

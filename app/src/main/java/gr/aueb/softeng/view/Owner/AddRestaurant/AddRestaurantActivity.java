@@ -15,7 +15,12 @@ import gr.aueb.softeng.team08.R;
 
 
 public class AddRestaurantActivity extends AppCompatActivity implements AddRestaurantView {
-
+    /**
+     * Εμφανίζει ενα μήνυμα τύπου alert με
+     * τίτλο title και μήνυμα message.
+     * @param title Ο τίτλος του μηνύματος
+     * @param message Το περιεχόμενο του μηνύματος
+     */
     public void showErrorMessage(String title, String message) {
         new AlertDialog.Builder(AddRestaurantActivity.this)
                 .setCancelable(true)
@@ -26,6 +31,16 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
 
     private static boolean initialized = false;
     private int ownerId;
+    /**
+     * Δημιουργεί το layout και αρχικοποιεί το activity
+     * Αρχικοποιούμε το view Model και περνάμε στον presenter το view
+     * Πέρνουμε απο το activity που μας κάλεσε το id του ιδιοκτήτη που θέλουμε να προσθέσουμε στο εστιατόριο
+     * Καλούμε τα acitvities όταν πατηθούν τα κουμπιά της οθόνης
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +54,27 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
         }
         viewModel.getPresenter().setOwner(ownerId);
 
-        findViewById(R.id.CreateRestaurantButton).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.CreateRestaurantButton).setOnClickListener(new View.OnClickListener(){ // Όταν πατηθεί το κουμπί δημιουργίας του εστιατορίου
             @Override
             public void onClick(View v){
                 viewModel.getPresenter().onCreateRestaurant();
             }
 
         });
+        findViewById(R.id.gobackButton8).setOnClickListener(new View.OnClickListener(){ // Όταν πατηθεί το κουμπί επιστροφής στην προηγούμενη σελίδα
+            @Override
+            public void onClick(View v){
+                viewModel.getPresenter().onBack();
+            }
+        });
     }
+
+    /**
+     * Δημιουργεί ένα hash map στο οποίο έχουμε σαν κλειδί την περιγραφή πχ άν είναι name ή τηλέφωνο του εστιατορίου
+     * και σαν value έχουμε την τιμή του κλειδιού την οποία παίρνουμε απο την οθόνη που έχει περάσει ο ιδιοκτήτης
+     * τα στοιχεία του εστιατορίου που θέλει να προσθέσει
+     * @return Επιστρέφουμε το Hash Map αυτό με τα δεδομένα της οθόνης
+     */
     public HashMap<String,String> getRestDetails(){
         HashMap<String,String> details = new HashMap<>();
         details.put("name",(((EditText)findViewById(R.id.RestaurantNameText)).getText().toString().trim()));
@@ -58,7 +86,10 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
         details.put("total_tables",(((EditText)findViewById(R.id.TotalTablesText)).getText().toString().trim()));
         return details;
     }
+    /**
+     * Καλείται για να επιστρέψουμε στο προηγούμενο Activity
+     */
     public void goBack(){
-        finish(); /// otan kaleitai auto , poia sinartisi tou proigoymenou intent kaleitai? h on create?
+        finish();
     }
 }
