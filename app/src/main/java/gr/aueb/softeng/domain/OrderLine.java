@@ -1,6 +1,8 @@
 package gr.aueb.softeng.domain;
 
-public class OrderLine {
+import java.io.Serializable;
+
+public class OrderLine implements Serializable {
     private int quantity;
     private final Dish dish;
     public OrderLine(int quantity, Dish dish){

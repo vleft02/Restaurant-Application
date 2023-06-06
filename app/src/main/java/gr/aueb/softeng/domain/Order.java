@@ -1,12 +1,14 @@
 package gr.aueb.softeng.domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-public class Order {
+public class Order implements Serializable {
+
     public enum State {RECEIVED, COMPLETED, CANCELLED} // Enum for the number of states an order might have
     private final int tableNumber;
 
@@ -55,6 +57,10 @@ public class Order {
     }
     public LocalDateTime getDate() {return this.date;}
     public boolean isPaid() {return this.isPaid;}
+
+    public void setOrderLines(ArrayList<OrderLine> modifiedOrderLines) {
+        this.orderLines = modifiedOrderLines;
+    }
 
     //Setters for the state of the order
     public void setStateCompleted(){//this is being called by the chef in the controller class

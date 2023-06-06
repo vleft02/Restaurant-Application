@@ -1,6 +1,8 @@
 package gr.aueb.softeng.domain;
 
-public class Dish{
+import java.io.Serializable;
+
+public class Dish implements Serializable {
     private final int id;
     private final String dishName;
     private final double price;
