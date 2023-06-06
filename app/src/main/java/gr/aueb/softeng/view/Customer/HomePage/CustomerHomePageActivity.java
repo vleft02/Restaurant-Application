@@ -34,6 +34,12 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     CustomerHomePageViewModel viewModel;
     int tableNumber = 0;
 
+    /**
+     * Εμφανίζεται pop up παράθυρο για την επιλογή
+     * ενος ακεραίου που αντιστοιχεί στον αριθμό του
+     * τραπεζιού για την παραγγελία που πρόκειται να
+     * υποβληθεί.
+     */
     private void showTableNumberPickerPopup() {
 
         PopupWindow popupWindow = new PopupWindow(this);
@@ -79,6 +85,12 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         popupWindow.showAtLocation(contentView, Gravity.CENTER, 0, 0);
     }
 
+    /**
+     * Εμφανίζει ενα μήνυμα τύπου alert
+     * για την μη διαθεσιμότητα του τραπεζιού
+     * που επιλέγχθηκε με το pop up window
+     * της μεθόδου showTableNumberPickerPopup()
+     */
     public void tableUnavailableMessage()
     {
         new android.app.AlertDialog.Builder(CustomerHomePageActivity.this)
@@ -88,6 +100,11 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
                 .setPositiveButton("OK", null).create().show();
     }
 
+    /**
+     * Εμφανίζει ενα μήνυμα τύπου alert
+     * Για να ρωτήσει τον χρήστη αν είναι σίγουρος
+     * οτι θέλει να ακυρώσει την παραγγελία
+     */
     public void ShowConfirmationMessage() {
         new AlertDialog.Builder(CustomerHomePageActivity.this)
                 .setTitle("Ακύρωση Παραγγελίας")
@@ -107,6 +124,13 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
                 }).create().show();
 
     }
+
+
+    /**
+     * Δημιουργεί to layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
