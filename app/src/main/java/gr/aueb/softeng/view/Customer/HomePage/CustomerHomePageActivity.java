@@ -43,7 +43,7 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
      * τραπεζιού για την παραγγελία που πρόκειται να
      * υποβληθεί.
      */
-    private void showTableNumberPickerPopup() {
+    public void showTableNumberPickerPopup() {
 
         PopupWindow popupWindow = new PopupWindow(this);
 
@@ -71,11 +71,7 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
                 {
                     tableNumber = tableNo;
                     popupWindow.dismiss();
-                    Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;
-                    intent.putExtra("RestaurantId",restaurantId);
-                    intent.putExtra("CustomerId",customerId);
-                    intent.putExtra("TableNumber",tableNumber);
-                    startActivity(intent);
+                    redirectPlaceOrder();
                 }// Dismiss the pop-up window
                 else
                 {
@@ -237,15 +233,6 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         return viewModel;
     }
 
-    @Override
-    public void onCancel() {
-        ShowConfirmationMessage();
-    }
-
-    @Override
-    public void onPlaceOrder() {
-        showTableNumberPickerPopup();
-    }
     public void redirectPlaceOrder()
     {
         Intent intent = new Intent(CustomerHomePageActivity.this , PlaceOrderActivity.class) ;

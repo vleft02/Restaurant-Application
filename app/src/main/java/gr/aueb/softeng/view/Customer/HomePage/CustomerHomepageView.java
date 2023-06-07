@@ -11,5 +11,7 @@ public interface CustomerHomepageView extends View{
     void showCurrentOrder();
 
     void showNoCurrentOrder();
+
+    void showTableNumberPickerPopup();
 }
 

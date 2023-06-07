@@ -175,6 +175,13 @@ public class CustomerHomepagePresenter {
         return output;
     }
 
+
+    public void onCancel()
+    {
+        view.ShowConfirmationMessage();
+    }
+
+
     /**
      * Ακύρωση της currentOrder
      * που προκαλέι αλλαγή του layout
@@ -184,12 +191,11 @@ public class CustomerHomepagePresenter {
      */
     public void cancel()
     {
-       if(currentOrder!=null){
+        if(currentOrder!=null){
             currentOrder.setStateCancelled();
             currentOrder = null;
             chooseLayout();
             setOrderHistory();
-            //AFAIRESH APO CHEF
        }
     }
 
@@ -250,6 +256,10 @@ public class CustomerHomepagePresenter {
 
         }
         return true;
+    }
+
+    public void onPlaceOrder() {
+        view.showTableNumberPickerPopup();
     }
 }
 

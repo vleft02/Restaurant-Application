@@ -7,7 +7,4 @@ public interface FragmentListener extends Serializable {
 
     CustomerHomePageViewModel getViewModel();
 
-    void onCancel();
-
-    void onPlaceOrder();
 }
