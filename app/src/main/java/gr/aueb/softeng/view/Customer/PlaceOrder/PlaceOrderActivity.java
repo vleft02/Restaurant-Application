@@ -179,20 +179,25 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
 
     @Override
-    public void changeLayout() {
-           if(viewModel.getPresenter().getDishes().isEmpty())
-            {
-                recyclerView.setVisibility(View.GONE);
-                placeOrderButton.setVisibility(View.GONE);
-                emptyView.setVisibility(View.VISIBLE);
-            } else {
-                recyclerView.setVisibility(View.VISIBLE);
-                placeOrderButton.setVisibility(View.VISIBLE);
-                emptyView.setVisibility(View.GONE);
-               recyclerView.setLayoutManager(new LinearLayoutManager(this));
-               recyclerView.setAdapter(new DishRecyclerViewAdapter(viewModel.getPresenter().getDishes(),this));
-           }
-        }
+    public void showEmptyList()
+    {
+        recyclerView.setVisibility(View.GONE);
+        placeOrderButton.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
+
+    }
+
+    @Override
+    public void showDishList()
+    {
+        recyclerView.setVisibility(View.VISIBLE);
+        placeOrderButton.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new DishRecyclerViewAdapter(viewModel.getPresenter().getDishes(),this));
+    }
+
+
 
     @Override
     public void orderFailed() {
