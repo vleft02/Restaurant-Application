@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 
 
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerActivity;
 
 
 public class SignUpPersonelActivity extends AppCompatActivity implements SignUpPersonelView {
@@ -24,6 +26,22 @@ public class SignUpPersonelActivity extends AppCompatActivity implements SignUpP
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("OK", null).create().show();
+    }
+
+    @Override
+    public void showAccountCreatedMessage()
+    {
+        new AlertDialog.Builder(SignUpPersonelActivity.this)
+                .setCancelable(true)
+                .setTitle("Επιτυχής δημιουργία λογαριασμού")
+                .setMessage("Ο λαγαριασμος δημιουργήθηκε με επιτυχία")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                }).create().show();
     }
     private static boolean initialized = false;
     @Override

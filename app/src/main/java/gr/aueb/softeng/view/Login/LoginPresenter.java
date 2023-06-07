@@ -38,19 +38,16 @@ public class LoginPresenter {
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
         }else if (custDAO.find(inputUsername, inputPassword) != null) {
-            view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            view.redirectToCustomerPage(custDAO.find(inputUsername,inputPassword).getUserId());
+            view.showCustomerFoundMessage(custDAO.find(inputUsername,inputPassword).getUserId());
         }
         else if (chefDAO.find(inputUsername, inputPassword) != null) {
-            view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            view.redirectToChefHomePage(chefDAO.find(inputUsername,inputPassword).getUserId());
+            view.showChefFoundMessage(chefDAO.find(inputUsername,inputPassword).getUserId());
         }
         else if (ownerDAO.find(inputUsername, inputPassword) != null) {
-            view.showErrorMessage("ΒΡΕΘΗΚΕ", " Ο χρηστης βρεθηκε");
-            view.redirectToOwnerHomePage(ownerDAO.find(inputUsername,inputPassword).getUserId());
+            view.showOwnerFoundMessage(ownerDAO.find(inputUsername,inputPassword).getUserId());
         }
         else{
-            view.showErrorMessage("ΛΑΘΟΣ ΣΤΟΙΧΕΙΑ", "Τα στοιχεία που εισάγατε δεν ήταν σωστά. Προσπαθήστε ξανά");
+            view.showErrorMessage("Λάθος στοιχεία", "Τα στοιχεία που εισάγατε δεν ήταν σωστά. Προσπαθήστε ξανά");
         }
     }
     public void onSignup(){

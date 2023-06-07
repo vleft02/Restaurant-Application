@@ -1,6 +1,7 @@
 package gr.aueb.softeng.view.SignUp.SignUpCustomer;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,20 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
                 .setMessage(message)
                 .setPositiveButton("OK", null).create().show();
     }
+    public void showAccountCreatedMessage()
+    {
+        new AlertDialog.Builder(SignUpCustomerActivity.this)
+                .setCancelable(true)
+                .setTitle("Επιτυχής δημιουργία λογαριασμού")
+                .setMessage("Ο λαγαριασμος δημιουργήθηκε με επιτυχία")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                }).create().show();
+    }
     private static boolean initialized = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +48,6 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
 
         SignUpCustomerViewModel viewModel = new ViewModelProvider(this).get(SignUpCustomerViewModel.class);
         viewModel.getPresenter().setView(this);
-        if (savedInstanceState == null) {
-            Intent intent = getIntent();
-        }
         findViewById(R.id.CreateAccButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

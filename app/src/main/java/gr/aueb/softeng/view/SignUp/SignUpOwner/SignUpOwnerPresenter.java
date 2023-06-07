@@ -55,9 +55,7 @@ public class SignUpOwnerPresenter {
             ownerDAO.save(owner);
             userDAO.save(owner); // na dw min exei thema kai epeidh den einai tipou user den touw vazei
 
-            view.showErrorMessage("Μπραβο!", details.get("username")+details.get("name")+details.get("surname")+details.get("telephone")+
-                    details.get("email")+details.get("password")+details.get("iban")+ details.get("tin"));
-            view.goBack();
+            view.showAccountCreatedMessage();
         }
     }
     public void onBack(){

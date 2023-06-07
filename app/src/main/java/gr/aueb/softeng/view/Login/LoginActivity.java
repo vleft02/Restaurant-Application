@@ -1,6 +1,7 @@
 package gr.aueb.softeng.view.Login;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,49 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 .setMessage(message)
                 .setPositiveButton("OK", null).create().show();
     }
+    public void showCustomerFoundMessage(int id)
+    {
+        new AlertDialog.Builder(LoginActivity.this)
+                .setCancelable(true)
+                .setTitle("Συγχαρητήρια")
+                .setMessage("Τα στοιχεία που παραχωρήσατε είναι σωστα")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        redirectToCustomerPage(id);
+                    }
+                }).create().show();
+    }
+    public void showOwnerFoundMessage(int id)
+    {
+        new AlertDialog.Builder(LoginActivity.this)
+                .setCancelable(true)
+                .setTitle("Συγχαρητήρια")
+                .setMessage("Τα στοιχεία που παραχωρήσατε είναι σωστα")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        redirectToOwnerHomePage(id);
+                    }
+                }).create().show();
+    }
+    public void showChefFoundMessage(int id)
+    {
+        new AlertDialog.Builder(LoginActivity.this)
+                .setCancelable(true)
+                .setTitle("Συγχαρητήρια")
+                .setMessage("Τα στοιχεία που παραχωρήσατε είναι σωστα")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        redirectToChefHomePage(id);
+                    }
+                }).create().show();
+    }
+    private LoginViewModel viewModel;
 
     private static boolean initialized = false;
     @Override
@@ -43,10 +87,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         viewModel.getPresenter().setView(this);
-        if (savedInstanceState == null){
-            Intent intent = getIntent();
 
-        }
         findViewById(R.id.SignUpCustomerButton).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 viewModel.getPresenter().onSignup();

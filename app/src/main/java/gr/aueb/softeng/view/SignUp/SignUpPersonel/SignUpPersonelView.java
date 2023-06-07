@@ -6,4 +6,5 @@ public interface SignUpPersonelView {
     HashMap<String,String> getChefDetails();
     void showErrorMessage(String title, String message);
     void goBack();
+    void showAccountCreatedMessage();
 }

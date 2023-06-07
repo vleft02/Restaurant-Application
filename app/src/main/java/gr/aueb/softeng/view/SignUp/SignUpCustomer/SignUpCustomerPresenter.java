@@ -55,10 +55,7 @@ public class SignUpCustomerPresenter {
             customerDAO.save(customer);
             userDAO.save(customer);
 
-            view.showErrorMessage("Μπραβο!", details.get("username")+details.get("name")+details.get("surname")+details.get("telephone")+
-                    details.get("email")+details.get("password") +details.get("cardNumber")+ details.get("cardHolderName")+
-                    details.get("cvv"));
-            view.goBack();
+            view.showAccountCreatedMessage();
         }
 
     }
