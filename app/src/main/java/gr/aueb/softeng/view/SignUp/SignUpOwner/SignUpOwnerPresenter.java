@@ -3,7 +3,7 @@ package gr.aueb.softeng.view.SignUp.SignUpOwner;
 import java.util.HashMap;
 import java.util.Map;
 
-import gr.aueb.softeng.dao.CustomerDAO;import gr.aueb.softeng.dao.OwnerDAO;
+import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.domain.Owner;
 
@@ -22,6 +22,10 @@ public class SignUpOwnerPresenter {
         this.view = v;
     }
 
+    public SignUpOwnerView getView() {
+        return view;
+    }
+
     public void onCreateOwnerAccount(){
         boolean isEmpty=false;
         HashMap<String,String> details = view.getOwnerDetails();
@@ -36,16 +40,16 @@ public class SignUpOwnerPresenter {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία!.");
         }else if(details.get("username").length() < 4 || details.get("username").length() > 15) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε 4 έως 15 χαρακτήρες στο Username.");
-        }else if(!details.get("email").contains("@")) {
+        }else if(!details.get("email").contains("@") &&( !details.get("email").contains(".com") || !details.get("email").contains(".gr"))) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε σωστά το email.");
-        }else if (details.get("telephone").length() < 10) {
+        }else if (details.get("telephone").length() != 10) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.");
-        }else if (details.get("iban").length() < 5) { // anti gia 5 na valw akrivws posa einai pragmatika
-            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο αριθμό κάρτας");
+        }else if (details.get("iban").length() != 34) { // anti gia 5 na valw akrivws posa einai pragmatika
+            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο iban με 34 ψηφία");
         }else if (details.get("password").length() < 8) {
             view.showErrorMessage("Σφάλμα!", "Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.");
-        }else if (details.get("tin").length() < 3){
-            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο cvv.");
+        }else if (details.get("tin").length() != 9){
+            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο αφμ με 9 ψηφία.");
         }else if (userDAO.find(details.get("username"))!=null){
             view.showErrorMessage("Σφάλμα!","Υπάρχει ήδη λογαριασμός με αυτο το username \n Συμπληρώστε νέα στοιχεία!" );
         }else{
