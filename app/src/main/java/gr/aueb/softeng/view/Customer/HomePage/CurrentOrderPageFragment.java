@@ -87,7 +87,7 @@ public class CurrentOrderPageFragment extends Fragment {
         orderDetails = (TextView) rootView.findViewById(R.id.OrderDetails);
 
 
-        listener.changeLayout();
+        listener.getViewModel().getPresenter().chooseLayout();
 
 
         rootView.findViewById(R.id.CancelOrderButton).setOnClickListener(new View.OnClickListener() {
@@ -110,5 +110,22 @@ public class CurrentOrderPageFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         listener = null;
+    }
+
+    public void showCurrentOrder()
+    {
+        plusButton.setVisibility(View.GONE);
+        noOrderText.setVisibility(View.GONE);
+        orderDetails.setText(listener.getViewModel().getPresenter().getCurrentOrderDetails());
+        cancelButton.setVisibility(View.VISIBLE);
+        orderDetailsLayout.setVisibility(View.VISIBLE);
+    }
+
+
+    public void showNoCurrentOrder() {
+        plusButton.setVisibility(View.VISIBLE);
+        noOrderText.setVisibility(View.VISIBLE);
+        cancelButton.setVisibility(View.GONE);
+        orderDetailsLayout.setVisibility(View.GONE);
     }
 }

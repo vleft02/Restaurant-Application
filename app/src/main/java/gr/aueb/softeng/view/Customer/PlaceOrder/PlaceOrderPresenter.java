@@ -1,5 +1,9 @@
 package gr.aueb.softeng.view.Customer.PlaceOrder;
 
+import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -63,7 +67,13 @@ public class PlaceOrderPresenter {
     }
 
     public void onChangeLayout() {
-        view.changeLayout();
+        if(getDishes().isEmpty())
+        {
+            view.showEmptyList();
+        } else {
+            view.showDishList();
+        }
+
     }
 
     public void onPlaceOrder() {

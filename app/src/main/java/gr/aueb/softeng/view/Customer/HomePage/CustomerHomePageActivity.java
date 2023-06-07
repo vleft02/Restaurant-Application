@@ -13,10 +13,13 @@ import android.widget.PopupWindow;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
+
+import java.util.Currency;
 
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
@@ -211,6 +214,18 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         startActivity(intent);
     }
 
+    @Override
+    public void showCurrentOrder() {
+        CurrentOrderPageFragment currFragment = (CurrentOrderPageFragment)((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment();
+        currFragment.showCurrentOrder();
+    }
+
+    @Override
+    public void showNoCurrentOrder() {
+        CurrentOrderPageFragment currFragment = (CurrentOrderPageFragment)((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment();
+        currFragment.showNoCurrentOrder();
+    }
+
 
     public int getCustomerId()
     {
@@ -220,11 +235,6 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     public CustomerHomePageViewModel getViewModel()
     {
         return viewModel;
-    }
-
-    @Override
-    public void changeLayout() {
-        viewModel.getPresenter().chooseLayout();
     }
 
     @Override

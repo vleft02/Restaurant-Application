@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.SignUp.SignUpCustomer;
+package gr.aueb.softeng.view.Chef.ChefOrderDetails;
 
 import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsView;
 

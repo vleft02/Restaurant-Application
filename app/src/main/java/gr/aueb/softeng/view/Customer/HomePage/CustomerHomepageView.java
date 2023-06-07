@@ -8,5 +8,8 @@ public interface CustomerHomepageView extends View{
 
     void redirectTopUp();
 
+    void showCurrentOrder();
+
+    void showNoCurrentOrder();
 }
 

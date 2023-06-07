@@ -202,19 +202,11 @@ public class CustomerHomepagePresenter {
 
         if (currentOrder!=null)
         {
-            currentOrderPageFragment.plusButton.setVisibility(View.GONE);
-            currentOrderPageFragment.noOrderText.setVisibility(View.GONE);
-            currentOrderPageFragment.orderDetails.setText(getCurrentOrderDetails());
-            currentOrderPageFragment.cancelButton.setVisibility(View.VISIBLE);
-            currentOrderPageFragment.orderDetailsLayout.setVisibility(View.VISIBLE);
-
-
+            view.showCurrentOrder();
         }
         else{
-            currentOrderPageFragment.plusButton.setVisibility(View.VISIBLE);
-            currentOrderPageFragment.noOrderText.setVisibility(View.VISIBLE);
-            currentOrderPageFragment.cancelButton.setVisibility(View.GONE);
-            currentOrderPageFragment.orderDetailsLayout.setVisibility(View.GONE);
+
+            view.showNoCurrentOrder();
         }
     }
 

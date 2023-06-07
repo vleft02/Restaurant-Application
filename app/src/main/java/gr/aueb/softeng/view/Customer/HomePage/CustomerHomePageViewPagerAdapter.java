@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
     private final FragmentListener listener;
+    Fragment currFragment = null;
     public CustomerHomePageViewPagerAdapter(@NonNull FragmentActivity fragmentActivity,FragmentListener listener) {
         super(fragmentActivity);
         this.listener = listener;
@@ -17,11 +18,14 @@ public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {//The tab which should be next is chosen
         switch(position) {
             case 0:
-                return CurrentOrderPageFragment.newInstance(listener);
+                currFragment = CurrentOrderPageFragment.newInstance(listener);
+                return currFragment;
             case 1:
-                return OrderHistoryPageFragment.newInstance(listener);
+                currFragment =  OrderHistoryPageFragment.newInstance(listener);
+                return currFragment;
             default:
-                return CurrentOrderPageFragment.newInstance(listener);
+                 currFragment = CurrentOrderPageFragment.newInstance(listener);
+                 return currFragment;
         }
 
     }
@@ -31,4 +35,8 @@ public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
         return 2;
     }
 
+    public Fragment getCurrFragment()
+    {
+        return currFragment;
+    }
 }
