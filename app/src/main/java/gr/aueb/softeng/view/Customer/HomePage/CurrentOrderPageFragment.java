@@ -77,7 +77,6 @@ public class CurrentOrderPageFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.fragment_current_order,container,false);
-        listener.getViewModel().getPresenter().setFragment(this);
 
 
         plusButton = (ImageButton) rootView.findViewById(R.id.PlaceOrderButton);
@@ -93,13 +92,14 @@ public class CurrentOrderPageFragment extends Fragment {
         rootView.findViewById(R.id.CancelOrderButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onCancel();
+                listener.getViewModel().getPresenter().onCancel();
             }
         });
         rootView.findViewById(R.id.PlaceOrderButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onPlaceOrder();
+
+                listener.getViewModel().getPresenter().onPlaceOrder();
             }
         });
 
