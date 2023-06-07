@@ -6,4 +6,5 @@ public interface SignUpCustomerView {
     HashMap<String,String> getDetails();
     void showErrorMessage(String title, String message);
     void goBack();
+    void showAccountCreatedMessage();
 }

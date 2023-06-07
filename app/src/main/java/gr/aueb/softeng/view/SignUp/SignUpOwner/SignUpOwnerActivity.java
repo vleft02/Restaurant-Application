@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Login.LoginActivity;
+import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
 
 
 public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwnerView {
@@ -26,6 +28,22 @@ public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwne
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("OK", null).create().show();
+    }
+
+    @Override
+    public void showAccountCreatedMessage()
+    {
+        new AlertDialog.Builder(SignUpOwnerActivity.this)
+                .setCancelable(true)
+                .setTitle("Επιτυχής δημιουργία λογαριασμού")
+                .setMessage("Ο λαγαριασμος δημιουργήθηκε με επιτυχία")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                }).create().show();
     }
     private static boolean initialized = false;
     @Override
@@ -68,8 +86,6 @@ public class SignUpOwnerActivity extends AppCompatActivity implements SignUpOwne
     public void goBack(){
         finish();
     }
-
-
 
 
 }

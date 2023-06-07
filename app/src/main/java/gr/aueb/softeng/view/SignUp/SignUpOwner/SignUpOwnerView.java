@@ -6,4 +6,5 @@ public interface SignUpOwnerView {
     HashMap<String,String> getOwnerDetails();
     void showErrorMessage(String title, String message);
     void goBack();
+    void showAccountCreatedMessage();
 }
