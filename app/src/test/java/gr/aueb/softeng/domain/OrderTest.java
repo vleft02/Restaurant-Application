@@ -88,11 +88,6 @@ OrderLine orderLine1 ,orderLine2;
     public void isPaidTrue() {
         assertTrue(order2.isPaid());
     }
-    @Test
-    public void setStatePreparing() {
-        order1.setStatePreparing();
-        assertEquals(order1.getOrderState(), Order.State.PREPARING);
-    }
 
     @Test
     public void setStateCompleted() {

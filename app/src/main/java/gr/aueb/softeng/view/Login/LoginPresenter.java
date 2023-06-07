@@ -19,18 +19,16 @@ public class LoginPresenter {
         this.ownerDAO = ownerDAO;
         this.userDAO = userDAO;
     }
+
+    public LoginView getView() {
+        return view;
+    }
+
     private String inputUsername;
     private String inputPassword;
     public void setView(LoginView view) {
         this.view = view;
     }
-
-    public ChefDAO getChefDao(){return this.chefDAO;}
-    public CustomerDAO getCustomerDao(){return this.custDAO;}
-    public OwnerDAO getOwnerDao(){return this.ownerDAO;}
-    public UserDAO getUserDAO(){return this.userDAO;}
-
-
 
     public void authenticate() {
         inputUsername = view.ExtractUsername();
@@ -54,7 +52,6 @@ public class LoginPresenter {
         view.signup();
     }
 
-    public void onSignupPersonel() {view.signupPersonel();
-    }
+    public void onSignupPersonel() {view.signupPersonel();}
     public void onSignupOwner(){view.signupOwner();}
 }
