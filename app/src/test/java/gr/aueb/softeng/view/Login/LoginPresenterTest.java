@@ -143,4 +143,8 @@ public class LoginPresenterTest {
         presenter.onSignupOwner();
         assertEquals(1,view.getSignUpOwnerPressed());
     }
+    @Test
+    public void getView(){
+        assertEquals(view,presenter.getView());
+    }
 }
