@@ -14,6 +14,7 @@ public class CustomerTest {
     }
     @After
     public void tearDown(){
+        customer.resetBalance();
         customer=null;
     }
     @Test
@@ -91,5 +92,13 @@ public class CustomerTest {
         customer.topUp(10);
         customer.transaction(5.00);
         assertEquals(customer.getBalance(), 5.00,0.00);
+    }
+
+    @Test
+    public void resetBalance() {
+        customer.topUp(10.0);
+        assertEquals(customer.getBalance(), 10.00,0.00);
+        customer.resetBalance();
+        assertEquals(customer.getBalance(), 0.00,0.00);
     }
 }

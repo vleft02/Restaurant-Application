@@ -44,7 +44,7 @@ public class SignUpCustomerPresenter {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε σωστά το email.");
         }else if (details.get("telephone").length() != 10 ) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.");
-        }else if (details.get("cardNumber").length() != 16 || details.get("cardNumber").matches("\\d+")) { // anti gia 5 na valw akrivws posa einai pragmatika
+        }else if (details.get("cardNumber").length() != 16) { // anti gia 5 na valw akrivws posa einai pragmatika
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο αριθμό κάρτας με 16 ψηφία");
         }else if (details.get("password").length() < 8) {
             view.showErrorMessage("Σφάλμα!", "Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.");

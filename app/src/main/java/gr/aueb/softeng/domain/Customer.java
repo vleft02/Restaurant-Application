@@ -30,6 +30,11 @@ public class Customer extends User {
     public double getBalance(){
         return this.balance;
     }
+
+    public void resetBalance()
+    {
+        balance = 0;
+    }
     public void transaction(double money)  { // called by the controller when the order is completed and needs to bhe paid
         if (balance>=money) {
             this.balance -= money;

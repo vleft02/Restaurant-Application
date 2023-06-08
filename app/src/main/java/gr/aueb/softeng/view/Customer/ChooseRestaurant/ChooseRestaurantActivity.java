@@ -49,18 +49,6 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
 
     }
 
-    @Override
-    public void changeLayout() {
-        if (viewModel.getPresenter().getRestaurantList().isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-        } else {
-            recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.setAdapter(new ChooseRestaurantRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
-        }
-    }
 
     @Override
     public void selectRestaurant(Restaurant restaurant) {
@@ -71,5 +59,19 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
     }
     public void goBack(){
         finish();
+    }
+
+    @Override
+    public void ShowNoRestaurants() {
+        recyclerView.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void ShowRestaurants() {
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new ChooseRestaurantRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
     }
 }

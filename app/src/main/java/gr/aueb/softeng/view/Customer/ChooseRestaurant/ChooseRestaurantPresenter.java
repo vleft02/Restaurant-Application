@@ -1,5 +1,9 @@
 package gr.aueb.softeng.view.Customer.ChooseRestaurant;
 
+import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import java.util.ArrayList;
 
 import gr.aueb.softeng.dao.RestaurantDAO;
@@ -23,13 +27,21 @@ public class ChooseRestaurantPresenter {
         this.view = view;
     }
 
+    public ChooseRestaurantView getView() {
+        return view;
+    }
+
     public void setRestaurantList() {
         restaurants = (ArrayList<Restaurant>) restaurantDAO.findAll();
     }
 
     public void onChangeLayout() {
-        view.changeLayout();
-
+        if (restaurants.isEmpty()) {
+            view.ShowNoRestaurants();
+        }
+        else {
+            view.ShowRestaurants();
+        }
     }
     public void onBack(){
         view.goBack();

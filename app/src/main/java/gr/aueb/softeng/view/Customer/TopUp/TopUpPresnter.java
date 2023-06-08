@@ -15,9 +15,18 @@ public class TopUpPresnter {
     public void setView(TopUpView view) {
         this.view = view;
     }
+
+    public TopUpView getView() {
+        return view;
+    }
+
     public void setCustomer()
     {
         customer = customerDAO.find(view.getCustomerId());
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     public void setLayout() {

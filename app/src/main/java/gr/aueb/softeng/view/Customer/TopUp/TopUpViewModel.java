@@ -18,7 +18,7 @@ public class TopUpViewModel extends ViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Log.d("Login", "onCleared");
+        Log.d("TopUp", "onCleared");
         presenter= null;
     }
 }
