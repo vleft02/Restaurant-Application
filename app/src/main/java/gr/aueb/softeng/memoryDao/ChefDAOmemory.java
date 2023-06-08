@@ -26,6 +26,11 @@ public class ChefDAOmemory implements ChefDAO {
     }
 
     @Override
+    public void deleteAll() {
+        entities.clear();
+    }
+
+    @Override
     public List<Chef> findAll() {
         ArrayList<Chef> result= new ArrayList<>();
         result.addAll(entities);

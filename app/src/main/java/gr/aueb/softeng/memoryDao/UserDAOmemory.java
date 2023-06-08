@@ -26,6 +26,11 @@ public class UserDAOmemory implements UserDAO{
     }
 
     @Override
+    public void deleteAll() {
+        entities.clear();
+    }
+
+    @Override
     public List<User> findAll() {
         ArrayList<User> result= new ArrayList<>();
         result.addAll(entities);

@@ -30,6 +30,11 @@ public class OwnerDAOmemory implements OwnerDAO {
     }
 
     @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
     public List<Owner> findAll() {
         ArrayList<Owner> result= new ArrayList<>();
         result.addAll(entities);

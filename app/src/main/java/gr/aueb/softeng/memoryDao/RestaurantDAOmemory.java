@@ -24,6 +24,12 @@ public class RestaurantDAOmemory implements RestaurantDAO {
             }
         }
     }
+
+    @Override
+    public void deleteAll() {
+        entities.clear();
+    }
+
     @Override
     public Restaurant find(String name) {
         for(Restaurant rest: entities){

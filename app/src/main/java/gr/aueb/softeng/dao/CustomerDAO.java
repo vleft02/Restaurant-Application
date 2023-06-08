@@ -10,6 +10,8 @@ public interface CustomerDAO {
 
     void delete(int id);
 
+    void deleteAll();
+
     List<Customer> findAll();
 
     void save(Customer entity);
