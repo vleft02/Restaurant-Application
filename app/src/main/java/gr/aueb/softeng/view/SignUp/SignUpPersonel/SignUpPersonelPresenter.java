@@ -45,8 +45,8 @@ public class SignUpPersonelPresenter {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε σωστά το email.");
         }else if (details.get("telephone").length() != 10) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.");
-        }else if (details.get("iban").length() != 34) { // anti gia 5 na valw akrivws posa einai pragmatika
-            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο iban με 34 ψηφία");
+        }else if (details.get("iban").length() < 20) { // iban has 34 digits in our example we use greater than 20 for easier Input in the ui
+            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο iban.");
         }else if (details.get("password").length() < 8) {
             view.showErrorMessage("Σφάλμα!", "Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.");
         }else if (details.get("tin").length() != 9){

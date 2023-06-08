@@ -1,232 +1,215 @@
-package gr.aueb.softeng.view.SignUp.SignUpCustomer;
+package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import gr.aueb.softeng.dao.CustomerDAO;
+import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
-import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
+import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 import gr.aueb.softeng.memoryDao.UserDAOmemory;
 
-public class SignUpCustomerPresenterTest {
-    SignUpCustomerPresenter presenter;
-    SignUpCustomerViewStub view;
-    private CustomerDAO custDAO;
-    private UserDAO userDAO;
+public class SignUpOwnerPresenterTest {
+    SignUpOwnerPresenter presenter;
+
+    SignUpOwnerViewStub view;
+
+    OwnerDAO ownerDAO;
+
+    UserDAO userDAO;
     @Before
-    public void setUp() throws Exception {
+    public void setUp()
+    {
         MemoryInitializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
 
-        view = new SignUpCustomerViewStub();
+        view = new SignUpOwnerViewStub();
 
-        custDAO = new CustomerDAOmemory();
+        ownerDAO = new OwnerDAOmemory();
         userDAO = new UserDAOmemory();
 
-        presenter = new SignUpCustomerPresenter(userDAO,custDAO);
+        presenter = new SignUpOwnerPresenter(userDAO,ownerDAO);
         presenter.setView(view);
-    }
-
-    @After
-    public void tearDown() throws Exception {
     }
 
     @Test
     public void setView() {
-        SignUpCustomerViewStub testView = new SignUpCustomerViewStub();
+        SignUpOwnerView testView = new SignUpOwnerViewStub();
         presenter.setView(testView);
         assertEquals(testView,presenter.getView());
     }
 
     @Test
-    public void getView()
-    {
+    public void getView() {
         assertEquals(view,presenter.getView());
     }
 
     @Test
-    public void onCreateAccountSuccesful() {
+    public void onCreateOwnerAccountSuccessful() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("1234567890123456");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(0,view.getErrorCount());
-        assertEquals("Account created successfully",view.getSuccessMessage());
-        assertNotEquals(null, custDAO.find("adrekos"));
+        assertEquals("Account Created Successfully",view.getSuccessMessage());
+        assertNotEquals(null, ownerDAO.find("adrekos"));
         assertNotEquals(null, userDAO.find("adrekos"));
-        custDAO.delete(custDAO.find("adrekos"));
+        ownerDAO.delete(ownerDAO.find("adrekos"));
         userDAO.delete(userDAO.find("adrekos"));
+
     }
 
     @Test
-    public void onCreateAccountEmptyField() {
-        //name and telephone are not set so they remain ""
+    public void onCreateOwnerAccountEmptyField() {
+        //we leave the name field empty
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("1234567890123456");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
         assertEquals("Συμπληρώστε όλα τα πεδία!.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
-
-        //name is still ""
-        view.setTelephone("2105673456");
-        presenter.onCreateAccount();
-        assertEquals(2,view.getErrorCount());
-        assertEquals("Σφάλμα!",view.getErrorTitle());
-        assertEquals("Συμπληρώστε όλα τα πεδία!.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
-        assertEquals(null, userDAO.find("adrekos"));
-
-
 
     }
     @Test
-    public void onCreateAccountInvalidUsername() {
+    public void onCreateOwnerAccountInvalidUsername() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adr");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("1123456789012345");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
         assertEquals("Συμπληρώστε 4 έως 15 χαρακτήρες στο Username.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adr"));
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
+
     }
     @Test
-    public void onCreateAccountInvalidEmail() {
-        //email is invalid if it doesn't contain'@' and ".com" or ".gr"
+    public void onCreateOwnerAccountInvalidEmail() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
-        view.setEmail("adrkgmail");
+        view.setEmail("adrkmail");
         view.setTelephone("2105673456");
-        view.setCardNumber("1234567890123456");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
         assertEquals("Συμπληρώστε σωστά το email.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
+
     }
     @Test
-    public void onCreateAccountInvalidTelephone() {
-        //greek phone numbers have exactly 10 digits
+    public void onCreateOwnerAccountInvalidTelephone() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
         view.setEmail("adrk@gmail.com");
-        view.setTelephone("21056736");
-        view.setCardNumber("1234567890123456");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setTelephone("21056");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
         assertEquals("Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
-    }
 
+    }
     @Test
-    public void onCreateAccountInvalidCardNumber() {
+    public void onCreateOwnerAccountInvalidIban() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("123456789101");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
-        assertEquals("Συμπληρώστε έγκυρο αριθμό κάρτας με 16 ψηφία",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
+        assertEquals("Συμπληρώστε έγκυρο iban.",view.getErrorMessage());
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
+
     }
     @Test
-    public void onCreateAccountInvalidPassword() {
+    public void onCreateOwnerAccountInvalidPassword() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("1234567891011121");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("12345");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
         assertEquals("Ο κωδικός θα πρέπει να αποτελείται απο 8 ψηφία και πάνω.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
+
     }
     @Test
-    public void onCreateAccountInvalidCVV() {
+    public void onCreateOwnerAccountInvalidTin() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
         view.setUsername("adrekos");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("1234567891011121");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("12323");
+        view.setIban("12345678901234567890");
+        view.setTin("1234567");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
-        assertEquals("Συμπληρώστε έγκυρο cvv.",view.getErrorMessage());
-        assertEquals(null, custDAO.find("adrekos"));
+        assertEquals("Συμπληρώστε έγκυρο αφμ με 9 ψηφία.",view.getErrorMessage());
+        assertEquals(null, ownerDAO.find("adrekos"));
         assertEquals(null, userDAO.find("adrekos"));
+
     }
+
     @Test
-    public void onCreateAccountExistingUsername() {
-        //customer with username kostas123 is already signed up in the initializer
+    public void onCreateOwnerAccountExistingUsername() {
         view.setName("Adreas");
         view.setSurname("Kostadopoulos");
-        view.setUsername("kostas123");
+        view.setUsername("owner1");
         view.setEmail("adrk@gmail.com");
         view.setTelephone("2105673456");
-        view.setCardNumber("1234567891011121");
-        view.setCardHolderName("Adreas Kostadopoulos");
-        view.setCvv("123");
+        view.setIban("12345678901234567890");
+        view.setTin("123456789");
         view.setPassword("123456789");
-        presenter.onCreateAccount();
+        presenter.onCreateOwnerAccount();
         assertEquals(1,view.getErrorCount());
         assertEquals("Σφάλμα!",view.getErrorTitle());
         assertEquals("Υπάρχει ήδη λογαριασμός με αυτο το username \n Συμπληρώστε νέα στοιχεία!",view.getErrorMessage());
-      }
+
+    }
+
     @Test
     public void onBack() {
         presenter.onBack();

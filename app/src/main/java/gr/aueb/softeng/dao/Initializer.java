@@ -38,6 +38,7 @@ public abstract class Initializer {
         Customer customer = new Customer("testCustomer", "mpampis","andreopoulos", "6972169794","b@gmail.com", "123456789", customerDAO.nextId(), "13241341341313421","Kostas Papadopoulos","123");
         customerDAO.save(customer);
         userDAO.save(customer);
+        customer.getBalance();
 
         customer = new Customer("kostas123", "Kostas","Papadopoulos", "6972169794","kostas@gmail.com", "123456789", customerDAO.nextId(), "13241341341313421","Kostas Papadopoulos","123");
         customerDAO.save(customer);
