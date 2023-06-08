@@ -4,6 +4,9 @@ import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.dao.OwnerDAO;
 import gr.aueb.softeng.dao.UserDAO;
+import gr.aueb.softeng.domain.Chef;
+import gr.aueb.softeng.domain.Customer;
+import gr.aueb.softeng.domain.Owner;
 
 public class LoginPresenter {
     private LoginView view;
@@ -33,16 +36,21 @@ public class LoginPresenter {
     public void authenticate() {
         inputUsername = view.ExtractUsername();
         inputPassword = view.ExtractPassword();
+
+        Customer cust = custDAO.find(inputUsername, inputPassword);
+        Chef chef= chefDAO.find(inputUsername, inputPassword);
+        Owner owner = ownerDAO.find(inputUsername, inputPassword);
+
         if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε όλα τα πεδία.");
-        }else if (custDAO.find(inputUsername, inputPassword) != null) {
-            view.showCustomerFoundMessage(custDAO.find(inputUsername,inputPassword).getUserId());
+        }else if (cust != null) {
+            view.showCustomerFoundMessage(cust.getUserId());
         }
-        else if (chefDAO.find(inputUsername, inputPassword) != null) {
-            view.showChefFoundMessage(chefDAO.find(inputUsername,inputPassword).getUserId());
+        else if (chef != null) {
+            view.showChefFoundMessage(chef.getUserId());
         }
-        else if (ownerDAO.find(inputUsername, inputPassword) != null) {
-            view.showOwnerFoundMessage(ownerDAO.find(inputUsername,inputPassword).getUserId());
+        else if (owner != null) {
+            view.showOwnerFoundMessage(owner.getUserId());
         }
         else{
             view.showErrorMessage("Λάθος στοιχεία", "Τα στοιχεία που εισάγατε δεν ήταν σωστά. Προσπαθήστε ξανά");

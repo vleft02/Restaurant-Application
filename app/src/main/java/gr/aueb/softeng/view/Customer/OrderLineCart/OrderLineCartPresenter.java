@@ -9,9 +9,19 @@ public class OrderLineCartPresenter {
     private OrderLineCartView view;
     private ArrayList<OrderLine> orderLines;
 
+    public OrderLineCartPresenter()
+    {
+        orderLines = new ArrayList<>();
+    }
+
     public void setView(OrderLineCartView view) {
     this.view = view;
 }
+
+    public OrderLineCartView getView()
+    {
+        return view;
+    }
 
     public void setOrder(ArrayList<OrderLine> orderLines) {
         this.orderLines = orderLines;
