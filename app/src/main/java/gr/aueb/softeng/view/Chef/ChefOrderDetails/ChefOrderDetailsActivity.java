@@ -1,10 +1,14 @@
 package gr.aueb.softeng.view.Chef.ChefOrderDetails;
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +28,8 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
      * Δίνει στον presenter το ownerId και αρχικοποιεί τα στοιχεία του layout
      * @param savedInstanceState το Instance state
      */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +66,21 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
      * Ενημερώνει την λίστα με τα Order Lines μήπως προστέθηκε κάποιο για να εμφανιστεί στο Recycler View, αλλά και τον adapter του recycler view
      * Καλεί την μέθοδο changeLyaout του presenter
      */
+
+    public void showOrderCompletedMessage()
+    {
+        new AlertDialog.Builder(ChefOrderDetailsActivity.this)
+                .setCancelable(true)
+                .setTitle("Επιτυχής ολοκλήρωση της παραγγελίας")
+                .setMessage("Η παραγγελία προστέθηκε στην λίστα των ολοκλήρωμένων παραγγελιών!")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                }).create().show();
+    }
     @Override
     protected void onResume() {
         super.onResume();

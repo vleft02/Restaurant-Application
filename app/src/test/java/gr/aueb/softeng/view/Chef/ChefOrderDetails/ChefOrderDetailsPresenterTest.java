@@ -1,114 +1,133 @@
 package gr.aueb.softeng.view.Chef.ChefOrderDetails;
 
+import static org.junit.Assert.*;
+
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
 
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.OrderDAO;
 import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Order;
+import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
+import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsView;
+import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsViewStub;
 
 public class ChefOrderDetailsPresenterTest {
-    private ChefOrderDetailsPresenter presenter;
-    private ChefOrderDetailsViewStub view;
+    ChefOrderDetailsViewStub view;
+    ChefOrderDetailsPresenter presenter;
     private ChefDAO chefDAO;
     private OrderDAO orderDAO;
-    private Chef chef;
-    private Order order;
-
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         MemoryInitializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
-        view = new ChefOrderDetailsViewStub();
-        chefDAO = new ChefDAOmemory();
-        orderDAO = new OrderDAOmemory();
-        presenter = new ChefOrderDetailsPresenter(chefDAO, orderDAO);
+        view=new ChefOrderDetailsViewStub();
+        chefDAO=new ChefDAOmemory();
+        orderDAO=new OrderDAOmemory();
+        presenter=new ChefOrderDetailsPresenter(chefDAO,orderDAO);
         presenter.setView(view);
+    }
 
+    @After
+    public void tearDown() throws Exception {
+        view=null;
+        presenter=null;
+    }
+
+    @Test
+    public void setOrderLineList() {
+        Order order = orderDAO.find(2);
+        ArrayList<OrderLine> orderLines= order.getOrderLines();
+        presenter.setOrder(order.getId());
+        presenter.setOrderLineList();
+        assertEquals(presenter.getOrderLineList(),orderLines);
+    }
+
+    @Test
+    public void setView() {
+        ChefOrderDetailsViewStub testView = new ChefOrderDetailsViewStub();
+        presenter.setView(testView);
+        assertEquals(presenter.getView(),testView);
+    }
+    @Test
+    public void getView(){
+        assertEquals(presenter.getView(),view);
+    }
+
+    @Test
+    public void getChefDAO() {
+        assertEquals(presenter.getChefDAO(),chefDAO);
+    }
+
+    @Test
+    public void getOrderDAO() {
+        assertEquals(presenter.getOrderDAO(),orderDAO);
+    }
+
+    @Test
+    public void setChef() {
+        Chef chef = chefDAO.find("platias");
+        presenter.setChef(chef.getUserId());
+        assertEquals(presenter.getChef(),chef);
+    }
+
+    @Test
+    public void setOrder() {
+        Order order = orderDAO.find(2);
+        presenter.setOrder(order.getId());
+        assertEquals(presenter.getOrder(),order);
+    }
+
+    @Test
+    public void getOrderLineList() {
+        Order order = orderDAO.find(2);
+        ArrayList<OrderLine> orderLines=order.getOrderLines();
+        presenter.setOrder(order.getId());
+        presenter.setOrderLineList();
+        assertEquals(presenter.getOrderLineList(),orderLines);
+    }
+
+    @Test
+    public void setOrderDetails() {
+        Order order = orderDAO.find(2);
+        presenter.setOrder(order.getId());
+        presenter.setOrderDetails();
+        assertEquals(view.getOrderId(),"2");
+        assertEquals(view.getState(),"COMPLETED");
+        assertEquals(view.getTableNumber(),"11");
+        assertEquals(view.getDat(),"3 OCTOBER 2023 Time:10:3");
+    }
+
+    @Test
+    public void onCompleted() {
+        Order order = orderDAO.find(3);
+        presenter.setOrder(order.getId());
+        presenter.onCompleted();
+        assertEquals(view.getSuccessMessage(),"the order was completed");
+    }
+
+    @Test
+    public void onBack() {
+        view.goBack();
+        assertEquals(1,view.getGoBackPressed());
+    }
+    @Test
+    public void getChef(){
+        Chef chef = chefDAO.find("platias");
+        presenter.setChef(chef.getUserId());
+        assertEquals(presenter.getChef(),chef);
+    }
+    @Test
+    public void getOrder(){
+        Order order = orderDAO.find(3);
+        presenter.setOrder(order.getId());
+        assertEquals(presenter.getOrder(),order);
     }
 }
-
- /*   @Test
-    public void testSetOrderLineList() {
-        ArrayList<OrderLine> orderLineList = new ArrayList<>();
-        order.setOrderLines(orderLineList);
-
-        presenter.setOrder(1);
-        presenter.setOrderLineList();
-
-        assertEquals(orderLineList, presenter.getOrderLineList());
-    }
-
-    @Test
-    public void testSetChef() {
-        presenter.setChef(1);
-
-        assertEquals(chef, presenter.getChefDAO().find(1));
-    }
-
-    @Test
-    public void testSetOrder() {
-        presenter.setOrder(1);
-
-        assertEquals(order, presenter.getOrderDAO().find(1));
-    }
-
-    @Test
-    public void testSetOrderDetails() {
-        presenter.setOrder(1);
-        order.setId(1);
-        order.setOrderState(Order.State.IN_PROGRESS);
-        order.setTableNumber(5);
-        // Set the date
-
-        presenter.setOrderDetails();
-
-        assertEquals("1", view.getOrderId());
-        assertEquals(Order.State.IN_PROGRESS.toString(), view.getOrderState());
-        assertEquals("5", view.getTableNumber());
-        // Verify the formatted date
-    }
-
-    @Test
-    public void testOnCompleted() {
-        presenter.setOrder(1);
-        order.setOrderState(Order.State.IN_PROGRESS);
-
-        presenter.onCompleted();
-
-        assertEquals(Order.State.COMPLETED, order.getOrderState());
-        assertEquals(Order.State.COMPLETED.toString(), view.getOrderState());
-    }
-
-    @Test
-    public void testOnCompletedCancelledOrder() {
-        presenter.setOrder(1);
-        order.setOrderState(Order.State.CANCELLED);
-
-        presenter.onCompleted();
-
-        assertEquals(Order.State.CANCELLED, order.getOrderState());
-        assertEquals(Order.State.CANCELLED.toString(), view.getOrderState());
-    }
-
-    @Test
-    public void testOnCompletedCompletedOrder() {
-        presenter.setOrder(1);
-        order.setOrderState(Order.State.COMPLETED);
-
-        presenter.onCompleted();
-
-        assertEquals(Order.State.COMPLETED, order.getOrderState());
-        assertEquals(Order.State.COMPLETED.toString(), view.getOrderState());
-    }
-
-    @Test
-    public void testOnBack() {
-        presenter.OnBack();
-
-        assertEquals(true, view.isGoBackPressed());
-    }
-}*/

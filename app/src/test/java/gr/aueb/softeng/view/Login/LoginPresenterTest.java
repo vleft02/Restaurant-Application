@@ -13,11 +13,8 @@ import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
-import gr.aueb.softeng.memoryDao.OrderDAOmemory;
 import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 import gr.aueb.softeng.memoryDao.UserDAOmemory;
-import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsPresenter;
-import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsViewStub;
 
 public class LoginPresenterTest {
 

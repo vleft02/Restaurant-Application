@@ -100,6 +100,7 @@ public class ChefOrderDetailsPresenter {
         if (order.getOrderState() != Order.State.CANCELLED && order.getOrderState() != Order.State.COMPLETED) {
             order.setStateCompleted(); // η μέθοδος αυτή αφαιρεί και τα λεφτά απο τον πελάτη
             view.setOrderState(String.valueOf(order.getOrderState()));
+            view.showOrderCompletedMessage();
         }
     }
     /**
@@ -107,5 +108,15 @@ public class ChefOrderDetailsPresenter {
      */
     public void OnBack(){
         view.goBack();
+    }
+
+    public ChefOrderDetailsView getView(){
+        return this.view;
+    }
+    public Chef getChef(){
+        return this.chef;
+    }
+    public Order getOrder(){
+        return this.order;
     }
 }

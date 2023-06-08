@@ -9,6 +9,7 @@ import gr.aueb.softeng.domain.Restaurant;
 public class RestaurantDetailsPresenter {
     private RestaurantDAO restaurantDAO;
     private Restaurant restaurant;
+    private RestaurantDetailsView view;
 
     /**
      * Αρχικοποιεί το restaurant dao για να μπορούμε να αποθηκεύσουμε εστιατόρια και να τα ανακτήσουμε από την στατική μας λίστα
@@ -19,7 +20,7 @@ public class RestaurantDetailsPresenter {
         this.restaurantDAO = restaurantDAO;
 
     }
-    RestaurantDetailsView view;
+
 
     /**
      * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
