@@ -13,6 +13,7 @@ import android.widget.TextView;
 import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity;
+import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageRecyclerViewAdapter;
 
 public class ChefHomePageActivity extends AppCompatActivity implements ChefHomePageView,
             ChefHomePageRecyclerViewAdapter.ItemSelectionListener{
@@ -85,16 +86,17 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
      * Διαφορετικά , εμφανίζει το Recycler View  , σετάρει τον adapter και βγάζει απο την οθόνη το κείμενο που αναφέρθηκε παραπάνω
      */
     @Override
-    public void changeLayout() {
-        if (viewModel.getPresenter().getOrderList().isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-        } else {
-            recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.setAdapter(new ChefHomePageRecyclerViewAdapter(viewModel.getPresenter().getOrderList(), this));
-        }
+    public void ShowNoOrders() {
+        recyclerView.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void ShowOrders() {
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new ChefHomePageRecyclerViewAdapter(viewModel.getPresenter().getOrderList(), this));
     }
     /**
      * Καλείται όταν θέλουμε να επιστρέψουμε στο προηγούμενο Activity , δηλαδή στο login Page στην περίπτωσή μας(αυτό καλεί το activity μας)

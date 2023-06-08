@@ -1,56 +1,61 @@
 package gr.aueb.softeng.view.Chef.ChefOrderDetails;
 
-import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsView;
+public class ChefOrderDetailsViewStub implements ChefOrderDetailsView{
+    private String orderId,state,tableNumber,date,successMessage;
+    private int goBackPressed;
 
-public class ChefOrderDetailsViewStub implements ChefOrderDetailsView {
-    private String orderId;
-    private String orderState;
-    private String tableNumber;
-    private String date;
-    private boolean goBackPressed;
-
+    public ChefOrderDetailsViewStub(){
+        orderId=state=tableNumber=date=successMessage="";
+        goBackPressed=0;
+    }
     @Override
     public void setOrderId(String orderId) {
-        this.orderId = orderId;
+        this.orderId=orderId;
+    }
+    public String getOrderId(){
+        return orderId;
     }
 
     @Override
     public void setOrderState(String state) {
-        this.orderState = state;
+        this.state=state;
+    }
+    public String getState(){
+        return this.state;
     }
 
     @Override
     public void setTableNumber(String num) {
         this.tableNumber = num;
     }
+    public String getTableNumber(){
+        return this.tableNumber;
+    }
 
     @Override
     public void setDate(String date) {
-        this.date = date;
+        this.date=date;
+    }
+    public String getDat(){
+        return this.date;
     }
 
     @Override
     public void goBack() {
-        goBackPressed = true;
+        goBackPressed++;
     }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public String getOrderState() {
-        return orderState;
-    }
-
-    public String getTableNumber() {
-        return tableNumber;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public boolean isGoBackPressed() {
+    public int getGoBackPressed(){
         return goBackPressed;
     }
+    public String getSuccessMessage()
+    {
+        return successMessage;
+    }
+
+    @Override
+    public void showOrderCompletedMessage() {
+        successMessage = "the order was completed";
+    }
+
+
 }

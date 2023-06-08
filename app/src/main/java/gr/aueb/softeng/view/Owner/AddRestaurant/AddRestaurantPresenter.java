@@ -14,6 +14,7 @@ import gr.aueb.softeng.domain.Restaurant;
 public class AddRestaurantPresenter {
     private RestaurantDAO restaurantDAO;
     private OwnerDAO ownerDAO;
+    AddRestaurantView view;
     private int ownerId;
     private Owner owner;
     /**
@@ -36,7 +37,6 @@ public class AddRestaurantPresenter {
         owner= ownerDAO.find(id);
     }
 
-    AddRestaurantView view;
     /**
      * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
      * @param view Instance του view

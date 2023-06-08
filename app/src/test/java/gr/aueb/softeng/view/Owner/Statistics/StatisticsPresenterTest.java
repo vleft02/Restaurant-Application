@@ -102,4 +102,9 @@ public class StatisticsPresenterTest {
         assertEquals(String.valueOf(presenter.calcAvgOrderExpenses()),view.getAvgOrderExpenses());
         assertEquals(String.valueOf(presenter.calcAvgMonthlyIncome()),view.getAVGMonthlyIncome());
     }
+    @Test
+    public void getRestaurant(){
+        Restaurant rest = restDAO.find("Kafeteria");
+        assertEquals(presenter.getRestaurant(),rest);
+    }
 }

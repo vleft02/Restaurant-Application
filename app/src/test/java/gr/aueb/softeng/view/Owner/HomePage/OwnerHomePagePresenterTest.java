@@ -130,4 +130,14 @@ public class OwnerHomePagePresenterTest {
         view.goBack();
         assertEquals(1,view.getGoBackPressed());
     }
+    @Test
+    public void getOwner(){
+        Owner owner= ownerDAO.find("owner1");
+        presenter.setOwner(owner.getUserId());
+        assertEquals(presenter.getOwner(),owner);
+    }
+    @Test
+    public void getView(){
+        assertEquals(presenter.getView(),view);
+    }
 }

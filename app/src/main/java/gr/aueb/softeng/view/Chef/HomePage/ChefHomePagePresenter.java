@@ -80,12 +80,24 @@ public class ChefHomePagePresenter {
      * Καλέι την μέθοδο του view που αλλάζει την εμφάνιση της οθόνης ανάλογα εάν είναι άδεια η λίστα με τα εστιατόρια του ιδιοκτήτη ή οχι
      */
     public void onChangeLayout(){
-        view.changeLayout();
+        if (orderList.isEmpty()) {
+            view.ShowNoOrders();
+        }
+        else {
+            view.ShowOrders();
+        }
     }
     /**
      * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
      */
     public void onBack(){
         view.goBack();
+    }
+
+    public ChefHomePageView getView(){
+        return this.view;
+    }
+    public Chef getChef(){
+        return this.chef;
     }
 }

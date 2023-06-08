@@ -27,4 +27,5 @@ public interface ChefOrderDetailsView {
      *
      */
     void goBack();
+    void showOrderCompletedMessage();
 }

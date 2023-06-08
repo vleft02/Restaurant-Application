@@ -13,6 +13,7 @@ public class StatisticsPresenter {
     private RestaurantDAO restaurantDAO;
     private OwnerDAO ownerDAO;
     private Restaurant restaurant;
+    private StatisticsView view;
 
     /**
      * Αρχικοποιεί το owner dao και το restaurant dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
@@ -25,7 +26,6 @@ public class StatisticsPresenter {
         this.ownerDAO=ownerDAO;
         this.restaurantDAO = restaurantDAO;
     }
-    StatisticsView view;
 
     /**
      * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
@@ -180,19 +180,25 @@ public class StatisticsPresenter {
      * συναρτήσεις που περιγράφηκαν
      */
     public void calculateStats(){
-
-        view.setYearlyIncome(String.valueOf(calcYearlyIncome()));
-
-
-        view.setAVGMonthlyIncome(String.valueOf(calcAvgMonthlyIncome()));
-
-        view.setAvgOrderExpenses(String.valueOf(calcAvgOrderExpenses()));
+        double yearlyIncome= calcYearlyIncome();
+        double AvgMonthlyIncome = calcAvgMonthlyIncome();
+        double AvgOrderExpenses = calcAvgOrderExpenses();
+        double calcCancelRate=calcCancelRate();
+        double AvgDailyRevenue = calcAvgDailyRevenue();
 
 
+        view.setYearlyIncome(String.valueOf(yearlyIncome));
 
-        view.setAVGDailyRevenue(String.valueOf(calcAvgDailyRevenue()));
 
-        view.setOrderCancellationRate(String.valueOf(calcCancelRate()));
+        view.setAVGMonthlyIncome(String.valueOf(AvgMonthlyIncome));
+
+        view.setAvgOrderExpenses(String.valueOf(AvgOrderExpenses));
+
+
+
+        view.setAVGDailyRevenue(String.valueOf(AvgDailyRevenue));
+
+        view.setOrderCancellationRate(String.valueOf(calcCancelRate));
     }
     public StatisticsView getView(){
         return this.view;
