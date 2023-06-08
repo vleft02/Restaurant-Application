@@ -13,7 +13,7 @@ public class OwnerHomePagePresenter {
 
     OwnerHomePageView view;
 
-    private ArrayList<Restaurant> restaurantList;
+    private ArrayList<Restaurant> restaurantList= new ArrayList<>();
     private OwnerDAO ownerDAO;
     private RestaurantDAO restaurantDAO;
 
@@ -92,12 +92,23 @@ public class OwnerHomePagePresenter {
     /**
      * Καλέι την μέθοδο του view που αλλάζει την εμφάνιση της οθόνης ανάλογα εάν είναι άδεια η λίστα με τα εστιατόρια του ιδιοκτήτη ή οχι
      */
-    public void onChangeLayout(){
-        view.changeLayout();
+    public void onChangeLayout() {
+        if (restaurantList.isEmpty()) {
+            view.ShowNoRestaurants();
+        }
+        else {
+            view.ShowRestaurants();
+        }
     }
 
     /**
      * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
      */
     public void onBack(){view.goBack();}
+    public Owner getOwner(){
+        return this.owner;
+    }
+    public OwnerHomePageView getView(){
+        return this.view;
+    }
 }

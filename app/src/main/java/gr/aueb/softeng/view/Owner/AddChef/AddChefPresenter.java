@@ -69,33 +69,30 @@ public class AddChefPresenter {
         }else if (details.get("telephone").length() < 10) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.");
         }else if (details.get("iban").length() < 5) { // anti gia 5 na valw akrivws posa einai pragmatika
-            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο αριθμό κάρτας");
+            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο iban.");
         }else if (details.get("tin").length() < 3){
-            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο cvv.");
+            view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο tin.");
         }else if (chefDAO.find(details.get("username"))==null) { // the chef has logged in
             view.showErrorMessage("Σφάλμα!", "Τα στοιχεία που δώσατε δεν αντιστοιχούν σε κάποιον μάγειρα της εφαρμογής , \n Ξαναδοκιμάστε!");
         }else if (chefDAO.find(details.get("username"))!=null &&  chefDAO.find(details.get("username")).getName().equals(details.get("name")) &&
                 chefDAO.find(details.get("username")).getSurname().equals(details.get("surname")) && String.valueOf(chefDAO.find(details.get("username")).getIban()).equals(details.get("iban"))
                 && String.valueOf(chefDAO.find(details.get("username")).getTin()).equals(details.get("tin")) && String.valueOf(chefDAO.find(details.get("username")).getTelephone()).equals(details.get("telephone"))){
 
-
-            view.showErrorMessage("Επιτυχία!","Τα στοιχεία ταυτοποιήθηκαν με τον μάγειρα που θέλετε να προστεθεί!" );
-
             restaurant.addChef(chefDAO.find(details.get("username")));
-
-            view.showErrorMessage("Μπραβο!", details.get("username")+details.get("name")+details.get("surname")+details.get("telephone")+
-                    details.get("email")+details.get("password")+details.get("iban")+ details.get("tin"));
-            view.goBack();
+            view.showChefAddedMessage();
         }
-        else{
-            view.showErrorMessage("Σφάλμα!", "Τα στοιχεία που δώσατε δεν αντιστοιχούν σε κάποιον μάγειρα της εφαρμογής , \n Ξαναδοκιμάστε!");
-        }
-
     }
     /**
      * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
      */
     public void onBack(){
         view.goBack();
+    }
+
+    public AddChefView getView(){
+        return this.view;
+    }
+    public Restaurant getRestaurant(){
+        return this.restaurant;
     }
 }

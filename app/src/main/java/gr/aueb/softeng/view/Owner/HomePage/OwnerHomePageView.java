@@ -5,11 +5,8 @@ public interface OwnerHomePageView {
      * Καλεί το νέο activity το οποίο προσθέτει ένα νέο εστιατόριο στον ιδιοκτήτη
      */
     void AddRestaurant();
-
-    /**
-     * Αλλάζει την εμφάνιση του Home Page σε περίπτωση που είναι άδεια η λίστα με τα εστιατόρια
-     */
-    void changeLayout();
+    void ShowNoRestaurants();
+    void ShowRestaurants();
 
     /**
      * επιστρέφει στο προηγούμενο activity που μας κάλεσε

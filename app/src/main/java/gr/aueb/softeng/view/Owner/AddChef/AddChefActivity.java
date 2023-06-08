@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import java.util.HashMap;
 
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
 import gr.aueb.softeng.view.SignUp.SignUpPersonel.SignUpPersonelActivity;
 import gr.aueb.softeng.view.SignUp.SignUpPersonel.SignUpPersonelViewModel;
 
@@ -32,6 +34,26 @@ public class AddChefActivity extends AppCompatActivity implements AddChefView {
                 .setMessage(message)
                 .setPositiveButton("OK", null).create().show();
     }
+
+    /**
+     * Εμφανίζει μήνυμα επιτυχίας όταν ο ιδιοτήτης προσθέσει επιτυχώς τον μάγειρα
+     * και επιστρέφει στο προηγούμενο ακτίβιτι όταν πατηθεί το κουμπί ΟΚ
+     */
+    public void showChefAddedMessage()
+    {
+        new AlertDialog.Builder(AddChefActivity.this)
+                .setCancelable(true)
+                .setTitle("Επιτυχής προσθήκη του μάγειρα!")
+                .setMessage("Τα στοιχεία που παραχωρήθηκαν επιβεβαιώθηκαν και ο μάγειρας \n προστέθηκε στο εστιατόριο με επιτυχία")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                }).create().show();
+    }
+
     private static boolean initialized = false;
     /**
      * Δημιουργει το layout και αρχικοποιεί το activity

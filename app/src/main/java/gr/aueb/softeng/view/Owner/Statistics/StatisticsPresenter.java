@@ -104,15 +104,17 @@ public class StatisticsPresenter {
 
     public double calcAvgOrderExpenses(){
         double cost=0.0;
+        int counter=0;
         LocalDateTime now = LocalDateTime.now();
         for (Order order : restaurant.getOrders()) {
             LocalDateTime orderDate = order.getDate();
             if (orderDate.getYear() == now.getYear() && order.getOrderState()== Order.State.COMPLETED) {
                 cost += order.getTotalCost();
+                counter++;
             }
         }
-        if(restaurant.getOrders().size()!=0){
-            return cost/restaurant.getOrders().size();
+        if(counter!=0){
+            return cost/counter;
         }else{
             return 0;
         }
@@ -191,5 +193,11 @@ public class StatisticsPresenter {
         view.setAVGDailyRevenue(String.valueOf(calcAvgDailyRevenue()));
 
         view.setOrderCancellationRate(String.valueOf(calcCancelRate()));
+    }
+    public StatisticsView getView(){
+        return this.view;
+    }
+    public Restaurant getRestaurant(){
+        return this.restaurant;
     }
 }

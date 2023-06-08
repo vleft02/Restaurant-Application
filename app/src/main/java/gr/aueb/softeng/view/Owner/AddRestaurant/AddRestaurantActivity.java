@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import java.util.HashMap;
 
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
 
 
 public class AddRestaurantActivity extends AppCompatActivity implements AddRestaurantView {
@@ -27,6 +29,25 @@ public class AddRestaurantActivity extends AppCompatActivity implements AddResta
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("OK", null).create().show();
+    }
+
+    /**
+     * Εμφανίζει μήνυμα επιτυχίας όταν ο ιδιοτήτης προσθέσει επιτυχώς το νέο εστιατόριό του
+     * και επιστρέφει στο προηγούμενο ακτίβιτι όταν πατηθεί το κουμπί ΟΚ
+     */
+    public void showRestaurantAddedMessage()
+    {
+        new AlertDialog.Builder(AddRestaurantActivity.this)
+                .setCancelable(true)
+                .setTitle("Επιτυχής προσθήκη εστιατορίου")
+                .setMessage("Το εστιατόριο προστέθηκε με επιτυχία στην λίστα του ιδιοκτήτη!")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finish();
+                    }
+                }).create().show();
     }
 
     private static boolean initialized = false;

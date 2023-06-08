@@ -14,6 +14,7 @@ import android.widget.TextView;
 import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
 
+import gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantRecyclerViewAdapter;
 import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
 import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity;
 
@@ -104,18 +105,21 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
      * Εάν είναι άδεια , βγάζει απο την οθόνη το Recycler View και κάνει visible το κέιμενο που ενημερώνει ότι η λίστα είναι άδεια
      * Διαφορετικά , εμφανίζει το Recycler View  , σετάρει τον adapter και βγάζει απο την οθόνη το κείμενο που αναφέρθηκε παραπάνω
      */
+
     @Override
-    public void changeLayout() {
-        if (viewModel.getPresenter().getRestaurantList().isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-        } else {
-            recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
-        }
+    public void ShowNoRestaurants() {
+        recyclerView.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
     }
+
+    @Override
+    public void ShowRestaurants() {
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new OwnerHomePageRecyclerViewAdapter(viewModel.getPresenter().getRestaurantList(), this));
+    }
+
 
     /**
      * Καλείται όταν θέλουμε να επιστρέψουμε στο προηγούμενο Activity , δηλαδή στο login Page στην περίπτωσή μας(αυτό καλεί το activity μας)

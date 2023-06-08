@@ -18,6 +18,7 @@ public abstract class Initializer {
 
     public void eraseAll()
     {
+
         UserDAO userDAO = getUserDAO();
         ChefDAO chefDAO = getChefDAO();
         CustomerDAO customerDAO = getCustomerDAO();
@@ -36,7 +37,7 @@ public abstract class Initializer {
     };
     public void prepareData()
     {
-
+        LocalDateTime now = LocalDateTime.now();
         UserDAO userDAO = getUserDAO();
         ChefDAO chefDAO = getChefDAO();
         CustomerDAO customerDAO = getCustomerDAO();
@@ -49,6 +50,11 @@ public abstract class Initializer {
         Chef chef = new Chef("platias","kwnnn","papapap","101010101010","@","123456789",chefDAO.nextId(),"12121212121","12122211");
         chefDAO.save(chef);
         userDAO.save(chef);
+
+        Chef chef2 = new Chef("vaggelis","euaggelos","leftakis","101010101010","@","123456789",chefDAO.nextId(),"12121212121","12122211");
+        chefDAO.save(chef2);
+        userDAO.save(chef2);
+
 
         //NEW CUSTOMERS////////////////////////////////
 
@@ -69,6 +75,7 @@ public abstract class Initializer {
         customer = new Customer("adreas:)", "Antreas","Antreopoulos", "2113335867","adreas@gmail.com", "123456789", customerDAO.nextId(), "14353452435523245","Kostas Papadopoulos","678");
         customerDAO.save(customer);
         userDAO.save(customer);
+        customer.topUp(10000);
 
         Owner owner1 = new Owner("owner1","Kostas","Pappas","2105648463", "owner1@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
         ownerDAO.save(owner1);
@@ -89,23 +96,23 @@ public abstract class Initializer {
         rest.addChef(chef);
         ownerDAO.find(owner1.getUserId()).addRestaurant(rest);
 
-        Restaurant rest2 = new Restaurant(restaurantDAO.nextId(), "Kafeteria","2105347234",12,new Address(13,"panagias",122333,"exraxeia"));
+        Restaurant rest2 = new Restaurant(restaurantDAO.nextId(), "Kafeteria","2105347234",20,new Address(13,"panagias",122333,"exraxeia"));
         restaurantDAO.save(rest2);
+        rest2.addChef(chef2);
         ownerDAO.find(owner1.getUserId()).addRestaurant(rest2);
-     /*  restaurantDAO.save(new Restaurant(restaurantDAO.nextId(), "Pitogyra","2105347234",12,new Address(14,"agioy ioannou",122333,"exraxeia")));
-        */
 
 
 
-        Order order1 = new Order(10, LocalDateTime.of(2023,10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123"));
+
+        Order order1 = new Order(10, LocalDateTime.of(now.getYear(),10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123"));
         order1.setStateCancelled();
         orderDAO.save(order1);
 
-        Order order2 = new Order(11, LocalDateTime.of(2023,10,3,10,3),orderDAO.nextId(),customerDAO.find("kostas123"));
+        Order order2 = new Order(11, LocalDateTime.of(now.getYear(),10,3,10,3),orderDAO.nextId(),customerDAO.find("kostas123"));
         order2.setStateCompleted();
         orderDAO.save(order2);
 
-        Order order3 = new Order(12,LocalDateTime.of(2023,10,8,3,12),orderDAO.nextId(),customerDAO.find("kostas123"));
+        Order order3 = new Order(12,LocalDateTime.of(now.getYear(),10,8,3,12),orderDAO.nextId(),customerDAO.find("kostas123"));
         orderDAO.save(order3);
 
 
@@ -158,6 +165,64 @@ DIOTI OTAN TO PERNAW STO RESTAURANT TA VAZEI APEUTHEIS STON CXHEF AUTON*/
         rest.addOrder(order2);
         rest.addOrder(order3);
 
+        //////////////////named Kafeteria items/////////////////////////////////
+        Order order11 = new Order(1, LocalDateTime.of(now.getYear(),10,12,10,12),orderDAO.nextId(),customerDAO.find("adreas:)"));
+        order11.setStateCompleted();
+        orderDAO.save(order11);
+
+        Order order22 = new Order(11, LocalDateTime.of(now.getYear(),9,3,10,3),orderDAO.nextId(),customerDAO.find("adreas:)"));
+        order22.setStateCompleted();
+        orderDAO.save(order22);
+
+        Order order33 = new Order(12,LocalDateTime.of(now.getYear(),10,8,3,12),orderDAO.nextId(),customerDAO.find("adreas:)"));
+        order33.setStateCompleted();
+        orderDAO.save(order33);
+
+        Order order44 = new Order(5,LocalDateTime.of(now.getYear(),3,8,3,12),orderDAO.nextId(),customerDAO.find("adreas:)"));
+        order44.setStateCancelled();
+        orderDAO.save(order44);
+
+        Dish dish4 = new Dish(4,"soupa",15);
+        Dish dish5= new Dish(5,"pizza",10);
+        Dish dish6 = new Dish(6,"salata",12);
+
+        dishDAO.save(dish4);
+        dishDAO.save(dish5);
+        dishDAO.save(dish6);
+
+        rest2.addDish(dish4);
+        rest2.addDish(dish5);
+        rest2.addDish(dish6);
+
+        OrderLine o11 = new OrderLine(10,dish4);
+        OrderLine o22 = new OrderLine(3,dish5);
+        OrderLine o33 = new OrderLine(1,dish6);
+
+        order11.addOrderLine(o11);
+        order11.addOrderLine(o22);
+        order11.addOrderLine(o33);
+
+        OrderLine o44 = new OrderLine(10,dish4);
+        OrderLine o55 = new OrderLine(4,dish5);
+        OrderLine o66 = new OrderLine(1,dish6);
+
+        order22.addOrderLine(o44);
+        order22.addOrderLine(o55);
+        order22.addOrderLine(o66);
+
+        OrderLine o77 = new OrderLine(10,dish4);
+        OrderLine o88 = new OrderLine(3,dish5);
+        OrderLine o99 = new OrderLine(1,dish6);
+
+        order33.addOrderLine(o77);
+        order33.addOrderLine(o88);
+        order33.addOrderLine(o99);
+        order44.addOrderLine(o77);
+
+        rest2.addOrder(order11);
+        rest2.addOrder(order22);
+        rest2.addOrder(order33);
+        rest2.addOrder(order44);
 
     }
 

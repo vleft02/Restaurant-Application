@@ -71,7 +71,7 @@ public class AddRestaurantPresenter {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε έγκυρο τηλεφωνικό αριθμό.");
         } else if (details.get("streetName").length() < 3) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε απο 4 και πάνω χαρακτήρες στο Street Name");
-        } else if (details.get("streetNumber").length() < 1) {
+        } else if (details.get("streetNumber").equals("0") ) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε απο 1 ψηφίο και πάνω στο Street Number");
         } else if (details.get("zc").length() < 2) {
             view.showErrorMessage("Σφάλμα!", "Συμπληρώστε απο 2 και πάνω ψηφία στον Ταχυδρομικό κώδικα(ZC).");
@@ -84,10 +84,7 @@ public class AddRestaurantPresenter {
 
             restaurantDAO.save(restaurant);
             owner.addRestaurant(restaurant);
-
-            view.showErrorMessage("Μπραβο!", details.get("name") + details.get("telephone") + details.get("streetName") + details.get("streetNumber") +
-                    details.get("zc") + details.get("total_tables"));
-            view.goBack();
+            view.showRestaurantAddedMessage();
         }
     }
      /**
@@ -95,5 +92,11 @@ public class AddRestaurantPresenter {
      */
     public void onBack(){
         view.goBack();
+    }
+    public AddRestaurantView getView(){
+        return this.view;
+    }
+    public Owner getOwner(){
+        return this.owner;
     }
 }

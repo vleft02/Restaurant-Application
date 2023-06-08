@@ -18,7 +18,7 @@ public class ChooseRestaurantViewStub implements ChooseRestaurantView{
     }
 
     public ChooseRestaurantViewStub(){
-        goBackIsPressed = noRestaurants = restaurantsFound;
+        goBackIsPressed = noRestaurants = restaurantsFound=0;
     }
     @Override
     public void goBack() {

@@ -70,5 +70,11 @@ public class RestaurantDetailsPresenter {
      * Καλείται για να προστεθεί ένας νέος μάγειρας όταν πατηθεί το κουμπί της εισαγωγής νέου μάγειρα απο τον ιδιοκτήτη
      */
     public void onAddChef(){view.addChef();}
+    public RestaurantDetailsView getView(){
+        return this.view;
+    }
+    public Restaurant getRestaurant(){
+        return this.restaurant;
+    }
 
 }

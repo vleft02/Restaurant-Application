@@ -2,6 +2,7 @@ package gr.aueb.softeng.view.Customer.ChooseRestaurant;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,6 +29,11 @@ public class ChooseRestaurantPresenterTest {
 
         presenter = new ChooseRestaurantPresenter(restaurantDAO);
         presenter.setView(view);
+    }
+    @After
+    public void tearDown(){
+        presenter=null;
+        view=null;
     }
 
     @Test
