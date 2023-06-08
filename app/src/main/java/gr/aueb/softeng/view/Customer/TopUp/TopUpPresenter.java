@@ -4,11 +4,11 @@ package gr.aueb.softeng.view.Customer.TopUp;
 import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Customer;
 
-public class TopUpPresnter {
+public class TopUpPresenter {
     TopUpView view;
     CustomerDAO customerDAO;
     Customer customer;
-    public TopUpPresnter(CustomerDAO customerDAO) {
+    public TopUpPresenter(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
 
