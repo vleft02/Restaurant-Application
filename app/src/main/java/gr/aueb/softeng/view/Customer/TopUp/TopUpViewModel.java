@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModel;
 import gr.aueb.softeng.dao.CustomerDAO;
 
 public class TopUpViewModel extends ViewModel {
-    TopUpPresnter presenter;
+    TopUpPresenter presenter;
     public TopUpViewModel(CustomerDAO customerDAO) {
-        presenter = new TopUpPresnter(customerDAO);
+        presenter = new TopUpPresenter(customerDAO);
     }
 
-    public TopUpPresnter getPresenter() {
+    public TopUpPresenter getPresenter() {
         return presenter;
     }
     @Override

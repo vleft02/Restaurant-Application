@@ -10,13 +10,11 @@ import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Customer;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
-import gr.aueb.softeng.view.Login.LoginView;
-import gr.aueb.softeng.view.Login.LoginViewStub;
 
-public class TopUpPresnterTest {
+public class TopUpPresenterTest {
     Customer customer;
 
-    TopUpPresnter presenter;
+    TopUpPresenter presenter;
 
     TopUpViewStub view;
 
@@ -31,7 +29,7 @@ public class TopUpPresnterTest {
 
         customerDAO = new CustomerDAOmemory();
 
-        presenter = new TopUpPresnter(customerDAO);
+        presenter = new TopUpPresenter(customerDAO);
         presenter.setView(view);
         /*customer = customerDAO.find("testCustomer");*/
         view.setCustomerId(customerDAO.find("testCustomer").getUserId() );
