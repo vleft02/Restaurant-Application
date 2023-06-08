@@ -10,6 +10,7 @@ public interface ChefDAO {
 
     void delete(int id);
 
+    void deleteAll();
     List<Chef> findAll();
 
     void save(Chef entity);

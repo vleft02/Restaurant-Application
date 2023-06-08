@@ -16,7 +16,24 @@ import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 public abstract class Initializer {
 
 
-    public abstract void eraseAll();
+    public void eraseAll()
+    {
+        UserDAO userDAO = getUserDAO();
+        ChefDAO chefDAO = getChefDAO();
+        CustomerDAO customerDAO = getCustomerDAO();
+        RestaurantDAO restaurantDAO = getRestaurantDAO();
+        OrderDAO orderDAO = getOrderDAO();
+        OwnerDAO ownerDAO = getOwnerDAO();
+        DishDAO dishDAO = getDishDAO();
+
+        userDAO.deleteAll();
+        chefDAO.deleteAll();
+        customerDAO.deleteAll();
+        orderDAO.deleteAll();
+        restaurantDAO.deleteAll();
+        ownerDAO.deleteAll();
+        dishDAO.deleteAll();
+    };
     public void prepareData()
     {
 

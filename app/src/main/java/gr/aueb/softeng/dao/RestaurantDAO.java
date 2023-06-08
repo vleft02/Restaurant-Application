@@ -9,6 +9,7 @@ public interface RestaurantDAO {
 
     void delete(int id);
 
+    void deleteAll();
     List<Restaurant> findAll();
 
     void save(Restaurant entity);

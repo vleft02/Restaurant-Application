@@ -12,6 +12,8 @@ public interface OwnerDAO {
 
     void delete(int id);
 
+    void deleteAll();
+
     List<Owner> findAll();
 
     void save(Owner entity);

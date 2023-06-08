@@ -26,6 +26,11 @@ public class DishDAOmemory implements DishDAO{
     }
 
     @Override
+    public void deleteAll() {
+        entities.clear();
+    }
+
+    @Override
     public List<Dish> findAll() {
         ArrayList<Dish> result= new ArrayList<>();
         result.addAll(entities);

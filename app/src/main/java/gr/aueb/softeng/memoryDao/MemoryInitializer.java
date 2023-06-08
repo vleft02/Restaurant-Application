@@ -10,10 +10,6 @@ import gr.aueb.softeng.dao.RestaurantDAO;
 import gr.aueb.softeng.dao.UserDAO;
 
 public class MemoryInitializer extends Initializer {
-    @Override
-    public void eraseAll() {
-        //me for loop kanoume apo ta dao delete ola ta periexomena
-    }
 
     @Override
     public ChefDAO getChefDAO() {

@@ -26,6 +26,11 @@ public class CustomerDAOmemory implements CustomerDAO {
     }
 
     @Override
+    public void deleteAll() {
+        entities.clear();
+    }
+
+    @Override
     public List<Customer> findAll() {
         ArrayList<Customer> result= new ArrayList<>();
         result.addAll(entities);

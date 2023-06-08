@@ -8,6 +8,7 @@ public interface DishDAO {
     void delete(Dish entity);
 
     void delete(int id);
+    void deleteAll();
 
     List<Dish> findAll();
 

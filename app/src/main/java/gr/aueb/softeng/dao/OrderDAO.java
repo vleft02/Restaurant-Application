@@ -7,6 +7,8 @@ import gr.aueb.softeng.domain.Order;
 
 public interface OrderDAO {
     void delete(Order entity);
+
+    void deleteAll();
     void save(Order entity);
     List<Order> findAll();
     Order find(int id);

@@ -16,6 +16,11 @@ public class OrderDAOmemory implements OrderDAO{
     }
 
     @Override
+    public void deleteAll() {
+        entities.clear();
+    }
+
+    @Override
     public void save(Order entity) {
         entities.add(entity);
     }

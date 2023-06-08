@@ -10,6 +10,8 @@ public interface UserDAO {
 
     void delete(int id);
 
+    void deleteAll();
+
     List<User> findAll();
 
     void save(User entity);
