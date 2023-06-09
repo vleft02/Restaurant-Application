@@ -2,6 +2,7 @@ package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,6 +36,13 @@ public class SignUpOwnerPresenterTest {
         presenter = new SignUpOwnerPresenter(userDAO,ownerDAO);
         presenter.setView(view);
     }
+
+    @After
+    public void tearDown() throws Exception {
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.eraseAll();
+    }
+
 
     @Test
     public void setView() {

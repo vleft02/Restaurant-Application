@@ -13,12 +13,20 @@ import java.util.ArrayList;
 import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
 
+/**
+ * Σε αυτή την σελίδα ο χρήστης μπορεί να αφαιρέσει κάποιο orderLine που δεν θέλει
+ */
 public class OrderLineCartActivity extends AppCompatActivity implements OrderLineCartView,OrderLineSelectionListener {
 
     public ArrayList<OrderLine> orderLines;
     RecyclerView recyclerView;
     OrderLineCartViewModel viewModel;
 
+    /**
+     * Δημιουργεί to layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +45,18 @@ public class OrderLineCartActivity extends AppCompatActivity implements OrderLin
             setRecyclerView();
     }
 
+
+    /**
+     * Διαγραφή του OrderLine με κλήση μεθόδου στον presenter
+     */
     @Override
     public void deleteOrderLine(OrderLine currentItem) {
         viewModel.getPresenter().onDeleteOrderLine(currentItem);
     }
 
+    /**
+     * Οταν πατάμε πίσω μεταφέρουμε της αλλαγές στa orderLines μέσω result
+     */
     @Override
     public void onBackPressed()
     {
@@ -52,7 +67,9 @@ public class OrderLineCartActivity extends AppCompatActivity implements OrderLin
         super.onBackPressed();
     }
 
-
+    /**
+     * Χρησιμοποιείται κάθε φορά που διαγράφεται ενα orderLine για να ανανεωθούν τα στοιχεία της λίστας
+     */
     @Override
     public void setRecyclerView() {
         recyclerView.setLayoutManager(null);

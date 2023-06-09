@@ -40,7 +40,10 @@ public class SignUpPersonelPresenterTest {
 
     @After
     public void tearDown() throws Exception {
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.eraseAll();
     }
+
 
     @Test
     public void setView() {

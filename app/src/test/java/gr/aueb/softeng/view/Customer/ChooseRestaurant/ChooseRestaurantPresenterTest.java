@@ -31,10 +31,11 @@ public class ChooseRestaurantPresenterTest {
         presenter.setView(view);
     }
     @After
-    public void tearDown(){
-        presenter=null;
-        view=null;
+    public void tearDown() throws Exception {
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.eraseAll();
     }
+
 
     @Test
     public void setView() {

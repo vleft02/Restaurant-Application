@@ -31,27 +31,29 @@ import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Customer.OrderLineCart.OrderLineCartActivity;
 
-
+/**
+ * Σε αυτή την σελίδα ο χρήστης επιλέγει τα πιάτα και την ποσότητα που θέλει και οταν είναι έτοιμος προσπαθεί
+ * να καταχεωρίσει την παραγγελία
+ */
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderView,DishSelectionListener{
 
+    /**
+     * Εμφανίζουμε pop up παράθυρο για να επιλέξουμε πόσοτητα του φαγητού που θέλουμε
+     */
     private void showNumberPickerPopup(Dish dish) {
 
         PopupWindow popupWindow = new PopupWindow(this);
 
-        // Set the content view of the pop-up window
         View contentView = getLayoutInflater().inflate(R.layout.quantity_picker, null);
         popupWindow.setContentView(contentView);
 
-        // Set the width and height of the pop-up window
         popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        // Configure the NumberPicker
         NumberPicker numberPicker = contentView.findViewById(R.id.numberPicker);
         numberPicker.setMinValue(1);
         numberPicker.setMaxValue(10);
 
-        // Configure the Confirm button
         Button confirmButton = contentView.findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,17 +62,17 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
                 int quantity = numberPicker.getValue();
                 viewModel.getPresenter().addOrderLine(quantity,dish);
                 Toast.makeText(getApplicationContext(), "Selected number: " + quantity, Toast.LENGTH_SHORT).show();
-
-                // Dismiss the pop-up window
                 popupWindow.dismiss();
             }
         });
-
-        // Show the pop-up window
         popupWindow.showAtLocation(contentView, Gravity.CENTER, 0, 0);
     }
 
-
+    /**
+     * Εμφανίζουμε Alert dialog παράθυρο για να ενημερώσουμε τον χρήστη ότι η παραγγελία απέτυχδ διότι
+     * δεν έχει το απαραίτητο χρηματικό υπολοιπο. Έπειτα προωθείται στο Homepage
+     */
+    @Override
     public void insufficientFundsMessage()     {
         new android.app.AlertDialog.Builder(PlaceOrderActivity.this)
                 .setCancelable(true)
@@ -86,6 +88,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
 
     }
+    /**
+     * Εμφανίζουμε Alert dialog παράθυρο για να ενημερώσουμε τον χρήστη για το συνολικό κόστος της παραγγελίας.
+     * 'Επειτα ο χρήστης είτε διαλέγει να την ολοκληρώσει επιλέγοντας "Ναι" και επιστρέφει στο Homepage ή επιλέγει "Οχι" και
+     *  και κλείνει το παράθυρο
+     */
+    @Override
     public void ShowConfirmationMessage() {
         new AlertDialog.Builder(PlaceOrderActivity.this)
                 .setTitle("Ολοκλήρωση Παραγγελίας")
@@ -170,14 +178,19 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
        });
     }
 
-
+    /**
+     * Επιλέγουμε το πίατο και καλείται η μέθοδος για επιλογή ποσότητας
+     */
     @Override
     public void selectDish(Dish currentDish) {
         showNumberPickerPopup(currentDish);
     }
 
 
-
+    /**
+     * Κρυβουμε το recyclerView και το κοθμπί για ολοκλήρωση παραγγελίας
+     * ενω εμφανίζουμε το μήνυμα μη ύπαρξης πιάτων.
+     */
     @Override
     public void showEmptyList()
     {
@@ -187,6 +200,10 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     }
 
+    /**
+     * Εμφανίζουμε και σετάρουμε το recyclerView το κουμπί για ολοκλήρωση παραγγελίας
+     * ενώ κρύβουμε το μήνυμα οτι δεν υπάρχουν πιάτα
+     */
     @Override
     public void showDishList()
     {
@@ -198,24 +215,18 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     }
 
 
-
-    @Override
-    public void orderFailed() {
-        insufficientFundsMessage();
-    }
-
+    /**
+     * Προωθούμαστε στο σελίδα επισκόπησης των περιεχομενων της παραγγελίας
+     * περιμένωντας να επιστρέψει ή πιαθνός τροποποιημένη λιστα με orderlines
+     */
     @Override
     public void redirectToCart(ArrayList<OrderLine> orderLines) {
         Intent intent = new Intent(PlaceOrderActivity.this , OrderLineCartActivity.class);
 
-        intent.putExtra("OrderLines", (Serializable) orderLines);//////PROVLIMA
+        intent.putExtra("OrderLines", (Serializable) orderLines);
         cartActivityResultLauncher.launch(intent);
     }
 
-    @Override
-    public void orderSuccess() {
-        ShowConfirmationMessage();
-    }
 
 
 }

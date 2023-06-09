@@ -18,7 +18,6 @@ public abstract class Initializer {
 
     public void eraseAll()
     {
-
         UserDAO userDAO = getUserDAO();
         ChefDAO chefDAO = getChefDAO();
         CustomerDAO customerDAO = getCustomerDAO();
@@ -34,7 +33,7 @@ public abstract class Initializer {
         restaurantDAO.deleteAll();
         ownerDAO.deleteAll();
         dishDAO.deleteAll();
-    };
+    }
     public void prepareData()
     {
         LocalDateTime now = LocalDateTime.now();
