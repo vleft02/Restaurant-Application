@@ -62,7 +62,7 @@ public class PlaceOrderPresenter {
     }
 
     public void addOrderLine(int quantity,Dish dish) {
-       if (dish!=null){
+       if (dish!=null && quantity >0){
            order.addOrderLine(new OrderLine(quantity,dish));
        }
     }
@@ -92,20 +92,14 @@ public class PlaceOrderPresenter {
      * και ενημερώνετια για αυτο με μήνυμα.
      */
     public void onPlaceOrder() {
-        if (order.getOrderLines().isEmpty())
-        {
-
+        if (!order.getOrderLines().isEmpty()) {
+            if (restaurant.addOrder(order)) {
+                orderDAO.save(order);
+                view.ShowConfirmationMessage();
+            } else {
+                view.insufficientFundsMessage();
+            }
         }
-        else if(restaurant.addOrder(order))
-        {
-            orderDAO.save(order);
-            view.ShowConfirmationMessage();
-        }
-        else
-        {
-            view.insufficientFundsMessage();
-        }
-
 
     }
 
