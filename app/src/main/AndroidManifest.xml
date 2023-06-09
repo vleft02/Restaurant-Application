@@ -55,17 +55,17 @@
             android:exported="false"
             android:label="@string/Homepage" />
         <activity
-            android:name="gr.aueb.softeng.view.Owner.HomePage.SignUp.SignUpOwner.SignUpOwnerActivity"
+            android:name="gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerActivity"
             android:exported="true"
             android:label="Sign Up Owner"
             android:screenOrientation="fullSensor" />
         <activity
-            android:name="gr.aueb.softeng.view.Owner.HomePage.SignUp.SignUpPersonel.SignUpPersonelActivity"
+            android:name="gr.aueb.softeng.view.SignUp.SignUpPersonel.SignUpPersonelActivity"
             android:exported="true"
             android:label="Sign Up Personel"
             android:screenOrientation="fullSensor" />
         <activity
-            android:name="gr.aueb.softeng.view.Owner.HomePage.SignUp.SignUpCustomer.SignUpCustomerActivity"
+            android:name="gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity"
             android:exported="true"
             android:label="@string/sign_up"
             android:screenOrientation="fullSensor" />
