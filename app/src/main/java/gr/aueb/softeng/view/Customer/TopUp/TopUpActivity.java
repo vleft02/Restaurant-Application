@@ -11,10 +11,19 @@ import android.widget.TextView;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.team08.R;
 
+/**
+ * Σε αυτή την σελίδα ο χρήστης μπορεί να δει και να ανανεώσει το χρηματικό του υπόλοιπο
+ */
+
 public class TopUpActivity extends AppCompatActivity implements TopUpView{
 int customerId = -1;
 TopUpViewModel viewModel;
 TextView balanceText;
+    /**
+     * Δημιουργεί to layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +75,16 @@ TextView balanceText;
         finish();
     }
 
+    /**
+     * Σετάρουμε το textView να δείχνει το απαραίτητο χρηματικό υπόλοιπο
+     */
     public void setBalance(String balance) {
        balanceText.setText(balance);
     }
 
+    /**
+     * @return το id του πελάτη
+     */
     public int getCustomerId() {
         return customerId;
     }

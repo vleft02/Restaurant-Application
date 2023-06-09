@@ -41,18 +41,23 @@ public class PlaceOrderPresenter {
         this.view = view;
     }
 
+    public PlaceOrderView getView() {
+        return view;
+    }
+
+    /**
+     * Παίρνουμε τα πίατα του εστιατορίου για να τα τυπώσουμε
+     * @return Τα πίατα του εστιατορίου
+     */
     public ArrayList<Dish> getDishes() {
         ArrayList<Dish> dishes = new ArrayList<>();
-/*        if (restaurant!=null)
+        if (restaurant!=null)
         {
             for (Dish dish : restaurant.getDishes())
             {
                 dishes.add(dish);
             }
-        }*/
-        dishes.add(new Dish(0,"Mpifteki",20.0));
-        dishes.add(new Dish(1,"Koka Kola",15.0));
-        dishes.add(new Dish(2,"Pizza",25.0));
+        }
         return dishes;
     }
 
@@ -66,6 +71,10 @@ public class PlaceOrderPresenter {
         restaurant = restaurantDAO.find(restaurantId);
     }
 
+    /**
+     * Εαν έχουμε πίατα δείχνουμε μηνυμα οτι δεν υπάρχουν πιάτα αλλιώς
+     * εμφανίζεται η λίστα με τα πίατα
+     */
     public void onChangeLayout() {
         if(getDishes().isEmpty())
         {
@@ -76,6 +85,12 @@ public class PlaceOrderPresenter {
 
     }
 
+    /**
+     * Ελέγχουμε εαν η παραγγελία αρχικά έχει orderLines και εαν όχι δεν κανουμε περαιτέρο λειτουργίες
+     * αλλιώς ελέγχουμε αν προστίθεται επιτυχώς στο εστιατόριο και σε αυτη την περιπτωση εμφανίζουμε μήνυμα επιβεβαίωσης.
+     * Στην περίπτωση που η παραγγελία δεν πορστέθηκε επιτυψώς σημαίνει οτι ο πελάτης δεν έχει το απαραίτητο χρηματικό υπολοιπο
+     * και ενημερώνετια για αυτο με μήνυμα.
+     */
     public void onPlaceOrder() {
         if (order.getOrderLines().isEmpty())
         {
@@ -84,11 +99,11 @@ public class PlaceOrderPresenter {
         else if(restaurant.addOrder(order))
         {
             orderDAO.save(order);
-            view.orderSuccess();
+            view.ShowConfirmationMessage();
         }
         else
         {
-            view.orderFailed();
+            view.insufficientFundsMessage();
         }
 
 
@@ -106,11 +121,23 @@ public class PlaceOrderPresenter {
         customer = customerDAO.find(customerId);
     }
 
+    public Order getOrder()
+    {
+        return order;
+    }
+    public Customer getCustomer(){
+        return customer;
+    }
+
     public void onCart() {
         view.redirectToCart(order.getOrderLines());
     }
 
     public void setOrderLines(ArrayList<OrderLine> modifiedOrderLines) {
         order.setOrderLines(modifiedOrderLines);
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 }

@@ -29,6 +29,11 @@ public class TopUpPresenter {
         return customer;
     }
 
+
+    /**
+     * Εαν το instance του πελάτη δεν είναι null εμφανίζουμε το χρηματικό του υπόλοιπο
+     * αλλιως εμφανίζουμε Error
+     */
     public void setLayout() {
         if (customer!=null)
         {
@@ -42,6 +47,12 @@ public class TopUpPresenter {
 
     }
 
+    /**
+     * Εαν το instance του πελάτη δεν είναι null
+     * του προσθέτουμε ένα χρηματικό ποσό και
+     * καλούμε SetLayout() για να ανανεώσουμε
+     * το υπολοιπο που φαίνεται στην οθόνη
+     */
     public void onTopUp(double amount) {
         if(customer!=null) {
             customer.topUp(amount);

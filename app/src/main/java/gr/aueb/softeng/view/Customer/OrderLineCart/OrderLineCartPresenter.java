@@ -31,6 +31,9 @@ public class OrderLineCartPresenter {
         return orderLines;
     }
 
+    /**
+     * Αφαιρούμε το OrderLine που επιλέξαμε
+     */
     public void onDeleteOrderLine(OrderLine currentItem) {
         orderLines.remove(currentItem);
         view.setRecyclerView();

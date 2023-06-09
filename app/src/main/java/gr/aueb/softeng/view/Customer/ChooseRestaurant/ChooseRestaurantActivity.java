@@ -14,7 +14,9 @@ import gr.aueb.softeng.domain.Restaurant;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
 
-
+/**
+ * Σε αυτή την σελίδα ο χρήστης διαλέγει το εστιατόριο στο οποίο θέλει να παραγγείλει
+ */
 public class ChooseRestaurantActivity extends AppCompatActivity implements ChooseRestaurantView, ChooseRestaurantRecyclerViewAdapter.RestaurantSelectionListener {
 
     ChooseRestaurantViewModel viewModel;
@@ -22,6 +24,11 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
     RecyclerView recyclerView;
     TextView emptyView;
 
+    /**
+     * Δημιουργεί to layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +56,10 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
 
     }
 
-
+    /**
+     *  Αυτή η μέθοδος καλείται οταν επιλέξουμε το εστιατόρια και προοθούμαστε στο HomePage
+     *  @param restaurant το εστιατόριο που επιλεχτηκε
+     */
     @Override
     public void selectRestaurant(Restaurant restaurant) {
         Intent intent = new Intent(ChooseRestaurantActivity.this, CustomerHomePageActivity.class);
@@ -61,12 +71,20 @@ public class ChooseRestaurantActivity extends AppCompatActivity implements Choos
         finish();
     }
 
+    /**
+     * Κρυβουμε το recyclerView και κάνουμε ορατό μήνυμα ενημέρωσης για την
+     * απουσία εστιατορίων
+     */
     @Override
     public void ShowNoRestaurants() {
         recyclerView.setVisibility(View.GONE);
         emptyView.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Εμφανίζουμαι και σετάρουμε το recyclerView και κάνουμε κρύβουμε το μηνυμα
+     * απουσίας εστιατορίων
+     */
     @Override
     public void ShowRestaurants() {
         recyclerView.setVisibility(View.VISIBLE);

@@ -34,7 +34,10 @@ public class ChooseRestaurantPresenter {
     public void setRestaurantList() {
         restaurants = (ArrayList<Restaurant>) restaurantDAO.findAll();
     }
-
+    /**
+     *  Ελεγχουμε εαν η λίστα με τα εστιατόρια είναι άδεια
+     *  για να τα προβάλουμε ή να δείξουμε μήνυμα οτι δεν υπάρχουν εστιατόρια
+     */
     public void onChangeLayout() {
         if (restaurants.isEmpty()) {
             view.ShowNoRestaurants();

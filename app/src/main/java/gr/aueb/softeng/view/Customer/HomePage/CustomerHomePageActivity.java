@@ -26,6 +26,11 @@ import gr.aueb.softeng.view.Chef.OrderDetails.OrderDetailsActivity;
 import gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity;
 import gr.aueb.softeng.view.Customer.TopUp.TopUpActivity;
 
+
+/**
+ * Σε αυτή την σελίδα ο χρήστης μπορεί να δεί τη  τωρινή του παραγγελία να την ακυρώσει να δει
+ * το ιστορικό των παραγγελιών του ή να προωθηθεί στην σελίδα top up και στην σελίδα καταχώρησης παραγγελίας
+ */
 public class CustomerHomePageActivity extends AppCompatActivity implements CustomerHomepageView,FragmentListener{
 
     TabLayout tabLayout;
@@ -201,23 +206,37 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         viewModel.getPresenter().setOrderHistory();
     }
 
-
+    /**
+     * Προωθούμαστε στη σελίδα ανανέωσης χρηαμτικού υπολοίπου
+     */
     public void redirectTopUp() {
         Intent intent = new Intent(CustomerHomePageActivity.this , TopUpActivity.class) ;
         intent.putExtra("CustomerId",customerId);
         startActivity(intent);
     }
 
+
+    /**
+     * Παίρνουμε το fragment του tabLayout και εμφανίζουμε το current Order
+     * κρύβοντας τα υπολοιπα γραφικά στοιχεία
+     */
     @Override
     public void showCurrentOrder() {
-        CurrentOrderPageFragment currFragment = (CurrentOrderPageFragment)((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment();
-        currFragment.showCurrentOrder();
-    }
+        if (((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment() instanceof CurrentOrderPageFragment) {
+            CurrentOrderPageFragment currFragment = (CurrentOrderPageFragment) ((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment();
+            currFragment.showCurrentOrder();
+        }}
 
+    /**
+     * Παίρνουμε το fragment του tabLayout και κρύβουμε το πλαίσιο που θα έιχε τα στοιχεία τις παραγγελίας
+     * αλλα εμφανίζουμε τα υπολοιπα στοιχεία απαραίτητα γαι την προσθήκη νεας παραγγελίας (Μηνυμα καθοδηγσης, + κουμπι)
+     */
     @Override
     public void showNoCurrentOrder() {
-        CurrentOrderPageFragment currFragment = (CurrentOrderPageFragment)((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment();
-        currFragment.showNoCurrentOrder();
+        if (((CustomerHomePageViewPagerAdapter)viewPager2.getAdapter()).getCurrFragment() instanceof CurrentOrderPageFragment) {
+            CurrentOrderPageFragment currFragment = (CurrentOrderPageFragment) ((CustomerHomePageViewPagerAdapter) viewPager2.getAdapter()).getCurrFragment();
+            currFragment.showNoCurrentOrder();
+        }
     }
 
 
@@ -231,6 +250,9 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         return viewModel;
     }
 
+    /**
+     * Προωθούμαστε στη σελίδα επισκόπησης στοιχείων της ενεργής παραγγελίας
+     */
     @Override
     public void redirectToOrderDetails() {
         Intent intent = new Intent(CustomerHomePageActivity.this , OrderDetailsActivity.class) ;
@@ -239,6 +261,10 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         startActivity(intent);
     }
 
+    /**
+     * Προωθούμαστε στη σελίδα επισκόπησης στοιχείων μιας παραγγελία
+     * που επιλέχθηκε απο το ιστορικό
+     */
     @Override
     public void redirectToOrderDetails(int id) {
         Intent intent = new Intent(CustomerHomePageActivity.this , OrderDetailsActivity.class) ;

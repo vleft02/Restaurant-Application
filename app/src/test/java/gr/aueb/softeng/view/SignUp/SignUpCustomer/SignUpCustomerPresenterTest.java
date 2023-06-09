@@ -35,6 +35,8 @@ public class SignUpCustomerPresenterTest {
 
     @After
     public void tearDown() throws Exception {
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.eraseAll();
     }
 
     @Test
