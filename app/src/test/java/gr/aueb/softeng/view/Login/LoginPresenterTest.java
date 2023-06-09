@@ -82,23 +82,23 @@ public class LoginPresenterTest {
 
     @Test
     public void authenticateWithCustomer() {
-        //existing customer from memory initializer userName == "testCustomer", password == "123456789" and id == 2
+        //existing customer from memory initializer userName == "testCustomer", password == "123456789" and id == 3
         view.setUsername("testCustomer");
         view.setPassword("123456789");
         presenter.authenticate();
         assertEquals(0,view.getErrorCount());
-        assertEquals(view.getSuccessMessage(),"Redirecting to Customer with id: 2");
+        assertEquals(view.getSuccessMessage(),"Redirecting to Customer with id: 3");
 
     }
 
     @Test
     public void authenticateWithOwner() {
-        //existing owner from memory initializer userName == "owner1", password == "123456789" and id == 6
+        //existing owner from memory initializer userName == "owner1", password == "123456789" and id == 7
         view.setUsername("owner1");
         view.setPassword("123456789");
         presenter.authenticate();
         assertEquals(0,view.getErrorCount());
-        assertEquals(view.getSuccessMessage(),"Redirecting to Owner with id: 6");
+        assertEquals(view.getSuccessMessage(),"Redirecting to Owner with id: 7");
 
     }
 
