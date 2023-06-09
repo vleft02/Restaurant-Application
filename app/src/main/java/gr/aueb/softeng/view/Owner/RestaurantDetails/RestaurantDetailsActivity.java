@@ -17,7 +17,9 @@ import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Owner.AddChef.AddChefActivity;
 import gr.aueb.softeng.view.Owner.Statistics.StatisticsActivity;
 
-
+/**
+ * Η κλάση αυτή καλείται όταν πατιέται κάποιο εστιατόριο απο τον ιδιοκτήτη για να εμφανιστούν τα στοιχεία του
+ */
 public class RestaurantDetailsActivity extends AppCompatActivity implements RestaurantDetailsView {
     public int RestaurantId;
     RestaurantDetailsViewModel viewModel;

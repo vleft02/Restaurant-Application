@@ -37,6 +37,8 @@ public class OrderDetailsPresenterTest {
     public void tearDown() throws Exception {
         view=null;
         presenter=null;
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.eraseAll();
     }
 
     @Test

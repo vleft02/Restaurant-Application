@@ -27,9 +27,18 @@ public interface OrderDetailsView {
      *
      */
     void goBack();
+    /**
+     * Η μέθοδος αυτή εμφανίζει μήνυμα επιτυχίας στην οθόνη και καλείται όταν η παραγγελία γίνεται Completed από τον μάγειρα
+     * Επίσης , δημιουργεί μία onClick listener η οποία όταν πατηθεί το OK στην οθόνη , μας
+     * επιστρέφει στο προηγούμενο activity που μας κάλεσε
+     */
     void showOrderCompletedMessage();
-
+    /**
+     * Κρύβει το κουμπί του SetCompletedButton που είναι για τις περιπτώσεις που το activity καλείται απο τον customer
+     */
     void hideCompletionButton();
-
+    /**
+     * Εμφανίζει το κουμπί του SetCompletedButton που είναι για τις περιπτώsεις του μάγειρα ώστε να μπορεί να την αλλάξει
+     */
     void showCompletedButton();
 }

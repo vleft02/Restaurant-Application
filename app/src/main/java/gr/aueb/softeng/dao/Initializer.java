@@ -76,7 +76,7 @@ public abstract class Initializer {
         customerDAO.save(customer);
         userDAO.save(customer);
         customer.topUp(10000);
-
+//NEW OWNERS///////////////////////////////////////
         Owner owner1 = new Owner("owner1","Kostas","Pappas","2105648463", "owner1@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
         ownerDAO.save(owner1);
         userDAO.save(owner1);
@@ -88,7 +88,7 @@ public abstract class Initializer {
         Owner owner3 = new Owner("owner3","Kostas","Pappas","2105456237", "owner3@gmail.com","123456789", ownerDAO.nextId(), "12341324134123","132413566767");
         ownerDAO.save(owner3);
         userDAO.save(owner3);
-
+/////// RESTUARANTS//////////////////////////////////////////////////
 
 
         Restaurant rest = new Restaurant(restaurantDAO.nextId(), "Taverna","2105347953",12,new Address(12,"Stratigou",122333,"Menidi"));
@@ -102,7 +102,7 @@ public abstract class Initializer {
         ownerDAO.find(owner1.getUserId()).addRestaurant(rest2);
 
 
-
+///ORDERS//////////////////////////////////////////////////////////////
 
         Order order1 = new Order(10, LocalDateTime.of(now.getYear(),10,12,10,12),orderDAO.nextId(),customerDAO.find("kostas123"));
         order1.setStateCancelled();

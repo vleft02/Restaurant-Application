@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerActivity"
+    tools:context="gr.aueb.softeng.view.Owner.HomePage.SignUp.SignUpOwner.SignUpOwnerActivity"
     android:background="@drawable/backround5">
 
     <androidx.constraintlayout.widget.ConstraintLayout

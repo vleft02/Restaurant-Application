@@ -93,9 +93,19 @@ public class AddRestaurantPresenter {
     public void onBack(){
         view.goBack();
     }
+
+    /**
+     * Επιστρέφει το view που δημιουργήσαμε παραπάνω
+     * @return το Instance του αντικειμένου
+     */
     public AddRestaurantView getView(){
         return this.view;
     }
+
+    /**
+     * Επιστρέφει το αντικείμενο owner που έγινε setted επάνω
+     * @return το Instance του αντικειμένου
+     */
     public Owner getOwner(){
         return this.owner;
     }
