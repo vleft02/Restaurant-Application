@@ -77,6 +77,6 @@ public class OrderHistoryPageFragment extends Fragment implements OrderSelection
 
     @Override
     public void selectOrder(Order order) {
-        //intent to order details page
+        listener.redirectToOrderDetails(order.getId());
     }
 }

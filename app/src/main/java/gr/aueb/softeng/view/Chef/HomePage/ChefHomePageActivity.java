@@ -12,8 +12,7 @@ import android.widget.TextView;
 
 import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity;
-import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageRecyclerViewAdapter;
+import gr.aueb.softeng.view.Chef.OrderDetails.OrderDetailsActivity;
 
 public class ChefHomePageActivity extends AppCompatActivity implements ChefHomePageView,
             ChefHomePageRecyclerViewAdapter.ItemSelectionListener{
@@ -76,7 +75,8 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
      */
     @Override
     public void selectOrder(Order order) {
-        Intent intent = new Intent(ChefHomePageActivity.this, ChefOrderDetailsActivity.class);
+        Intent intent = new Intent(ChefHomePageActivity.this, OrderDetailsActivity.class);
+        intent.putExtra("IsCustomer", false);
         intent.putExtra("OrderId", order.getId());
         startActivity(intent);
     }

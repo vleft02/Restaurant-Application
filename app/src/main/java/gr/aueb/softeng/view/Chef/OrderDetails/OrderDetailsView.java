@@ -1,7 +1,7 @@
-package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+package gr.aueb.softeng.view.Chef.OrderDetails;
 
 
-public interface ChefOrderDetailsView {
+public interface OrderDetailsView {
     /**
      * Εμφανίζει στην οθόνη το id της παραγγελίας που έχει πατηθεί
      * @param orderId το μοναδικό id της παραγγελίας
@@ -28,4 +28,8 @@ public interface ChefOrderDetailsView {
      */
     void goBack();
     void showOrderCompletedMessage();
+
+    void hideCompletionButton();
+
+    void showCompletedButton();
 }

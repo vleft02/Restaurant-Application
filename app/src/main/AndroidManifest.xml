@@ -23,7 +23,7 @@
             android:exported="false"
             android:label="Choose a Restaurant" />
         <activity
-            android:name="gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsActivity"
+            android:name="gr.aueb.softeng.view.Chef.OrderDetails.OrderDetailsActivity"
             android:exported="false"
             android:label="Order Details" />
         <activity

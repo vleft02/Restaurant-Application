@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+package gr.aueb.softeng.view.Chef.OrderDetails;
 
 import java.util.ArrayList;
 
@@ -8,8 +8,8 @@ import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.OrderLine;
 
-public class ChefOrderDetailsPresenter {
-    ChefOrderDetailsView view;
+public class OrderDetailsPresenter {
+    OrderDetailsView view;
 
     private ArrayList<OrderLine> orderLineList;
     private ChefDAO chefDAO;
@@ -22,7 +22,7 @@ public class ChefOrderDetailsPresenter {
      * @param chefDAO αντικείμενο όπου περιέχουμε την στατική λίστα με τους μάγειρες και μπορούμε και προσθέτουμε/λαμβάνουμε μάγειρες
      * @param orderDAO αντικείμενο όπου περιέχουμε την στατική λίστα με τις συνολικές παραγγελίες και μπορούμε και προσθέτουμε/λαμβάνουμε παραγγελίες συγκεκριμένου μάγειρα
      */
-    public ChefOrderDetailsPresenter(ChefDAO chefDAO, OrderDAO orderDAO){
+    public OrderDetailsPresenter(ChefDAO chefDAO, OrderDAO orderDAO){
         this.chefDAO=chefDAO;
         this.orderDAO=orderDAO;
     }
@@ -38,7 +38,7 @@ public class ChefOrderDetailsPresenter {
      *Σετάρει το αντικείμενο view μας για να χρησιμοποιήσουμε τις μεθόδους του interface του
      * @param view Ένα instance του view
      */
-    public void setView(ChefOrderDetailsView view){
+    public void setView(OrderDetailsView view){
         this.view=view;
     }
 
@@ -110,7 +110,7 @@ public class ChefOrderDetailsPresenter {
         view.goBack();
     }
 
-    public ChefOrderDetailsView getView(){
+    public OrderDetailsView getView(){
         return this.view;
     }
     public Chef getChef(){
@@ -118,5 +118,17 @@ public class ChefOrderDetailsPresenter {
     }
     public Order getOrder(){
         return this.order;
+    }
+
+    //
+    public void chooseLayout(boolean isCustomer) {
+    if (isCustomer)
+    {
+        view.hideCompletionButton();
+    }
+    else
+    {
+        view.showCompletedButton();
+    }
     }
 }

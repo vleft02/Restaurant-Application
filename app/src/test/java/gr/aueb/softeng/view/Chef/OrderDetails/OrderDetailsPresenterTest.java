@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+package gr.aueb.softeng.view.Chef.OrderDetails;
 
 import static org.junit.Assert.*;
 
@@ -16,22 +16,20 @@ import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
-import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsView;
-import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsViewStub;
 
-public class ChefOrderDetailsPresenterTest {
-    ChefOrderDetailsViewStub view;
-    ChefOrderDetailsPresenter presenter;
+public class OrderDetailsPresenterTest {
+    OrderDetailsViewStub view;
+    OrderDetailsPresenter presenter;
     private ChefDAO chefDAO;
     private OrderDAO orderDAO;
     @Before
     public void setUp() throws Exception {
         MemoryInitializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
-        view=new ChefOrderDetailsViewStub();
+        view=new OrderDetailsViewStub();
         chefDAO=new ChefDAOmemory();
         orderDAO=new OrderDAOmemory();
-        presenter=new ChefOrderDetailsPresenter(chefDAO,orderDAO);
+        presenter=new OrderDetailsPresenter(chefDAO,orderDAO);
         presenter.setView(view);
     }
 
@@ -52,7 +50,7 @@ public class ChefOrderDetailsPresenterTest {
 
     @Test
     public void setView() {
-        ChefOrderDetailsViewStub testView = new ChefOrderDetailsViewStub();
+        OrderDetailsViewStub testView = new OrderDetailsViewStub();
         presenter.setView(testView);
         assertEquals(presenter.getView(),testView);
     }
@@ -130,4 +128,17 @@ public class ChefOrderDetailsPresenterTest {
         presenter.setOrder(order.getId());
         assertEquals(presenter.getOrder(),order);
     }
+    @Test
+    public void chooseLayoutCustomer(){
+        presenter.chooseLayout(true);
+        assertEquals(false,view.isSetCompletedButtonIsVisible());
+    }
+
+    @Test
+    public void chooseLayoutChef(){
+        presenter.chooseLayout(false);
+        assertEquals(true,view.isSetCompletedButtonIsVisible());
+    }
+
+
 }

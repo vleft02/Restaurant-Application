@@ -40,7 +40,7 @@ public class OrderHistoryRecyclerViewAdapter extends RecyclerView.Adapter<OrderH
         holder.orderId.setText(String.format("#%s", String.valueOf(currentItem.getId())));
         holder.orderDate.setText(String.valueOf(currentItem.getDate()));
         holder.orderState.setText(currentItem.getOrderState().toString());
-        holder.orderDate.setOnClickListener(new View.OnClickListener() {
+        holder.orderId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listener.selectOrder(currentItem);

@@ -138,23 +138,6 @@ public class CustomerHomepagePresenter {
         this.view = view;
     }
 
-    /**
-     * Σετάρουμε την μετάβλητη fragment
-     * ανάλογα με το tab στο οποίο βρισκόμαστε
-     * (current order tab ή order history tab)
-     * για να έχουμε πρόσβαση στα
-     * γραφικά στοιχεία των fragments
-     */
-    public void setFragment(Fragment fragment){
-        if (fragment instanceof CurrentOrderPageFragment) {
-            this.currentOrderPageFragment = (CurrentOrderPageFragment) fragment;
-
-        }
-        else
-        {
-            this.orderHistoryPageFragment = (OrderHistoryPageFragment) fragment;
-        }
-    }
 
 
     /**
