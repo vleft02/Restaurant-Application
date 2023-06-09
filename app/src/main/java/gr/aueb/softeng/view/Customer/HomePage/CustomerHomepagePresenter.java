@@ -54,8 +54,12 @@ public class CustomerHomepagePresenter {
      * @param restaurantId το id του εστιατορίου
      */
     public void setRestaurant(int restaurantId) {
-
         restaurant = restaurantDAO.find(restaurantId);
+    }
+
+
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
     /**
      * Σετάρουμε την μεταβλητη customer
@@ -101,11 +105,11 @@ public class CustomerHomepagePresenter {
     {
         ArrayList<Order> orders = (ArrayList<Order>) orderDAO.findByCustomer(customer);
         currentOrder = null;
-        for (Order order : orders)
-        {
-            if (order.getOrderState() != Order.State.COMPLETED && order.getOrderState() != Order.State.CANCELLED )
-            {
-                currentOrder = order;
+        if (orders!=null) {
+            for (Order order : orders) {
+                if (order.getOrderState() != Order.State.COMPLETED && order.getOrderState() != Order.State.CANCELLED) {
+                    currentOrder = order;
+                }
             }
         }
     }
@@ -138,7 +142,12 @@ public class CustomerHomepagePresenter {
         this.view = view;
     }
 
-
+    /**
+     * Επιστρέφει το instance του view
+     */
+    public CustomerHomepageView getView() {
+        return view;
+    }
 
     /**
      * Επιστρέφει τα στοιχεία μιας παραγγελίας
@@ -216,7 +225,13 @@ public class CustomerHomepagePresenter {
      * @return εναν ακεραιο που δείχνει το πλήθος τραπεζιών του εσταιτορίου
      */
     public int getRestaurantCapacity() {
-        return restaurant.getTotalTables();
+        if (restaurant!=null) {
+            return restaurant.getTotalTables();
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     /**
@@ -228,17 +243,18 @@ public class CustomerHomepagePresenter {
      * @return true ή false
      */
     public boolean checkTableAvailability(int tableNumber) {
-        ArrayList<Order> orders = restaurant.getOrders();
-        for (Order order:orders)
-        {
-            if ( order.getOrderState() == Order.State.RECEIVED
-                    && order.getTableNumber() == tableNumber)
-            {
-                return false;
-            }
+        if (restaurant != null) {
+            ArrayList<Order> orders = restaurant.getOrders();
+            for (Order order : orders) {
+                if (order.getOrderState() == Order.State.RECEIVED
+                        && order.getTableNumber() == tableNumber) {
+                    return false;
+                }
 
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void onPlaceOrder() {
