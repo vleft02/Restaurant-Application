@@ -1,12 +1,18 @@
-package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+package gr.aueb.softeng.view.Chef.OrderDetails;
 
-public class ChefOrderDetailsViewStub implements ChefOrderDetailsView{
+public class OrderDetailsViewStub implements OrderDetailsView{
     private String orderId,state,tableNumber,date,successMessage;
     private int goBackPressed;
 
-    public ChefOrderDetailsViewStub(){
+    private boolean isSetCompletedButtonVisible;
+    public boolean isSetCompletedButtonIsVisible() {
+        return isSetCompletedButtonVisible;
+    }
+
+    public OrderDetailsViewStub(){
         orderId=state=tableNumber=date=successMessage="";
         goBackPressed=0;
+        isSetCompletedButtonVisible = false;
     }
     @Override
     public void setOrderId(String orderId) {
@@ -55,6 +61,16 @@ public class ChefOrderDetailsViewStub implements ChefOrderDetailsView{
     @Override
     public void showOrderCompletedMessage() {
         successMessage = "the order was completed";
+    }
+
+    @Override
+    public void hideCompletionButton() {
+        isSetCompletedButtonVisible = false;
+    }
+
+    @Override
+    public void showCompletedButton() {
+        isSetCompletedButtonVisible =true;
     }
 
 

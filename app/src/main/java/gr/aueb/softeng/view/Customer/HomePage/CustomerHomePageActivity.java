@@ -13,18 +13,16 @@ import android.widget.PopupWindow;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
 
-import java.util.Currency;
-
 import gr.aueb.softeng.memoryDao.ChefDAOmemory;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.OrderDAOmemory;
 import gr.aueb.softeng.team08.R;
+import gr.aueb.softeng.view.Chef.OrderDetails.OrderDetailsActivity;
 import gr.aueb.softeng.view.Customer.PlaceOrder.PlaceOrderActivity;
 import gr.aueb.softeng.view.Customer.TopUp.TopUpActivity;
 
@@ -231,6 +229,22 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     public CustomerHomePageViewModel getViewModel()
     {
         return viewModel;
+    }
+
+    @Override
+    public void redirectToOrderDetails() {
+        Intent intent = new Intent(CustomerHomePageActivity.this , OrderDetailsActivity.class) ;
+        intent.putExtra("IsCustomer",true);
+        intent.putExtra("OrderId",viewModel.getPresenter().getCurrentOrder().getId());
+        startActivity(intent);
+    }
+
+    @Override
+    public void redirectToOrderDetails(int id) {
+        Intent intent = new Intent(CustomerHomePageActivity.this , OrderDetailsActivity.class) ;
+        intent.putExtra("IsCustomer",true);
+        intent.putExtra("OrderId",id);
+        startActivity(intent);
     }
 
     public void redirectPlaceOrder()

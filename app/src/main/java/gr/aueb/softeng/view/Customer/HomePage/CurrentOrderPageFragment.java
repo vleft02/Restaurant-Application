@@ -103,6 +103,14 @@ public class CurrentOrderPageFragment extends Fragment {
             }
         });
 
+        rootView.findViewById(R.id.CurrentOrderConstraintLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.redirectToOrderDetails();
+            }
+        });
+
+
         return rootView;
     }
 

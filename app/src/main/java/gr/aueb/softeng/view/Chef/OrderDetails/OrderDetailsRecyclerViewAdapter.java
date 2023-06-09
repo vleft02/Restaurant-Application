@@ -1,4 +1,4 @@
-package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+package gr.aueb.softeng.view.Chef.OrderDetails;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +14,13 @@ import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
 
 
-public class ChefOrderDetailsRecyclerViewAdapter extends RecyclerView.Adapter<ChefOrderDetailsRecyclerViewAdapter.ViewHolder> {
+public class OrderDetailsRecyclerViewAdapter extends RecyclerView.Adapter<OrderDetailsRecyclerViewAdapter.ViewHolder> {
     private final List<OrderLine> orderLines;
     /**
      * Αρχικοποιεί την λίστα με τα Order Lines της συγκεκριμένης παραγγελίας
      * @param orderLines η λίστα με τα order lines της παραγγελίας που έχει επιλέξει ο μάγειρας
      */
-    public ChefOrderDetailsRecyclerViewAdapter(List<OrderLine> orderLines){
+    public OrderDetailsRecyclerViewAdapter(List<OrderLine> orderLines){
         this.orderLines = orderLines;
     }
     /**
@@ -33,8 +33,8 @@ public class ChefOrderDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Ch
      */
     @NonNull
     @Override
-    public ChefOrderDetailsRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ChefOrderDetailsRecyclerViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
+    public OrderDetailsRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new OrderDetailsRecyclerViewAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.orderline_list_item, parent, false));
     }
     /**
@@ -45,7 +45,7 @@ public class ChefOrderDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Ch
      * @param position The position of the item within the adapter's data set.
      */
     @Override
-    public void onBindViewHolder(@NonNull ChefOrderDetailsRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OrderDetailsRecyclerViewAdapter.ViewHolder holder, int position) {
         final OrderLine currentItem = orderLines.get(position);
         holder.DishName.setText(String.valueOf(currentItem.getDish().getDishName()));
         holder.DishQuantity.setText("Quantity:"+String.valueOf(currentItem.getQuantity()));

@@ -7,4 +7,7 @@ public interface FragmentListener extends Serializable {
 
     CustomerHomePageViewModel getViewModel();
 
+    void redirectToOrderDetails();
+
+    void redirectToOrderDetails(int id);
 }

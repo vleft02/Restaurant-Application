@@ -7,16 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsRecyclerViewAdapter;
-import gr.aueb.softeng.view.Chef.ChefOrderDetails.ChefOrderDetailsViewModel;
 
 public class OrderLineCartActivity extends AppCompatActivity implements OrderLineCartView,OrderLineSelectionListener {
 

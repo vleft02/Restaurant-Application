@@ -1,6 +1,5 @@
-package gr.aueb.softeng.view.Chef.ChefOrderDetails;
+package gr.aueb.softeng.view.Chef.OrderDetails;
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,15 +11,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 
-public class ChefOrderDetailsActivity extends AppCompatActivity  implements ChefOrderDetailsView{
+public class OrderDetailsActivity extends AppCompatActivity  implements OrderDetailsView {
 
     public int OrderId;
     RecyclerView recyclerView;
-    ChefOrderDetailsViewModel viewModel;
+    OrderDetailsViewModel viewModel;
+
+    Button setCompletedButton;
+
+    boolean isCustomer;
     /**
      * Δημιουργεί to layout και αρχικοποιεί
      * το activity.
@@ -33,15 +37,17 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chef_order_details);
+        setContentView(R.layout.activity_order_details);
 
-        viewModel = new ViewModelProvider(this).get(ChefOrderDetailsViewModel.class);
+        viewModel = new ViewModelProvider(this).get(OrderDetailsViewModel.class);
         viewModel.getPresenter().setView(this);
 
         if (savedInstanceState == null) {
             Intent intent = getIntent();
             Bundle extras = intent.getExtras();
             OrderId = extras.getInt("OrderId");
+            isCustomer = extras.getBoolean("IsCustomer");
+
         }
 
         viewModel.getPresenter().setOrder(OrderId);
@@ -49,6 +55,10 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
         viewModel.getPresenter().setOrderDetails();
         // ui initialization
         recyclerView = findViewById(R.id.OrderLinesRecyclerView);
+        setCompletedButton  = findViewById(R.id.SetCompletedButton);
+
+        //changeLayout depending on who is using it
+        viewModel.getPresenter().chooseLayout(isCustomer);
 
         findViewById(R.id.SetCompletedButton).setOnClickListener(new View.OnClickListener() { //Το κουμπί που πατιέται όταν μια παραγγελία πατηθεί ότι είναι completed
             public void onClick(View v) {
@@ -69,7 +79,7 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
 
     public void showOrderCompletedMessage()
     {
-        new AlertDialog.Builder(ChefOrderDetailsActivity.this)
+        new AlertDialog.Builder(OrderDetailsActivity.this)
                 .setCancelable(true)
                 .setTitle("Επιτυχής ολοκλήρωση της παραγγελίας")
                 .setMessage("Η παραγγελία προστέθηκε στην λίστα των ολοκλήρωμένων παραγγελιών!")
@@ -81,12 +91,28 @@ public class ChefOrderDetailsActivity extends AppCompatActivity  implements Chef
                     }
                 }).create().show();
     }
+    /**
+     * Κρύβει το κουμπί του SetCompletedButton που είναι για τις περιπτώsεις του σεφ
+     */
+    @Override
+    public void hideCompletionButton() {
+        setCompletedButton.setVisibility(View.GONE);
+    }
+
+    /**
+     * Κρύβει το κουμπί του SetCompletedButton που είναι για τις περιπτώsεις του σεφ
+     */
+    @Override
+    public void showCompletedButton() {
+        setCompletedButton.setVisibility(View.VISIBLE);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         viewModel.getPresenter().setOrderLineList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ChefOrderDetailsRecyclerViewAdapter(viewModel.getPresenter().getOrderLineList()));
+        recyclerView.setAdapter(new OrderDetailsRecyclerViewAdapter(viewModel.getPresenter().getOrderLineList()));
     }
 
     /**
