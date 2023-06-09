@@ -2,7 +2,9 @@ package gr.aueb.softeng.view.SignUp.SignUpPersonel;
 
 import java.util.HashMap;
 
-public class SignUpPersonelViewStub implements SignUpPersonelView{
+import gr.aueb.softeng.view.SignUp.SignUpPersonel.SignUpPersonelView;
+
+public class SignUpPersonelViewStub implements SignUpPersonelView {
     private String name, surname,  username,  telephone, email,iban,tin,password;
     private String errorTitle, errorMessage, successMessage;
     private int errorCount, goBackIsPressed;

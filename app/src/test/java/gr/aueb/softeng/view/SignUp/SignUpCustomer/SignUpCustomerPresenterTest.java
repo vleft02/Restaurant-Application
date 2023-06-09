@@ -12,6 +12,7 @@ import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.memoryDao.CustomerDAOmemory;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.memoryDao.UserDAOmemory;
+import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerPresenter;
 
 public class SignUpCustomerPresenterTest {
     SignUpCustomerPresenter presenter;

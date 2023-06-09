@@ -92,9 +92,10 @@ public class OrderDetailsPresenter {
     }
 
     /**
-     * Καλείται όταν πατηθεί το κουμπί ολοκήρωσης της παραγγελίας
+     * Καλείται όταν πατηθεί το κουμπί ολοκλήρωσης της παραγγελίας
      * Ελέγχει αν η κατάσταση δεν είναι ακυρωμένη και αν δεν είναι ήδη ολοκληρωμένη
-     * και κάνει την κατάστασή της σε ολοκληρωμένη
+     * , κάνει την κατάστασή της σε ολοκληρωμένη
+     * και καλεί την μέθοδο showOrderCompletedMessage για να εμφανίσει το μήνυμα επιτυχίας
      */
     public void onCompleted() {
         if (order.getOrderState() != Order.State.CANCELLED && order.getOrderState() != Order.State.COMPLETED) {
@@ -110,25 +111,43 @@ public class OrderDetailsPresenter {
         view.goBack();
     }
 
+    /**
+     * Επιστρέφει το αντικείμενο view Που δημιουργήσαμε παραπάνω
+     * @return το Instance του αντικειμένου
+     */
     public OrderDetailsView getView(){
         return this.view;
     }
+
+    /**
+     * Eπιστρέφει το αντικείμενο του chef που σεταρίστηκε επάνω
+     * @return το Instance του αντικειμένου
+     */
     public Chef getChef(){
         return this.chef;
     }
+
+    /**
+     * Εποιστρέφει το αντικείμενο παραγγελίας που δημιουργήθηκε παραπάνω
+     * @return το Instance του αντικειμένου
+     */
     public Order getOrder(){
         return this.order;
     }
 
-    //
+    /**
+     * Η μέθοδος αυτή ανάλογα εάν αυτός που κάλεσε το activity είναι ο customer ή ο chef , εμφανίζει ή κρύβει
+     * το κουμπί SetCompleted το οποίο πρέπει να εμφανίζεται μόνο στην περίπτωση που είναι chef αυτός που καλεί το activity
+     * @param isCustomer True εάν είναι customer ή False εάν είναι μάγειρας
+     */
     public void chooseLayout(boolean isCustomer) {
-    if (isCustomer)
-    {
-        view.hideCompletionButton();
-    }
-    else
-    {
-        view.showCompletedButton();
-    }
+        if (isCustomer)
+        {
+            view.hideCompletionButton();
+        }
+        else
+        {
+            view.showCompletedButton();
+        }
     }
 }

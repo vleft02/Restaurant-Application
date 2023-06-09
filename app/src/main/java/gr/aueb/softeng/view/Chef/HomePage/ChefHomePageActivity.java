@@ -14,6 +14,9 @@ import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Chef.OrderDetails.OrderDetailsActivity;
 
+/**
+ * H κλάση αυτή καλείται για να εμφανιστεί η αρχική σελίδα του μάγειρα με τις παραγγελίες του
+ */
 public class ChefHomePageActivity extends AppCompatActivity implements ChefHomePageView,
             ChefHomePageRecyclerViewAdapter.ItemSelectionListener{
 
@@ -81,9 +84,8 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
         startActivity(intent);
     }
     /**
-     * Ελέγχει εάν η λίστα με τις παραγγελίες που εμφανίζεται στο recycler view είναι άδεια ή οχι
-     * Εάν είναι άδεια , βγάζει απο την οθόνη το Recycler View και κάνει visible το κέιμενο που ενημερώνει ότι η λίστα είναι άδεια
-     * Διαφορετικά , εμφανίζει το Recycler View  , σετάρει τον adapter και βγάζει απο την οθόνη το κείμενο που αναφέρθηκε παραπάνω
+     * Η μέθοδος αυτή καλείται όταν η λίστα των παραγγελιών του μάγειρα είναι άδεια , ώστε να εμφανιστεί το μήνυμα
+     * στην οθόνη ότι η λίστα είναι άδεια.
      */
     @Override
     public void ShowNoOrders() {
@@ -91,6 +93,10 @@ public class ChefHomePageActivity extends AppCompatActivity implements ChefHomeP
         emptyView.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Η μέθοδος αυτή καλείται όταν η λίστα με τις παραγγελίες ΔΕΝ είναι άδεια και εμφανίζεται στην οθόνη το recycler view με τα αντικείμενα του.
+     * σετάροντας παράλληλα τον adapter και το layout manager του recycler view
+     */
     @Override
     public void ShowOrders() {
         recyclerView.setVisibility(View.VISIBLE);

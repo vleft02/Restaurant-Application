@@ -14,7 +14,6 @@ import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity;
 import gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantActivity;
-import gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity;
 import gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity;
 import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
 import gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerActivity;

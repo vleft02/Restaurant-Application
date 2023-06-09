@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import gr.aueb.softeng.team08.R;
 
+/**
+ * Η κλάση αυτή εμφανίζει στην οθόνη τα στατιστικά του εστιατορίου που έχει επιλεχθεί
+ */
 public class StatisticsActivity extends AppCompatActivity implements StatisticsView {
     StatisticsViewModel viewModel;
     public int RestaurantId;

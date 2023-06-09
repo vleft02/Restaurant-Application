@@ -10,6 +10,8 @@ import gr.aueb.softeng.dao.UserDAO;
 import gr.aueb.softeng.memoryDao.MemoryInitializer;
 import gr.aueb.softeng.memoryDao.OwnerDAOmemory;
 import gr.aueb.softeng.memoryDao.UserDAOmemory;
+import gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerPresenter;
+import gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerView;
 
 public class SignUpOwnerPresenterTest {
     SignUpOwnerPresenter presenter;

@@ -94,9 +94,18 @@ public class ChefHomePagePresenter {
         view.goBack();
     }
 
+    /**
+     * Eπιστρέφουμε το αντικείμενο view που αρχικοποιήθηκε επάνω
+     * @return Instance του view
+     */
     public ChefHomePageView getView(){
         return this.view;
     }
+
+    /**
+     * Επιστρέφουμε τον μάγειρα του εστιατορίου που έγινε set επάνω
+     * @return το Instance του μάγειρα
+     */
     public Chef getChef(){
         return this.chef;
     }

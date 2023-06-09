@@ -18,6 +18,9 @@ import gr.aueb.softeng.view.Customer.ChooseRestaurant.ChooseRestaurantRecyclerVi
 import gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity;
 import gr.aueb.softeng.view.Owner.RestaurantDetails.RestaurantDetailsActivity;
 
+/**
+ * Η κλάση αυτή καλείται όταν συνδεθεί ο ιδιοκτήτης και εμφανίζει τα εστιατόριά του
+ */
 public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHomePageView,
         OwnerHomePageRecyclerViewAdapter.ItemSelectionListener{
     public int ownerId;
@@ -101,17 +104,19 @@ public class OwnerHomePageActivity extends AppCompatActivity implements OwnerHom
     }
 
     /**
-     * Ελέγχει εάν η λίστα με τα εστιατόρια που εμφανίζεται στο recycler view είναι άδεια ή οχι
-     * Εάν είναι άδεια , βγάζει απο την οθόνη το Recycler View και κάνει visible το κέιμενο που ενημερώνει ότι η λίστα είναι άδεια
-     * Διαφορετικά , εμφανίζει το Recycler View  , σετάρει τον adapter και βγάζει απο την οθόνη το κείμενο που αναφέρθηκε παραπάνω
+     * Καλείται όταν η λίστα με τα εστιατόρια του ιδιοκτήτη είναι άδεια , ώστε να εμφανιστεί το μήνυμα ειδοποίησης στην
+     * οθόνη και να κρυφτεί το recycler view που θα είναι άδειο ούτως ή αλλος
      */
-
     @Override
     public void ShowNoRestaurants() {
         recyclerView.setVisibility(View.GONE);
         emptyView.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Καλείται όταν η λίστα με τα εστιατόρια του ιδιοκτήτη ΔΕΝ είναι άδεια , και εμφανίζει τα αντικείμενα
+     * του recycler view , και παράλληλα κρύβει το μήνυμα που θα εμφανιζόταν εάν ήταν άδεια η λίστα
+     */
     @Override
     public void ShowRestaurants() {
         recyclerView.setVisibility(View.VISIBLE);

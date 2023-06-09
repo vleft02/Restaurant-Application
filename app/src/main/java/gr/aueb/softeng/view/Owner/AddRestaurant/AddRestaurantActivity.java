@@ -13,9 +13,10 @@ import android.widget.EditText;
 import java.util.HashMap;
 
 import gr.aueb.softeng.team08.R;
-import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerActivity;
 
-
+/**
+ * Η κλάση αυτή καλείται όταν ο ιδιοκτήτης επιλέγει να προσθέσει ένα νέο εστιατόριο
+ */
 public class AddRestaurantActivity extends AppCompatActivity implements AddRestaurantView {
     /**
      * Εμφανίζει ενα μήνυμα τύπου alert με

@@ -50,6 +50,8 @@ public class ChefHomePagePresenterTest {
     public void tearDown() throws Exception {
         presenter=null;
         view=null;
+        MemoryInitializer dataHelper = new MemoryInitializer();
+        dataHelper.eraseAll();
     }
 
     @Test

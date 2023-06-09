@@ -5,10 +5,7 @@ import java.util.Map;
 
 import gr.aueb.softeng.dao.ChefDAO;
 import gr.aueb.softeng.dao.RestaurantDAO;
-import gr.aueb.softeng.dao.UserDAO;
-import gr.aueb.softeng.domain.Chef;
 import gr.aueb.softeng.domain.Restaurant;
-import gr.aueb.softeng.view.SignUp.SignUpPersonel.SignUpPersonelView;
 
 public class AddChefPresenter {
     private ChefDAO chefDAO;
@@ -17,7 +14,7 @@ public class AddChefPresenter {
     private Restaurant restaurant;
     /**
      * Αρχικοποιεί το chef dao και το restaurant dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
-     * στατιστική μας λίστα τα εστιατόρια και τους μάγειρες
+     * στατική μας λίστα τα εστιατόρια και τους μάγειρες
      * @param chefDAO
      * @param restDAO
      */
@@ -46,7 +43,7 @@ public class AddChefPresenter {
      * Η μέθοδος αυτή καλείται όταν πατηθεί το κουμπί εισαγωγής του μάγειρα στο εστιατόριο
      * αφου πρώτα έχουν περαστεί όλα τα στοιχεία του
      * Κάνουμε ελέγχους σε κάθε πεδίο για το άν θεωρείται αποδεκτό , και εάν δεν είναι εμφανίζεται μήνυμα ειδοποίησης την οθόνη του ιδιοκτήτη
-     * για να κάνει τις απαραίτητες αλλαγές
+     * που τον ειδοποιεί για να κάνει τις απαραίτητες αλλαγές
      * Επισης , γίνεται έλεγχος για κάθε ένα στοιχείο εάν ταυτίζεται ακριβώς με τα στοιχεία που έχει βάλει
      * ο μάγειρας κατά την εγγραφή του στο σύστημα
      * Εάν έστω και ένα στοιχείο δεν είναι ίδιο , εμφανίζεται μήνυμα λάθους στην οθόνη
@@ -89,9 +86,18 @@ public class AddChefPresenter {
         view.goBack();
     }
 
+    /**
+     * Επιστρέφει το αντικείμενο view που δημιουργήσαμε επάνω
+     * @return το Instance του αντικειμένου
+     */
     public AddChefView getView(){
         return this.view;
     }
+
+    /**
+     * Επιστρέφει το αντικείμενο Restaurant που δημιουργήθηκε επάνω
+     * @return το Instance του αντικειμένου
+     */
     public Restaurant getRestaurant(){
         return this.restaurant;
     }

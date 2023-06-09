@@ -2,7 +2,9 @@ package gr.aueb.softeng.view.SignUp.SignUpOwner;
 
 import java.util.HashMap;
 
-public class SignUpOwnerViewStub implements SignUpOwnerView{
+import gr.aueb.softeng.view.SignUp.SignUpOwner.SignUpOwnerView;
+
+public class SignUpOwnerViewStub implements SignUpOwnerView {
     private String name, surname,  username,  telephone, email,iban,tin,password;
     private String errorTitle, errorMessage, successMessage;
     private int errorCount, goBackIsPressed;

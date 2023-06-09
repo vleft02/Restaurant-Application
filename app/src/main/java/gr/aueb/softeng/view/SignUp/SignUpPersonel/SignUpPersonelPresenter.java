@@ -13,20 +13,39 @@ public class SignUpPersonelPresenter {
     private ChefDAO chefDAO;
     private UserDAO userDAO;
     SignUpPersonelView view;
+    /**
+     * Αρχικοποιεί το user dao και το chef dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
+     * στατική μας λίστα τους μάγειρες και τους users
+     * @param userDAO
+     * @param chefDAO
+     */
     public SignUpPersonelPresenter(UserDAO userDAO, ChefDAO chefDAO)
     {
         this.chefDAO = chefDAO;
         this.userDAO = userDAO;
     }
+    /**
+     * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
+     * @param v Instance του view
+     */
     public void setView(SignUpPersonelView v)
     {
         this.view = v;
     }
-
+    /**
+     * Επιστρέφει το αντικείμενο view που δημιουργήσαμε επάνω
+     * @return το Instance του αντικειμένου
+     */
     public SignUpPersonelView getView() {
         return view;
     }
-
+    /**
+     * Η μέθοδος αυτή καλείται όταν πατηθεί το κουμπί δημιουργίας του account απο τον μάγειρα
+     * αφου πρώτα έχουν περαστεί όλα τα στοιχεία του
+     * Κάνουμε ελέγχους σε κάθε πεδίο για το άν θεωρείται αποδεκτό , και εάν δεν είναι εμφανίζεται μήνυμα ειδοποίησης την οθόνη του μάγειρα
+     * που τον ειδοποιεί για να κάνει τις απαραίτητες αλλαγές
+     * Εάν τα στοιχεία είναι σωστά , εμφανίζεται κατάλληλο μήνυμα και προστίθεται ο μάγειρας στην εφαρμογή
+     */
     public void onCreateChefAccount(){
         boolean isEmpty=false;
         HashMap<String,String> details = view.getChefDetails();
@@ -65,6 +84,9 @@ public class SignUpPersonelPresenter {
         }
 
     }
+    /**
+     * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
+     */
     public void onBack(){
         view.goBack();
     }

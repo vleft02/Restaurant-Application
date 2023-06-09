@@ -2,7 +2,9 @@ package gr.aueb.softeng.view.SignUp.SignUpCustomer;
 
 import java.util.HashMap;
 
-public class SignUpCustomerViewStub implements SignUpCustomerView{
+import gr.aueb.softeng.view.SignUp.SignUpCustomer.SignUpCustomerView;
+
+public class SignUpCustomerViewStub implements SignUpCustomerView {
 
     private String name, surname,  username,  telephone, email,cardNumber,  cardHolderName, cvv, password;
     private String errorTitle, errorMessage, successMessage;

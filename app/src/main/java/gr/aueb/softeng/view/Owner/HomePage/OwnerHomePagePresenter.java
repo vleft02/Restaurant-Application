@@ -105,9 +105,19 @@ public class OwnerHomePagePresenter {
      * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
      */
     public void onBack(){view.goBack();}
+
+    /**
+     * Επιστρέφει το αντικέιμενο owner που έγινε set επάνω
+     * @return Επιστρέφει το Instance του αντικειμένου
+     */
     public Owner getOwner(){
         return this.owner;
     }
+
+    /**
+     * Επισρέφει το view που δημιουργήσαμε παραπάνω
+     * @return το Instance του view
+     */
     public OwnerHomePageView getView(){
         return this.view;
     }

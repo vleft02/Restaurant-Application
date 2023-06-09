@@ -14,8 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-
+/**
+ * Η κλάση αυτή εμφανίζει τα στοιχεία της επιλεγμένης παραγγελίας στην οθόνη του σέφ
+ */
 public class OrderDetailsActivity extends AppCompatActivity  implements OrderDetailsView {
 
     public int OrderId;
@@ -32,8 +33,6 @@ public class OrderDetailsActivity extends AppCompatActivity  implements OrderDet
      * Δίνει στον presenter το ownerId και αρχικοποιεί τα στοιχεία του layout
      * @param savedInstanceState το Instance state
      */
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +56,7 @@ public class OrderDetailsActivity extends AppCompatActivity  implements OrderDet
         recyclerView = findViewById(R.id.OrderLinesRecyclerView);
         setCompletedButton  = findViewById(R.id.SetCompletedButton);
 
-        //changeLayout depending on who is using it
+        //changeLayout depending on who is using it(chef or customer)
         viewModel.getPresenter().chooseLayout(isCustomer);
 
         findViewById(R.id.SetCompletedButton).setOnClickListener(new View.OnClickListener() { //Το κουμπί που πατιέται όταν μια παραγγελία πατηθεί ότι είναι completed
@@ -71,18 +70,18 @@ public class OrderDetailsActivity extends AppCompatActivity  implements OrderDet
             public void onClick(View v){viewModel.getPresenter().OnBack();}
         });
     }
-    /**
-     * Καλείται όταν επιστρέφουμε στην οθόνη αυτού του  activity
-     * Ενημερώνει την λίστα με τα Order Lines μήπως προστέθηκε κάποιο για να εμφανιστεί στο Recycler View, αλλά και τον adapter του recycler view
-     * Καλεί την μέθοδο changeLyaout του presenter
-     */
 
+    /**
+     * Η μέθοδος αυτή εμφανίζει μήνυμα επιτυχίας στην οθόνη και καλείται όταν η παραγγελία γίνεται Completed από τον μάγειρα
+     * Επίσης , δημιουργεί μία onClick listener η οποία όταν πατηθεί το OK στην οθόνη , μας
+     * επιστρέφει στο προηγούμενο activity που μας κάλεσε
+     */
     public void showOrderCompletedMessage()
     {
         new AlertDialog.Builder(OrderDetailsActivity.this)
                 .setCancelable(true)
                 .setTitle("Επιτυχής ολοκλήρωση της παραγγελίας")
-                .setMessage("Η παραγγελία προστέθηκε στην λίστα των ολοκλήρωμένων παραγγελιών!")
+                .setMessage("Η παραγγελία προστέθηκε στην λίστα των ολοκληρωμένων παραγγελιών!")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -92,7 +91,7 @@ public class OrderDetailsActivity extends AppCompatActivity  implements OrderDet
                 }).create().show();
     }
     /**
-     * Κρύβει το κουμπί του SetCompletedButton που είναι για τις περιπτώsεις του σεφ
+     * Κρύβει το κουμπί του SetCompletedButton που είναι για τις περιπτώσεις που το activity καλείται απο τον customer
      */
     @Override
     public void hideCompletionButton() {
@@ -100,13 +99,17 @@ public class OrderDetailsActivity extends AppCompatActivity  implements OrderDet
     }
 
     /**
-     * Κρύβει το κουμπί του SetCompletedButton που είναι για τις περιπτώsεις του σεφ
+     * Εμφανίζει το κουμπί του SetCompletedButton που είναι για τις περιπτώsεις του μάγειρα ώστε να μπορεί να την αλλάξει
      */
     @Override
     public void showCompletedButton() {
         setCompletedButton.setVisibility(View.VISIBLE);
     }
-
+    /**
+     * Καλείται όταν επιστρέφουμε στην οθόνη αυτού του  activity
+     * Ενημερώνει την λίστα με τα Order Lines μήπως προστέθηκε κάποιο για να εμφανιστεί στο Recycler View, αλλά και τον adapter του recycler view
+     * Καλεί την μέθοδο changeLyaout του presenter
+     */
     @Override
     protected void onResume() {
         super.onResume();

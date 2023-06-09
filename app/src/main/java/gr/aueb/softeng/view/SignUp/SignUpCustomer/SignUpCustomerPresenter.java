@@ -10,22 +10,40 @@ import gr.aueb.softeng.domain.Customer;
 public class SignUpCustomerPresenter {
     private CustomerDAO customerDAO;
     private  UserDAO userDAO;
-
+    /**
+     * Αρχικοποιεί το user dao και το customer dao για να μπορούμε να αποθηκεύσουμε και ανακτήσουμε απο την
+     * στατική μας λίστα τους πελάτες και τους users
+     * @param userDAO
+     * @param custDAO
+     */
     public SignUpCustomerPresenter(UserDAO userDAO, CustomerDAO custDAO)
     {
         this.customerDAO = custDAO;
         this.userDAO=userDAO;
     }
     SignUpCustomerView view;
+    /**
+     * Αρχικοποιεί το view απο το οποίο θα χρησιμοποιήσουμε τις μεθόδους του interface του
+     * @param v Instance του view
+     */
     public void setView(SignUpCustomerView v)
     {
         this.view = v;
     }
-
+    /**
+     * Επιστρέφει το αντικείμενο view που δημιουργήσαμε επάνω
+     * @return το Instance του αντικειμένου
+     */
     public SignUpCustomerView getView() {
         return view;
     }
-
+    /**
+     * Η μέθοδος αυτή καλείται όταν πατηθεί το κουμπί δημιουργίας του account απο τον πελάτη
+     * αφου πρώτα έχουν περαστεί όλα τα στοιχεία του
+     * Κάνουμε ελέγχους σε κάθε πεδίο για το άν θεωρείται αποδεκτό , και εάν δεν είναι εμφανίζεται μήνυμα ειδοποίησης την οθόνη του πελάτη
+     * που τον ειδοποιεί για να κάνει τις απαραίτητες αλλαγές
+     * Εάν τα στοιχεία είναι σωστά , εμφανίζεται κατάλληλο μήνυμα και προστίθεται ο πελάτης στην εφαρμογή
+     */
     public void onCreateAccount(){
         boolean isEmpty=false;
         HashMap<String,String> details = view.getDetails();
@@ -64,6 +82,9 @@ public class SignUpCustomerPresenter {
         }
 
     }
+    /**
+     * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
+     */
     public void onBack(){
         view.goBack();
     }
