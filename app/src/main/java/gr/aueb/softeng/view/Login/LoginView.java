@@ -12,12 +12,10 @@ import gr.aueb.softeng.view.View;
 public interface LoginView extends View {
     /**
      * Η μέθοδος αυτή λαμβάνει το όνομα που έχει πληκτρολογήσει ο χρήστης στο πεδίο Username
-     * @return Επιστρέφει το string αυτο
      */
     String ExtractUsername();
     /**
      * Η μέθδος αυτή λαμβάνει τον κωδικό που έχει πληκτρολογήσει ο χρήστης στο πεδίο PassWord
-     * @return Επιστρέφει το string αυτό
      */
     String ExtractPassword();
     /**
