@@ -30,6 +30,8 @@ public class PlaceOrderPresenter {
 
     Customer customer;
 
+    boolean isConfirmed = false;
+
     public PlaceOrderPresenter(RestaurantDAO restaurantDAO,CustomerDAO customerDAO,OrderDAO orderDAO)
     {
         this.restaurantDAO = restaurantDAO;
@@ -82,7 +84,6 @@ public class PlaceOrderPresenter {
         } else {
             view.showDishList();
         }
-
     }
 
     /**
@@ -93,14 +94,21 @@ public class PlaceOrderPresenter {
      */
     public void onPlaceOrder() {
         if (!order.getOrderLines().isEmpty()) {
-            if (restaurant.addOrder(order)) {
-                orderDAO.save(order);
-                view.ShowConfirmationMessage();
+            if (order.getCustomer().getBalance()>=order.getTotalCost()) {
+                view.ShowConfirmationMessage(new ConfirmationListener() {
+                    @Override
+                    public void onConfirmation(boolean confirmed) {
+                        if (confirmed) {
+                            restaurant.addOrder(order);
+                            orderDAO.save(order);
+                            view.goBack();
+                        }
+                    }
+                });
             } else {
                 view.insufficientFundsMessage();
             }
         }
-
     }
 
     public double getTotalCost() {
@@ -133,5 +141,9 @@ public class PlaceOrderPresenter {
 
     public Restaurant getRestaurant() {
         return restaurant;
+    }
+
+    public void setIsConfirmed(boolean b) {
+        isConfirmed = b;
     }
 }
