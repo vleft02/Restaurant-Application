@@ -15,7 +15,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -26,7 +25,6 @@ import java.util.ArrayList;
 
 import gr.aueb.softeng.domain.Dish;
 
-import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.OrderLine;
 import gr.aueb.softeng.team08.R;
 import gr.aueb.softeng.view.Customer.OrderLineCart.OrderLineCartActivity;
@@ -90,11 +88,11 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     }
     /**
      * Εμφανίζουμε Alert dialog παράθυρο για να ενημερώσουμε τον χρήστη για το συνολικό κόστος της παραγγελίας.
-     * 'Επειτα ο χρήστης είτε διαλέγει να την ολοκληρώσει επιλέγοντας "Ναι" και επιστρέφει στο Homepage ή επιλέγει "Οχι" και
-     *  και κλείνει το παράθυρο
+     * 'Επειτα ο χρήστης είτε διαλέγει να την ολοκληρώσει επιλέγοντας "Ναι" και σετάροντας μια μεταβλητή isConfirmed true
+     * ή επιλέγει "Οχι" σετάρει την μεταβλητή isConfirmed σε false και κλείνει το παράθυρο.
      */
     @Override
-    public void ShowConfirmationMessage() {
+    public void ShowConfirmationMessage(ConfirmationListener confirmationListener) {
         new AlertDialog.Builder(PlaceOrderActivity.this)
                 .setTitle("Ολοκλήρωση Παραγγελίας")
                 .setMessage("Το σύνολο της Παραγγελίας σας είναι " + String.format("%.2f",viewModel.getPresenter().getTotalCost())+" €"+"\nΠραγματοποίηση Παραγγελίας;")
@@ -102,13 +100,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        finish();
+                        confirmationListener.onConfirmation(true);
                     }
                 })
                 .setNegativeButton("Οχι", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        confirmationListener.onConfirmation(false);
                     }
                 }).create().show();
 
@@ -227,6 +226,11 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         cartActivityResultLauncher.launch(intent);
     }
 
+    @Override
+    public void goBack()
+    {
+        finish();
+    }
 
 
 }

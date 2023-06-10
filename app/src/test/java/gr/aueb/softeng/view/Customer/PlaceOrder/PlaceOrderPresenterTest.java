@@ -144,11 +144,12 @@ public class PlaceOrderPresenterTest {
         presenter.addOrderLine(2,dish);
         dish = dishDAO.find(2);
         presenter.addOrderLine(1,dish);
+        view.setPlaceOrder(true);
         presenter.onPlaceOrder();
         assertEquals(8,orderDAO.findAll().size());
         assertEquals(23.0, orderDAO.find(8).getTotalCost(),0.00);
         assertEquals(customerDAO.find(3), orderDAO.find(8).getCustomer());
-        assertEquals("Are you sure you want to place your order",view.getMessage());
+        assertEquals("redirecting to homepage",view.getMessage());
     }
 
     @Test
