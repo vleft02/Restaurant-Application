@@ -2,6 +2,7 @@ package gr.aueb.softeng.view.SignUp.SignUpCustomer;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -42,7 +43,7 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
         new AlertDialog.Builder(SignUpCustomerActivity.this)
                 .setCancelable(true)
                 .setTitle("Επιτυχής δημιουργία λογαριασμού")
-                .setMessage("Ο λαγαριασμος δημιουργήθηκε με επιτυχία")
+                .setMessage("Ο λαγαριασμός δημιουργήθηκε με επιτυχία")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -67,6 +68,10 @@ public class SignUpCustomerActivity extends AppCompatActivity implements SignUpC
 
         SignUpCustomerViewModel viewModel = new ViewModelProvider(this).get(SignUpCustomerViewModel.class);
         viewModel.getPresenter().setView(this);
+        if (savedInstanceState == null){
+            Intent intent = getIntent();
+
+        }
         findViewById(R.id.CreateAccButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

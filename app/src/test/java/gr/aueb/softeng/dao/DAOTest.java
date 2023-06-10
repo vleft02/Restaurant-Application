@@ -238,6 +238,7 @@ public class DAOTest {
     @Test
     public void deleteCustomer(){
         Customer cust = customerDao.find("adreas:)");
+        int x = customerDao.findAll().size();
         customerDao.delete(cust);
         List<Customer> customers = customerDao.findAll();
         assertEquals(INITIAL_CUSTOMER_COUNT-1,customers.size());
