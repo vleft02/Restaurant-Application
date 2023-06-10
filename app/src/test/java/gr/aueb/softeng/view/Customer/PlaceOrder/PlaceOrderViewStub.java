@@ -10,11 +10,17 @@ public class PlaceOrderViewStub implements PlaceOrderView{
     private String message;
 
     private ArrayList<OrderLine> returnedOrderLines;
+    private boolean placeOrder;
 
 
     public PlaceOrderViewStub()
     {
         message="";
+        placeOrder =false;
+    }
+
+    public void setPlaceOrder(boolean placeOrder) {
+        this.placeOrder = placeOrder;
     }
 
     public boolean getDishListEmpty()
@@ -51,7 +57,17 @@ public class PlaceOrderViewStub implements PlaceOrderView{
     }
 
     @Override
-    public void ShowConfirmationMessage() {
-        message = "Are you sure you want to place your order";
+    public void ShowConfirmationMessage(ConfirmationListener confirmationListener) {
+        if (placeOrder == true)
+            confirmationListener.onConfirmation(true);
+        else
+        {
+            confirmationListener.onConfirmation(false);
+        }
+    }
+
+    @Override
+    public void goBack() {
+        message = "redirecting to homepage";
     }
 }

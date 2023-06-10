@@ -34,5 +34,8 @@ public interface PlaceOrderView {
      * 'Επειτα ο χρήστης είτε διαλέγει να την ολοκληρώσει επιλέγοντας "Ναι" και επιστρέφει στο Homepage ή επιλέγει "Οχι" και
      *  και κλείνει το παράθυρο
      */
-    void ShowConfirmationMessage();
+    void ShowConfirmationMessage(ConfirmationListener confirmationListener);
+
+    void goBack();
+
 }
