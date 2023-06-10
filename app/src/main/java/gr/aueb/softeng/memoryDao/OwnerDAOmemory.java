@@ -31,7 +31,7 @@ public class OwnerDAOmemory implements OwnerDAO {
 
     @Override
     public void deleteAll() {
-
+        entities.clear();
     }
 
     @Override
