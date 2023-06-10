@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>776</x>
+      <y>152</y>
+      <w>208</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>androidx.lifecycle.ViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>152</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>128</y>
+      <w>272</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>LoginViewModel
+--
+
+--
++ getPresenter():LoginPresenter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1048</x>
+      <y>848</y>
+      <w>344</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+UserDAO
+--
+
+--
++delete(entity:User);
++delete(id:int);
++deleteAll()
++findAll():List&lt;User&gt; 
++save(entity:User);
++find(username:String, password:String):Customer
++find(id:int):User
++find(username:String):User
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>608</y>
+      <w>440</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-customerDAO
+m1=1</panel_attributes>
+    <additional_attributes>10.0;310.0;530.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>304</x>
+      <y>856</y>
+      <w>344</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CustomerDAO
+--
+
+--
++delete(entity:Customer);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Customer&gt; 
++save(entity:Customer);
++find(username:String, password:String):Customer
++find(id:int):Customer
++find(username:String):Customer
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>856</x>
+      <y>616</y>
+      <w>136</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-ownerDAO
+m1=1</panel_attributes>
+    <additional_attributes>10.0;280.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>688</x>
+      <y>848</y>
+      <w>344</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+OwnerDAO
+--
+
+--
++delete(entity:Owner);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Owner&gt; 
++save(entity:Owner);
++find(username:String, password:String):Customer
++find(id:int):Owner
++find(username:String):Owner
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1048</x>
+      <y>608</y>
+      <w>120</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-userDAO
+m1=1</panel_attributes>
+    <additional_attributes>90.0;300.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1408</x>
+      <y>856</y>
+      <w>344</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+chefDAO
+--
+
+--
++delete(entity:Chef);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Chef&gt; 
++save(entity:Chef);
++find(username:String, password:String):Customer
++find(id:int):Chef
++find(username:String):Chef
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1168</x>
+      <y>608</y>
+      <w>368</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-chefDAO
+m1=1</panel_attributes>
+    <additional_attributes>440.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1128</x>
+      <y>192</y>
+      <w>120</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-presenter
+m1=1</panel_attributes>
+    <additional_attributes>10.0;240.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>24</y>
+      <w>352</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+LoginView
+--
+--
++ExtractUsername():String
++ExtractPassword():String
++showCustomerFoundMessage(id:int)
++showChefFoundMessage(id:int)
++showOwnerFoundMessage(id:int)
++signup():void
++signupPersonel():void
++signupOwner():void
++showErrorMessage(title :String,message:String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>456</y>
+      <w>400</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>LoginActivity
+--
+-initialized:boolean
+--
+#onCreate(SavedState : Bundle)
++redirectToCustomerPage(customerId:int)
++redirectToChefHomePage(chefId:int)
++redirectToOwnerHomePage(ownerId:int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>232</y>
+      <w>48</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>304</y>
+      <w>160</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lw=2
+AppCombatActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>320</y>
+      <w>96</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>808</x>
+      <y>384</y>
+      <w>400</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>LoginPresenter
+--
++LoginPresenter(chefDao:ChefDAO,custDao:CustDAO,
+ownerDao:OwnerDAO, userDao:UserDAO
++getView():LoginView
++setView(view:LoginView)
++authenticate():void
++onSignup():void
++onSignUpPersonel():void
++onSignUpOwner():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>192</y>
+      <w>528</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+viewModel
+m1=1</panel_attributes>
+    <additional_attributes>640.0;10.0;10.0;380.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>720</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;layout&gt;&gt;
+activity_login</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>616</y>
+      <w>24</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
