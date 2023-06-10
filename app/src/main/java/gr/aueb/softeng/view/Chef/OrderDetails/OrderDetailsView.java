@@ -21,7 +21,7 @@ public interface OrderDetailsView {
      * Εμφανιζει στην οθόνη την ώρα και λεπτό που έγινε η παραγγελία
      * @param date η ώρα και το λεπτό σε μορφή ενωμένου String
      */
-    public void setDate(String date);
+     void setDate(String date);
     /**
      * Καλείται όταν θέλουμε να επιστρέψουμε στο προηγούμενο Activity , δηλαδή στο login Page στην περίπτωσή μας(αυτό καλεί το activity μας)
      *

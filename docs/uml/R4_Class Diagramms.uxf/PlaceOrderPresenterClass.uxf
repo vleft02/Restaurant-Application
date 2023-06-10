@@ -1,0 +1,96 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>608</x><y>448</y><w>304</w><h>240</h></coordinates><panel_attributes>PlaceOrderPresenter
+--
+-view:PlaceOrderView
+--
++setView(view:PlaceOrderView)
++getView():PlaceOrderView
++getDishes(: ArrayList&lt;Dish&gt;
++addOrderLine(quantity:int,dish:Dish)
++setRestaurant(restaurantId:int)
++onChangeLayout()
++onPlaceOrder() 
++getTotalCost():double
++createOrder(tableNumber:int) 
++setCustomer(customerId:int)
++getOrder():Order
++getCustomer():Customer 
++onCart()
++setOrderLines(modifiedOrderLines:ArrayList&lt;OrderLine&gt;)
++getRestaurant():Restaurant
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>536</x><y>312</y><w>208</w><h>64</h></coordinates><panel_attributes>PlaceOrderViewModel
+--
+
+--
++ getPresenter():PlaceOrderPresenter</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>208</x><y>568</y><w>352</w><h>128</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+PlaceOrderView
+--
++ShowConfirmationButton(confirmationListener : ConfirmationListener)
++insufficientFundsMessage()
++showNumberPickerPopup(dish:Dish)
++showEmptyList()
++showDishList()
++redirectToCart()
++goBack()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>48</x><y>192</y><w>336</w><h>136</h></coordinates><panel_attributes>PlaceOrderActivity
+--
+-cartActivityResultLauncher:ActivityResultLauncher&lt;Intent&gt; 
+-customerId: int
+-restaurantId: int
+-tableNumber:int
+-recyclerView:RecyclerView 
+-emptyView:TextView
+-placeOrderButton:Button
+--
+#onCreate(SavedState : Bundle)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>40</y><w>24</w><h>168</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>UMLClass</id><coordinates><x>232</x><y>24</y><w>120</w><h>24</h></coordinates><panel_attributes>AppCompatActivity</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>376</x><y>280</y><w>176</w><h>64</h></coordinates><panel_attributes>lt=&lt;-
+-viewModel
+m1=1</panel_attributes><additional_attributes>200;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>368</y><w>72</w><h>96</h></coordinates><panel_attributes>lt=&lt;-
+-presenter
+m1=1</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>232</y><w>24</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>320</y><w>24</w><h>72</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>376</y><w>120</w><h>40</h></coordinates><panel_attributes>&lt;&lt;layout&gt;&gt;
+activity_place_order</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>512</x><y>216</y><w>160</w><h>24</h></coordinates><panel_attributes>androidx.lifecycle.ViewModel</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>968</x><y>456</y><w>88</w><h>32</h></coordinates><panel_attributes>Customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>968</x><y>512</y><w>88</w><h>32</h></coordinates><panel_attributes>Order</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>456</y><w>80</w><h>64</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>80;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>504</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>80;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>512</y><w>80</w><h>88</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>80;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>968</x><y>576</y><w>88</w><h>32</h></coordinates><panel_attributes>Restaurant</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>464</x><y>680</y><w>192</w><h>96</h></coordinates><panel_attributes>lt=&lt;-
+-customerDAO
+m1=1</panel_attributes><additional_attributes>10;100;220;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>680</y><w>200</w><h>96</h></coordinates><panel_attributes>lt=&lt;-
+-orderDAO
+m1=1</panel_attributes><additional_attributes>230;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>680</y><w>96</w><h>96</h></coordinates><panel_attributes>lt=&lt;-
+-restaurantDAO
+m1=1</panel_attributes><additional_attributes>10;100;20;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>384</x><y>760</y><w>256</w><h>168</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+CustomerDAO
+--
+
+--
++delete(entity:Customer);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Customer&gt; 
++save(entity:Customer);
++find(username:String, password:String):Customer
++find(id:int):Customer
++find(username:String):Customer
++nextId():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>656</x><y>760</y><w>280</w><h>176</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+RestaurantDAO
+--
+
+--
++delete(entity:Restaurant);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Restaurant&gt; 
++save(entity:Restaurant);
++find(id:int):Restaurant
++find(username:String):Restaurant
++nextId():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>944</x><y>760</y><w>264</w><h>176</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+OrderDAO
+--
+
+--
++delete(entity:Order);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Order&gt; 
++save(entity:Order);
++find(id:int):Order
++findByCustomer(customer:Customer):List&lt;Order&gt;
++nextId():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>320</y><w>24</w><h>136</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>8</x><y>440</y><w>168</w><h>64</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+DishSelectionListener
+--
++selectDish(currentDish:Dish)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>320</y><w>24</w><h>264</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;310;10;10</additional_attributes></element></diagram>

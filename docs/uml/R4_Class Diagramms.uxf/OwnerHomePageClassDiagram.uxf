@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>300</y>
+      <w>360</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+OwnerHomePageView
+--
+--
++AddRestaurant():void
++ShowNo		Restaurants():void
++ShowRestaurants():void
++goBack():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>610</y>
+      <w>500</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>OwnerHomePageActivity
+--
+-initialized:boolean
++ownerId:int
+emptyView:TextView
+--
+#onCreate(SavedState : Bundle)
+#onResume():void
++selectRestaurant(restaurants:Restaurant)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>950</x>
+      <y>300</y>
+      <w>500</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>OwnerHomePagePresenter
+--
+-owner:Owner
+--
+
++OwnerHomePagePresenter(ownerDao:OwnerDAO,
+restaurantDao:RestaurantDAO)
++getView():LoginView
++setView(view:LoginView)
++setRestaurantList():void
++getOwnerDao():OwnerDAO
++getRestaurantDao():RestaurantDAO
++getRestaurants():ArrayList&lt;Resturant&gt;
++setOwner(owner:Owner)
++onAddResturant():void
++getRestaurantList():ArrayList&lt;Restaurant&gt;
++onChangeLayout:void
++onBack():void
++getOwner():Owner
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>140</y>
+      <w>390</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>OwnerHomePageViewModel
+--
+
+--
++ getPresenter():OwnerHomePagePresenter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>110</x>
+      <y>950</y>
+      <w>370</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ItemSelectionListener
+
+--
++selectRestaurant(restaurants:Restaurant)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>950</y>
+      <w>250</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;layout&gt;&gt;
+activity_owner_Home_Page</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>440</y>
+      <w>30</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>780</y>
+      <w>100</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;170.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>780</y>
+      <w>30</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>660</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>AppCompatActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>670</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>220</y>
+      <w>150</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-viewModel
+m1=1</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;380.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>0</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>androidx.lifecycle.ViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>20</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>220</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-presenter
+m1=1</panel_attributes>
+    <additional_attributes>40.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>830</y>
+      <w>430</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+OwnerDAO
+--
+
+--
++delete(entity:Owner);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Owner&gt; 
++save(entity:Owner);
++find(username:String, password:String):Customer
++find(id:int):Owner
++find(username:String):Owner
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>660</y>
+      <w>150</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-ownerDAO
+m1=1</panel_attributes>
+    <additional_attributes>10.0;170.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>830</y>
+      <w>350</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RestaurantDAO
+--
+
+--
++delete(entity:Restaurant);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Restaurant&gt; 
++save(entity:Restaurant);
++find(id:int):Restaurant
++find(username:String):Restaurant
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1260</x>
+      <y>660</y>
+      <w>170</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-resturantDAO
+m1=1</panel_attributes>
+    <additional_attributes>60.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1530</x>
+      <y>570</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Restaurant</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1440</x>
+      <y>560</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1530</x>
+      <y>490</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Owner</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1440</x>
+      <y>500</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
