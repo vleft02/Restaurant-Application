@@ -104,10 +104,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-/*        //USED FOR DEBUGGING
+        //USED FOR DEBUGGING
         MemoryInitializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
-        //REMOVE LATER*/
+        //REMOVE LATER
 
         LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         viewModel.getPresenter().setView(this);

@@ -71,6 +71,10 @@ public class DAOTest {
         MemoryInitializer dataHelper = new MemoryInitializer();
         dataHelper.eraseAll();
     }
+
+    /**
+     * Έλεγχοι μεγεθών όλων των DAOS μαζι με το expected απο αυτά που έχουμε προσθέσει στον Initializer
+     */
     @Test
     public void chefsSizeCheck(){
         assertEquals(2, chefDao.findAll().size());
@@ -100,7 +104,10 @@ public class DAOTest {
     public void usersSizeCheck(){
         assertEquals(9,userDao.findAll().size());
     }
-////////////////////////////////////////////////////////////////
+
+    /**
+     * Εύρεση αντικειμένων μέσα απο τα DAOS
+     */
     @Test
     public void findExistingChef(){
         assertNotNull(chefDao.find("platias"));
@@ -131,7 +138,10 @@ public class DAOTest {
     public void findExistingUser(){
         assertNotNull(userDao.find("platias"));
     }
-    /////////////////////////////////////////////////////////////////
+
+    /**
+     * Προσπάθεια εύρεσης αντικειμένων μέσα στα DAOS που δεν υπάρχουν
+     */
     @Test
     public void getNonExistantChef(){
         assertNull(chefDao.find(10));
@@ -164,7 +174,10 @@ public class DAOTest {
     public void getNonExistantUser(){
         assertNull(userDao.find("xristou"));
     }
-/////////////////////////////////////////////////////////////////////
+
+    /**
+     * Έλεγχος των μεγεθών τον λιστών των DAOS
+     */
     @Test
     public void listAllChefs() {
         List<Chef> allChefs = chefDao.findAll();
@@ -206,6 +219,9 @@ public class DAOTest {
         assertEquals(INITIAL_USER_COUNT,allUsers.size());
     }
 
+    /**
+     * Αποθήκευση ενός νέου αντικειμένου και μετά έλεγχος νέου μεγέθους και ύπαρξης του αντικειμένου στην λίστα
+     */
     @Test
     public void saveChef(){
         Chef chef = new Chef("papachris123","christos","papachristos","1234567890","@","123456789", chefDao.nextId(),"12345678","1234567");
@@ -216,6 +232,9 @@ public class DAOTest {
         assertTrue(chefs.contains(chef));
     }
 
+    /**
+     * Διαγραφή ενός αντικειμένου και με΄τα έλεγχος νέου μεγεθους και μη - υπαρξης του αντικεμένου στην λίστα
+     */
     @Test
     public void deleteChef(){
         Chef chef = chefDao.find("platias");
