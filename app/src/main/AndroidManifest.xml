@@ -77,7 +77,7 @@
         <activity
             android:name="gr.aueb.softeng.view.Login.LoginActivity"
             android:exported="true"
-            android:label="@string/log_in"
+            android:label="Restaurant Application"
             android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
