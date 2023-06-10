@@ -114,14 +114,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     }
 
     private ActivityResultLauncher<Intent> cartActivityResultLauncher;
-    PlaceOrderViewModel viewModel;
-    int customerId = -1;
-    int restaurantId = -1;
+    private PlaceOrderViewModel viewModel;
+    private int customerId = -1;
+    private int restaurantId = -1;
 
-    int tableNumber = 0;
-    RecyclerView recyclerView;
-    TextView emptyView;
-    Button placeOrderButton;
+    private int tableNumber = 0;
+    private RecyclerView recyclerView;
+    private TextView emptyView;
+    private Button placeOrderButton;
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

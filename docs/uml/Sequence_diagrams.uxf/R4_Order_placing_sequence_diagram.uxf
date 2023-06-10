@@ -1,23 +1,527 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLActor</id><coordinates><x>40</x><y>10</y><w>80</w><h>110</h></coordinates><panel_attributes>Customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>680</x><y>270</y><w>100</w><h>30</h></coordinates><panel_attributes>:Order</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>180</x><y>70</y><w>100</w><h>30</h></coordinates><panel_attributes>:Restaurant</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>370</y><w>100</w><h>30</h></coordinates><panel_attributes>:orderLine</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>70</y><w>100</w><h>30</h></coordinates><panel_attributes>:Dish</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>100</y><w>30</w><h>930</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;910</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>90</y><w>30</w><h>940</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;920</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>390</y><w>30</w><h>640</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;620</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>90</y><w>30</w><h>940</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;920</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>80</x><y>120</y><w>20</w><h>860</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>150</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-getDishes()</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>220</x><y>160</y><w>20</w><h>50</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>190</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-Dishes/Menu</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>20</x><y>320</y><w>840</w><h>230</h></coordinates><panel_attributes>loop
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>355</x>
+      <y>15</y>
+      <w>15</w>
+      <h>1060</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>335</x>
+      <y>0</y>
+      <w>75</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>_:PlaceOrderPresenter_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>445</x>
+      <y>0</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>_:PlaceOrderView_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>15</y>
+      <w>20</w>
+      <h>1030</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;2040.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>20</y>
+      <w>15</w>
+      <h>1035</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2050.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>555</x>
+      <y>5</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>_:OrderDAO_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>635</x>
+      <y>5</y>
+      <w>75</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>_Restaurant:restaurant_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>675</x>
+      <y>20</y>
+      <w>15</w>
+      <h>1025</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2030.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>30</y>
+      <w>95</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+onPlaceOrder()</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>355</x>
+      <y>40</y>
+      <w>10</w>
+      <h>755</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>745</x>
+      <y>10</y>
+      <w>50</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>_Order:order_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>45</y>
+      <w>410</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getOrderLines()</panel_attributes>
+    <additional_attributes>800.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>75</y>
+      <w>410</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;800.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>310</x>
+      <y>185</y>
+      <w>650</w>
+      <h>565</h>
+    </coordinates>
+    <panel_attributes>opt
 --
-[while customer is adding dishes to his order]
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>510</x><y>470</y><w>20</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>260</y><w>610</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-Create</panel_attributes><additional_attributes>590;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>500</y><w>660</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-addOrderLine(orderLine)</panel_attributes><additional_attributes>640;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>720</x><y>560</y><w>20</w><h>320</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>570</y><w>650</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-getTotalCost()</panel_attributes><additional_attributes>630;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>880</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-addOrder(order)</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>930</y><w>230</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-Succesful Order Placement Message</panel_attributes><additional_attributes>50;20;170;20</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>370</y><w>400</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-Create(dish,quantity)</panel_attributes><additional_attributes>380;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>460</y><w>440</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-setQuantity(quantity)</panel_attributes><additional_attributes>420;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>510</x><y>410</y><w>20</w><h>20</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>400</y><w>440</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-Return()</panel_attributes><additional_attributes>10;20;420;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>510</x><y>660</y><w>20</w><h>140</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>660</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-getSubTotalCost()</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>10</x><y>610</y><w>840</w><h>230</h></coordinates><panel_attributes>loop
+[getOrderLines.isEmpty()]
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>760</x>
+      <y>55</y>
+      <w>10</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>355</x>
+      <y>120</y>
+      <w>415</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getCustomer()</panel_attributes>
+    <additional_attributes>810.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>760</x>
+      <y>130</y>
+      <w>10</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>805</x>
+      <y>5</y>
+      <w>75</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>_Customer:customer_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>165</y>
+      <w>410</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;800.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>755</x>
+      <y>20</y>
+      <w>20</w>
+      <h>1040</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;2060.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>835</x>
+      <y>20</y>
+      <w>15</w>
+      <h>1030</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2040.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>835</x>
+      <y>140</y>
+      <w>10</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>765</x>
+      <y>130</y>
+      <w>80</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getBalance()</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>765</x>
+      <y>160</y>
+      <w>80</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>355</x>
+      <y>200</y>
+      <w>415</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getTotalCost()</panel_attributes>
+    <additional_attributes>810.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>355</y>
+      <w>120</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>760</x>
+      <y>210</y>
+      <w>10</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>335</x>
+      <y>280</y>
+      <w>610</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>alt
 --
-[while there are more orderLines in the order]
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>360</x><y>690</y><w>20</w><h>50</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>670</y><w>160</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-getDishWorth()</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>700</y><w>160</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-worth</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>720</y><w>180</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-quantity*worth</panel_attributes><additional_attributes>10;40;70;40;70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>770</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-subTotalCost</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>290</y><w>30</w><h>740</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;720</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>850</y><w>650</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-TotalCost</panel_attributes><additional_attributes>10;20;630;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>220</x><y>880</y><w>20</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element></diagram>
+[order.getCustomer().getBalance() &gt;= order.getTotalCost()]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+[else]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>305</y>
+      <w>120</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+ShowConfirmationButton</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>315</y>
+      <w>10</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>370</y>
+      <w>325</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+add(order)</panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>405</y>
+      <w>325</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;630.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>440</y>
+      <w>230</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+save(order)</panel_attributes>
+    <additional_attributes>440.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>460</y>
+      <w>230</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;440.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>580</x>
+      <y>450</y>
+      <w>10</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>675</x>
+      <y>380</y>
+      <w>10</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>485</y>
+      <w>125</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+goBack()</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>475</x>
+      <y>495</y>
+      <w>10</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>510</y>
+      <w>125</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>580</y>
+      <w>125</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+insufficientFundsMessage()</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>615</y>
+      <w>125</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>475</x>
+      <y>590</y>
+      <w>10</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>245</y>
+      <w>410</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;800.0;10.0</additional_attributes>
+  </element>
+</diagram>

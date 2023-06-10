@@ -1,9 +1,5 @@
 package gr.aueb.softeng.view.Customer.PlaceOrder;
 
-import android.view.View;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -19,18 +15,16 @@ import gr.aueb.softeng.domain.Restaurant;
 public class PlaceOrderPresenter {
     PlaceOrderView view;
 
-    RestaurantDAO restaurantDAO;
-    Restaurant restaurant;
+    private RestaurantDAO restaurantDAO;
+    private Restaurant restaurant;
 
-    OrderDAO orderDAO;
+    private OrderDAO orderDAO;
 
-    Order order;
+    private Order order;
 
-    CustomerDAO customerDAO;
+    private CustomerDAO customerDAO;
 
     Customer customer;
-
-    boolean isConfirmed = false;
 
     public PlaceOrderPresenter(RestaurantDAO restaurantDAO,CustomerDAO customerDAO,OrderDAO orderDAO)
     {
@@ -143,7 +137,4 @@ public class PlaceOrderPresenter {
         return restaurant;
     }
 
-    public void setIsConfirmed(boolean b) {
-        isConfirmed = b;
-    }
 }
