@@ -22,7 +22,7 @@
             android:id="@+id/CurrentOrderTab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/current_order"
+            android:text="@string/order_history"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="70dp"
             tools:layout_editor_absoluteY="177dp" />
@@ -31,7 +31,7 @@
             android:id="@+id/OrderHistoryTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/order_history"
+            android:text="@string/current_order"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="195dp"
             tools:layout_editor_absoluteY="129dp" />

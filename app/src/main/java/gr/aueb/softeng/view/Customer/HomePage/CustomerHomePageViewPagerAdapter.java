@@ -18,11 +18,12 @@ public class CustomerHomePageViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {//The tab which should be next is chosen
         switch(position) {
             case 0:
-                currFragment = CurrentOrderPageFragment.newInstance(listener);
-                return currFragment;
-            case 1:
                 currFragment =  OrderHistoryPageFragment.newInstance(listener);
                 return currFragment;
+            case 1:
+                currFragment = CurrentOrderPageFragment.newInstance(listener);
+                return currFragment;
+
             default:
                  currFragment = CurrentOrderPageFragment.newInstance(listener);
                  return currFragment;

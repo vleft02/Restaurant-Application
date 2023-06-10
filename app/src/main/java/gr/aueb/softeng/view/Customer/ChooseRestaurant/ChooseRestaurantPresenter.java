@@ -12,9 +12,9 @@ import gr.aueb.softeng.domain.Restaurant;
 public class ChooseRestaurantPresenter {
 
     ChooseRestaurantView view;
-    RestaurantDAO restaurantDAO;
+    private RestaurantDAO restaurantDAO;
 
-    ArrayList<Restaurant> restaurants;
+    private ArrayList<Restaurant> restaurants;
 
     public ChooseRestaurantPresenter(RestaurantDAO restaurantDAO)
     {
