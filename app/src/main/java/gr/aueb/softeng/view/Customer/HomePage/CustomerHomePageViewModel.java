@@ -15,9 +15,9 @@ import gr.aueb.softeng.memoryDao.RestaurantDAOmemory;
 public class CustomerHomePageViewModel extends ViewModel {
     CustomerHomepagePresenter presenter;
 
-    public CustomerHomePageViewModel(CustomerDAO customerDAO, OrderDAO orderDAO, ChefDAO chefDAO)
+    public CustomerHomePageViewModel()
     {
-        presenter = new CustomerHomepagePresenter(new CustomerDAOmemory(),new OrderDAOmemory(), new ChefDAOmemory(),new RestaurantDAOmemory());
+        presenter = new CustomerHomepagePresenter(new CustomerDAOmemory(),new OrderDAOmemory(),new RestaurantDAOmemory());
     }
     public CustomerHomepagePresenter getPresenter() {
         return presenter;

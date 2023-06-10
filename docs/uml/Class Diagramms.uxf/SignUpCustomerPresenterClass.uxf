@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>3</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>555</x>
+      <y>312</y>
+      <w>93</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>SignUpCustomerPresenter
+--
+-view:SignUpOrderView
+--
++setView(v:SignUpCustomerView)
++getView():SignUpCustomerView
++onCreateAccount(
++onBack()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>531</x>
+      <y>270</y>
+      <w>78</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>SignUpCustomerViewModel
+--
+
+--
++ getPresenter():SignUpPresenter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>309</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SignUpCustomerView
+--
++getDetails(): HashMap&lt;String,String&gt;
++showErrorMessage(String title, String message)
++goBack()
++showAccountCreatedMessage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>363</x>
+      <y>237</y>
+      <w>93</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SignUpCustomerActivity
+--
+
+--
+#onCreate(SavedState : Bundle)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>435</x>
+      <y>198</y>
+      <w>9</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>417</x>
+      <y>192</y>
+      <w>45</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>AppCompatActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>453</x>
+      <y>264</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-viewModel
+m1=1</panel_attributes>
+    <additional_attributes>260.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>591</x>
+      <y>291</y>
+      <w>30</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-presenter
+m1=1</panel_attributes>
+    <additional_attributes>10.0;70.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>564</x>
+      <y>240</y>
+      <w>9</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>363</x>
+      <y>264</y>
+      <w>45</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;160.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>348</x>
+      <y>312</y>
+      <w>45</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;layout&gt;&gt;
+activity_sign_up</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>522</x>
+      <y>234</y>
+      <w>60</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>androidx.lifecycle.ViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>357</y>
+      <w>63</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-customerDAO
+m1=1</panel_attributes>
+    <additional_attributes>10.0;230.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>357</y>
+      <w>45</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-userDAO
+m1=1</panel_attributes>
+    <additional_attributes>120.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>426</y>
+      <w>96</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CustomerDAO
+--
+
+--
++delete(entity:Customer);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Customer&gt; 
++save(entity:Customer);
++find(username:String, password:String):Customer
++find(id:int):Customer
++find(username:String):Customer
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>603</x>
+      <y>429</y>
+      <w>99</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+UserDAO
+--
+
+--
++delete(entity:User);
++delete(id:int);
++deleteAll()
++findAll():List&lt;User&gt; 
++save(entity:User);
++find(username:String, password:String):User
++find(id:int):Customer
++find(username:String):User
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>429</x>
+      <y>264</y>
+      <w>15</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <help_text/>
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>265</y>
+      <w>190</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>CustomerHomepagePresenter
+--
+-view:CustomerHomepageView
+--
++setRestaurant(restaurantId:int)
++getRestaurant():Restaurant
++setCustomer(id:int)
++setOrderHistory()
++setCurrentOrder()
++getCurrentOrder():Order
++getCustomer():Cusotmer
++getOrderHistory():ArrayList&lt;Order&gt; 
++setView(view:CustomerHomepageView )
++getView():CustomerHomepageView 
++getCurrentOrderDetails():String
++onCancel
++cancel()
++chooseLayout()
++onTopUp()
++getRestaurantCapacity():int
++publiccheckTableAvailability(tableNumber:int): boolean 
++onPlaceOrder()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>625</x>
+      <y>180</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>CustomerHomePageViewModel
+--
+
+--
++ getPresenter():CustomerHomePagePresenter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>340</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CustomerHomepageView
+--
++ ShowConfirmationMessage();
++ redirectTopUp();
++ showCurrentOrder();
++ showNoCurrentOrder();
++ showTableNumberPickerPopup();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>80</y>
+      <w>220</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>CustomerHomepageActivity
+--
+tabLayout:TabLayout 
+viewPager2:ViewPager2 
+-customerId:int
+-restaurantId:int
+-tableNumber:int
+--
+#onCreate(SavedState : Bundle)
++tableUnavailableMessage()
+#onPause()
+#onResume()
++redirectPlaceOrder()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>465</x>
+      <y>10</y>
+      <w>15</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>435</x>
+      <y>0</y>
+      <w>75</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>AppCompatActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>535</x>
+      <y>135</y>
+      <w>100</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-viewModel
+m1=1</panel_attributes>
+    <additional_attributes>180.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>215</y>
+      <w>45</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-presenter
+m1=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>130</y>
+      <w>15</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>415</x>
+      <y>185</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>345</x>
+      <y>220</y>
+      <w>120</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;layout&gt;&gt;
+activity_ctivity_customer_homepage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>120</y>
+      <w>100</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>androidx.lifecycle.ViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>855</x>
+      <y>300</y>
+      <w>70</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>855</x>
+      <y>305</y>
+      <w>60</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>100.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>905</x>
+      <y>335</y>
+      <w>55</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Restaurant</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>595</x>
+      <y>430</y>
+      <w>105</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-customerDAO
+m1=1</panel_attributes>
+    <additional_attributes>10.0;140.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>430</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-orderDAO
+m1=1</panel_attributes>
+    <additional_attributes>10.0;120.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>545</x>
+      <y>500</y>
+      <w>160</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CustomerDAO
+--
+
+--
++delete(entity:Customer);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Customer&gt; 
++save(entity:Customer);
++find(username:String, password:String):Customer
++find(id:int):Customer
++find(username:String):Customer
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>490</y>
+      <w>165</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+OrderDAO
+--
+
+--
++delete(entity:Order);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Order&gt; 
++save(entity:Order);
++find(id:int):Order
++findByCustomer(customer:Customer):List&lt;Order&gt;
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>465</x>
+      <y>185</y>
+      <w>15</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>185</y>
+      <w>15</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>260</y>
+      <w>105</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+OrderSelectionListener
+--
++selectOrder(currentItem:Order)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>855</x>
+      <y>270</y>
+      <w>50</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>895</x>
+      <y>270</y>
+      <w>55</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>905</x>
+      <y>490</y>
+      <w>175</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RestaurantDAO
+--
+
+--
++delete(entity:Restaurant);
++delete(id:int);
++deleteAll()
++findAll():List&lt;Restaurant&gt; 
++save(entity:Restaurant);
++find(id:int):Restaurant
++find(username:String):Restaurant
++nextId():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>845</x>
+      <y>430</y>
+      <w>105</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-restaurantDAO
+m1=1</panel_attributes>
+    <additional_attributes>190.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>915</x>
+      <y>305</y>
+      <w>45</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>Order</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -125,6 +126,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_place_order);
         viewModel = new ViewModelProvider(this).get(PlaceOrderViewModel.class);
         viewModel.getPresenter().setView(this);
