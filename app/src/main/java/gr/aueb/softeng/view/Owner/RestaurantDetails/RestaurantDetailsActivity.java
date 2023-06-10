@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
@@ -110,6 +111,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements Rest
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_restaurant_details);
         viewModel = new ViewModelProvider(this).get(RestaurantDetailsViewModel.class);
         viewModel.getPresenter().setView(this);

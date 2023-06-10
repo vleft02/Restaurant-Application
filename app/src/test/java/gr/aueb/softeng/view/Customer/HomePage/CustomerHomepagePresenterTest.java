@@ -43,7 +43,7 @@ public class CustomerHomepagePresenterTest {
         restaurantDAO = new RestaurantDAOmemory();
 
 
-        presenter = new CustomerHomepagePresenter(customerDAO, orderDAO, chefDAO, restaurantDAO);
+        presenter = new CustomerHomepagePresenter(customerDAO, orderDAO, restaurantDAO);
         presenter.setView(view);
     }
 

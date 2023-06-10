@@ -16,18 +16,15 @@ import gr.aueb.softeng.domain.Order;
 import gr.aueb.softeng.domain.Restaurant;
 
 public class CustomerHomepagePresenter {
-    CustomerDAO customerDAO;
-    OrderDAO orderDAO;
-    ChefDAO chefDAO;
-    RestaurantDAO restaurantDAO;
-    CustomerHomepageView view;
-    CurrentOrderPageFragment currentOrderPageFragment;
-    OrderHistoryPageFragment orderHistoryPageFragment;
-    Order currentOrder;
-    Customer customer;
-    Restaurant restaurant;
+    private CustomerDAO customerDAO;
+    private OrderDAO orderDAO;
+    private RestaurantDAO restaurantDAO;
+    private CustomerHomepageView view;
+    private Order currentOrder;
+    private Customer customer;
+    private Restaurant restaurant;
 
-    ArrayList<Order> orderHistory;
+    private ArrayList<Order> orderHistory;
 
     /**
      * Αρχικοποιεί τον Presenter έτσι ώστε
@@ -35,14 +32,12 @@ public class CustomerHomepagePresenter {
      * απαραίτητες λειτουργίες του customer
      * @param customerDAO αντικείμενο τυπου CustomerDAO
      * @param orderDAO αντικείμενο τυπου OrderDAO
-     * @param chefDAO αντικείμενο τύπου ChefDAO
      * @param restaurantDAO αντικείμενο τυπου RestaurantDAO
      */
-    public CustomerHomepagePresenter(CustomerDAO customerDAO, OrderDAO orderDAO,ChefDAO chefDAO,RestaurantDAO restaurantDAO)
+    public CustomerHomepagePresenter(CustomerDAO customerDAO, OrderDAO orderDAO,RestaurantDAO restaurantDAO)
     {
         this.customerDAO = customerDAO;
         this.orderDAO = orderDAO;
-        this.chefDAO = chefDAO;
         this.restaurantDAO = restaurantDAO;
         orderHistory = new ArrayList<>();
     }

@@ -4,6 +4,7 @@ package gr.aueb.softeng.view.Customer.TopUp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -16,9 +17,9 @@ import gr.aueb.softeng.team08.R;
  */
 
 public class TopUpActivity extends AppCompatActivity implements TopUpView{
-int customerId = -1;
-TopUpViewModel viewModel;
-TextView balanceText;
+private int customerId = -1;
+private TopUpViewModel viewModel;
+private TextView balanceText;
     /**
      * Δημιουργεί to layout και αρχικοποιεί
      * το activity.
@@ -27,6 +28,7 @@ TextView balanceText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_top_up);
 
 
@@ -78,6 +80,7 @@ TextView balanceText;
     /**
      * Σετάρουμε το textView να δείχνει το απαραίτητο χρηματικό υπόλοιπο
      */
+    @Override
     public void setBalance(String balance) {
        balanceText.setText(balance);
     }

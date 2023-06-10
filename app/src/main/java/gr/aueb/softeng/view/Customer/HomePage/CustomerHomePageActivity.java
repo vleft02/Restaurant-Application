@@ -2,6 +2,7 @@ package gr.aueb.softeng.view.Customer.HomePage;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.PopupWindow;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -33,12 +35,12 @@ import gr.aueb.softeng.view.Customer.TopUp.TopUpActivity;
  */
 public class CustomerHomePageActivity extends AppCompatActivity implements CustomerHomepageView,FragmentListener{
 
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    int customerId = -1;
-    int restaurantId = -1;
-    CustomerHomePageViewModel viewModel;
-    int tableNumber = 0;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private int customerId = -1;
+    private int restaurantId = -1;
+    private CustomerHomePageViewModel viewModel;
+    private int tableNumber = 0;
 
     /**
      * Εμφανίζεται pop up παράθυρο για την επιλογή
@@ -136,10 +138,11 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_customer_homepage);
 
 
-        viewModel = new CustomerHomePageViewModel(new CustomerDAOmemory(), new OrderDAOmemory(),new ChefDAOmemory());
+        viewModel = new ViewModelProvider(this).get(CustomerHomePageViewModel.class);
         viewModel.getPresenter().setView(this);
         if (savedInstanceState == null)
         {
@@ -240,11 +243,6 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
     }
 
 
-    public int getCustomerId()
-    {
-        return customerId;
-    }
-
     public CustomerHomePageViewModel getViewModel()
     {
         return viewModel;
@@ -281,6 +279,5 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Custo
         intent.putExtra("TableNumber",tableNumber);
         startActivity(intent);
     }
-
 
 }

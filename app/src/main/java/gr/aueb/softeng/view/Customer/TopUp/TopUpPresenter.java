@@ -5,9 +5,9 @@ import gr.aueb.softeng.dao.CustomerDAO;
 import gr.aueb.softeng.domain.Customer;
 
 public class TopUpPresenter {
-    TopUpView view;
-    CustomerDAO customerDAO;
-    Customer customer;
+    private TopUpView view;
+    private CustomerDAO customerDAO;
+    private Customer customer;
     public TopUpPresenter(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
