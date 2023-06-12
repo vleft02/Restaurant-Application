@@ -146,7 +146,7 @@
         android:layout_width="111dp"
         android:layout_height="85dp"
         android:backgroundTint="#BADC3D6A"
-        android:text="Go Back"
+        android:text="@string/go_back1"
         android:textAllCaps="false"
         android:textColor="#1C1313"
         android:textSize="20sp"

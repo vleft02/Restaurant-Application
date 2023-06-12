@@ -115,12 +115,6 @@ public abstract class Initializer {
         orderDAO.save(order3);
 
 
-/*
-
-        chef.addOrder(order1);
-        chef.addOrder(order2);
-        chef.addOrder(order3);
-DIOTI OTAN TO PERNAW STO RESTAURANT TA VAZEI APEUTHEIS STON CXHEF AUTON*/
 
 
 

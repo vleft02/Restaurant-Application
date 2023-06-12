@@ -105,7 +105,7 @@
             android:ems="10"
             android:inputType="number"
             android:minHeight="48dp"
-            android:hint="Card Number"
+            android:hint="@string/card_number9"
             app:layout_constraintBottom_toTopOf="@+id/CardHolderNameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -170,7 +170,7 @@
         android:layout_width="111dp"
         android:layout_height="85dp"
         android:backgroundTint="#BAB34444"
-        android:text="Go Back"
+        android:text="@string/go_back8"
         android:textAllCaps="false"
         android:textColor="#D69292"
         android:textSize="20sp"

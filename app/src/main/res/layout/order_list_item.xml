@@ -13,7 +13,7 @@
         android:layout_height="36dp"
         android:background="#00D5C8C8"
         android:backgroundTint="#FFFFFF"
-        android:text="textView"
+        android:text="@string/textview7"
         android:textAlignment="viewStart"
         android:textColor="#1E1817"
         android:textSize="14sp"

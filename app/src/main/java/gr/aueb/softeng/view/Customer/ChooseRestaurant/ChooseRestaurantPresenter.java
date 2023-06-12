@@ -15,6 +15,10 @@ public class ChooseRestaurantPresenter {
     private RestaurantDAO restaurantDAO;
 
     private ArrayList<Restaurant> restaurants;
+    /**
+     * Αρχικοποιεί τον Presenter ώστε να μπορούμε να προσθέσουμε / βρούμε τα εστιατόρια
+     * @param restaurantDAO αντικείμενο όπου περιέχουμε την στατική λίστα με τα εστιατόρια και μπορούμε και προσθέτουμε/λαμβάνουμε αντικείμενα
+     */
 
     public ChooseRestaurantPresenter(RestaurantDAO restaurantDAO)
     {
@@ -22,15 +26,23 @@ public class ChooseRestaurantPresenter {
         restaurants = new ArrayList<>();
     }
 
-
+    /**
+     *Σετάρει το αντικείμενο view μας για να χρησιμοποιήσουμε τις μεθόδους του interface του
+     * @param view Ένα instance του view
+     */
     public void setView(ChooseRestaurantView view) {
         this.view = view;
     }
-
+    /**
+     * Επιστρέφει το αντικείμενο view Που δημιουργήσαμε παραπάνω
+     * @return το Instance του αντικειμένου
+     */
     public ChooseRestaurantView getView() {
         return view;
     }
-
+    /**
+     * Γεμίζει την λίστα με τα εστιατορια της συγκεκριμένης παραγγελίας
+     */
     public void setRestaurantList() {
         restaurants = (ArrayList<Restaurant>) restaurantDAO.findAll();
     }
@@ -46,10 +58,16 @@ public class ChooseRestaurantPresenter {
             view.ShowRestaurants();
         }
     }
+    /**
+     * Καλεί την μέθοδο του view που μας πηγαίνει στο προηγούμενο activity που μας κάλεσε
+     */
     public void onBack(){
         view.goBack();
     }
-
+    /**
+     * Επιστρέφει την λίστα με τα εστιατόρια
+     * @return η λίστα με τα εστιατόρια
+     */
     public ArrayList<Restaurant> getRestaurantList() {
         return restaurants;
     }

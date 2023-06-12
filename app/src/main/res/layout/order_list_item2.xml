@@ -34,7 +34,7 @@
         android:layout_height="45dp"
         android:background="#00D5C8C8"
         android:backgroundTint="#FFFFFF"
-        android:text="orderState"
+        android:text="@string/orderstate"
         android:textAlignment="viewStart"
         android:textColor="#D87E20"
         android:textSize="24sp"
