@@ -4,20 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backround10"
+    android:background="@drawable/background_minimalist"
     tools:context="gr.aueb.softeng.view.Owner.Statistics.StatisticsActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="719dp"
-        android:layout_height="537dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257"
-        app:srcCompat="@drawable/gradient7" />
 
     <TextView
         android:id="@+id/AvgMonthlyIncomeText"
@@ -25,16 +14,16 @@
         android:layout_height="27dp"
         android:text="@string/average_monthly_income"
         android:textAlignment="center"
-        android:textColor="#040303"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/OrderCancellationRateResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149"
+        app:layout_constraintVertical_bias="0.146"
         tools:visibility="visible" />
 
     <TextView
@@ -43,7 +32,7 @@
         android:layout_height="33dp"
         android:text="@string/textview"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +47,7 @@
         android:layout_height="26dp"
         android:text="@string/yearly_income"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +63,7 @@
         android:layout_height="33dp"
         android:text="@string/textview1"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,18 +74,18 @@
 
     <TextView
         android:id="@+id/AverageSalesForCustomerText"
-        android:layout_width="362dp"
-        android:layout_height="25dp"
+        android:layout_width="298dp"
+        android:layout_height="39dp"
         android:text="@string/average_expenses_for_each_order"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintVertical_bias="0.381" />
 
     <TextView
         android:id="@+id/AverageExpensesForCustomerResult"
@@ -104,7 +93,7 @@
         android:layout_height="38dp"
         android:text="@string/textview3"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,7 +109,7 @@
         android:layout_marginEnd="84dp"
         android:text="@string/verage_daily_revenue"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,14 +123,14 @@
         android:layout_height="43dp"
         android:text="@string/textview4"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <TextView
         android:id="@+id/OrderCancellationRateText"
@@ -149,15 +138,15 @@
         android:layout_height="33dp"
         android:text="@string/order_cancellation_rate"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <TextView
         android:id="@+id/OrderCancellationRateResult"
@@ -165,30 +154,30 @@
         android:layout_height="46dp"
         android:text="@string/textview5"
         android:textAlignment="center"
-        android:textColor="#070707"
+        android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.754" />
 
     <Button
         android:id="@+id/GoBack"
-        android:layout_width="111dp"
-        android:layout_height="85dp"
-        android:background="#A4FFFFFF"
+        android:layout_width="64dp"
+        android:layout_height="69dp"
+        android:background="@drawable/left_arrow"
         android:text="@string/go_back9"
         android:textAllCaps="false"
-        android:textColor="#121211"
+        android:textColor="#00FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

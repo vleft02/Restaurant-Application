@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:background="#91231B"
+    android:background="@drawable/field"
     android:outlineProvider="background"
     android:padding="5dp">
 
@@ -18,7 +18,7 @@
         android:backgroundTint="#FFFFFF"
         android:text="@string/dish_name"
         android:textAlignment="viewStart"
-        android:textColor="#DFBA93"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         android:visibility="visible"
@@ -38,7 +38,7 @@
         android:backgroundTint="#FFFFFF"
         android:text="@string/dish_quant"
         android:textAlignment="viewStart"
-        android:textColor="#ECC59B"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backround3"
-    android:backgroundTint="#A9FFFFFF"
+    android:background="@drawable/background_minimalist"
     android:backgroundTintMode="src_atop"
     tools:context="gr.aueb.softeng.view.Customer.OrderLineCart.OrderLineCartActivity">
 

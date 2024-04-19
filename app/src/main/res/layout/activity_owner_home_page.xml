@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backround8"
+    android:background="@drawable/background_minimalist"
     tools:context="gr.aueb.softeng.view.Owner.HomePage.OwnerHomePageActivity">
 
     <Button
         android:id="@+id/AddRestaurantButton"
         android:layout_width="152dp"
         android:layout_height="80dp"
-        android:background="#B9FFFFFF"
+        android:background="@drawable/button_gradient2"
         android:text="@string/add_restaurant1"
         android:textAllCaps="false"
-        android:textColor="#AA7C20"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:id="@+id/RestaurantRecyclerView"
         android:layout_width="401dp"
         android:layout_height="502dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,18 +50,18 @@
 
     <Button
         android:id="@+id/gobackButton5"
-        android:layout_width="109dp"
-        android:layout_height="80dp"
-        android:background="#B9FFFFFF"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        android:background="@drawable/left_arrow"
         android:text="@string/go_back6"
         android:textAllCaps="false"
-        android:textColor="#AA7C20"
+        android:textColor="#00FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

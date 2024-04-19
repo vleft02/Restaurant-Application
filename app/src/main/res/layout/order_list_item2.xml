@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:background="#731212"
+    android:background="@drawable/field"
+    android:backgroundTint="#656979"
     android:outlineProvider="background"
     android:padding="5dp">
 
@@ -17,7 +18,7 @@
         android:backgroundTint="#FFFFFF"
         android:text="orderName"
         android:textAlignment="viewStart"
-        android:textColor="#D87E20"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         android:visibility="visible"
@@ -36,7 +37,7 @@
         android:backgroundTint="#FFFFFF"
         android:text="@string/orderstate"
         android:textAlignment="viewStart"
-        android:textColor="#D87E20"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"

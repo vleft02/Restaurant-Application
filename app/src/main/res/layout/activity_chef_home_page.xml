@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity"
-    android:background="@drawable/backround9">
+    android:background="@drawable/background_minimalist"
+    tools:context="gr.aueb.softeng.view.Chef.HomePage.ChefHomePageActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewChef"
@@ -16,35 +16,37 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <TextView
         android:id="@+id/emptyOrdersChefText"
         android:layout_width="368dp"
         android:layout_height="114dp"
-        android:background="#CE913434"
+        android:background="#00C12121"
         android:text="@string/there_are_not_any_orders_for_this_chef_to_complete_please_wait_until_a_customer_makes_one"
-        android:textColor="#C58322"
+        android:textColor="#FFFFFF"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.416" />
 
     <Button
         android:id="@+id/gobackButton4"
-        android:layout_width="111dp"
-        android:layout_height="85dp"
-        android:backgroundTint="#BABF7330"
+        android:layout_width="75dp"
+        android:layout_height="71dp"
+        android:background="@drawable/left_arrow"
+        android:backgroundTint="#BAFFFFFF"
         android:text="@string/go_back3"
         android:textAllCaps="false"
-        android:textColor="#BFA4A4"
+        android:textColor="#00FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

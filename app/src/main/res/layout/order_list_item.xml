@@ -5,7 +5,8 @@
     android:id="@+id/Order"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:layout_marginBottom="5dp">
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/field">
 
     <TextView
         android:id="@+id/OrderStateTextView"
@@ -21,10 +22,9 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571"
         tools:visibility="visible" />
 
     <TextView

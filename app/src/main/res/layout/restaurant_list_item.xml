@@ -5,19 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:background="#731212"
     android:outlineProvider="background"
     android:padding="5dp">
 
     <TextView
         android:id="@+id/RestaurantName"
-        android:layout_width="399dp"
-        android:layout_height="44dp"
-        android:background="#00D5C8C8"
-        android:backgroundTint="#FFFFFF"
+        android:layout_width="391dp"
+        android:layout_height="61dp"
+        android:background="@drawable/field2"
         android:text="@string/RestaurantName"
         android:textAlignment="center"
-        android:textColor="#D87E20"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         android:visibility="visible"

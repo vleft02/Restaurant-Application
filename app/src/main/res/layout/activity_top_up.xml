@@ -5,8 +5,7 @@
     android:id="@+id/TopUp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient1"
-    android:backgroundTint="#D5C1C0C0"
+    android:background="@drawable/background_minimalist"
     android:backgroundTintMode="screen"
     tools:context="gr.aueb.softeng.view.Customer.TopUp.TopUpActivity">
 
@@ -16,7 +15,7 @@
         android:layout_height="142dp"
         android:text="@string/balance"
         android:textAlignment="center"
-        android:textColor="#606060"
+        android:textColor="#FFFFFF"
         android:textColorHint="#202020"
         android:textIsSelectable="false"
         android:textSize="48sp"
@@ -30,11 +29,12 @@
 
     <Button
         android:id="@+id/AddTenEuroButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="196dp"
-        android:backgroundTint="#F39442"
+        android:background="@drawable/button_gradient2"
         android:text="@string/_10"
+        android:textColor="#F9F1F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
@@ -44,11 +44,12 @@
 
     <Button
         android:id="@+id/AddTwentyEuroButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="196dp"
-        android:backgroundTint="#F29342"
+        android:background="@drawable/button_gradient2"
         android:text="@string/_20"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
@@ -58,11 +59,12 @@
 
     <Button
         android:id="@+id/AddFiftyEuroButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="196dp"
-        android:backgroundTint="#F19242"
+        android:background="@drawable/button_gradient2"
         android:text="@string/_50"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.904"

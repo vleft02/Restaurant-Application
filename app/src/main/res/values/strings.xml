@@ -3,8 +3,8 @@
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_personel">Sign Up (Personel)</string>
     <string name="log_in">Log in</string>
-    <string name="password">Password</string>
-    <string name="username">Username</string>
+    <string name="password">  Password</string>
+    <string name="username">  Username</string>
     <string name="Password">Password</string>
     <string name="insert_password">Insert Password</string>
     <string name="insert_username">insert_username</string>
@@ -14,9 +14,9 @@
     <string name="current_order">Current Order</string>
     <string name="logout">logout</string>
     <string name="Name">Name</string>
-    <string name="Surname">Surname\n</string>
+    <string name="Surname">Surname</string>
     <string name="cvv">CVV</string>
-    <string name="create_account">Create Account</string>
+    <string name="create_account">Sign Up</string>
     <string name="cardholder_name">Cardholder Name</string>
     <string name="email">Email</string>
     <string name="telephone">Telephone</string>
@@ -66,7 +66,7 @@
     <string name="go_back1">Go Back</string>
     <string name="there_are_not_any_orders_for_this_chef_to_complete_please_wait_until_a_customer_makes_one">There are not any orders for this chef to complete. Please wait until a customer makes one!</string>
     <string name="go_back3">Go Back</string>
-    <string name="no_restaurants_found">No restaurants found : (</string>
+    <string name="no_restaurants_found">No restaurants found </string>
     <string name="go_back4">Go Back</string>
     <string name="order_id">Order Id</string>
     <string name="order_state">Order State</string>
@@ -77,7 +77,7 @@
     <string name="add_restaurant1">Add Restaurant</string>
     <string name="go_back6">Go Back</string>
     <string name="place_order2">Place Order</string>
-    <string name="no_dishes_are_available4">No dishes are available :(</string>
+    <string name="no_dishes_are_available4">No dishes are available </string>
     <string name="cartbutton">cartButton</string>
     <string name="statistics4">Statistics</string>
     <string name="go_back7">Go back</string>

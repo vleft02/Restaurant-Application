@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:background="#86DA7F1D"
+    android:background="@drawable/field"
     android:outlineProvider="background"
     android:padding="5dp">
 
@@ -17,7 +17,7 @@
         android:backgroundTint="#FFFFFF"
         android:text="@string/dishname"
         android:textAlignment="viewStart"
-        android:textColor="#1E1817"
+        android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold|italic"
         android:visibility="visible"
@@ -36,7 +36,7 @@
         android:layout_height="35dp"
         android:text="@string/dishprice"
         android:textAlignment="viewStart"
-        android:textColor="#271814"
+        android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,14 +50,16 @@
 
     <Button
         android:id="@+id/AddOrderLineButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#B2885959"
+        android:layout_width="117dp"
+        android:layout_height="63dp"
+        android:background="@drawable/button_gradient2"
         android:text="@string/add"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dishPrice"
         app:layout_constraintVertical_bias="0.0" />

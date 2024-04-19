@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backround3"
-    android:backgroundTint="#D0FFFFFF"
+    android:background="@drawable/background_minimalist"
     android:backgroundTintMode="src_atop"
     tools:context="gr.aueb.softeng.view.Customer.HomePage.CustomerHomePageActivity">
 
@@ -15,7 +14,7 @@
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorColor="#FFA400"
+        app:tabIndicatorColor="#864CC1"
         app:tabRippleColor="#020101">
 
         <com.google.android.material.tabs.TabItem

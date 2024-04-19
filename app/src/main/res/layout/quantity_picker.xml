@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#BFE87C33"
+    android:background="#BF4B568E"
     android:backgroundTint="#A1FFFFFF"
     android:backgroundTintMode="multiply"
     android:orientation="vertical"
@@ -15,7 +15,10 @@
 
     <Button
         android:id="@+id/confirmButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add2" />
+        android:layout_width="109dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_gradient2"
+        android:text="@string/add2"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

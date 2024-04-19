@@ -4,151 +4,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity"
-    android:background="@drawable/backround4">
+    android:background="@drawable/background_minimalist"
+    tools:context="gr.aueb.softeng.view.Owner.AddRestaurant.AddRestaurantActivity">
+
+    <TextView
+        android:id="@+id/Guide"
+        android:layout_width="247dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:text="Hire Personel"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/CustomerNameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="268dp"
-        android:layout_height="629dp"
+        android:layout_width="373dp"
+        android:layout_height="627dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="511dp"
-            android:layout_height="722dp"
-            android:src="@drawable/gradient3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.456"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.725">
 
         <Button
             android:id="@+id/confirmChefButton1"
             android:layout_width="128dp"
             android:layout_height="62dp"
-            android:backgroundTint="#B30707"
+            android:background="@drawable/button_gradient2"
             android:text="@string/confirm"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.951" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/ChefTelephoneText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:background="@drawable/textrect_field2"
             android:ems="10"
             android:hint="@string/telephone"
             android:inputType="phone"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEB9B9"
+            app:layout_constraintBottom_toTopOf="@+id/ChefIbanText1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.223"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.442" />
+            app:layout_constraintVertical_bias="0.954" />
 
         <EditText
             android:id="@+id/ChefNameText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:background="@drawable/textrect_field2"
             android:ems="10"
             android:hint="@string/Name"
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEB9B9"
+            app:layout_constraintBottom_toTopOf="@+id/ChefSurnameText1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.223"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.053" />
+            app:layout_constraintVertical_bias="0.912" />
 
         <EditText
             android:id="@+id/ChefSurnameText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/textrect_field2"
             android:ems="10"
             android:hint="@string/Surname"
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEB9B9"
+            app:layout_constraintBottom_toTopOf="@+id/ChefUsernameText1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.163" />
+            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/ChefIbanText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:background="@drawable/textrect_field2"
             android:ems="10"
             android:hint="@string/iban"
             android:inputType="number"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="@+id/confirmChefButton1"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEB9B9"
+            app:layout_constraintBottom_toTopOf="@+id/ChefTinText1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.223"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.611" />
+            app:layout_constraintVertical_bias="0.966" />
 
         <EditText
             android:id="@+id/ChefTinText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="120dp"
+            android:background="@drawable/textrect_field2"
             android:ems="10"
             android:hint="@string/tin"
             android:inputType="text"
             android:minHeight="48dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEB9B9"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.743" />
+            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/ChefUsernameText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/textrect_field2"
             android:ems="10"
             android:hint="@string/username"
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEB9B9"
+            app:layout_constraintBottom_toTopOf="@+id/ChefTelephoneText1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.223"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="279dp"
+            android:layout_height="45dp"
+            android:text="Please provide the Employees Details"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/ChefNameText1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.336"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.29" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.47" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/gobackButton7"
-        android:layout_width="111dp"
-        android:layout_height="85dp"
-        android:backgroundTint="#BAC33DDC"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        android:background="@drawable/left_arrow"
         android:text="@string/go_back"
         android:textAllCaps="false"
-        android:textColor="#1C1313"
+        android:textColor="#00FEFEFE"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
