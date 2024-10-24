@@ -1,5 +1,10 @@
 # Restaurant Order Management System
 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c514d28c-43fd-404b-8bfc-b66ed7ac2be9" alt="app_logo">
+</p>
+
 Code and analysis of the operation of the restaurant order management system for the Software Technology course.
 
 ## **Introduction**
